@@ -52,7 +52,7 @@ body {
 }
 
 .header .title {
-    font-size: 40px; /* Уменьшено для лучшей пропорции */
+    font-size: 15px; /* Уменьшено для лучшей пропорции */
     font-family: 'MyCustomFont', sans-serif;
     margin-top: 0;
     max-width: 270px; /* Корректировка ширины */

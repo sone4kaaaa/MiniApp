@@ -1,4 +1,11 @@
 /* styles.css */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('/ofont.ru_Ruthless Sketch.ttf') format('truetype');   
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
     margin: 0;
@@ -45,10 +52,10 @@ body {
 }
 
 .header .title {
-    font-size: 30px; /* Уменьшено для лучшей пропорции */
-    font-weight: bold;
+    font-size: 40px; /* Уменьшено для лучшей пропорции */
+    font-family: 'MyCustomFont', sans-serif;
     margin-top: 0;
-    max-width: 250px; /* Корректировка ширины */
+    max-width: 270px; /* Корректировка ширины */
     margin-left: 0;
 }
 

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Тест 3: Advanced Conditional Structures</title>
+    <style>
+        /* Единый стиль, аналогичный урокам */
+
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quiz-question input[type="text"],
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+            font-size: 18px;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Тест 3: Advanced Conditional Structures (Продвинутые условные конструкции)</h2>
+        
+        <!-- Кнопка "Назад" -->
+        <button class="back-button" onclick="
+            // Скрываем контент теста
+            document.getElementById('lesson-content').classList.add('hidden');
+            // Очищаем содержимое
+            document.getElementById('lesson-details').innerHTML = '';
+            // Показываем снова заголовок приложения
+            document.getElementById('app-header').classList.remove('hidden');
+            // Показываем список уроков Модуля 2
+            document.getElementById('module2-list').classList.remove('hidden');
+        ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
+            Назад
+        </button>
+
+        <div class="section">
+            <h3>Тест 3: Advanced Conditional Structures</h3>
+            <div class="quiz">
+                <!-- Вопросы теста -->
+                <!-- Вопрос 1 -->
+                <div class="quiz-question">
+                    <label>1. Choose the correct form: If I ___ (to have) more time, I would have completed the project.</label>
+                    <select id="q1">
+                        <option value="">Выберите ответ</option>
+                        <option value="had">had</option>
+                        <option value="have">have</option>
+                        <option value="has">has</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 2 -->
+                <div class="quiz-question">
+                    <label>2. Fill in the blank: If they ___ (to know) about the traffic, they wouldn't have been late.</label>
+                    <input type="text" id="q2" placeholder="Например, had known">
+                </div>
+                
+                <!-- Вопрос 3 -->
+                <div class="quiz-question">
+                    <label>3. What is the correct mixed conditional form for the sentence: "He didn't exercise, so he is out of shape now."</label>
+                    <input type="text" id="q3" placeholder="Например, If he had exercised, he wouldn't be out of shape now.">
+                </div>
+                
+                <!-- Вопрос 4 -->
+                <div class="quiz-question">
+                    <label>4. Choose the correct modal verb: If you ___ (should, must, could) see her, tell her to call me.</label>
+                    <select id="q4">
+                        <option value="">Выберите ответ</option>
+                        <option value="should">should</option>
+                        <option value="must">must</option>
+                        <option value="could">could</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 5 -->
+                <div class="quiz-question">
+                    <label>5. Fill in the blank with the correct form: If I ___ (to be) you, I would have taken that opportunity.</label>
+                    <input type="text" id="q5" placeholder="Например, were">
+                </div>
+                
+                <!-- Вопрос 6 -->
+                <div class="quiz-question">
+                    <label>6. Choose the correct form: If she ___ (to study) harder, she would have passed the exam.</label>
+                    <select id="q6">
+                        <option value="">Выберите ответ</option>
+                        <option value="had studied">had studied</option>
+                        <option value="studied">studied</option>
+                        <option value="has studied">has studied</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 7 -->
+                <div class="quiz-question">
+                    <label>7. Convert to Mixed Conditional: "They didn't invest in stocks, so they aren't wealthy now."</label>
+                    <input type="text" id="q7" placeholder="Например, If they had invested in stocks, they would be wealthy now.">
+                </div>
+                
+                <!-- Вопрос 8 -->
+                <div class="quiz-question">
+                    <label>8. Choose the correct modal verb: If he ___ (might, should, must) come to the meeting, inform him in advance.</label>
+                    <select id="q8">
+                        <option value="">Выберите ответ</option>
+                        <option value="should">should</option>
+                        <option value="might">might</option>
+                        <option value="must">must</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 9 -->
+                <div class="quiz-question">
+                    <label>9. Fill in the blank: If you ___ (to leave) earlier, you would be here by now.</label>
+                    <input type="text" id="q9" placeholder="Например, had left">
+                </div>
+                
+                <!-- Вопрос 10 -->
+                <div class="quiz-question">
+                    <label>10. Choose the correct mixed conditional form: "If I ___ (to know) about the concert, I would be attending it tonight."</label>
+                    <select id="q10">
+                        <option value="">Выберите ответ</option>
+                        <option value="had known">had known</option>
+                        <option value="knew">knew</option>
+                        <option value="has known">has known</option>
+                    </select>
+                </div>
+                
+                <button class="submit-btn" onclick="checkTest3()">Проверить тест</button>
+                <div class="feedback" id="test3-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

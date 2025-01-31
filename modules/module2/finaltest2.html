@@ -1,0 +1,206 @@
+<!-- finaltest2.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Итоговый тест (Модуль 2): Сложные конструкции</title>
+    <style>
+        /* Общие стили для тестов, аналогично стилям уроков */
+        .lesson-container {
+            max-height: 80vh; 
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], 
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+        }
+        .finish-btn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Видна сразу */
+        }
+        .finish-btn:hover {
+            background-color: #117a8b;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Итоговый тест (Модуль 2): Сложные конструкции</h2>
+        
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    document.getElementById('lesson-details').innerHTML = '';
+                    document.getElementById('app-header').classList.remove('hidden');
+                    document.getElementById('module2-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <div class="section">
+            <h3>Итоговый тест (Модуль 2): Subjunctive, Inversion и Emphasis</h3>
+            <div class="quiz">
+                <!-- 10 вопросов теста -->
+
+                <!-- Вопрос 1 -->
+                <div class="quiz-question">
+                    <label>1. Как перевести на английский: "Если бы я знал заранее, я бы приготовился"? (используйте Third Conditional)</label>
+                    <input type="text" id="q21" placeholder="Например, If I had known in advance, I would have prepared.">
+                </div>
+                
+                <!-- Вопрос 2 -->
+                <div class="quiz-question">
+                    <label>2. Заполните пропуск: "Never ___ (I / to hear) such an unusual accent before."</label>
+                    <input type="text" id="q22" placeholder="Например, have I heard">
+                </div>
+                
+                <!-- Вопрос 3 -->
+                <div class="quiz-question">
+                    <label>3. "It is essential that she ___ (to arrive) on time." (Subjunctive)</label>
+                    <input type="text" id="q23" placeholder="Например, arrive">
+                </div>
+                
+                <!-- Вопрос 4 -->
+                <div class="quiz-question">
+                    <label>4. С помощью "What-cleft": "То, что я хочу, — это немного тишины и покоя."</label>
+                    <input type="text" id="q24" placeholder="Например, What I want is some peace and quiet.">
+                </div>
+                
+                <!-- Вопрос 5 -->
+                <div class="quiz-question">
+                    <label>5. "Had they informed me earlier, I ___ (to leave) immediately." (инверсия + перфектный модальный)</label>
+                    <input type="text" id="q25" placeholder="Например, would have left">
+                </div>
+                
+                <!-- Вопрос 6 -->
+                <div class="quiz-question">
+                    <label>6. Заполните пропуск: "If he ___ (to be) more careful, he wouldn't have dropped the vase." (смешанное/3-й тип)</label>
+                    <input type="text" id="q26" placeholder="Например, had been">
+                </div>
+
+                <!-- Вопрос 7 -->
+                <div class="quiz-question">
+                    <label>7. Как сказать: "Он должен был прийти раньше" (используя перфектный модальный глагол must/should)?</label>
+                    <input type="text" id="q27" placeholder="Например, He should have arrived earlier.">
+                </div>
+
+                <!-- Вопрос 8 -->
+                <div class="quiz-question">
+                    <label>8. "If only I ___ (to realize) how important this meeting was, I wouldn't have missed it."</label>
+                    <input type="text" id="q28" placeholder="Например, had realized">
+                </div>
+
+                <!-- Вопрос 9 -->
+                <div class="quiz-question">
+                    <label>9. "She must ___ (to have) a hard day, because she looks exhausted." (логическое предположение о прошедшем)</label>
+                    <input type="text" id="q29" placeholder="Например, must have had">
+                </div>
+
+                <!-- Вопрос 10 -->
+                <div class="quiz-question">
+                    <label>10. "It was her kindness ___ impressed me the most." (It-cleft конструкция)</label>
+                    <input type="text" id="q210" placeholder="Например, It was her kindness that impressed me the most.">
+                </div>
+                
+                <!-- Кнопка проверки теста (обратите внимание на checkFinalTest2) -->
+                <button class="submit-btn" onclick="checkFinalTest2()">Проверить тест</button>
+                
+                <!-- Блок для вывода фидбека -->
+                <div class="feedback" id="finaltest2-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

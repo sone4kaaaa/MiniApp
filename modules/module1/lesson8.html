@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 8: Cleft Sentences и Emphatic Structures</title>
+    <style>
+        /* Локальные стили для урока */
+        .lesson-container {
+            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
+            overflow-y: auto; /* Добавление вертикальной прокрутки */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            background-color: #333; /* Фоновый цвет для контраста с заголовком */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Таблицы */
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .section th, .section td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        .section th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопка для проверки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Инпуты и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .quiz-question select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745; /* Зеленый при наведении */
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Стили для кнопки "Next Lesson" */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 8: Cleft Sentences и Emphatic Structures</h2>
+
+        <!-- Кнопка "Назад" со встроенным onclick -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент урока
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 1
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Новая лексика -->
+        <div class="section">
+            <h3>Новая лексика</h3>
+            <p>При работе с эмфатическими структурами важно знать следующие слова и выражения:</p>
+            <ul>
+                <li>Emphasis / Emphatic - Акцент, усиление</li>
+                <li>Cleft sentence - Расщеплённое предложение</li>
+                <li>Highlight - Выделять</li>
+                <li>Clarity - Ясность, чёткость</li>
+                <li>Particularly - Особенно</li>
+                <li>Precisely - Точно, конкретно</li>
+                <li>Focus - Фокусировать / уделять внимание</li>
+                <li>Ambiguity - Двусмысленность</li>
+                <li>Predicate - Сказуемое</li>
+                <li>Intonation - Интонация</li>
+            </ul>
+        </div>
+
+        <!-- 2. Грамматика: Cleft Sentences (It, What, All, etc.) -->
+        <div class="section">
+            <h3>Грамматика: Cleft Sentences и Emphatic Structures</h3>
+            <p><strong>Cleft sentences</strong> — это конструкции, которые помогают вынести часть предложения на передний план для особого акцента. Наиболее распространённые виды:</p>
+            <ul>
+                <li><strong>It-cleft:</strong> It was <em>John</em> who broke the window. (Именно Джон разбил окно)</li>
+                <li><strong>What-cleft:</strong> What I need <em>is</em> more time. (То, что мне нужно — это больше времени)</li>
+                <li><strong>All-cleft:</strong> All we need <em>is</em> a miracle. (Всё, что нам нужно — это чудо)</li>
+            </ul>
+            <p>Эмфатические структуры позволяют делать речь более выразительной и подчеркивать важные детали. Главное помнить о согласовании глаголов и правильном порядке слов.</p>
+        </div>
+
+        <!-- 3. Дополнительная теория: Преимущества использования Cleft Sentences -->
+        <div class="section">
+            <h3>Преимущества использования Cleft Sentences</h3>
+            <p>Использование расщеплённых предложений приносит несколько преимуществ:</p>
+            <ul>
+                <li><strong>Ясность:</strong> Позволяет чётко выделить важную информацию.</li>
+                <li><strong>Фокус:</strong> Направляет внимание слушателя или читателя на конкретную часть предложения.</li>
+                <li><strong>Эмоциональная окраска:</strong> Усиливает эмоциональное воздействие высказывания.</li>
+            </ul>
+            <p>Пример стандартного предложения и его Cleft-конструкции:</p>
+            <ul>
+                <li>Стандарт: "I won the lottery yesterday."</li>
+                <li>Cleft: "It was yesterday that I won the lottery."</li>
+            </ul>
+            <p>В Cleft-конструкции информация о времени выигрыша становится более заметной.</p>
+        </div>
+
+        <!-- 4. Дополнительная теория: Сравнение Cleft Sentences с обычными предложениями -->
+        <div class="section">
+            <h3>Сравнение Cleft Sentences с обычными предложениями</h3>
+            <p>Расщеплённые предложения позволяют различать и выделять разные элементы предложения:</p>
+            <ul>
+                <li><strong>It-cleft:</strong> Подчёркивает подлежащее или объект.
+                    <ul>
+                        <li>Стандарт: "She designed the new logo."</li>
+                        <li>Cleft: "It was she who designed the new logo."</li>
+                    </ul>
+                </li>
+                <li><strong>What-cleft:</strong> Выделяет всю фразу, описывающую объект или действие.
+                    <ul>
+                        <li>Стандарт: "I want a new bike."</li>
+                        <li>Cleft: "What I want is a new bike."</li>
+                    </ul>
+                </li>
+                <li><strong>All-cleft:</strong> Подчёркивает всю необходимую информацию.
+                    <ul>
+                        <li>Стандарт: "We need to leave now."</li>
+                        <li>Cleft: "All we need is to leave now."</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5. Дополнительная теория: Интонация в устной речи -->
+        <div class="section">
+            <h3>Интонация в устной речи</h3>
+            <p>При использовании Cleft Sentences в устной речи интонация играет важную роль в подчёркивании нужного элемента предложения. Обычно интонация падает на ключевой фрагмент:</p>
+            <ul>
+                <li><strong>It-cleft:</strong> "It was <em>John</em> who did it."</li>
+                <li><strong>What-cleft:</strong> "What I need <em>is</em> some rest."</li>
+                <li><strong>All-cleft:</strong> "All we need <em>is</em> a little time."</li>
+            </ul>
+            <p>Правильная интонация делает акцент более выразительным и помогает слушателю лучше понять намерения говорящего.</p>
+        </div>
+
+        <!-- 6. Дополнительная теория: Ограничения использования Cleft Sentences -->
+        <div class="section">
+            <h3>Ограничения использования Cleft Sentences</h3>
+            <p>Несмотря на преимущества, использование Cleft Sentences имеет некоторые ограничения:</p>
+            <ul>
+                <li>Слишком частое использование может сделать речь громоздкой и искусственной.</li>
+                <li>В письменной речи стоит использовать их умеренно, чтобы избежать избыточной сложности.</li>
+                <li>Не все элементы предложения удобно или естественно выделять с помощью Cleft-конструкций.</li>
+            </ul>
+            <p>Важно применять Cleft Sentences осознанно, чтобы поддерживать баланс между выразительностью и естественностью речи.</p>
+        </div>
+
+        <!-- (Опционально) Кнопка "Далее": переход к следующему уроку -->
+        <!-- 
+        <button class="next-lesson-btn" onclick="navigateToNextLesson()">
+            <i class="fa-solid fa-arrow-right next-icon"></i>
+            Далее
+        </button>
+        -->
+
+    </div>
+
+    <!-- Обратите внимание: все скрипты теперь управляются через script.js -->
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!-- lessons/lesson5.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 5: Conditionals (Условные предложения)</title>
+    <style>
+        /* Локальные стили для урока */
+        .lesson-container {
+            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
+            overflow-y: auto; /* Добавление вертикальной прокрутки */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Секции */
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Инпуты и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745; /* Зеленый при наведении */
+        }
+        /* Кнопка "Next Lesson" */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 5: Conditionals (Условные предложения)</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    document.getElementById('lesson-details').innerHTML = '';
+                    document.getElementById('app-header').classList.remove('hidden');
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Теория -->
+        <div class="section">
+            <h3>Введение в условные предложения</h3>
+            <p>Условные предложения (Conditionals) используются, чтобы описать ситуации, зависящие от определённого условия. Рассмотрим основные типы: <strong>Zero, First и Second Conditional</strong>.</p>
+            <ul>
+                <li><strong>Zero Conditional</strong>: используется, когда результат всегда истинен.  
+                  Пример: If you heat water to 100°C, it boils.</li>
+                <li><strong>First Conditional</strong>: реальная ситуация в будущем.  
+                  Пример: If it rains tomorrow, I will stay at home.</li>
+                <li><strong>Second Conditional</strong>: нереальная (воображаемая) ситуация в настоящем или будущем.  
+                  Пример: If I were rich, I would travel the world.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Задание 1: Заполните пропуски (First Conditional) -->
+        <div class="section">
+            <h3>Задание 1: Заполните пропуски (First Conditional)</h3>
+            <p>Вставьте правильную форму глаголов в скобках, используя "will" или "won't" (или "will not") и "if":</p>
+            <div class="quiz-question">
+                <label>1. If it ___ (to rain), I ___ (to stay) at home.</label>
+                <input type="text" id="q1" placeholder="Например, If it rains, I will stay at home.">
+            </div>
+            <div class="quiz-question">
+                <label>2. If you ___ (to call) me, I ___ (to help) you.</label>
+                <input type="text" id="q2" placeholder="Например, If you call me, I will help you.">
+            </div>
+            <button class="submit-btn" onclick="checkFirstConditional()">Проверить</button>
+            <div class="feedback" id="firstcond-feedback"></div>
+        </div>
+
+        <!-- 3. Задание 2: Second Conditional Matching -->
+        <div class="section">
+            <h3>Задание 2: Сопоставьте половинки (Second Conditional)</h3>
+            <p>Выберите правильное продолжение для каждого предложения:</p>
+            <div class="quiz-question">
+                <label>1. If I had more time, ...</label>
+                <select id="s2-1">
+                    <option value="">Выберите вариант</option>
+                    <option value="1">... I would travel the world.</option>
+                    <option value="2">... I will travel the world.</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>2. If he were here, ...</label>
+                <select id="s2-2">
+                    <option value="">Выберите вариант</option>
+                    <option value="1">... he would fix the computer.</option>
+                    <option value="2">... he will fix the computer.</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="checkSecondCondMatching()">Проверить</button>
+            <div class="feedback" id="secondcond-feedback"></div>
+        </div>
+
+        <!-- 4. Задание 3: Error Correction (Conditionals) -->
+        <div class="section">
+            <h3>Задание 3: Исправьте ошибки</h3>
+            <p>В тексте допущены ошибки при использовании First/Second Conditional. Исправьте их (contenteditable):</p>
+            <p>
+                <strong>Текст:</strong><br>
+                1) If I will see him, I will say hello. → <span id="e1" contenteditable="true" class="error-input">If I will see him, I will say hello.</span><br>
+                2) If you called me tomorrow, I will help you. → <span id="e2" contenteditable="true" class="error-input">If you called me tomorrow, I will help you.</span><br>
+            </p>
+            <button class="submit-btn" onclick="checkErrorCorrection()">Проверить ошибки</button>
+            <div class="feedback" id="error-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        /************************************************************
+         * Задание 1: First Conditional
+         ************************************************************/
+        function checkFirstConditional() {
+            // Пример корректных ответов:
+            // q1 -> "If it rains, I will stay at home."
+            // q2 -> "If you call me, I will help you."
+            let score = 0;
+            let total = 2;
+
+            const userQ1 = document.getElementById('q1').value.trim().toLowerCase().replace(/\./g,'');
+            const userQ2 = document.getElementById('q2').value.trim().toLowerCase().replace(/\./g,'');
+
+            // Проверка q1
+            if (userQ1.includes('if it rains') && userQ1.includes('i will stay at home')) {
+                score++;
+                document.getElementById('q1').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('q1').style.border = '2px solid #dc3545';
+            }
+
+            // Проверка q2
+            if (userQ2.includes('if you call me') && userQ2.includes('i will help you')) {
+                score++;
+                document.getElementById('q2').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('q2').style.border = '2px solid #dc3545';
+            }
+
+            const fb = document.getElementById('firstcond-feedback');
+            fb.style.display = 'block';
+            if (score === total) {
+                fb.className = 'feedback success';
+                fb.textContent = `Отлично! Все ${total} примеров First Conditional верны.`;
+            } else {
+                fb.className = 'feedback error';
+                fb.textContent = `Верно: ${score} из ${total}. Проверьте формулировки ещё раз.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 2: Second Conditional Matching
+         ************************************************************/
+        function checkSecondCondMatching() {
+            const correct = { 's2-1': '1', 's2-2': '1' };
+            let score = 0;
+            let total = 2;
+
+            for (let key in correct) {
+                const userChoice = document.getElementById(key).value;
+                if (userChoice === correct[key]) {
+                    score++;
+                    document.getElementById(key).style.borderColor = '#28a745';
+                } else {
+                    document.getElementById(key).style.borderColor = '#dc3545';
+                }
+            }
+
+            const fb = document.getElementById('secondcond-feedback');
+            fb.style.display = 'block';
+            if (score === total) {
+                fb.className = 'feedback success';
+                fb.textContent = 'Превосходно! Second Conditional использован правильно.';
+            } else {
+                fb.className = 'feedback error';
+                fb.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 3: Error Correction (Conditionals)
+         ************************************************************/
+        function checkErrorCorrection() {
+            // Ошибки:
+            // 1) First Conditional не использует will после if (правильно: "If I see him, I will say hello.")
+            // 2) "If you called me tomorrow, I will help you." => либо First, либо Second. Для tomorrow -> First: "If you call me tomorrow, I will help you."
+            let score = 0;
+            let total = 2;
+
+            const e1 = document.getElementById('e1').textContent.trim().toLowerCase();
+            const e2 = document.getElementById('e2').textContent.trim().toLowerCase();
+
+            // Правильный вариант (пример): "If I see him, I will say hello."
+            if (e1.includes('if i see him') && e1.includes('i will say hello')) {
+                score++;
+                document.getElementById('e1').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('e1').style.border = '2px solid #dc3545';
+            }
+
+            // Правильный вариант (пример): "If you call me tomorrow, I will help you."
+            if (e2.includes('if you call me tomorrow') && e2.includes('i will help you')) {
+                score++;
+                document.getElementById('e2').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('e2').style.border = '2px solid #dc3545';
+            }
+
+            const fb = document.getElementById('error-feedback');
+            fb.style.display = 'block';
+
+            if (score === total) {
+                fb.className = 'feedback success';
+                fb.textContent = 'Отличная работа! Все ошибки исправлены корректно.';
+            } else {
+                fb.className = 'feedback error';
+                fb.textContent = `Исправлено верно: ${score} из ${total}. Проверьте логику условных предложений.`;
+            }
+        }
+    </script>
+</body>
+</html>

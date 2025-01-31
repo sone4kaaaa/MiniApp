@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Итоговый тест: Сложн конструкции</title>
+    <style>
+        /* Общие стили для тестов, аналогично стилям уроков */
+        .lesson-container {
+            max-height: 80vh; 
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], 
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .finish-btn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Видна сразу после проверки */
+        }
+        .finish-btn:hover {
+            background-color: #117a8b;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Итоговый тест (Модуль 3): Advanced Structures</h2>
+        
+        <button class="back-button" onclick="
+            document.getElementById('lesson-content').classList.add('hidden');
+            document.getElementById('lesson-details').innerHTML = '';
+            document.getElementById('app-header').classList.remove('hidden');
+            document.getElementById('module3-list').classList.remove('hidden');
+        ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
+            Назад
+        </button>
+
+        <div class="section">
+            <h3>Final Test for Module 3: Emphatic, Inversions, Complex Conditionals и т.д.</h3>
+            <div class="quiz">
+
+                <!-- Вопрос 1 -->
+                <div class="quiz-question">
+                    <label>1. "It was only then that I ___ (to realize) the truth." (Эмфатическая конструкция)</label>
+                    <input type="text" id="q31" placeholder="Например, realized">
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="quiz-question">
+                    <label>2. Заполните пропуск (смешанное условие): "If we ___ (to start) earlier, we wouldn't be rushing now."</label>
+                    <input type="text" id="q32" placeholder="Например, had started">
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="quiz-question">
+                    <label>3. "Never ___ (we / to expect) such a dramatic outcome." (Инверсия)</label>
+                    <input type="text" id="q33" placeholder="Например, did we expect">
+                </div>
+
+                <!-- Вопрос 4 -->
+                <div class="quiz-question">
+                    <label>4. Emphasis (What-cleft): "___ is crucial now is your determination."</label>
+                    <input type="text" id="q34" placeholder="Например, What is crucial now is your determination.">
+                </div>
+                
+                <!-- Вопрос 5 -->
+                <div class="quiz-question">
+                    <label>5. Переформулируйте в Emphasis (It-cleft): "I need honesty more than anything."</label>
+                    <input type="text" id="q35" placeholder="Например, It is honesty that I need more than anything.">
+                </div>
+
+                <!-- Вопрос 6 -->
+                <div class="quiz-question">
+                    <label>6. Выберите правильную форму Subjunctive: "It is essential that she ___ (to be) informed immediately."</label>
+                    <select id="q36">
+                        <option value="">Выберите...</option>
+                        <option value="is">is</option>
+                        <option value="be">be</option>
+                        <option value="will be">will be</option>
+                    </select>
+                </div>
+
+                <!-- Вопрос 7 -->
+                <div class="quiz-question">
+                    <label>7. "Had I known his intentions, I ___ (to speak) up." (инверсия + перфектный модал)</label>
+                    <input type="text" id="q37" placeholder="Например, would have spoken">
+                </div>
+
+                <!-- Вопрос 8 -->
+                <div class="quiz-question">
+                    <label>8. Заполните пропуск: "He must ___ (to have / do) something terrible to get such a reaction." (логическое предположение в прошлом)</label>
+                    <input type="text" id="q38" placeholder="Например, must have done">
+                </div>
+
+                <!-- Вопрос 9 -->
+                <div class="quiz-question">
+                    <label>9. Mixed Conditional: "If they ___ (not / forget) the tickets, they would be watching the concert now."</label>
+                    <input type="text" id="q39" placeholder="Например, hadn’t forgotten">
+                </div>
+
+                <!-- Вопрос 10 -->
+                <div class="quiz-question">
+                    <label>10. С помощью "What-cleft" переформулируйте: "I really want a bit of peace."</label>
+                    <input type="text" id="q310" placeholder="Например, What I really want is a bit of peace.">
+                </div>
+
+                <button class="submit-btn" onclick="checkFinalTest3()">Проверить тест</button>
+                <div class="feedback" id="finaltest3-feedback"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

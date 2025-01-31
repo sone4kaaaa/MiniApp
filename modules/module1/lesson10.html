@@ -1,0 +1,421 @@
+<!-- lessons/lesson10.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 10: Advanced Grammar — Inversion, Subjunctive, Emphatic Structures</title>
+    <style>
+        /* Локальные стили, аналогичные другим урокам с тёмным фоном */
+        .lesson-container {
+            max-height: 80vh; 
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый текст заголовка */
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Секции */
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Инпуты и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], 
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745;
+        }
+
+        /* Кнопка "Next Lesson" (если нужна) */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 10: Advanced Grammar — Inversion, Subjunctive, Emphatic Structures</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // Аналогично предыдущим урокам:
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    document.getElementById('lesson-details').innerHTML = '';
+                    document.getElementById('app-header').classList.remove('hidden');
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Теория: Inversion, Subjunctive, Emphatic Structures -->
+        <div class="section">
+            <h3>Теория: Inversion, Subjunctive Mood, и Emphatic Structures</h3>
+            <p>В этом уроке мы рассмотрим несколько сложных грамматических конструкций, которые часто используются в продвинутом английском:</p>
+            <ul>
+                <li><strong>Inversion</strong> — перестановка порядка слов для усиления или стилистического эффекта (например, <em>Never have I seen</em> such a thing).</li>
+                <li><strong>Subjunctive Mood</strong> — сослагательное наклонение, используемое в гипотетических конструкциях (например, <em>If I were you</em>...), а также в формальных выражениях.</li>
+                <li><strong>Emphatic / Cleft Structures</strong> — способы выделить важную часть предложения (например, <em>It was John who broke the window</em>).</li>
+            </ul>
+            <p>Эти конструкции позволяют придать речи особую выразительность, вежливость или формальность. Правильное их использование отличает продвинутого говорящего от начинающего.</p>
+        </div>
+
+        <!-- 2. Subjunctive Mood: формальные выражения (теория) -->
+        <div class="section">
+            <h3>Subjunctive Mood: Формальные выражения</h3>
+            <p>Сослагательное наклонение (Subjunctive) нередко встречается в официальном языке или при выражении рекомендаций:</p>
+            <ul>
+                <li>We suggest <strong>that he leave</strong> at once. (вместо "he leaves")</li>
+                <li>It is important <strong>that she be</strong> informed.</li>
+                <li>If I <strong>were</strong> you, I wouldn't do that. (сослагательное were)</li>
+            </ul>
+            <p>Обратите внимание, что в Subjunctive формальные глагольные формы часто выглядят как "he leave" вместо обычного "he leaves".</p>
+        </div>
+
+        <!-- 3. Inversion: расширенная теория -->
+        <div class="section">
+            <h3>Inversion: Расширенная теория</h3>
+            <p><strong>Inversion</strong> — это когда подлежащее и вспомогательный глагол меняются местами для придания торжественности, литературности или для особого акцента:</p>
+            <ul>
+                <li>Never <strong>have</strong> I <strong>seen</strong> such chaos! (вместо "I have never seen...")</li>
+                <li>Rarely <strong>do</strong> we <strong>get</strong> such an opportunity.</li>
+                <li>Little <strong>did</strong> he <strong>know</strong> how it would end.</li>
+            </ul>
+            <p>Инверсия часто используется после негативных или ограничительных слов (never, rarely, little, hardly, scarcely, not only ... but also, under no circumstances и т.д.).</p>
+        </div>
+
+        <!-- 4. Задание 1: Заполните пропуски (Subjunctive и Inversion) -->
+        <div class="section">
+            <h3>Задание 1: Заполните пропуски (Subjunctive, Inversion)</h3>
+            <p>Вставьте правильную форму, используя сослагательное наклонение или инверсию:</p>
+            <div class="quiz-question">
+                <label>1. It is essential that he ___ (to be) on time.</label>
+                <input type="text" id="q1" placeholder="Например, be">
+            </div>
+            <div class="quiz-question">
+                <label>2. Never ___ (I / to see) such a wonderful performance.</label>
+                <input type="text" id="q2" placeholder="Например, have I seen">
+            </div>
+            <div class="quiz-question">
+                <label>3. If I ___ (to be) in your place, I'd accept the offer.</label>
+                <input type="text" id="q3" placeholder="Например, were">
+            </div>
+            <button class="submit-btn" onclick="checkSubjunctiveInversion()">Проверить</button>
+            <div class="feedback" id="subj-inv-feedback"></div>
+        </div>
+
+        <!-- 5. Задание 2: Сопоставьте примеры инверсии с обычным порядком слов -->
+        <div class="section">
+            <h3>Задание 2: Сопоставьте инверсии и их обычный порядок</h3>
+            <p>Выберите правильное соответствие:</p>
+            <div class="quiz-question">
+                <label>1. Rarely do we meet.</label>
+                <select id="inv1">
+                    <option value="">Выберите эквивалент</option>
+                    <option value="1">We rarely meet.</option>
+                    <option value="2">We do not rarely meet.</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>2. Little did he know the truth.</label>
+                <select id="inv2">
+                    <option value="">Выберите эквивалент</option>
+                    <option value="1">He didn't know the truth at all.</option>
+                    <option value="2">He knew little about the truth.</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="checkInversionMatch()">Проверить</button>
+            <div class="feedback" id="inversion-match-feedback"></div>
+        </div>
+
+        <!-- 6. Задание 3: Радиокнопки (Emphatic / Cleft) -->
+        <div class="section">
+            <h3>Задание 3: Определите тип эмфатической конструкции</h3>
+            <p>Выберите правильный вариант:</p>
+            <div class="quiz-question">
+                <label>1. "It was Paul who found the error."</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r1" value="It-cleft">It-cleft</label><br>
+                    <label><input type="radio" name="r1" value="What-cleft">What-cleft</label><br>
+                    <label><input type="radio" name="r1" value="All-cleft">All-cleft</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <label>2. "What I need is more data."</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r2" value="It-cleft">It-cleft</label><br>
+                    <label><input type="radio" name="r2" value="What-cleft">What-cleft</label><br>
+                    <label><input type="radio" name="r2" value="All-cleft">All-cleft</label>
+                </div>
+            </div>
+            <button class="submit-btn" onclick="checkCleftRadio()">Проверить</button>
+            <div class="feedback" id="cleft-radio-feedback"></div>
+        </div>
+
+        <!-- 7. Задание 4: Drag & Drop (Inversion) -->
+        <div class="section">
+            <h3>Задание 4: Соберите предложение с инверсией</h3>
+            <p>Соберите предложение: <em>"Едва мы начали, как погас свет."</em></p>
+            <div class="drag-container">
+                <!-- Убедитесь, что у всех draggable своя уникальная "draggable1" + уникальный id -->
+                <div class="draggable draggable1" id="drag1" draggable="true">hardly</div>
+                <div class="draggable draggable1" id="drag2" draggable="true">had</div>
+                <div class="draggable draggable1" id="drag3" draggable="true">we</div>
+                <div class="draggable draggable1" id="drag4" draggable="true">started</div>
+                <div class="draggable draggable1" id="drag5" draggable="true">when</div>
+                <div class="draggable draggable1" id="drag6" draggable="true">the</div>
+                <div class="draggable draggable1" id="drag7" draggable="true">lights</div>
+                <div class="draggable draggable1" id="drag8" draggable="true">went</div>
+                <div class="draggable draggable1" id="drag9" draggable="true">out.</div>
+            </div>
+            <div class="drop-zone" id="drop-zone">
+                <!-- Целевой контейнер для задания 4 -->
+            </div>
+            <button class="submit-btn" onclick="checkInversionDrag()">Проверить</button>
+            <div class="feedback" id="inversion-drag-feedback"></div>
+        </div>
+
+        <!-- 8. Задание 5: Исправьте ошибки (Subjunctive, Inversion) -->
+        <div class="section">
+            <h3>Задание 5: Исправьте ошибки (Subjunctive, Inversion)</h3>
+            <p>Найдите и исправьте ошибки в следующих предложениях (contenteditable):</p>
+            <p>
+                1) <span contenteditable="true" class="error-input" id="e1">It is crucial that he leaves at 7 AM.</span><br>
+                2) <span contenteditable="true" class="error-input" id="e2">Never I have seen such dedication.</span><br>
+                3) <span contenteditable="true" class="error-input" id="e3">If I was you, I'd apply for the position.</span><br>
+            </p>
+            <button class="submit-btn" onclick="checkSubjInversionErrors()">Проверить</button>
+            <div class="feedback" id="subj-inv-error-feedback"></div>
+        </div>
+
+        <!-- 9. Задание 6: Сопоставьте термин с переводом -->
+        <div class="section">
+            <h3>Задание 6: Сопоставьте термин с переводом</h3>
+            <p>Выберите корректный перевод:</p>
+            <div class="quiz-question">
+                <label>1. Subjunctive Mood</label>
+                <select id="term1">
+                    <option value="">Выберите перевод</option>
+                    <option value="1">Сослагательное наклонение</option>
+                    <option value="2">Перфектный модальный глагол</option>
+                    <option value="3">Расщеплённое предложение</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>2. Inversion</label>
+                <select id="term2">
+                    <option value="">Выберите перевод</option>
+                    <option value="1">Инверсия (перестановка слов)</option>
+                    <option value="2">Определяющее придаточное</option>
+                    <option value="3">Двусмысленность</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="checkTermMatching()">Проверить</button>
+            <div class="feedback" id="term-feedback"></div>
+        </div>
+
+        <!-- 10. Задание 7: Радиокнопки (Mixing Emphatic & Subjunctive) -->
+        <div class="section">
+            <h3>Задание 7: Смешанный тест по Emphatic Structures + Subjunctive</h3>
+            <p>Выберите правильный ответ:</p>
+            <div class="quiz-question">
+                <label>1. "It is vital that she ___ informed immediately."</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r3" value="be">be</label><br>
+                    <label><input type="radio" name="r3" value="is">is</label><br>
+                    <label><input type="radio" name="r3" value="was">was</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <label>2. "It was yesterday ___ I spoke to him."</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r4" value="what">what</label><br>
+                    <label><input type="radio" name="r4" value="who">who</label><br>
+                    <label><input type="radio" name="r4" value="that">that</label>
+                </div>
+            </div>
+            <button class="submit-btn" onclick="checkMixRadio()">Проверить</button>
+            <div class="feedback" id="mix-radio-feedback"></div>
+        </div>
+
+        <!-- 11. Задание 8: Drag & Drop (Emphatic "What") -->
+        <div class="section">
+            <h3>Задание 8: Соберите предложение (Emphatic "What" cleft)</h3>
+            <p>Соберите предложение: <em>"Чего он действительно хочет, так это шанса проявить себя."</em></p>
+            <div class="drag-container">
+                <!-- Убедитесь, что у всех draggable своя "draggable2" + уникальные id -->
+                <div class="draggable draggable2" id="drag10" draggable="true">what</div>
+                <div class="draggable draggable2" id="drag11" draggable="true">he</div>
+                <div class="draggable draggable2" id="drag12" draggable="true">really</div>
+                <div class="draggable draggable2" id="drag13" draggable="true">wants</div>
+                <div class="draggable draggable2" id="drag14" draggable="true">is</div>
+                <div class="draggable draggable2" id="drag15" draggable="true">a</div>
+                <div class="draggable draggable2" id="drag16" draggable="true">chance</div>
+                <div class="draggable draggable2" id="drag17" draggable="true">to</div>
+                <div class="draggable draggable2" id="drag18" draggable="true">prove</div>
+                <div class="draggable draggable2" id="drag19" draggable="true">himself.</div>
+            </div>
+            <div class="drop-zone" id="drop-zone2">
+                <!-- Целевой контейнер для задания 8 -->
+            </div>
+            <button class="submit-btn" onclick="checkWhatDrag()">Проверить</button>
+            <div class="feedback" id="what-drag-feedback"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

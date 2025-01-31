@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 4: Advanced Pronunciation Techniques</title>
+    <style>
+        /* -- Единый стиль, аналогичный Уроку 1 -- */
+        
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Стили для кнопок "submit-btn" */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Поля ввода, select и feedback */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], 
+        .quiz-question select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Дополнительно: стили для медиа (видео/аудио) */
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+         /* Стили для кнопки "Next Lesson" */
+         .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 4: Advanced Pronunciation Techniques (Продвинутые техники произношения)</h2>
+
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент урока
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 1
+                    document.getElementById('module2-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+        
+
+        <!-- 1. Введение -->
+        <div class="section">
+            <h3>Введение</h3>
+            <p>Произношение играет ключевую роль в овладении английским языком. В этом уроке мы рассмотрим продвинутые техники произношения, которые помогут улучшить вашу речь и сделать её более естественной.</p>
+        </div>
+
+        <!-- 2. Фонетические аспекты -->
+        <div class="section">
+            <h3>Фонетические аспекты</h3>
+            <p>Изучение фонетики помогает понять, как правильно произносить звуки английского языка. Основные аспекты включают:</p>
+            <ul>
+                <li><strong>Мягкие и твердые согласные:</strong> Различие между звуками /b/ и /p/, /t/ и /d/ и т.д.</li>
+                <li><strong>Гласные звуки:</strong> Долгие, краткие гласные и дифтонги.</li>
+                <li><strong>Интонация и ударение:</strong> Как изменение интонации меняет смысл.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Техника артикуляции -->
+        <div class="section">
+            <h3>Техника артикуляции</h3>
+            <p>Правильная артикуляция помогает чётко произносить слова и уменьшает акцент.</p>
+            <ul>
+                <li><strong>Положение языка:</strong> Например, для звуков /θ/ и /ð/ (think / this).</li>
+                <li><strong>Работа губ:</strong> Формирование звуков /w/ и /v/.</li>
+                <li><strong>Дыхание:</strong> Контроль дыхания для плавного произношения фраз.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Упражнения на произношение -->
+        <div class="section">
+            <h3>Упражнения на произношение</h3>
+            <p>Рекомендуемые упражнения:</p>
+            <ol>
+                <li><strong>Minimal Pairs:</strong> (ship vs sheep, pen vs pan) для отработки похожих звуков.</li>
+                <li><strong>Shadowing:</strong> Повторение за носителем, синхронно с аудио или видео.</li>
+                <li><strong>Запись речи:</strong> Анализ собственной речи и сравнение с эталоном.</li>
+            </ol>
+        </div>
+
+        <!-- 5. Видео урок -->
+        <div class="section">
+            <h3>Видео урок: Улучшение произношения</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/video1.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+            <p>Посмотрите видео, чтобы увидеть демонстрацию продвинутых техник произношения.</p>
+        </div>
+
+        <!-- 6. Аудио тренировка -->
+        <div class="section">
+            <h3>Аудио тренировка: Интонация и ударение</h3>
+            <div class="media-container">
+                <audio controls>
+                    <source src="./assets/audios/audio1.mp3" type="audio/mp3">
+                    Ваш браузер не поддерживает аудио.
+                </audio>
+            </div>
+            <p>Повторяйте за диктором, чтобы улучшить интонацию и ритм речи.</p>
+        </div>
+
+        <!-- 7. Итоги -->
+        <div class="section">
+            <h3>Итоги</h3>
+            <p>В этом уроке мы рассмотрели фонетические аспекты, артикуляцию и упражнения для совершенствования произношения. Регулярная практика поможет вам улучшить свою речь и звучать более естественно.</p>
+        </div>
+    </div>
+</body>
+</html>

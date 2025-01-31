@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 1: Advanced Verb Tenses</title>
+    <style>
+        /* Единый стиль, аналогичный Уроку 1 */
+
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333; 
+        }
+
+        /* Таблицы (если нужны) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Стили для кнопок "submit-btn" */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Поля ввода, select и feedback */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], 
+        .quiz-question select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+        }
+        .finish-btn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block; /* Видна сразу */
+        }
+        .finish-btn:hover {
+            background-color: #117a8b;
+        }
+        /* Кнопка "Next Lesson" (если требуется) */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 1: Advanced Verb Tenses (Продвинутые времена глаголов)</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент урока
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 3
+                    document.getElementById('module3-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Введение -->
+        <div class="section">
+            <h3>Введение</h3>
+            <p>В этом уроке мы рассмотрим продвинутые времена глаголов в английском языке, их использование и особенности. Понимание этих времен поможет вам выражать сложные временные отношения и нюансы в общении.</p>
+        </div>
+
+        <!-- 2. Present Perfect Continuous vs Past Perfect Continuous -->
+        <div class="section">
+            <h3>Present Perfect Continuous vs Past Perfect Continuous</h3>
+            <p>Оба времени используются для выражения длительных действий, но в разных временных контекстах.</p>
+            
+            <h4>Present Perfect Continuous</h4>
+            <p>Используется для действий, которые начались в прошлом и продолжаются до настоящего момента или только что завершились с видимым результатом.</p>
+            <ul>
+                <li><strong>Формула:</strong> have/has + been + глагол-ing</li>
+                <li><strong>Примеры:</strong>
+                    <ul>
+                        <li>I have been studying English for three years.</li>
+                        <li>She has been working here since 2010.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Past Perfect Continuous</h4>
+            <p>Используется для действий, которые начались и продолжались до определённого момента в прошлом.</p>
+            <ul>
+                <li><strong>Формула:</strong> had + been + глагол-ing</li>
+                <li><strong>Примеры:</strong>
+                    <ul>
+                        <li>They had been traveling for hours when they finally arrived.</li>
+                        <li>She had been waiting for the bus before it started to rain.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 3. Future Perfect Continuous -->
+        <div class="section">
+            <h3>Future Perfect Continuous</h3>
+            <p>Используется для выражения длительных действий, которые будут происходить до определённого момента в будущем.</p>
+            <ul>
+                <li><strong>Формула:</strong> will have been + глагол-ing</li>
+                <li><strong>Примеры:</strong>
+                    <ul>
+                        <li>By next month, I will have been working at this company for five years.</li>
+                        <li>They will have been traveling for two weeks by the time they return.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 4. Conditional Sentences: Mixed Conditionals -->
+        <div class="section">
+            <h3>Conditional Sentences: Mixed Conditionals</h3>
+            <p>Смешанные условные предложения сочетают разные времена в главной и придаточной частях для выражения сложных временных отношений.</p>
+            <ul>
+                <li><strong>Тип 1:</strong> Прошедшее условие с настоящим результатом
+                    <ul>
+                        <li><strong>Формула:</strong> If + Past Perfect, would + base verb</li>
+                        <li><strong>Пример:</strong> If I had studied harder, I would be a doctor now.</li>
+                    </ul>
+                </li>
+                <li><strong>Тип 2:</strong> Настоящее условие с прошедшим результатом
+                    <ul>
+                        <li><strong>Формула:</strong> If + Past Simple, would have + past participle</li>
+                        <li><strong>Пример:</strong> If she were more careful, she wouldn't have lost her keys.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5. Advanced Usage of Modals -->
+        <div class="section">
+            <h3>Advanced Usage of Modals</h3>
+            <p>Модальные глаголы могут использоваться в различных сложных конструкциях для выражения предположений, обязательств, советов и других нюансов.</p>
+            <ul>
+                <li><strong>Must have + past participle</strong> - выражает сильное предположение о прошлом.</li>
+                <li><strong>Could have / Might have + past participle</strong> - выражают возможность или вероятность в прошлом.</li>
+                <li><strong>Should have + past participle</strong> - выражает сожаление или критику в отношении прошлого действия.</li>
+            </ul>
+        </div>
+
+        <!-- 6. Summary -->
+        <div class="section">
+            <h3>Итоги</h3>
+            <p>В этом уроке мы рассмотрели продвинутые времена глаголов и смешанные условные предложения. Понимание этих конструкций позволит вам более точно и выразительно выражать временные отношения и нюансы в английском языке.</p>
+        </div>
+    </div>
+</body>
+</html>

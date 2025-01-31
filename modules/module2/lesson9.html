@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 9: Advanced Listening Comprehension Strategies</title>
+    <style>
+        /* -- Единый стиль, аналогичный Уроку 4 -- */
+
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Примеры использования */
+        .example {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-left: 4px solid #17a2b8;
+            margin-bottom: 10px;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Кнопка для проверки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Поля ввода и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"],
+        .quiz-question select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Дополнительно: стили для медиа (видео/аудио) */
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Кнопка "Next Lesson" (если требуется) */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 9: Advanced Listening Comprehension Strategies (Продвинутые стратегии понимания на слух)</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент урока
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 2
+                    document.getElementById('module2-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Введение -->
+        <div class="section">
+            <h3>Введение</h3>
+            <p>Понимание на слух — критически важный навык для успешного общения на английском языке. В этом уроке мы рассмотрим продвинутые стратегии, которые помогут вам улучшить свои способности восприятия речи на слух.</p>
+        </div>
+
+        <!-- 2. Техники активного слушания -->
+        <div class="section">
+            <h3>Техники активного слушания</h3>
+            <p>Активное слушание включает в себя:</p>
+            <ul>
+                <li><strong>Фокусировка внимания:</strong> Полное сосредоточение на говорящем.</li>
+                <li><strong>Использование контекста:</strong> Понимание смысла через контекстуальную информацию.</li>
+                <li><strong>Запоминание ключевых слов:</strong> Фиксация важных терминов и фраз.</li>
+                <li><strong>Предугадывание информации:</strong> Ожидание следующих слов или идей.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Стратегии улучшения понимания -->
+        <div class="section">
+            <h3>Стратегии улучшения понимания</h3>
+            <ol>
+                <li><strong>Прослушивание различных акцентов:</strong> Развитие способности понимать разные варианты произношения.</li>
+                <li><strong>Прослушивание с субтитрами:</strong> Сочетание аудио с текстовой поддержкой.</li>
+                <li><strong>Повторное прослушивание:</strong> Прослушивание материалов несколько раз для лучшего понимания.</li>
+                <li><strong>Ведение заметок:</strong> Запись ключевых идей и деталей во время прослушивания.</li>
+            </ol>
+        </div>
+
+        <!-- 4. Примеры использования стратегий -->
+        <div class="section">
+            <h3>Примеры использования стратегий</h3>
+            <div class="example">
+                <p><strong>Situation:</strong> Прослушивание деловой презентации.</p>
+                <p><strong>Strategy:</strong> Вести заметки о ключевых моментах, использовать контекст для понимания новых терминов.</p>
+            </div>
+            <div class="example">
+                <p><strong>Situation:</strong> Прослушивание интервью на радио.</p>
+                <p><strong>Strategy:</strong> Повторное прослушивание с субтитрами для лучшего понимания деталей.</p>
+            </div>
+        </div>
+
+        <!-- 7. Итоги -->
+        <div class="section">
+            <h3>Итоги</h3>
+            <p>Продвинутые стратегии понимания на слух помогут вам лучше воспринимать речь носителей языка, улучшат вашу беглость и понимание контекста. Регулярная практика этих методов приведет к значительному прогрессу в навыках аудирования.</p>
+        </div>
+    </div>
+
+    <script>
+        // Здесь вы можете добавить дополнительные скрипты для интерактивных упражнений, если необходимо.
+    </script>
+</body>
+</html>

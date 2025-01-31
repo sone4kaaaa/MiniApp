@@ -1,0 +1,425 @@
+<!-- lessons/lesson4.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 4: Present Continuous (Расширенный)</title>
+    <style>
+        /* Локальные стили для урока, аналогично Уроку 1 */
+        .lesson-container {
+            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
+            overflow-y: auto; /* Добавление вертикальной прокрутки */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            background-color: #333; /* Тёмный фон, как в Уроке 1 и 2 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопки */
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px; /* Отступ снизу */
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Секции контента */
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333; /* Тёмный текст на светлом фоне */
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопка для проверки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Элементы ввода и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745; /* Зеленый при наведении */
+        }
+
+        /* Кнопка "Next Lesson" */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 4: Present Continuous (Расширенный)</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент урока
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 1
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <!-- 1. Новая лексика -->
+        <div class="section">
+            <h3>Новая лексика</h3>
+            <p>В этом уроке мы будем активно использовать лексику, связанную с действиями, которые можно выполнять прямо сейчас.</p>
+            <ul>
+                <li>Run - Бежать</li>
+                <li>Jump - Прыгать</li>
+                <li>Play - Играть (напр. на гитаре или в игру)</li>
+                <li>Write - Писать</li>
+                <li>Type - Печатать (на клавиатуре)</li>
+                <li>Watch - Смотреть (напр. телевизор)</li>
+                <li>Cook - Готовить (еду)</li>
+                <li>Read - Читать</li>
+                <li>Swim - Плавать</li>
+                <li>Talk on the phone - Разговаривать по телефону</li>
+            </ul>
+        </div>
+
+        <!-- 2. Грамматика: Present Continuous -->
+        <div class="section">
+            <h3>Грамматика: Present Continuous</h3>
+            <p><strong>Present Continuous</strong> (или Present Progressive) описывает действие, которое происходит именно сейчас, в момент речи, или временно.</p>
+            <p><strong>Формула:</strong> <em>Подлежащее + am/is/are + глагол + ing</em></p>
+            <table>
+                <tr>
+                    <th>Утвердительная форма</th>
+                    <th>Пример</th>
+                </tr>
+                <tr>
+                    <td>I am running</td>
+                    <td>I am running in the park.</td>
+                </tr>
+                <tr>
+                    <td>She is cooking</td>
+                    <td>She is cooking dinner right now.</td>
+                </tr>
+                <tr>
+                    <td>They are watching</td>
+                    <td>They are watching TV at the moment.</td>
+                </tr>
+            </table>
+            <p><strong>Отрицательная форма:</strong> <em>Подлежащее + am/is/are + not + глагол + ing</em></p>
+            <ul>
+                <li>I am <strong>not</strong> running today.</li>
+                <li>He is <strong>not</strong> watching TV right now.</li>
+            </ul>
+            <p><strong>Вопросительная форма:</strong> <em>Am/Is/Are + Подлежащее + глагол + ing?</em></p>
+            <ul>
+                <li>Are you working now?</li>
+                <li>Is she cooking dinner?</li>
+            </ul>
+        </div>
+
+        <!-- 3. Задание 1: Заполните пропуски -->
+        <div class="section">
+            <h3>Задание 1: Заполните пропуски</h3>
+            <p>Вставьте правильную форму глагола, используя <strong>am / is / are</strong> и глагол с <strong>-ing</strong>:</p>
+            <div class="quiz-question">
+                <label>1. I ___ (to write) an email right now.</label>
+                <input type="text" id="q1" placeholder="Например, am writing">
+            </div>
+            <div class="quiz-question">
+                <label>2. They ___ (to cook) pasta at the moment.</label>
+                <input type="text" id="q2" placeholder="Например, are cooking">
+            </div>
+            <div class="quiz-question">
+                <label>3. She ___ (to swim) in the pool.</label>
+                <input type="text" id="q3" placeholder="Например, is swimming">
+            </div>
+            <button class="submit-btn" onclick="checkQuiz1()">Проверить ответы</button>
+            <div class="feedback" id="quiz1-feedback"></div>
+        </div>
+
+        <!-- 4. Задание 2: Сопоставьте слова -->
+        <div class="section">
+            <h3>Задание 2: Сопоставьте слова с переводом</h3>
+            <div class="quiz-question">
+                <label>Talk on the phone</label>
+                <select id="match1">
+                    <option value="">Выберите перевод</option>
+                    <option value="1">Читать</option>
+                    <option value="2">Играть</option>
+                    <option value="3">Разговаривать по телефону</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>Watch</label>
+                <select id="match2">
+                    <option value="">Выберите перевод</option>
+                    <option value="1">Печатать</option>
+                    <option value="2">Смотреть</option>
+                    <option value="3">Прыгать</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>Type</label>
+                <select id="match3">
+                    <option value="">Выберите перевод</option>
+                    <option value="1">Готовить</option>
+                    <option value="2">Печатать</option>
+                    <option value="3">Бежать</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="checkMatching()">Проверить сопоставление</button>
+            <div class="feedback" id="matching-feedback"></div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        /************************************************************
+         * Задание 1: Проверка заполненных пропусков
+         ************************************************************/
+        function checkQuiz1() {
+            const answers = {
+                q1: 'am writing',
+                q2: 'are cooking',
+                q3: 'is swimming'
+            };
+
+            let score = 0;
+            let total = Object.keys(answers).length;
+
+            for (let key in answers) {
+                const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+                const correctAnswer = answers[key].toLowerCase();
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+                } else {
+                    document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+                }
+            }
+
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            if (score === total) {
+                feedback.className = 'feedback success';
+                feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 2: Сопоставление слов
+         ************************************************************/
+        function checkMatching() {
+            const matches = {
+                match1: '3', // Talk on the phone -> Разговаривать по телефону
+                match2: '2', // Watch -> Смотреть
+                match3: '2'  // Type -> Печатать
+            };
+
+            let score = 0;
+            let total = 3;
+
+            for (let key in matches) {
+                const userChoice = document.getElementById(key).value;
+                if (userChoice === matches[key]) {
+                    score++;
+                    document.getElementById(key).style.borderColor = '#28a745';
+                } else {
+                    document.getElementById(key).style.borderColor = '#dc3545';
+                }
+            }
+
+            const feedback = document.getElementById('matching-feedback');
+            feedback.style.display = 'block';
+            if (score === total) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Все верно! Отличная работа.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
+            }
+        }
+
+        /************************************************************
+         * Кнопка "Далее": переход к следующему уроку
+         ************************************************************/
+        function navigateToNextLesson() {
+            try {
+                // Определяем номер текущего урока по заголовку: "Урок 4: ..."
+                const lessonTitle = document.querySelector('.lesson-container h2').textContent;
+                const regex = /Урок\s+(\d+)/i;
+                const match = lessonTitle.match(regex);
+                if (match && match[1]) {
+                    const currentLessonNumber = parseInt(match[1], 10);
+                    const nextLessonNumber = currentLessonNumber + 1;
+
+                    // Для module1 ищем кнопку "lesson5.html" или lessonN.html
+                    const nextBtn = window.parent.document.querySelector(
+                        `.lessons-container[data-module="module1"] button.lesson-button[data-lesson="lesson${nextLessonNumber}.html"]`
+                    );
+
+                    if (nextBtn) {
+                        nextBtn.click();
+                    } else {
+                        alert('Следующий урок (lesson' + nextLessonNumber + '.html) не найден. Возможно, это последний урок.');
+                    }
+                } else {
+                    alert('Не удалось определить номер урока из заголовка.');
+                }
+            } catch (e) {
+                console.error('navigateToNextLesson error:', e);
+                alert('Ошибка при переходе к следующему уроку.');
+            }
+        }
+    </script>
+      
+</body>
+</html>

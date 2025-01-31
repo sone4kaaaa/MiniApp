@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Тест 1: Advanced Grammar Test</title>
+    <style>
+        /* Единый стиль, аналогичный другим тестам */
+
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quiz-question input[type="text"],
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+            font-size: 18px;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Тест 1: Advanced Grammar Test (Продвинутый грамматический тест)</h2>
+        
+        <!-- Кнопка "Назад" -->
+        <button class="back-button" onclick="
+            // Скрываем контент теста
+            document.getElementById('lesson-content').classList.add('hidden');
+            // Очищаем содержимое
+            document.getElementById('lesson-details').innerHTML = '';
+            // Показываем снова заголовок приложения
+            document.getElementById('app-header').classList.remove('hidden');
+            // Показываем список уроков Модуля 3
+            document.getElementById('module3-list').classList.remove('hidden');
+        ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
+            Назад
+        </button>
+
+        <!-- 1. Задание 1: Fill in the blanks -->
+        <div class="section">
+            <h3>Задание 1: Заполните пропуски</h3>
+            <p>Заполните пропуски правильными формами глаголов:</p>
+            <div class="quiz-question">
+                <label>1. If she _______ (have) more time, she _______ (travel) abroad.</label>
+                <input type="text" id="tg1" placeholder="Например: had, would travel">
+            </div>
+            <div class="quiz-question">
+                <label>2. The report _______ (submit) by the end of the day.</label>
+                <input type="text" id="tg2" placeholder="Например: must be submitted">
+            </div>
+            <button class="submit-btn" onclick="checkAdvancedGrammarTest1()">Проверить</button>
+            <div class="feedback" id="advancedgrammartest1-feedback"></div>
+        </div>
+
+        <!-- 2. Задание 2: Sentence Transformation -->
+        <div class="section">
+            <h3>Задание 2: Преобразование предложений</h3>
+            <p>Преобразуйте предложения из страдательного залога в активный и наоборот:</p>
+            <ol>
+                <li>
+                    "The experiment was conducted by the research team."
+                    <br><input type="text" id="tg_rw1" placeholder="Например: The research team conducted the experiment.">
+                </li>
+                <li>
+                    "They have finished the project."
+                    <br><input type="text" id="tg_rw2" placeholder="Например: The project has been finished by them.">
+                </li>
+                <li>
+                    "If I were the manager, I would implement new policies."
+                    <br><input type="text" id="tg_rw3" placeholder="Например: If I were the manager, I would implement new policies.">
+                </li>
+            </ol>
+            <button class="submit-btn" onclick="checkSentenceTransformationTest1()">Проверить</button>
+            <div class="feedback" id="sentencetransformationtest1-feedback"></div>
+        </div>
+
+        <!-- 3. Задание 3: Modal Verbs in Complex Structures -->
+        <div class="section">
+            <h3>Задание 3: Модальные глаголы в сложных конструкциях</h3>
+            <p>Выберите правильный модальный глагол для завершения предложения:</p>
+            <div class="quiz-question">
+                <label>1. She _______ speak three languages fluently.</label>
+                <select id="tg_modal1">
+                    <option value="">Выберите модальный глагол</option>
+                    <option value="can">can</option>
+                    <option value="must">must</option>
+                    <option value="should">should</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>2. You _______ finish your assignment by tomorrow.</label>
+                <select id="tg_modal2">
+                    <option value="">Выберите модальный глагол</option>
+                    <option value="can">can</option>
+                    <option value="must">must</option>
+                    <option value="might">might</option>
+                </select>
+            </div>
+            <div class="quiz-question">
+                <label>3. They _______ arrive earlier if they leave now.</label>
+                <select id="tg_modal3">
+                    <option value="">Выберите модальный глагол</option>
+                    <option value="would">would</option>
+                    <option value="should">should</option>
+                    <option value="could">could</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="checkModalVerbsTest1()">Проверить</button>
+            <div class="feedback" id="modalverbs_test1-feedback"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

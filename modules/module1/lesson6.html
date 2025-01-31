@@ -1,0 +1,512 @@
+<!-- lessons/lesson6.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 6: Conditionals Type 2 & 3</title>
+    <style>
+        /* Локальные стили, аналогичные уроку 5 */
+        .lesson-container {
+            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
+            overflow-y: auto; /* Добавление вертикальной прокрутки */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            background-color: #333; /* Тёмный фон, как в lesson5 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый текст заголовка */
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Секции контента */
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section p,
+        .section li {
+            color: #333; /* Тёмный текст на светлом фоне */
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        /* Кнопка для проверки */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        /* Поля ввода и фидбек */
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"],
+        .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745; /* Зеленый при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 6: Conditionals Type 2 & 3</h2>
+
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // Аналогично уроку 5:
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    document.getElementById('lesson-details').innerHTML = '';
+                    document.getElementById('app-header').classList.remove('hidden');
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад" class="back-icon">
+            Назад
+        </button>
+
+        <!-- 1. Новая лексика -->
+        <div class="section">
+            <h3>Новая лексика</h3>
+            <p>При работе с гипотетическими ситуациями важно знать следующие слова и выражения:</p>
+            <ul>
+                <li>Hypothetical - Гипотетический</li>
+                <li>Impossible - Невозможный</li>
+                <li>Unreal - Нереальный</li>
+                <li>Regret - Сожалеть</li>
+                <li>Suppose / Supposing - Предположим</li>
+                <li>If only - Если бы только</li>
+                <li>Could have / Should have - Мог бы / Стоило бы</li>
+                <li>Would have - Бы (в прошедшем)</li>
+                <li>Outcome - Исход, результат</li>
+                <li>Alternative - Альтернатива</li>
+            </ul>
+        </div>
+
+        <!-- 2. Грамматика: Conditionals Type 2 & 3 -->
+        <div class="section">
+            <h3>Грамматика: Условные предложения (2-й и 3-й тип)</h3>
+            <p><strong>2-й тип (Second Conditional)</strong> описывает маловероятные или воображаемые ситуации в настоящем или будущем.</p>
+            <p><em>Формула:</em> If + Past Simple, would + V</p>
+            <ul>
+                <li>If I <strong>had</strong> a lot of money, I <strong>would travel</strong> the world.</li>
+                <li>If she <strong>knew</strong> his address, she <strong>would send</strong> him a letter.</li>
+            </ul>
+            <p><strong>3-й тип (Third Conditional)</strong> описывает нереальные, воображаемые ситуации в прошлом, то есть то, что уже не изменить.</p>
+            <p><em>Формула:</em> If + Past Perfect, would + have + V3 (Past Participle)</p>
+            <ul>
+                <li>If I <strong>had known</strong> about the party, I <strong>would have gone</strong> there.</li>
+                <li>If they <strong>had left</strong> earlier, they <strong>would have arrived</strong> on time.</li>
+            </ul>
+            <p>Обратите внимание на разницу: во 2-м типе мы используем Past Simple + would, а в 3-м — Past Perfect + would have + V3.</p>
+        </div>
+
+        <!-- 3. Задание 1: Заполните пропуски (Second Conditional) -->
+        <div class="section">
+            <h3>Задание 1: Заполните пропуски (Second Conditional)</h3>
+            <p>Вставьте правильные формы глаголов:</p>
+            <div class="quiz-question">
+                <label>1. If I ___ (to be) you, I ___ (to tell) him the truth.</label>
+                <input type="text" id="s1" placeholder="Например: were, would tell">
+            </div>
+            <div class="quiz-question">
+                <label>2. If she ___ (to have) more free time, she ___ (to travel) more.</label>
+                <input type="text" id="s2" placeholder="Например: had, would travel">
+            </div>
+            <button class="submit-btn" onclick="checkQuizSecond()">Проверить</button>
+            <div class="feedback" id="feedback-second"></div>
+        </div>
+
+        <!-- 4. Задание 2: Заполните пропуски (Third Conditional) -->
+        <div class="section">
+            <h3>Задание 2: Заполните пропуски (Third Conditional)</h3>
+            <p>Вставьте правильные формы глаголов:</p>
+            <div class="quiz-question">
+                <label>1. If they ___ (to leave) earlier, they ___ (to arrive) on time.</label>
+                <input type="text" id="t1" placeholder="Например: had left, would have arrived">
+            </div>
+            <div class="quiz-question">
+                <label>2. If I ___ (to know) about your problem, I ___ (to help) you.</label>
+                <input type="text" id="t2" placeholder="Например: had known, would have helped">
+            </div>
+            <button class="submit-btn" onclick="checkQuizThird()">Проверить</button>
+            <div class="feedback" id="feedback-third"></div>
+        </div>
+
+        
+
+        <!-- 6. Задание 3: Радиокнопки (2-й или 3-й тип) -->
+        <div class="section">
+            <h3>Задание 3: Выберите правильный вариант</h3>
+            <div class="quiz-question">
+                <label>1. If they had called me, I ____ them.</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r1" value="would help">would help</label><br>
+                    <label><input type="radio" name="r1" value="would have helped">would have helped</label><br>
+                    <label><input type="radio" name="r1" value="will help">will help</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <label>2. If he ____ more polite, people would like him more.</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="r2" value="had been">had been</label><br>
+                    <label><input type="radio" name="r2" value="were">were</label><br>
+                    <label><input type="radio" name="r2" value="would be">would be</label>
+                </div>
+            </div>
+            <button class="submit-btn" onclick="checkRadio()">Проверить</button>
+            <div class="feedback" id="radio-feedback"></div>
+        </div>
+
+        
+
+        <!-- 8. Задание 4: Перепишите предложения (Rewriting) -->
+        <div class="section">
+            <h3>Задание 4: Перепишите предложения с использованием условных конструкций</h3>
+            <p>Переформулируйте предложения, используя <strong>Second Conditional</strong> или <strong>Third Conditional</strong>, где это логически уместно.</p>
+            <ol>
+                <li>
+                    "I don't have a car, so I can't drive you to the station."
+                    <br><input type="text" id="rw1" placeholder="Например: If I had a car, I would drive you to the station.">
+                </li>
+                <li>
+                    "She didn't study enough. She failed the test."
+                    <br><input type="text" id="rw2" placeholder="Например: If she had studied enough, she would have passed the test.">
+                </li>
+            </ol>
+            <button class="submit-btn" onclick="checkRewriting()">Проверить</button>
+            <div class="feedback" id="rewriting-feedback"></div>
+        </div>
+    </div>
+
+    <!-- Подключение скрипта -->
+    <script>
+        /************************************************************
+         * Задание 1: Second Conditional
+         ************************************************************/
+        function checkQuizSecond() {
+            // Правильные ответы
+            // 1) were, would tell
+            // 2) had, would travel
+            let correct = [
+                { id: 's1', answers: ['were, would tell', 'were would tell', 'were, would tell.', 'were would tell.'] },
+                { id: 's2', answers: ['had, would travel', 'had would travel', 'had, would travel.', 'had would travel.'] }
+            ];
+
+            let score = 0;
+
+            correct.forEach(item => {
+                let user = document.getElementById(item.id).value.toLowerCase().replace(/\./g,'').trim();
+                // Удаляем запятые и точки, чтобы максимально дать пользователю шанс
+                user = user.replace(/,/g,'');
+                if (item.answers.includes(user)) {
+                    score++;
+                    document.getElementById(item.id).style.border = '2px solid #28a745';
+                } else {
+                    document.getElementById(item.id).style.border = '2px solid #dc3545';
+                }
+            });
+
+            const feedback = document.getElementById('feedback-second');
+            feedback.style.display = 'block';
+            if (score === correct.length) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Отлично! Все ответы в задании 1 верны.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Правильных ответов: ${score} из ${correct.length}. Исправьте неточности.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 2: Third Conditional
+         ************************************************************/
+        function checkQuizThird() {
+            // Правильные ответы:
+            // 1) had left, would have arrived
+            // 2) had known, would have helped
+            let correct = [
+                { id: 't1', answers: ['had left, would have arrived', 'had left would have arrived', 'had left, would have arrived.', 'had left would have arrived.'] },
+                { id: 't2', answers: ['had known, would have helped', 'had known would have helped', 'had known, would have helped.', 'had known would have helped.'] }
+            ];
+
+            let score = 0;
+
+            correct.forEach(item => {
+                let user = document.getElementById(item.id).value.toLowerCase().replace(/\./g,'').trim();
+                user = user.replace(/,/g,'');
+                if (item.answers.includes(user)) {
+                    score++;
+                    document.getElementById(item.id).style.border = '2px solid #28a745';
+                } else {
+                    document.getElementById(item.id).style.border = '2px solid #dc3545';
+                }
+            });
+
+            const feedback = document.getElementById('feedback-third');
+            feedback.style.display = 'block';
+            if (score === correct.length) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Отлично! Все ответы в задании 2 верны.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Правильных ответов: ${score} из ${correct.length}. Попробуйте ещё раз.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 3: Сопоставление (Matching)
+         ************************************************************/
+        function checkMatching() {
+            // 1) If I won the lottery -> I would buy a new car. (2-й тип)
+            // 2) If we had stayed at the hotel -> we wouldn't have slept in the car. (3-й тип)
+            const answers = {
+                m1: '2', // I would buy a new car. (2-й тип)
+                m2: '1'  // we wouldn't have slept in the car. (3-й тип)
+            };
+
+            let score = 0;
+            let total = 2;
+
+            for (let key in answers) {
+                const userChoice = document.getElementById(key).value;
+                if (userChoice === answers[key]) {
+                    score++;
+                    document.getElementById(key).style.borderColor = '#28a745';
+                } else {
+                    document.getElementById(key).style.borderColor = '#dc3545';
+                }
+            }
+
+            const feedback = document.getElementById('match-feedback');
+            feedback.style.display = 'block';
+            if (score === total) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Отлично! Все сопоставления правильные.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Верных сопоставлений: ${score} из ${total}. Исправьте ошибки.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 4: Радиокнопки
+         ************************************************************/
+        function checkRadio() {
+            // 1) If they had called me, I ____ them. -> would have helped (3-й тип)
+            // 2) If he ____ more polite, people would like him more. -> were (2-й тип)
+            const correct = {
+                r1: 'would have helped',
+                r2: 'were'
+            };
+            let score = 0;
+            let total = Object.keys(correct).length;
+
+            // r1
+            const radios1 = document.getElementsByName('r1');
+            let userAnswer1 = '';
+            radios1.forEach(radio => {
+                if (radio.checked) userAnswer1 = radio.value;
+            });
+            if (userAnswer1 === correct.r1) score++;
+
+            // r2
+            const radios2 = document.getElementsByName('r2');
+            let userAnswer2 = '';
+            radios2.forEach(radio => {
+                if (radio.checked) userAnswer2 = radio.value;
+            });
+            if (userAnswer2 === correct.r2) score++;
+
+            const feedback = document.getElementById('radio-feedback');
+            feedback.style.display = 'block';
+            if (score === total) {
+                feedback.className = 'feedback success';
+                feedback.textContent = `Превосходно! Все ответы в задании 4 верны (${score}/${total}).`;
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 5: Drag & Drop
+         ************************************************************/
+        function checkDragAndDrop() {
+            // Правильная фраза: "if i had studied harder, i would have passed the exam"
+            const dropZone = document.getElementById('drop-zone');
+            const words = Array.from(dropZone.querySelectorAll('.draggable')).map(el => el.textContent.toLowerCase());
+            let userSentence = words.join(' ').replace(/,\s*/g, ', '); // сохраняем запятые
+
+            const correct = "if i had studied harder, i would have passed the exam";
+            const feedback = document.getElementById('drag-feedback');
+            feedback.style.display = 'block';
+
+            if (userSentence === correct) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Замечательно! Предложение собрано верно.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Не совсем так. Получилось: "${userSentence}". Попробуйте другой порядок.`;
+            }
+        }
+
+        /************************************************************
+         * Задание 6: Rewriting with Conditionals
+         ************************************************************/
+        function checkRewriting() {
+            // Примеры правильных ответов:
+            // 1) If I had a car, I would drive you to the station.
+            // 2) If she had studied enough, she would have passed the test.
+
+            // Проверяем наличие ключевых фраз
+            let user1 = document.getElementById('rw1').value.trim().toLowerCase();
+            let user2 = document.getElementById('rw2').value.trim().toLowerCase();
+
+            let score = 0;
+            let total = 2;
+
+            // Проверка первого предложения
+            if (user1.includes("if i had a car") && (user1.includes("would drive") || user1.includes("would drive you"))) {
+                score++;
+                document.getElementById('rw1').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('rw1').style.border = '2px solid #dc3545';
+            }
+
+            // Проверка второго предложения
+            if (user2.includes("if she had studied enough") && (user2.includes("would have passed") || user2.includes("would have passed the test"))) {
+                score++;
+                document.getElementById('rw2').style.border = '2px solid #28a745';
+            } else {
+                document.getElementById('rw2').style.border = '2px solid #dc3545';
+            }
+
+            const feedback = document.getElementById('rewriting-feedback');
+            feedback.style.display = 'block';
+            if (score === total) {
+                feedback.className = 'feedback success';
+                feedback.textContent = 'Отлично! Вы показали понимание условных конструкций.';
+            } else {
+                feedback.className = 'feedback error';
+                feedback.textContent = `Исправлено верно: ${score} из ${total}. Можете попробовать улучшить формулировки.`;
+            }
+        }
+    </script>
+</body>
+</html>

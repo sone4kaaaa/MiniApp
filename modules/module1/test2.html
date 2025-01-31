@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Тест 2</title>
+    <style>
+        /* Общие стили для тестов, аналогично стилям уроков */
+        .lesson-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #333; /* Тёмный фон, как в уроках */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Белый цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопок */
+        }
+
+        /* Стили для кнопки "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px; /* Отступ снизу */
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .quiz-question input[type="text"], .quiz-question select {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Тест 2</h2>
+        
+        <!-- Кнопка "Назад" -->
+        <button class="back-button"
+                onclick="
+                    // 1. Скрываем контент теста
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    // 2. Очищаем содержимое
+                    document.getElementById('lesson-details').innerHTML = '';
+                    // 3. Показываем снова заголовок приложения
+                    document.getElementById('app-header').classList.remove('hidden');
+                    // 4. Показываем список уроков Модуля 1
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+
+        <div class="section">
+            <h3>Тест 2: Продвинутые структуры предложений</h3>
+            <div class="quiz">
+                <!-- Вопросы теста -->
+                <!-- Вопрос 1 -->
+                <div class="quiz-question">
+                    <label>1. How do you say "Привет" in English?</label>
+                    <input type="text" id="q1" placeholder="Например, Hello">
+                </div>
+                
+                <!-- Вопрос 2 -->
+                <div class="quiz-question">
+                    <label>2. Fill in the blank: He ___ an engineer.</label>
+                    <input type="text" id="q2" placeholder="am/is/are">
+                </div>
+                
+                <!-- Вопрос 3 -->
+                <div class="quiz-question">
+                    <label>3. Choose the correct form of "to have": They ___ a big house.</label>
+                    <select id="q3">
+                        <option value="">Выберите ответ</option>
+                        <option value="have">have</option>
+                        <option value="has">has</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 4 -->
+                <div class="quiz-question">
+                    <label>4. How do you say "Я не понимаю" in English?</label>
+                    <input type="text" id="q4" placeholder="Например, I do not understand">
+                </div>
+                
+                <!-- Вопрос 5 -->
+                <div class="quiz-question">
+                    <label>5. Fill in the blank: We ___ a new car last week. (Past Simple)</label>
+                    <input type="text" id="q5" placeholder="bought/buy/buys">
+                </div>
+                
+                <!-- Вопрос 6 -->
+                <div class="quiz-question">
+                    <label>6. Choose the correct form: She ___ (to go) to school every day.</label>
+                    <select id="q6">
+                        <option value="">Выберите ответ</option>
+                        <option value="go">go</option>
+                        <option value="goes">goes</option>
+                        <option value="went">went</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 7 -->
+                <div class="quiz-question">
+                    <label>7. How do you say "Как дела?" in English?</label>
+                    <input type="text" id="q7" placeholder="Например, How are you?">
+                </div>
+                
+                <!-- Вопрос 8 -->
+                <div class="quiz-question">
+                    <label>8. Fill in the blank: I ___ breakfast at 7 AM every morning. (Present Simple)</label>
+                    <input type="text" id="q8" placeholder="have/has/had">
+                </div>
+                
+                <!-- Вопрос 9 -->
+                <div class="quiz-question">
+                    <label>9. Choose the correct form of "to be" in Past Simple: He ___ at home yesterday.</label>
+                    <select id="q9">
+                        <option value="">Выберите ответ</option>
+                        <option value="is">is</option>
+                        <option value="are">are</option>
+                        <option value="was">was</option>
+                    </select>
+                </div>
+                
+                <!-- Вопрос 10 -->
+                <div class="quiz-question">
+                    <label>10. How do you say "Извините, я опоздал" in English?</label>
+                    <input type="text" id="q10" placeholder='Например, Sorry, I am late'>
+                </div>
+                
+                <button class="submit-btn" onclick="checkTest2()">Проверить тест</button>
+                <div class="feedback" id="test2-feedback"></div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    
+</body>
+</html>

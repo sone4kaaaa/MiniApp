@@ -6,7 +6,6 @@
     font-style: normal;
 }
 
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -313,3 +312,11 @@ body {
       width: 90%;
     }
   }
+
+.current-module {
+    
+    font-size: 1.5em;
+    margin-left: -160px;
+    margin-top: 110px;
+    color: black;
+}

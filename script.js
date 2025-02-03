@@ -25,13 +25,13 @@ console.log('Итоговый userId =', tgUserId);
 
 /* ----- ИНИЦИАЛИЗАЦИЯ FIREBASE ----- */
 const firebaseConfig = {
-    apiKey: "AIzaSyA6JL5JlJktik0k_3D_0vMl4fCD-E_7560",
-    authDomain: "miniappenglish.firebaseapp.com",
-    projectId: "miniappenglish",
-    storageBucket: "miniappenglish.firebasestorage.app",
-    messagingSenderId: "643117676341",
-    appId: "1:643117676341:web:1b351a0ed7b7230f10fe7c",
-    measurementId: "G-M0GLSY5FC5"
+    apiKey: "AIzaSyBmJ7sTBI46ZS0TlxhNfr-i_OhwwwqMZK8",
+    authDomain: "miniapp-82895.firebaseapp.com",
+    projectId: "miniapp-82895",
+    storageBucket: "miniapp-82895.firebasestorage.app",
+    messagingSenderId: "433321660637",
+    appId: "1:433321660637:web:f6491893642207605e8b34",
+    measurementId: "G-4C43EDDZ6Y"
 };
   
 // Инициализация firebase (compat):
@@ -770,22 +770,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Кнопки модулей => показываем меню
     moduleButtons.forEach(b => {
         b.addEventListener('click', () => {
-            const mp = b.id.replace('-btn', '');
-            mainButtons.classList.add('hidden');
-            moduleMenus.forEach(mm => {
-                mm.classList.add('hidden');
-                if (mm.id === `${mp}-menu`) mm.classList.remove('hidden');
-            });
+          const mp = b.id.replace('-btn', '');
+          mainButtons.classList.add('hidden');
+          moduleMenus.forEach(mm => {
+            mm.classList.add('hidden');
+            if (mm.id === `${mp}-menu`) mm.classList.remove('hidden');
+          });
+          // Обновляем индикатор текущего модуля:
+          document.getElementById('current-module').textContent =
+            mp.replace('module', 'Модуль ');
         });
     });
 
     // Кнопка «Назад к списку модулей»
     backToMainBtns.forEach(b => {
         b.addEventListener('click', () => {
-            moduleMenus.forEach(m => m.classList.add('hidden'));
-            mainButtons.classList.remove('hidden');
+          moduleMenus.forEach(m => m.classList.add('hidden'));
+          mainButtons.classList.remove('hidden');
+          // Сбросим отображение текущего модуля:
+          document.getElementById('current-module').textContent = "";
         });
-    });
+      });
 
     // Кнопка «Уроки»
     const lessonsBtns = document.querySelectorAll('.lessons-btn');

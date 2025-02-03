@@ -75,21 +75,14 @@ body {
     color: #000;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, background-color 0.3s;
     font-size: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Лёгкая тень для объёмности */
 }
 
 .button:hover, .test-button:hover {
     transform: translateY(-5px);
     background-color: #e0e0d1;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1); /* Сильнее тень при наведении */
-}
-
-.button:active, .test-button:active {
-    transform: translateY(2px); /* Небольшой эффект нажатия */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень уменьшается при клике */
 }
 
 .buttons button:nth-child(odd) {
@@ -105,20 +98,14 @@ body {
 /* Стили для кнопок "Тест" */
 .test-button {
     margin: 0 auto;         
+
     transform: translateX(4%);
     background-color: #ffc107;
     color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .test-button:hover {
     background-color: #e0a800;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.test-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 

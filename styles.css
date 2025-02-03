@@ -133,7 +133,7 @@ body {
     gap: 10px;
 }
 
-.lesson-button, .back-button {
+.lesson-button {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
@@ -141,46 +141,36 @@ body {
     background-color: #f5f5dc;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Тень для объема */
+    transition: background-color 0.3s;
 }
 
-.lesson-button[disabled], .back-button[disabled] {
+.lesson-button[disabled] {
     background-color: #ccc;
     cursor: not-allowed;
-    box-shadow: none; /* Без тени для неактивных кнопок */
 }
 
-.lesson-button:hover:not([disabled]), .back-button:hover {
+.lesson-button:hover:not([disabled]) {
     background-color: #e0e0d1;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1); /* Усиленная тень при наведении */
 }
 
-.lesson-button:active:not([disabled]), .back-button:active {
-    transform: translateY(2px); /* Эффект нажатия */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень уменьшается при клике */
+.test-button:hover:not([disabled]) {
+    background-color: #e0a800;
 }
 
 .back-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
     background-color: #ffe4c4;
+    border: none;
+    cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 .back-button:hover {
     background-color: #ffcc99;
-}
-
-/* Тестовая кнопка с таким же объемным эффектом */
-.test-button:hover:not([disabled]) {
-    background-color: #e0a800;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.test-button:active:not([disabled]) {
-    transform: translateY(2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Стили для контента урока */

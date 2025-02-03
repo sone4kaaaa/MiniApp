@@ -314,7 +314,7 @@ body {
   }
 
 .current-module {
-    
+    font-family: 'MyCustomFont', sans-serif;
     font-size: 1.5em;
     margin-left: -160px;
     margin-top: 110px;

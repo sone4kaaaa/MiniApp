@@ -1,3 +1,4 @@
+/* styles.css */
 @font-face {
     font-family: 'MyCustomFont';
     src: url('./ofont.ru_Ruthless Sketch.ttf') format('truetype');   
@@ -25,18 +26,19 @@ body {
     max-width: 400px;
     text-align: left;
     position: relative;
+    background-image: url('Strelki.png'); /* Замените на ваш URL изображения */
     background-size: cover;
     background-position: center 20px;
-    padding: 100px 20px; 
+    padding: 60px 20px; /* Уменьшено для лучшей пропорции */
     border-radius: 15px;
     box-sizing: border-box;
 }
 
 .header {
     display: flex;
-    align-items: center;
+    align-items: center; /* Центрирование элементов по вертикали */
     gap: 10px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px; /* Уменьшено для лучшей пропорции */
     color: #fff;
 }
 
@@ -55,16 +57,15 @@ body {
     margin-left: 0;
 }
 
-/* Стили для кнопок */
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Уменьшено для лучшей пропорции */
 }
 
 .button, .test-button {
     width: 100%;
-    max-width: 200px;
+    max-width: 200px; /* Ограничение ширины */
     height: 50px;
     padding: 12px;
     border: none;
@@ -85,15 +86,18 @@ body {
 
 .buttons button:nth-child(odd) {
     align-self: flex-start;
+    margin-left: 0; /* Убираем лишние отступы */
 }
 
 .buttons button:nth-child(even) {
     align-self: flex-end;
+    margin-right: 0; /* Убираем лишние отступы */
 }
 
-/* Стили для тестовой кнопки */
+/* Стили для кнопок "Тест" */
 .test-button {
-    margin: 0 auto;
+    margin: 0 auto;         
+
     transform: translateX(4%);
     background-color: #ffc107;
     color: #fff;
@@ -105,7 +109,7 @@ body {
 
 /* Скрытые блоки */
 .hidden {
-    display: none !important;
+    display: none !important; /* Добавлено !important для приоритета */
 }
 
 /* Стили для уроков */
@@ -135,6 +139,10 @@ body {
     background-color: #e0e0d1;
 }
 
+.test-button:hover:not([disabled]) {
+    background-color: #e0a800;
+}
+
 .back-button {
     width: 100%;
     padding: 10px;
@@ -151,7 +159,7 @@ body {
     background-color: #ffcc99;
 }
 
-/* Контент урока */
+/* Стили для контента урока */
 .lesson-content {
     margin-top: 20px;
 }
@@ -194,7 +202,7 @@ body {
     text-align: left;
 }
 
-/* Кнопка для перехода к следующему уроку */
+/* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;
     padding: 10px;
@@ -211,7 +219,7 @@ body {
     background-color: #138496;
 }
 
-/* Кнопка "Стрелочка назад" */
+/* Стили для кнопки "Стрелочка назад" */
 .back-arrow {
     display: flex;
     align-items: center;
@@ -223,20 +231,22 @@ body {
     width: 24px;
     height: 24px;
     margin-right: 8px;
-    filter: invert(100%);
+    filter: invert(100%); /* Делает иконку белой */
 }
 
-/* Заблокированные кнопки */
+
+/* Стиль для заблокированных кнопок (модули, уроки, тесты, итоговый тест) */
 .disabled, 
 .locked {
     opacity: 0.5;
-    cursor: not-allowed;
+    cursor: not-allowed; /* курсор в виде "запрещено" */
 }
 
+  
 .stats-modal.hidden {
     display: none;
-}
-
+  }
+  
 /* Модальное окно статистики */
 .stats-modal {
     position: fixed;
@@ -244,58 +254,65 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* полупрозрачный фон */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-}
-
-.stats-content {
+  }
+  
+  /* Контейнер статистики */
+  .stats-content {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     width: 300px;
-    max-width: 90%;
+    max-width: 90%; /* для мобильных устройств */
     box-sizing: border-box;
-    position: relative;
-}
-
-.close-button {
+    position: relative; /* для абсолютного позиционирования кнопки */
+  }
+  
+  /* Кнопка "Закрыть" внутри статистического окна */
+  .close-button {
     position: absolute;
     top: 10px;
-    left: 10px;
-    background: transparent;
+    left: 10px;      /* Выравнивание по левому краю */
+    right: auto;     /* Сброс значения right */
+    background: transparent; /* Прозрачный фон, можно заменить на другой, если нужно */
     border: none;
     cursor: pointer;
-    font-size: 18px;
-    color: grey;
-    padding: 5px;
-}
+    font-size: 18px; /* Размер иконки */
+    color: grey;     /* Цвет иконки */
+    padding: 5px;    /* Добавим немного отступов для кликабельной области */
+  }
 
-.close-button i {
-    font-size: inherit;
-    color: inherit;
-}
+  .close-button i {
+    font-size: inherit; /* Наследует размер, заданный для кнопки */
+    color: inherit;     /* Наследует цвет, заданный для кнопки */
+  }
+  
+  /* При необходимости можно добавить адаптивность */
+  @media (max-width: 600px) {
+    .stats-content {
+      width: 90%;
+      padding: 15px;
+    }
+  }
 
 @media (max-width: 600px) {
-    .stats-content {
-        width: 90%;
-        padding: 15px;
-    }
     table tr {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     table th,
     table td {
-        display: block;
-        width: 90%;
+      display: block;
+      width: 90%;
     }
-}
+  }
 
-.current-module {
+  .current-module {
     font-family: 'MyCustomFont', sans-serif;
     font-size: 1.7em;
     margin-left: -180px;

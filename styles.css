@@ -14,7 +14,8 @@ body {
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    background: linear-gradient(170deg, #8e2de2, #4a00e0);
+    background: linear-gradient(170deg, #290a62, #e6e4e9);
+
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,10 +27,10 @@ body {
     max-width: 400px;
     text-align: left;
     position: relative;
-     /* background-image: url('assets/images/fon.png');Замените на ваш URL изображения */
+     /* background-image: url('assets/images/fon.png');*/
     background-size: cover;
     background-position: center 20px;
-    padding: 100px 20px; /* Уменьшено для лучшей пропорции */
+    padding: 100px 20px; 
     border-radius: 15px;
     box-sizing: border-box;
 }
@@ -38,19 +39,19 @@ body {
     display: flex;
     align-items: center; /* Центрирование элементов по вертикали */
     gap: 10px;
-    margin-bottom: 30px; /* Уменьшено для лучшей пропорции */
+    margin-bottom: 30px; 
     color: #fff;
 }
 
 .header img {
-    width: 120px; /* Уменьшено для лучшей пропорции */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    margin-left: -25px; /* Сдвиг иконки левее */
+    width: 120px; 
+    height: auto; 
+    margin-left: -25px; 
     margin-top: 10px;
 }
 
 .header .title {
-    font-size: 34px; /* Уменьшено для лучшей пропорции */
+    font-size: 34px; 
     font-family: 'MyCustomFont', sans-serif;
     margin-top: 0;
     max-width: 270px; /* Корректировка ширины */
@@ -60,7 +61,7 @@ body {
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Уменьшено для лучшей пропорции */
+    gap: 20px; 
 }
 
 .button, .test-button {

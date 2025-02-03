@@ -14,7 +14,6 @@ body {
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    /* overflow: hidden; */ /* Убрано, чтобы позволить прокрутку при необходимости */
     background: linear-gradient(170deg, #8e2de2, #4a00e0);
     background-attachment: fixed;
     background-size: cover;

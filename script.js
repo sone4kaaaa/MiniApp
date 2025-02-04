@@ -25,13 +25,13 @@ console.log('Итоговый userId =', tgUserId);
 
 /* ----- ИНИЦИАЛИЗАЦИЯ FIREBASE ----- */
 const firebaseConfig = {
-    apiKey: "AIzaSyBmJ7sTBI46ZS0TlxhNfr-i_OhwwwqMZK8",
-    authDomain: "miniapp-82895.firebaseapp.com",
-    projectId: "miniapp-82895",
-    storageBucket: "miniapp-82895.firebasestorage.app",
-    messagingSenderId: "433321660637",
-    appId: "1:433321660637:web:f6491893642207605e8b34",
-    measurementId: "G-4C43EDDZ6Y"
+    apiKey: "AIzaSyA6JL5JlJktik0k_3D_0vMl4fCD-E_7560",
+    authDomain: "miniappenglish.firebaseapp.com",
+    projectId: "miniappenglish",
+    storageBucket: "miniappenglish.firebasestorage.app",
+    messagingSenderId: "643117676341",
+    appId: "1:643117676341:web:1b351a0ed7b7230f10fe7c",
+    measurementId: "G-M0GLSY5FC5"
 };
   
 // Инициализация firebase (compat):
@@ -3478,8 +3478,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         moduleMenus.forEach(m => m.classList.add('hidden'));
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.add('hidden');
+        document.getElementById('current-module').textContent = "";
     });
-    
 
     function showStats() {
         // Добавляем finalTestsCompleted

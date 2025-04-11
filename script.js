@@ -17,7 +17,7 @@ if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
 // Фолбек: если tgUserId всё ещё null, возьмём ?user_id=... из URL
 if (!tgUserId) {
     const params = new URLSearchParams(window.location.search);
-    tgUserId = params.get('user_id') || 'guest9';
+    tgUserId = params.get('user_id') || 'guest10';
 }
 console.log('Итоговый userId =', tgUserId);
 
@@ -90,7 +90,7 @@ async function saveUserDataToServer(userId) {
 function getTelegramUserId() {
     // Пробуем вытащить user_id из query-параметров
     const params = new URLSearchParams(window.location.search);
-    return params.get('user_id') || "guest9";
+    return params.get('user_id') || "guest10";
 }
 
 function restoreUnlockItem(modulePath, fileName) {
@@ -174,7 +174,22 @@ function lockAllButFirstLesson() {
 /* ===== Примерная функция: разблокировать кнопки на основании userStats ===== */
 function unlockItemsByStats() {
     const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
-  
+    if (window.userStats.lessonsCompleted >= 30 &&
+        window.userStats.testsCompleted >= 9 &&
+        window.userStats.finalTestsCompleted >= 3
+    ) {
+        // Разблокируем все кнопки (какие хотите)
+        const allButtons = document.querySelectorAll(
+          '.lesson-button, .test-button, .final-test-btn, #module2-btn, #module3-btn'
+        );
+        allButtons.forEach(btn => {
+            btn.disabled = false;
+            btn.classList.remove('locked', 'disabled');
+        });
+        
+        // После этого выходим, чтобы дальше не сработали никакие «else { disabled = true }»
+        return;
+    }
     // 1. Модули
     // Модуль1 (id="module1-btn") всегда открыт (или открыт по умолчанию)
     // Модуль2 открывается, если finalTestsCompleted >= 1 (значит пройден итоговый тест модуля1)
@@ -246,6 +261,20 @@ function unlockItemsByStats() {
         } else {
             btn.disabled = true;
             btn.classList.add('locked','disabled');
+        }
+        if (window.userStats.lessonsCompleted >= 30 &&
+            window.userStats.testsCompleted >= 9 &&
+            window.userStats.finalTestsCompleted >= 3) {
+            
+            // Селектор подбирайте под все свои кнопки:
+            const allButtons = document.querySelectorAll(
+              '.lesson-button, .test-button, .final-test-btn, #module2-btn, #module3-btn'
+            );
+    
+            allButtons.forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('locked', 'disabled');
+            });
         }
     });
   
@@ -382,11 +411,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     populateLessons('module2', 10, 3);
     populateLessons('module3', 10, 3);
 
-    lockAllButFirstLesson();
+    //lockAllButFirstLesson();
 
-    unlockItemsByStats();
-
-    restoreUnlockedItems();
+    
     
 
     const userIdDisplayEl = document.getElementById("user-id-display");
@@ -414,17 +441,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
 
 
-    // Блокируем доступ к модулям 2 и 3 по умолчанию
-    const module2Btn = document.getElementById('module2-btn');
-    const module3Btn = document.getElementById('module3-btn');
-    if (module2Btn) {
-        module2Btn.disabled = true;
-        module2Btn.classList.add('disabled');
-    }
-    if (module3Btn) {
-        module3Btn.disabled = true;
-        module3Btn.classList.add('disabled');
-    }
+    
 
     
 
@@ -3480,6 +3497,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         lessonContent.classList.add('hidden');
         document.getElementById('current-module').textContent = "";
     });
+    
 
     function showStats() {
         // Добавляем finalTestsCompleted
@@ -3501,6 +3519,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         statsModal.classList.remove('hidden');
     }
 
-   
+    unlockItemsByStats();
+
+    restoreUnlockedItems();
     
 });

@@ -6,13 +6,17 @@
     <title>Урок 1: Введение в английский язык</title>
     <style>
         .lesson-container {
-            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
-            overflow-y: auto; /* Добавление вертикальной прокрутки */
-            padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: lightblue;
-            padding: 20px;
-            border-radius: 10px;
+        max-height: 80vh;
+        width: 95vw; /* Чуть больше ширины, но не 100%, чтобы не вызывать прокрутку */
+        margin: 0 auto; /* Центрирует контейнер */
+        overflow-y: auto;
+        overflow-x: hidden; /* Убирает горизонтальную прокрутку */
+        padding: 20px 30px; /* Немного больше горизонтальных отступов */
+        background-color: lightblue;
+        border-radius: 10px;
+        box-sizing: border-box; /* Учитывает padding в ширине */
         }
+
 
         h2 {
             text-align: center;
@@ -191,6 +195,15 @@
         .word.yellow { color: #f1c40f; }
         .word.zebra { color: #34495e; }
 
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>

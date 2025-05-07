@@ -1181,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 q2: 'ball',
                 q3: 'dog',
                 q4: 'tiger',
-                q5: 'cat',
+                q5: 'cat'
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример ответов для Урока 2
@@ -1257,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 match5: '1',
                 match6: '2',
                 match7: '3',
-                match8: '2',
+                match8: '2'
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример сопоставлений для Урока 2

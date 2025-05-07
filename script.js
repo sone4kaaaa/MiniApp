@@ -1178,10 +1178,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Пример ответов для Урока 1
             answers = {
                 q1: 'zebra',
-                q2: 'ball',
-                q3: 'dog',
-                q4: 'tiger',
-                q5: 'cat'
+                q2: 'tiger',
+                q3: 'dog'
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример ответов для Урока 2
@@ -1252,12 +1250,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             matches = {
                 match1: '1',
                 match2: '3',
-                match3: '2',
-                match4: '1',
-                match5: '1',
-                match6: '2',
-                match7: '3',
-                match8: '2'
+                match3: '2'
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример сопоставлений для Урока 2

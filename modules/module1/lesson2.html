@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 2: Основные фразы и вопросительные предложения</title>
     <style>
-        /* Локальные стили для урока, аналогично Уроку 1 */
         .lesson-container {
-            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
-            overflow-y: auto; /* Добавление вертикальной прокрутки */
+            max-height: 80vh; 
+            overflow-y: auto; 
             padding-right: 10px; 
-            overflow-x: hidden;/* Отступ для полосы прокрутки */
-            background-color: #333; /* Тёмный фон, как в Уроке 1 */
+            overflow-x: hidden;
+            background-color: khaki; 
             padding: 20px;
             border-radius: 10px;
-            position: relative; /* Удалено, так как кнопка "Назад" будет не абсолютно позиционирована */
+            position: relative; 
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
-            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопки */
+            color: darkgoldenrod;
+            margin-bottom: 20px;
         }
 
         /* Стили для кнопки "Назад" */
@@ -162,37 +161,31 @@
 <body>
     <div class="lesson-container">
 
-        <h2>Урок 2: Основные фразы и вопросительные предложения</h2>
+        <h2>Урок 2: Числа в английском языке</h2>
 
-        <!-- Кнопка "Назад" -->
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-        
+        <img src="https://avatars.mds.yandex.net/i?id=49454743cfd18371849bc4be0e45ec76_l-12533415-images-thumbs&n=13" alt="Цифры" style="max-width:100%; height:300px; margin-bottom:10px;">
         <div class="section">
-            <h3>Новая лексика</h3>
-            <ul>
-                <li>How are you? - Как ты?</li>
-                <li>Good evening - Добрый вечер</li>
-                <li>See you later - До встречи</li>
-                <li>What's your name? - Как тебя зовут?</li>
-                <li>My name is... - Меня зовут...</li>
-                <li>Nice to meet you - Приятно познакомиться</li>
-                <li>How old are you? - Сколько тебе лет?</li>
-                <li>I am ... years old - Мне ... лет</li>
-                <li>Where are you from? - Откуда ты?</li>
-                <li>I am from... - Я из...</li>
+            <h3>Диалог по ролям с переводом:</h3>
+            <ul>1: How are you? - Как ты?</ul>
+            <ul>2: I am fine! - Я хорошо!</ul>
+            <ul>1: What is your name? - Как тебя зовут?</ul>
+            <ul>2: My name is... - Меня зовут...</ul>
+            <ul>1: Nice to meet you - Приятно познакомиться</ul>
+            <ul>1: How old are you? - Сколько тебе лет?</ul>
+            <ul>2: I am ... years old - Мне ... лет</ul>
+            <ul>1: Where are you from? - Откуда ты?</ul>
+            <ul>2: I am from Russia - Я из России</ul>
+            <ul><img src="https://avatars.mds.yandex.net/i?id=c99ff07405843c17f56c01cb0b1a3d53_l-9097293-images-thumbs&n=13" alt="Фото" style="max-width:100%; height:250px; margin-bottom:0px; margin-top:10px;">
             </ul>
         </div>
         
@@ -285,7 +278,6 @@
             </div>
         </div>
         
-        <!-- Кнопка "Далее" будет добавлена скриптом -->
     </div>
 
     

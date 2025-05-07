@@ -9,14 +9,14 @@
             max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
             overflow-y: auto; /* Добавление вертикальной прокрутки */
             padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: #333;
+            background-color: lightblue;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; 
+            color: midnightblue; 
         }
 
         .section {
@@ -33,10 +33,9 @@
 
         .section p,
         .section li {
-            color: #333; /* Тёмный текст на светлом фоне */
+            color: #333; 
         }
 
-        /* Таблицы (если нужны) */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -51,7 +50,6 @@
             text-align: left;
         }
 
-        /* Кнопка "Назад" (как в Уроке 8, без абсолютного позиционирования) */
         .back-button {
             display: flex;
             align-items: center;
@@ -63,7 +61,7 @@
             border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 20px; /* Отступ снизу, чтобы разделить с контентом */
+            margin-bottom: 20px; 
             text-decoration: none;
             width: 120px;
             justify-content: center;
@@ -77,7 +75,6 @@
             height: 20px;
         }
 
-        /* Стили кнопок "submit-btn" (аналогично Уроку 8) */
         .submit-btn {
             display: inline-block;
             padding: 10px;
@@ -94,7 +91,6 @@
             background-color: #4a00e0;
         }
 
-        /* Стили элементов ввода и feedback (аналогично Уроку 8) */
         .quiz-question {
             margin-bottom: 15px;
         }
@@ -131,7 +127,6 @@
             color: #721c24;
         }
 
-        /* Стили для кнопки "Next Lesson" (как в Уроке 8) */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -153,156 +148,221 @@
         .next-icon {
             margin-right: 8px;
         }
+        .alphabet-list {
+            font-size: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .alphabet-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .word {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .word.arm { color: #e74c3c; }
+        .word.ball { color: #f39c12; }
+        .word.cat { color: #2ecc71; }
+        .word.dog { color: #3498db; }
+        .word.egg { color: #9b59b6; }
+        .word.fish { color: #1abc9c; }
+        .word.goat { color: #e67e22; }
+        .word.hat { color: #16a085; }
+        .word.ice { color: #2980b9; }
+        .word.juice { color: #d35400; }
+        .word.kite { color: #8e44ad; }
+        .word.lion { color: #c0392b; }
+        .word.moon { color: #34495e; }
+        .word.nose { color: #27ae60; }
+        .word.owl { color: #7f8c8d; }
+        .word.pen { color: #f1c40f; }
+        .word.queen { color: #9b59b6; }
+        .word.robot { color: #2c3e50; }
+        .word.sun { color: #f39c12; }
+        .word.tiger { color: #e67e22; }
+        .word.umbrella { color: #3498db; }
+        .word.van { color: #1abc9c; }
+        .word.water { color: #2980b9; }
+        .word.xylophone { color: #8e44ad; }
+        .word.yellow { color: #f1c40f; }
+        .word.zebra { color: #34495e; }
+
     </style>
 </head>
 <body>
     <div class="lesson-container">
         <h2>Урок 1: Введение в английский язык</h2>
 
-        <!-- Кнопка "Назад" -->
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-
-        <!-- Секция 1: Новая лексика -->
-        <div class="section">
-            <h3>Новая лексика</h3>
-            <ul>
-                <li>Hello - Привет</li>
-                <li>Goodbye - До свидания</li>
-                <li>Thank you - Спасибо</li>
-                <li>Yes - Да</li>
-                <li>No - Нет</li>
-                <li>Please - Пожалуйста</li>
-                <li>Excuse me - Извините</li>
-                <li>Sorry - Простите</li>
-                <li>Good morning - Доброе утро</li>
-                <li>Good night - Спокойной ночи</li>
-            </ul>
-        </div>
+        <div class="section"><img src="https://kancelar53.ru/export/img/8e788e49-de56-11eb-8dd3-ac1f6bbcbf85.jpg" alt="Алфавит" style="max-width:100%; height:450px; margin-bottom:10px;"></div>
         
-        <!-- Секция 2: Грамматика -->
-        <div class="section">
-            <h3>Грамматика: Основы</h3>
-            <p>В этом уроке мы рассмотрим основы английской грамматики, включая местоимения и глагол "to be".</p>
-        
-            <h4>Местоимения</h4>
-            <ul>
-                <li>I - Я</li>
-                <li>You - Ты/Вы</li>
-                <li>He - Он</li>
-                <li>She - Она</li>
-                <li>It - Оно</li>
-                <li>We - Мы</li>
-                <li>They - Они</li>
-            </ul>
-        
-            <h4>Глагол "to be" (быть)</h4>
-            <p>Глагол "to be" используется для выражения состояния или принадлежности. Формы глагола зависят от подлежащего:</p>
-            <table>
-                <tr>
-                    <th>Подлежащее</th>
-                    <th>Форма "to be"</th>
-                </tr>
-                <tr>
-                    <td>I</td>
-                    <td>am</td>
-                </tr>
-                <tr>
-                    <td>You</td>
-                    <td>are</td>
-                </tr>
-                <tr>
-                    <td>He/She/It</td>
-                    <td>is</td>
-                </tr>
-                <tr>
-                    <td>We/They</td>
-                    <td>are</td>
-                </tr>
-            </table>
-        
-            <h4>Примеры предложений</h4>
-            <ul>
-                <li>I am a student. — Я студент.</li>
-                <li>You are my friend. — Ты мой друг.</li>
-                <li>He is a teacher. — Он учитель.</li>
-                <li>She is a doctor. — Она врач.</li>
-                <li>It is a book. — Это книга.</li>
-                <li>We are happy. — Мы счастливы.</li>
-                <li>They are here. — Они здесь.</li>
-            </ul>
-        </div>
-
-        <!-- Секция 3: Задание 1 (Quiz) -->
-        <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <div>
-                <div class="quiz-question">
-                    <label>1. She ___ a doctor.</label>
-                    <input type="text" id="q1" placeholder="is/are/am">
-                </div>
-                <div class="quiz-question">
-                    <label>2. They ___ happy.</label>
-                    <input type="text" id="q2" placeholder="is/are/am">
-                </div>
-                <div class="quiz-question">
-                    <label>3. I ___ a student.</label>
-                    <input type="text" id="q3" placeholder="is/are/am">
-                </div>
-                <button class="submit-btn" onclick="checkQuiz()">Проверить ответы</button>
-                <div class="feedback" id="quiz-feedback"></div>
+          <div class="section">
+            <h3>Видео урок: Английский алфавит</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
             </div>
-        </div>
-
-        <!-- Секция 4: Задание 2 (Matching) -->
+        </div>          
+        
         <div class="section">
-            <h3>Задание 2: Сопоставьте слова</h3>
+            <ul class="alphabet-list">
+                <li><span class="letter">A</span> - <span class="word arm">Arm</span> [ɑːm] — Рука</li>
+                <li><span class="letter">B</span> - <span class="word ball">Ball</span> [bɔːl] — Мяч</li>
+                <li><span class="letter">C</span> - <span class="word cat">Cat</span> [kæt] — Кот</li>
+                <li><span class="letter">D</span> - <span class="word dog">Dog</span> [dɒɡ] — Собака</li>
+                <li><span class="letter">E</span> - <span class="word egg">Egg</span> [eɡ] — Яйцо</li>
+                <li><span class="letter">F</span> - <span class="word fish">Fish</span> [fɪʃ] — Рыба</li>
+                <li><span class="letter">G</span> - <span class="word goat">Goat</span> [ɡəʊt] — Козёл</li>
+                <li><span class="letter">H</span> - <span class="word hat">Hat</span> [hæt] — Шляпа</li>
+                <li><span class="letter">I</span> - <span class="word ice">Ice</span> [aɪs] — Лёд</li>
+                <li><span class="letter">J</span> - <span class="word juice">Juice</span> [dʒuːs] — Сок</li>
+                <li><span class="letter">K</span> - <span class="word kite">Kite</span> [kaɪt] — Воздушный змей</li>
+                <li><span class="letter">L</span> - <span class="word lion">Lion</span> [ˈlaɪ.ən] — Лев</li>
+                <li><span class="letter">M</span> - <span class="word moon">Moon</span> [muːn] — Луна</li>
+                <li><span class="letter">N</span> - <span class="word nose">Nose</span> [nəʊz] — Нос</li>
+                <li><span class="letter">O</span> - <span class="word owl">Owl</span> [aʊl] — Сова</li>
+                <li><span class="letter">P</span> - <span class="word pen">Pen</span> [pen] — Ручка</li>
+                <li><span class="letter">Q</span> - <span class="word queen">Queen</span> [kwiːn] — Королева</li>
+                <li><span class="letter">R</span> - <span class="word robot">Robot</span> [ˈrəʊ.bɒt] — Робот</li>
+                <li><span class="letter">S</span> - <span class="word sun">Sun</span> [sʌn] — Солнце</li>
+                <li><span class="letter">T</span> - <span class="word tiger">Tiger</span> [ˈtaɪ.ɡə] — Тигр</li>
+                <li><span class="letter">U</span> - <span class="word umbrella">Umbrella</span> [ʌmˈbrel.ə] — Зонт</li>
+                <li><span class="letter">V</span> - <span class="word van">Van</span> [væn] — Фургон</li>
+                <li><span class="letter">W</span> - <span class="word water">Water</span> [ˈwɔː.tə] — Вода</li>
+                <li><span class="letter">X</span> - <span class="word xylophone">Xylophone</span> [ˈzaɪ.lə.fəʊn] — Ксилофон</li>
+                <li><span class="letter">Y</span> - <span class="word yellow">Yellow</span> [ˈjel.əʊ] — Жёлтый</li>
+                <li><span class="letter">Z</span> - <span class="word zebra">Zebra</span> [ˈze.brə] — Зебра</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h3>Задание 1: Выберите как переводятся слова с английского на русский.</h3>
             <div>
                 <div class="quiz-question">
-                    <label>Good morning</label>
+                    <label>Juice</label>
                     <select id="match1">
                         <option value="">Выберите перевод</option>
-                        <option value="1">Доброе утро</option>
-                        <option value="2">До свидания</option>
-                        <option value="3">Спасибо</option>
+                        <option value="1">Сок</option>
+                        <option value="2">Жёлтый</option>
+                        <option value="3">Зонт</option>
                     </select>
                 </div>
                 <div class="quiz-question">
-                    <label>Thank you</label>
+                    <label>Kite</label>
                     <select id="match2">
                         <option value="">Выберите перевод</option>
-                        <option value="1">Спасибо</option>
-                        <option value="2">Привет</option>
-                        <option value="3">Извините</option>
+                        <option value="1">Робот</option>
+                        <option value="2">Королева</option>
+                        <option value="3">Воздушный змей</option>
                     </select>
                 </div>
                 <div class="quiz-question">
-                    <label>Sorry</label>
+                    <label>Fish</label>
                     <select id="match3">
                         <option value="">Выберите перевод</option>
-                        <option value="1">Извините</option>
-                        <option value="2">Доброе утро</option>
-                        <option value="3">Пожалуйста</option>
+                        <option value="1">Сова</option>
+                        <option value="2">Рыба</option>
+                        <option value="3">Кот</option>
                     </select>
                 </div>
-                <button class="submit-btn" onclick="checkMatching()">Проверить сопоставление</button>
+                <div class="quiz-question">
+                    <label>Queen</label>
+                    <select id="match4">
+                        <option value="">Выберите перевод</option>
+                        <option value="1">Королева</option>
+                        <option value="2">Принц</option>
+                        <option value="3">Ксилофон</option>
+                    </select>
+                </div>
+                <div class="quiz-question">
+                    <label>Hat</label>
+                    <select id="match5">
+                        <option value="">Выберите перевод</option>
+                        <option value="1">Шляпа</option>
+                        <option value="2">Шишка</option>
+                        <option value="3">Рука</option>
+                    </select>
+                </div>
+                <div class="quiz-question">
+                    <label>Sun</label>
+                    <select id="match6">
+                        <option value="">Выберите перевод</option>
+                        <option value="1">Луна</option>
+                        <option value="2">Солнце</option>
+                        <option value="3">Дождь</option>
+                    </select>
+                </div>
+                <div class="quiz-question">
+                    <label>Nose</label>
+                    <select id="match7">
+                        <option value="">Выберите перевод</option>
+                        <option value="1">Робот</option>
+                        <option value="2">Сова</option>
+                        <option value="3">Нос</option>
+                    </select>
+                </div>
+                <div class="quiz-question">
+                    <label>Goat</label>
+                    <select id="match8">
+                        <option value="">Выберите перевод</option>
+                        <option value="1">Горошек</option>
+                        <option value="2">Козёл</option>
+                        <option value="3">Мяч</option>
+                    </select>
+                </div>
+                <button class="submit-btn" onclick="checkMatching()">Проверить</button>
                 <div class="feedback" id="matching-feedback"></div>
             </div>
         </div>
-
+        <div class="section">
+            <h3>Задание 2: Введите название на английском языке с картинки.</h3>
+            <div>
+                <div class="quiz-question">
+                    <img src="https://i.pinimg.com/originals/02/d5/b6/02d5b636be66175b7ac511791965a1a3.jpg" alt="Зебра" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <label>1. It is a ___.</label>
+                    <input type="text" id="q1">
+                </div>
+                <div class="quiz-question">
+                    <img src="https://media.baamboozle.com/uploads/images/51954/1610615579_319266" alt="Мяч" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <label>2. It is a ___.</label>
+                    <input type="text" id="q2">
+                </div>
+                <div class="quiz-question">
+                    <img src="https://avatars.mds.yandex.net/i?id=937fb46a12ab56255ca6b814299cf4de_l-4628278-images-thumbs&n=13" alt="Собака" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <label>3. It is a ___.</label>
+                    <input type="text" id="q3">
+                </div>
+                <div class="quiz-question">
+                    <img src="https://avatars.mds.yandex.net/i?id=11e05f39d288fa421ef2ddd450708408_l-7755864-images-thumbs&n=13" alt="Тигр" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <label>4. It is a ___.</label>
+                    <input type="text" id="q4">
+                </div>
+                <div class="quiz-question">
+                    <img src="https://pchelka-nn.ru/upload/iblock/edd/eddb766df203a7d48a83b2c382b43290.jpeg" alt="Кошка" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <label>5. It is a ___.</label>
+                    <input type="text" id="q5">
+                </div>
+                <button class="submit-btn" onclick="checkQuiz()">Проверить</button>
+                <div class="feedback" id="quiz-feedback"></div>
+            </div>
+        </div>
         
     </div>
+        
 </body>
 </html>

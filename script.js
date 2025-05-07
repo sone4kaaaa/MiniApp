@@ -1177,9 +1177,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (lessonTitle.includes('Урок 1')) {
             // Пример ответов для Урока 1
             answers = {
-                q1: 'is',
-                q2: 'are',
-                q3: 'am'
+                q1: 'zebra',
+                q2: 'ball',
+                q3: 'dog',
+                q4: 'tiger',
+                q5: 'cat',
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример ответов для Урока 2
@@ -1249,8 +1251,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Пример сопоставлений для Урока 1
             matches = {
                 match1: '1',
-                match2: '1',
-                match3: '1'
+                match2: '3',
+                match3: '2',
+                match4: '1',
+                match5: '1',
+                match6: '2',
+                match7: '3',
+                match8: '2',
             };
         } else if (lessonTitle.includes('Урок 2')) {
             // Пример сопоставлений для Урока 2

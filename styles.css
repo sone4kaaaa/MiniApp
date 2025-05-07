@@ -26,7 +26,6 @@ body {
     max-width: 400px;
     text-align: left;
     position: relative;
-    background-image: url('Strelki.png'); /* Замените на ваш URL изображения */
     background-size: cover;
     background-position: center 20px;
     padding: 60px 20px; /* Уменьшено для лучшей пропорции */

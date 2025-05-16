@@ -1316,10 +1316,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.checkQuiz01 = function() {
         const answers = {
             q1: 'zebra',
-                q2: 'tiger',
-                q3: 'dog',
-                q4: 'cat',
-                q5: 'owl'
+            q2: 'tiger',
+            q3: 'dog',
+            q4: 'cat',
+            q5: 'owl'
         };
 
         let score = 0;
@@ -1345,6 +1345,42 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             feedback.className = 'feedback error';
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
+
+    window.checkMatching01 = function() {
+        const matches = {
+            match1: '1',
+            match2: '3',
+            match3: '2',
+            match4: '1',
+            match5: '3',
+            match6: '1',
+            match7: '2',
+            match8: '1'
+        };
+
+        let score = 0;
+        let total = 3;
+
+        for (let key in matches) {
+            const userChoice = document.getElementById(key).value;
+            if (userChoice === matches[key]) {
+                score++;
+                document.getElementById(key).style.borderColor = '#28a745';
+            } else {
+                document.getElementById(key).style.borderColor = '#dc3545';
+            }
+        }
+
+        const feedback = document.getElementById('matching-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = 'Все верно! Отличная работа.';
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
     /**
@@ -1384,47 +1420,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    window.checkMatching01 = function() {
+    window.checkMatching4 = function() {
         const matches = {
             match1: '3', // Talk on the phone -> Разговаривать по телефону
             match2: '2', // Watch -> Смотреть
             match3: '2'  // Type -> Печатать
-        };
-
-        let score = 0;
-        let total = 3;
-
-        for (let key in matches) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === matches[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('matching-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Все верно! Отличная работа.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-    window.checkMatching4 = function() {
-        const matches = {
-            match1: '1',
-            match2: '3',
-            match3: '2',
-            match4: '1',
-            match5: '3',
-            match6: '1',
-            match7: '2',
-            match8: '1'
         };
 
         let score = 0;

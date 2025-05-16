@@ -1337,7 +1337,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        const feedback = document.getElementById('quiz1-feedback');
+        const feedback = document.getElementById('quiz-feedback');
         feedback.style.display = 'block';
         if (score === total) {
             feedback.className = 'feedback success';

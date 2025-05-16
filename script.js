@@ -1361,7 +1361,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
 
         let score = 0;
-        let total = 3;
+        let total = Object.keys(matches).length;
 
         for (let key in matches) {
             const userChoice = document.getElementById(key).value;

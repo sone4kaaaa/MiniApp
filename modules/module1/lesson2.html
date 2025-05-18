@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 2: Основные фразы и вопросительные предложения</title>
+    <title>Урок 2: Цифры в английском языке</title>
     <style>
         .lesson-container {
             max-height: 80vh; 
@@ -156,12 +156,91 @@
             border: 1px solid #ccc;
             margin-left: 10px;
         }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 5px solid;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .card-number {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .card-word {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .card-transcription {
+            font-size: 16px;
+            color: gray;
+        }
+
+        .card-0 { background: #ffecec; border-color: #ff4c4c; color: #ff4c4c; }
+        .card-1 { background: #ede6ff; border-color: #6A5ACD; color: #6A5ACD; }
+        .card-2 { background: #e6f7f5; border-color: #20B2AA; color: #20B2AA; }
+        .card-3 { background: #fff0e0; border-color: #FF8C00; color: #FF8C00; }
+        .card-4 { background: #e3f8ee; border-color: #3CB371; color: #3CB371; }
+        .card-5 { background: #f7e6fa; border-color: #DA70D6; color: #DA70D6; }
+        .card-6 { background: #e6effa; border-color: #4682B4; color: #4682B4; }
+        .card-7 { background: #fde9e9; border-color: #B22222; color: #B22222; }
+        .card-8 { background: #f3e6ff; border-color: #9932CC; color: #9932CC; }
+        .card-9 { background: #e6faef; border-color: #2E8B57; color: #2E8B57; }
+        .card-10 { background: #ffe6f4; border-color: #FF1493; color: #FF1493; }
+        .card-11 { background: #e0f7fa; border-color: #00acc1; color: #00acc1; }
+        .card-12 { background: #fce4ec; border-color: #ec407a; color: #ec407a; }
+
+
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .match-number {
+            font-size: 32px;
+            font-weight: bold;
+            width: 50px;
+            text-align: center;
+        }
+
+        /* Цвета цифр */
+        .match-color-0 { color: #ff4c4c; }
+        .match-color-1 { color: #6A5ACD; }
+        .match-color-2 { color: #20B2AA; }
+        .match-color-3 { color: #FF8C00; }
+        .match-color-4 { color: #3CB371; }
+        .match-color-5 { color: #DA70D6; }
+        .match-color-6 { color: #4682B4; }
+        .match-color-7 { color: #B22222; }
+        .match-color-8 { color: #9932CC; }
+        .match-color-9 { color: #2E8B57; }
+        .match-color-10 { color: #FF1493; }
+        .match-color-11 { color: #00acc1; }
+        .match-color-12 { color: #ec407a; }
+
     </style>
 </head>
 <body>
     <div class="lesson-container">
 
-        <h2>Урок 2: Числа в английском языке</h2>
+        <h2>Урок 2: Цифры в английском языке</h2>
 
         <button class="back-button"
                 onclick="
@@ -173,113 +252,276 @@
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-        <img src="https://avatars.mds.yandex.net/i?id=49454743cfd18371849bc4be0e45ec76_l-12533415-images-thumbs&n=13" alt="Цифры" style="max-width:100%; height:300px; margin-bottom:10px;">
-        <div class="section">
-            <h3>Диалог по ролям с переводом:</h3>
-            <ul>1: How are you? - Как ты?</ul>
-            <ul>2: I am fine! - Я хорошо!</ul>
-            <ul>1: What is your name? - Как тебя зовут?</ul>
-            <ul>2: My name is... - Меня зовут...</ul>
-            <ul>1: Nice to meet you - Приятно познакомиться</ul>
-            <ul>1: How old are you? - Сколько тебе лет?</ul>
-            <ul>2: I am ... years old - Мне ... лет</ul>
-            <ul>1: Where are you from? - Откуда ты?</ul>
-            <ul>2: I am from Russia - Я из России</ul>
-            <ul><img src="https://avatars.mds.yandex.net/i?id=c99ff07405843c17f56c01cb0b1a3d53_l-9097293-images-thumbs&n=13" alt="Фото" style="max-width:100%; height:250px; margin-bottom:0px; margin-top:10px;">
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h3>Грамматика: Вопросительные предложения</h3>
-            <p>В этом разделе мы научимся строить простые вопросительные предложения на основе глагола "to be".</p>
-        
-            <h4>Структура вопросительных предложений</h4>
-            <p>Для образования вопросительных предложений с глаголом "to be" используется инверсия подлежащего и глагола.</p>
-            <table>
-                <tr>
-                    <th>Утвердительное предложение</th>
-                    <th>Вопросительное предложение</th>
-                </tr>
-                <tr>
-                    <td>You are a teacher.</td>
-                    <td>Are you a teacher?</td>
-                </tr>
-                <tr>
-                    <td>They are students.</td>
-                    <td>Are they students?</td>
-                </tr>
-                <tr>
-                    <td>He is happy.</td>
-                    <td>Is he happy?</td>
-                </tr>
-            </table>
-        
-            <h4>Примеры:</h4>
-            <ul>
-                <li>She is a doctor. - Is she a doctor?</li>
-                <li>We are friends. - Are we friends?</li>
-                <li>I am a student. - Am I a student?</li>
-            </ul>
-        </div>
+        <div class="cards-container">
+            <div class="card card-0">
+                <div class="card-number">0</div>
+                <div class="card-word">zero</div>
+                <div class="card-transcription">['zɪərəʊ]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_0.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
 
-        <!-- Интерактивные задания -->
-        <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <div class="quiz">
-                <div class="quiz-question">
-                    <label>1. You ___ a teacher.</label>
-                    <input type="text" id="q1" placeholder="are/is/am">
+            <div class="card card-1">
+                <div class="card-number">1</div>
+                <div class="card-word">one</div>
+                <div class="card-transcription">[wʌn]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_01.mp3" type="audio/mp3">
+                    </audio>
                 </div>
-                <div class="quiz-question">
-                    <label>2. He ___ happy.</label>
-                    <input type="text" id="q2" placeholder="are/is/am">
+            </div>
+
+            <div class="card card-2">
+                <div class="card-number">2</div>
+                <div class="card-word">two</div>
+                <div class="card-transcription">[tuː]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_02.mp3" type="audio/mp3">
+                    </audio>
                 </div>
-                <div class="quiz-question">
-                    <label>3. I ___ from Russia.</label>
-                    <input type="text" id="q3" placeholder="are/is/am">
+            </div>
+
+            <div class="card card-3">
+                <div class="card-number">3</div>
+                <div class="card-word">three</div>
+                <div class="card-transcription">[θriː]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_03.mp3" type="audio/mp3">
+                    </audio>
                 </div>
-                <button class="submit-btn" onclick="checkQuiz()">Проверить ответы</button>
-                <div class="feedback" id="quiz-feedback"></div>
+            </div>
+
+            <div class="card card-4">
+                <div class="card-number">4</div>
+                <div class="card-word">four</div>
+                <div class="card-transcription">[fɔː]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_04.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-5">
+                <div class="card-number">5</div>
+                <div class="card-word">five</div>
+                <div class="card-transcription">[faɪv]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_05.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-6">
+                <div class="card-number">6</div>
+                <div class="card-word">six</div>
+                <div class="card-transcription">[sɪks]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_06.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-7">
+                <div class="card-number">7</div>
+                <div class="card-word">seven</div>
+                <div class="card-transcription">[ˈsevən]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_07.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-8">
+                <div class="card-number">8</div>
+                <div class="card-word">eight</div>
+                <div class="card-transcription">[eɪt]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_08.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-9">
+                <div class="card-number">9</div>
+                <div class="card-word">nine</div>
+                <div class="card-transcription">[naɪn]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_09.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-10">
+                <div class="card-number">10</div>
+                <div class="card-word">ten</div>
+                <div class="card-transcription">[ten]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_10.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+            <div class="card card-11">
+                <div class="card-number">11</div>
+                <div class="card-word">eleven</div>
+                <div class="card-transcription">[ɪˈlevn]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_11.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card card-12">
+                <div class="card-number">12</div>
+                <div class="card-word">twelve</div>
+                <div class="card-transcription">[twɛlv]</div>
+                <div class="media-container">
+                    <audio controls>
+                        <source src="./assets/audios/en_num_12.mp3" type="audio/mp3">
+                    </audio>
+                </div>
             </div>
         </div>
+        <h2>ИГРЫ</h2>
+        <div class="section" id="matching-game-section">
+            <h3>🧩 Соедини цифру и слово</h3>
+            <p>Выбери правильное слово для каждой цифры:</p>
 
-        <div class="section">
-            <h3>Задание 2: Сопоставьте слова</h3>
-            <div class="matching-game">
-                <div class="matching-item">
-                    <label>How are you?</label>
-                    <select id="match1">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">Как ты?</option>
-                        <option value="2">Привет</option>
-                        <option value="3">Спасибо</option>
-                    </select>
-                </div>
-                <div class="matching-item">
-                    <label>Good evening</label>
-                    <select id="match2">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">Добрый вечер</option>
-                        <option value="2">До свидания</option>
-                        <option value="3">Извините</option>
-                    </select>
-                </div>
-                <div class="matching-item">
-                    <label>See you later</label>
-                    <select id="match3">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">До встречи</option>
-                        <option value="2">Как тебя зовут?</option>
-                        <option value="3">Меня зовут...</option>
-                    </select>
-                </div>
-                <button class="check-matching-btn" onclick="checkMatching()">Проверить сопоставление</button>
-                <div class="matching-feedback" id="matching-feedback"></div>
+            <div id="matching-game" class="matching-game">
+                
             </div>
-        </div>
-        
-    </div>
 
-    
+            <button class="check-matching-btn" onclick="checkMatching()">Проверить</button>
+        </div>
+
+        <div class="section" id="number-guess-game">
+            <h3>🎯 Угадай число по аудио</h3>
+            <p>Нажми кнопку ниже, послушай и выбери правильное число!</p>
+            <button onclick="playRandomAudio()" class="submit-btn">▶️ Слушать число</button>
+            <div id="audio-player" class="media-container" style="margin-top:10px;"></div>
+            <div id="answer-buttons" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;"></div>
+            <div id="result" class="feedback" style="margin-top: 20px;"></div>
+        </div>
+  </div>
+<script>
+    const maxNumber = 12;
+
+    let correctNumber = 0;
+
+    function getRandomInt(max, exclude = []) {
+        let num;
+        do {
+            num = Math.floor(Math.random() * max);
+        } while (exclude.includes(num));
+        return num;
+    }
+
+    function playRandomAudio() {
+        correctNumber = getRandomInt(maxNumber + 1);
+        const audioHTML = `
+            <audio controls autoplay>
+                <source src="./assets/audios/en_num_${correctNumber.toString().padStart(2, '0')}.mp3" type="audio/mp3">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+        `;
+        document.getElementById('audio-player').innerHTML = audioHTML;
+        generateAnswerButtons();
+        document.getElementById('result').style.display = 'none';
+    }
+
+    function generateAnswerButtons() {
+        const answers = [correctNumber];
+        while (answers.length < 3) {
+            const rand = getRandomInt(maxNumber + 1, answers);
+            answers.push(rand);
+        }
+
+        // Перемешиваем
+        answers.sort(() => Math.random() - 0.5);
+
+        const buttonsHTML = answers.map(num => `
+            <button onclick="checkAnswer(${num})" class="submit-btn">${num}</button>
+        `).join('');
+
+        document.getElementById('answer-buttons').innerHTML = buttonsHTML;
+    }
+
+    function checkAnswer(selectedNumber) {
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+
+        if (selectedNumber === correctNumber) {
+            resultDiv.className = 'feedback success';
+            resultDiv.innerHTML = `✅ Молодец! Это <strong>${correctNumber}</strong>!<br><button onclick="playRandomAudio()" class="submit-btn">Следующее число ▶️</button>`;
+        } else {
+            resultDiv.className = 'feedback error';
+            resultDiv.innerHTML = `❌ Это не <strong>${selectedNumber}</strong>. Попробуй ещё раз!`;
+        }
+    }
+
+    const numberWords = [
+        "zero", "one", "two", "three", "four", "five",
+        "six", "seven", "eight", "nine", "ten", "eleven", "twelve"
+    ];
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function generateMatchingGame() {
+        const container = document.getElementById('matching-game');
+        let html = '';
+
+        // Создаём массив чисел от 0 до 12 и перемешиваем
+        const numbers = Array.from({ length: 13 }, (_, i) => i);
+        shuffleArray(numbers);
+
+        numbers.forEach(i => {
+            html += `
+                <div class="matching-item" id="match-${i}">
+                    <label class="match-number match-color-${i}">${i}</label>
+                    <select>
+                        <option value="">выбери</option>
+                        ${numberWords.map(word => `<option value="${word}">${word}</option>`).join('')}
+                    </select>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+
+    function checkMatching() {
+        for (let i = 0; i <= 12; i++) {
+            const item = document.querySelector(`#match-${i}`);
+            const select = item.querySelector('select');
+            const selected = select.value;
+            const correct = numberWords[i];
+
+            item.style.backgroundColor = selected === correct ? "#d4edda" : "#f8d7da";
+        }
+    }
+
+    generateMatchingGame();
+
+</script>
+
 </body>
 </html>

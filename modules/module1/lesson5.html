@@ -4,21 +4,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 5: Conditionals (Условные предложения)</title>
+    <title>Урок 5: Местоимения</title>
     <style>
-        /* Локальные стили для урока */
         .lesson-container {
             max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
             overflow-y: auto; /* Добавление вертикальной прокрутки */
             padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: #333; /* Тёмный фон */
+            background-color: #5ce02d; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff;
+            color: #1e4811;
         }
 
         /* Кнопка "Назад" */
@@ -156,9 +155,8 @@
             transition: border-color 0.3s;
         }
         .drop-zone.dragover {
-            border-color: #28a745; /* Зеленый при наведении */
+            border-color: #28a745;
         }
-        /* Кнопка "Next Lesson" */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -180,13 +178,35 @@
         .next-icon {
             margin-right: 8px;
         }
+
+        thead th:nth-child(1) { background-color: #b30000; color: white; }
+        thead th:nth-child(2) { background-color: #b36b00; color: white; }
+        thead th:nth-child(3) { background-color: #267326; color: white; }
+        thead th:nth-child(4) { background-color: #1a75ff; color: white; }
+        thead th:nth-child(5) { background-color: #663399; color: white; }
+
+        tbody td:nth-child(1) { background-color: #ffcccc; }
+        tbody td:nth-child(2) { background-color: #ffe0b3; }
+        tbody td:nth-child(3) { background-color: #ccffcc; }
+        tbody td:nth-child(4) { background-color: #cce0ff; }
+        tbody td:nth-child(5) { background-color: #e0ccff; }
+        
+        .correct-answer {
+            background-color: #c8e6c9; /* зелёный */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .wrong-answer {
+            background-color: #ffcdd2; /* красный */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 5: Conditionals (Условные предложения)</h2>
+        <h2>Урок 5: Местоимения</h2>
 
-        <!-- Кнопка "Назад" -->
         <button class="back-button"
                 onclick="
                     document.getElementById('lesson-content').classList.add('hidden');
@@ -198,184 +218,213 @@
             Назад
         </button>
 
-        <!-- 1. Теория -->
         <div class="section">
-            <h3>Введение в условные предложения</h3>
-            <p>Условные предложения (Conditionals) используются, чтобы описать ситуации, зависящие от определённого условия. Рассмотрим основные типы: <strong>Zero, First и Second Conditional</strong>.</p>
-            <ul>
-                <li><strong>Zero Conditional</strong>: используется, когда результат всегда истинен.  
-                  Пример: If you heat water to 100°C, it boils.</li>
-                <li><strong>First Conditional</strong>: реальная ситуация в будущем.  
-                  Пример: If it rains tomorrow, I will stay at home.</li>
-                <li><strong>Second Conditional</strong>: нереальная (воображаемая) ситуация в настоящем или будущем.  
-                  Пример: If I were rich, I would travel the world.</li>
-            </ul>
-        </div>
+    <h3>Личные местоимения</h3>
+    <p>Ниже представлена таблица с личными местоимениями в английском языке в именительном и объектном падежах:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Лицо</th>
+                <th>Ед.ч. (Именит.)</th>
+                <th>Ед.ч. (Объект.)</th>
+                <th>Мн.ч. (Именит.)</th>
+                <th>Мн.ч. (Объект.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1-е лицо</td>
+                <td>I (я)</td>
+                <td>me (меня, мне)</td>
+                <td>we (мы)</td>
+                <td>us (нас, нам)</td>
+            </tr>
+            <tr>
+                <td>2-е лицо</td>
+                <td>you (ты)</td>
+                <td>you (тебя, тебе)</td>
+                <td>you (вы)</td>
+                <td>you (вас, вам)</td>
+            </tr>
+            <tr>
+                <td>3-е лицо</td>
+                <td>
+                    he (он)<br>
+                    she (она)<br>
+                    it (оно, это)
+                </td>
+                <td>
+                    him (его, ему)<br>
+                    her (её)<br>
+                    it (его, ему; её, этому)
+                </td>
+                <td>they (они)</td>
+                <td>them (их)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-        <!-- 2. Задание 1: Заполните пропуски (First Conditional) -->
-        <div class="section">
-            <h3>Задание 1: Заполните пропуски (First Conditional)</h3>
-            <p>Вставьте правильную форму глаголов в скобках, используя "will" или "won't" (или "will not") и "if":</p>
-            <div class="quiz-question">
-                <label>1. If it ___ (to rain), I ___ (to stay) at home.</label>
-                <input type="text" id="q1" placeholder="Например, If it rains, I will stay at home.">
-            </div>
-            <div class="quiz-question">
-                <label>2. If you ___ (to call) me, I ___ (to help) you.</label>
-                <input type="text" id="q2" placeholder="Например, If you call me, I will help you.">
-            </div>
-            <button class="submit-btn" onclick="checkFirstConditional()">Проверить</button>
-            <div class="feedback" id="firstcond-feedback"></div>
-        </div>
+<div class="section">
+    <h3>Притяжательные местоимения</h3>
+    <p>Притяжательные местоимения имеют две формы. Вторая форма употребляется, если за местоимением не следует существительное:</p>
+    <ul>
+        <li>This is <strong>my</strong> book. — Это моя книга.</li>
+        <li>This book is <strong>mine</strong>. — Эта книга моя.</li>
+    </ul>
 
-        <!-- 3. Задание 2: Second Conditional Matching -->
-        <div class="section">
-            <h3>Задание 2: Сопоставьте половинки (Second Conditional)</h3>
-            <p>Выберите правильное продолжение для каждого предложения:</p>
-            <div class="quiz-question">
-                <label>1. If I had more time, ...</label>
-                <select id="s2-1">
-                    <option value="">Выберите вариант</option>
-                    <option value="1">... I would travel the world.</option>
-                    <option value="2">... I will travel the world.</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>2. If he were here, ...</label>
-                <select id="s2-2">
-                    <option value="">Выберите вариант</option>
-                    <option value="1">... he would fix the computer.</option>
-                    <option value="2">... he will fix the computer.</option>
-                </select>
-            </div>
-            <button class="submit-btn" onclick="checkSecondCondMatching()">Проверить</button>
-            <div class="feedback" id="secondcond-feedback"></div>
-        </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Лицо</th>
+                <th>Форма I<br>(перед сущ.)</th>
+                <th>Форма II<br>(самостоятельно)</th>
+                <th>Перевод</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1-е лицо ед.ч.</td>
+                <td>my</td>
+                <td>mine</td>
+                <td>мой, моя, моё, мои</td>
+            </tr>
+            <tr>
+                <td>2-е лицо ед.ч.</td>
+                <td>your</td>
+                <td>yours</td>
+                <td>твой, твоя, твоё, твои</td>
+            </tr>
+            <tr>
+                <td>3-е лицо ед.ч.</td>
+                <td>his</td>
+                <td>his</td>
+                <td>его</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>her</td>
+                <td>hers</td>
+                <td>её</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>its</td>
+                <td>its</td>
+                <td>его, её (о предметах/животных)</td>
+            </tr>
+            <tr>
+                <td>1-е лицо мн.ч.</td>
+                <td>our</td>
+                <td>ours</td>
+                <td>наш, наша, наше, наши</td>
+            </tr>
+            <tr>
+                <td>2-е лицо мн.ч.</td>
+                <td>your</td>
+                <td>yours</td>
+                <td>ваш, ваша, ваше, ваши</td>
+            </tr>
+            <tr>
+                <td>3-е лицо мн.ч.</td>
+                <td>their</td>
+                <td>theirs</td>
+                <td>их</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="section">
+            <h3>Задание: Сопоставь картинку с местоимением</h3>
 
-        <!-- 4. Задание 3: Error Correction (Conditionals) -->
-        <div class="section">
-            <h3>Задание 3: Исправьте ошибки</h3>
-            <p>В тексте допущены ошибки при использовании First/Second Conditional. Исправьте их (contenteditable):</p>
-            <p>
-                <strong>Текст:</strong><br>
-                1) If I will see him, I will say hello. → <span id="e1" contenteditable="true" class="error-input">If I will see him, I will say hello.</span><br>
-                2) If you called me tomorrow, I will help you. → <span id="e2" contenteditable="true" class="error-input">If you called me tomorrow, I will help you.</span><br>
-            </p>
-            <button class="submit-btn" onclick="checkErrorCorrection()">Проверить ошибки</button>
-            <div class="feedback" id="error-feedback"></div>
+            <form id="transcription-quiz">
+                <div class="quiz-question">
+                <img src="https://i.pinimg.com/originals/d4/4d/b8/d44db81605b082f1ca9fd128c0808d6f.jpg" alt="Я" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q1" value="1"> I</label><br/>
+                <label><input type="radio" name="q1" value="0"> We</label><br/>
+                </div>
+                
+                <div class="quiz-question">
+                <img src="https://i.pinimg.com/550x/97/d6/b0/97d6b04a49f8237ee705041865ffffdc.jpg" alt="Она" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q2" value="0"> He</label><br/>
+                <label><input type="radio" name="q2" value="1"> She</label><br/>
+                </div>
+
+                <div class="quiz-question">
+                <img src="https://i.pinimg.com/736x/6b/5f/05/6b5f05f6344baacb0ef1797334a86f86.jpg" alt="Мы" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q3" value="0"> He</label><br/>
+                <label><input type="radio" name="q3" value="1"> We</label><br/>
+                </div>
+
+                <div class="quiz-question">
+                <img src="https://cdn.culture.ru/images/be670986-4a6b-5f9e-b506-db0eb46e757c" alt="Они" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q4" value="1"> They</label><br/>
+                <label><input type="radio" name="q4" value="0"> He</label><br/>
+                </div>
+
+                <div class="quiz-question">
+                <img src="https://img.freepik.com/premium-vector/cute-boy-cartoon_33070-1913.jpg" alt="Он" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q5" value="0"> She</label><br/>
+                <label><input type="radio" name="q5" value="1"> He</label><br/>
+                </div>
+
+                <div class="quiz-question">
+                <img src="https://media.baamboozle.com/uploads/images/51954/1610615579_319266" alt="Оно" style="max-width:100%; height:180px; margin-bottom:10px;">
+                <label><input type="radio" name="q6" value="1"> It</label><br/>
+                <label><input type="radio" name="q6" value="0"> He</label><br/>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkQuiz05()">Проверить</button>
+
+                <div id="quiz-feedback" class="feedback"></div>
+            </form>
         </div>
     </div>
 
     <script>
-        /************************************************************
-         * Задание 1: First Conditional
-         ************************************************************/
-        function checkFirstConditional() {
-            // Пример корректных ответов:
-            // q1 -> "If it rains, I will stay at home."
-            // q2 -> "If you call me, I will help you."
-            let score = 0;
-            let total = 2;
+function checkQuiz05() {
+    const form = document.getElementById('transcription-quiz');
+    const feedback = document.getElementById('quiz-feedback');
+    const formData = new FormData(form);
+    let score = 0;
+    const total = 6;
 
-            const userQ1 = document.getElementById('q1').value.trim().toLowerCase().replace(/\./g,'');
-            const userQ2 = document.getElementById('q2').value.trim().toLowerCase().replace(/\./g,'');
+    // Сброс подсветки у всех меток
+    const allLabels = form.querySelectorAll('label');
+    allLabels.forEach(label => {
+        label.classList.remove('correct-answer', 'wrong-answer');
+    });
 
-            // Проверка q1
-            if (userQ1.includes('if it rains') && userQ1.includes('i will stay at home')) {
-                score++;
-                document.getElementById('q1').style.border = '2px solid #28a745';
-            } else {
-                document.getElementById('q1').style.border = '2px solid #dc3545';
-            }
+    // Проверка каждого вопроса
+    for (let i = 1; i <= total; i++) {
+        const radios = form.querySelectorAll(`input[name="q${i}"]`);
+        const selectedValue = formData.get(`q${i}`);
 
-            // Проверка q2
-            if (userQ2.includes('if you call me') && userQ2.includes('i will help you')) {
-                score++;
-                document.getElementById('q2').style.border = '2px solid #28a745';
-            } else {
-                document.getElementById('q2').style.border = '2px solid #dc3545';
-            }
-
-            const fb = document.getElementById('firstcond-feedback');
-            fb.style.display = 'block';
-            if (score === total) {
-                fb.className = 'feedback success';
-                fb.textContent = `Отлично! Все ${total} примеров First Conditional верны.`;
-            } else {
-                fb.className = 'feedback error';
-                fb.textContent = `Верно: ${score} из ${total}. Проверьте формулировки ещё раз.`;
-            }
-        }
-
-        /************************************************************
-         * Задание 2: Second Conditional Matching
-         ************************************************************/
-        function checkSecondCondMatching() {
-            const correct = { 's2-1': '1', 's2-2': '1' };
-            let score = 0;
-            let total = 2;
-
-            for (let key in correct) {
-                const userChoice = document.getElementById(key).value;
-                if (userChoice === correct[key]) {
-                    score++;
-                    document.getElementById(key).style.borderColor = '#28a745';
-                } else {
-                    document.getElementById(key).style.borderColor = '#dc3545';
+        if (selectedValue !== null) {
+            radios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === "1") {
+                        radio.parentElement.classList.add('correct-answer');
+                        score++;
+                    } else {
+                        radio.parentElement.classList.add('wrong-answer');
+                    }
                 }
-            }
-
-            const fb = document.getElementById('secondcond-feedback');
-            fb.style.display = 'block';
-            if (score === total) {
-                fb.className = 'feedback success';
-                fb.textContent = 'Превосходно! Second Conditional использован правильно.';
-            } else {
-                fb.className = 'feedback error';
-                fb.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-            }
+            });
         }
+    }
 
-        /************************************************************
-         * Задание 3: Error Correction (Conditionals)
-         ************************************************************/
-        function checkErrorCorrection() {
-            // Ошибки:
-            // 1) First Conditional не использует will после if (правильно: "If I see him, I will say hello.")
-            // 2) "If you called me tomorrow, I will help you." => либо First, либо Second. Для tomorrow -> First: "If you call me tomorrow, I will help you."
-            let score = 0;
-            let total = 2;
+    // Вывод результата
+    feedback.style.display = 'block';
+    if (score === total) {
+        feedback.className = 'feedback success';
+        feedback.innerText = 'Отлично! Все ответы верны!';
+    } else {
+        feedback.className = 'feedback error';
+        feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
+    }
+}
+</script>
 
-            const e1 = document.getElementById('e1').textContent.trim().toLowerCase();
-            const e2 = document.getElementById('e2').textContent.trim().toLowerCase();
-
-            // Правильный вариант (пример): "If I see him, I will say hello."
-            if (e1.includes('if i see him') && e1.includes('i will say hello')) {
-                score++;
-                document.getElementById('e1').style.border = '2px solid #28a745';
-            } else {
-                document.getElementById('e1').style.border = '2px solid #dc3545';
-            }
-
-            // Правильный вариант (пример): "If you call me tomorrow, I will help you."
-            if (e2.includes('if you call me tomorrow') && e2.includes('i will help you')) {
-                score++;
-                document.getElementById('e2').style.border = '2px solid #28a745';
-            } else {
-                document.getElementById('e2').style.border = '2px solid #dc3545';
-            }
-
-            const fb = document.getElementById('error-feedback');
-            fb.style.display = 'block';
-
-            if (score === total) {
-                fb.className = 'feedback success';
-                fb.textContent = 'Отличная работа! Все ошибки исправлены корректно.';
-            } else {
-                fb.className = 'feedback error';
-                fb.textContent = `Исправлено верно: ${score} из ${total}. Проверьте логику условных предложений.`;
-            }
-        }
-    </script>
 </body>
 </html>

@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 7: Modal Verbs (Advice & Obligation)</title>
+    <title>Урок 7: Учим животных</title>
     <style>
-        /* Локальные стили для урока */
         .lesson-container {
             max-height: 80vh; 
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333;
+            background-color: #89e66f;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff;
+            color: #1e6a05;
         }
 
         .section {
@@ -163,13 +162,35 @@
         .next-icon {
             margin-right: 8px;
         }
+
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .submit-btn, .undo-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .undo-btn {
+            background-color: #dc3545;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 7: Modal Verbs (Advice & Obligation)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 7: Учим животных</h2>
         <button class="back-button"
                 onclick="
                     document.getElementById('lesson-content').classList.add('hidden');
@@ -180,107 +201,202 @@
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-
-        <!-- 1. Теория: Modal Verbs -->
         <div class="section">
-            <h3>Основные модальные глаголы для выражения совета и обязательства</h3>
-            <p>В английском языке для выражения разных степеней обязательства, необходимости и совета часто используют такие модальные глаголы, как <strong>must</strong>, <strong>have to</strong>, <strong>should</strong>, <strong>ought to</strong>.  
-            </p>
+            <h3>Развлекательный урок. Изучаем новых животных</h3>
+            <p>Сегодня будет тематический урок, посвященный животным. Мы посмотрим мультик и сыграем в игру!</p>
+            <p>Перед просмотром мультика, запомним пару новых слов:</p>
             <ul>
-                <li><strong>Must</strong>: выражает сильное обязательство (внутреннее).  
-                    Пример: I must finish this report today.</li>
-                <li><strong>Have to</strong>: выражает внешнее обязательство, правило.  
-                    Пример: I have to wear a uniform at work.</li>
-                <li><strong>Should / Ought to</strong>: выражают совет, рекомендацию.  
-                    Пример: You should see a doctor.</li>
+                <li><strong>Cartoon</strong> [kɑːˈtuːn] — мультик</li>
+                <li><strong>Cinema</strong> [ˈsɪnəmə] — кино</li>
+                <li><strong>Film</strong> [fɪlm] — фильм</li>
+                <li><strong>Animals</strong> [ˈænɪməlz] — животные</li>
+                <li><strong>Pets</strong> [pets] — домашние животные</li>
+                <li><strong>Farm</strong> [fɑːm] — ферма</li>
+                <li><strong>House</strong> [haʊs] — дом</li>
+                <li><strong>Forest</strong> [ˈfɒrɪst] — лес</li>
             </ul>
         </div>
-
-        <!-- 2. Дополнительная теория: Различия между Must и Have to -->
         <div class="section">
-            <h3>Различия между <em>Must</em> и <em>Have to</em></h3>
-            <p>Хотя <strong>must</strong> и <strong>have to</strong> часто используются для выражения обязательства, между ними есть нюансы:</p>
-            <ul>
-                <li><strong>Must</strong> обычно выражает внутреннее обязательство, чувство необходимости, исходящее от самого говорящего.</li>
-                <li><strong>Have to</strong> чаще указывает на внешние обстоятельства или правила, которые вынуждают кого-либо что-то сделать.</li>
-            </ul>
-            <p>Примеры:</p>
-            <ul>
-                <li>I <strong>must</strong> remember to call her. (Я сам чувствую необходимость позвонить ей.)</li>
-                <li>I <strong>have to</strong> call her because it’s my job. (Я вынужден позвонить ей по рабочим причинам.)</li>
-            </ul>
+            <h3>▶️ Мультик про ANIMALS</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_animals.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>         
+        <div class="section">
+            <h3>▶️ Мультик про PETS</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_pets.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>         
+        
+        <div class="section" id="memory-game-section">
+        <h3>🧩 Игра «Мемори с животными»</h3>
+        <p>Найди пары: картинка и слово на английском!</p>
+        <div id="memory-game" style="display: grid; grid-template-columns: repeat(4, 120px); gap: 15px; justify-content: center;"></div>
+        <div id="memory-result" style="margin-top: 20px; font-weight: bold; color: green;"></div>
         </div>
 
-        <!-- 3. Дополнительная теория: Использование <em>Should</em> и <em>Ought to</em> -->
-        <div class="section">
-            <h3>Использование <em>Should</em> и <em>Ought to</em></h3>
-            <p><strong>Should</strong> и <strong>ought to</strong> используются для выражения совета или рекомендации. Они взаимозаменяемы, но <strong>should</strong> используется гораздо чаще в разговорной речи.</p>
-            <p>Примеры:</p>
-            <ul>
-                <li>You <strong>should</strong> eat more vegetables.</li>
-                <li>She <strong>ought to</strong> apologize for her mistake.</li>
-            </ul>
-            <p>Отрицательные формы:</p>
-            <ul>
-                <li>You <strong>should not</strong> smoke.</li>
-                <li>He <strong>ought not to</strong> be late again.</li>
-            </ul>
-        </div>
+<script>
+  (function(){
+    const gameContainer = document.getElementById('memory-game');
+    const resultDiv = document.getElementById('memory-result');
 
-        <!-- 4. Дополнительная теория: Формирование отрицательных и вопросительных предложений -->
-        <div class="section">
-            <h3>Формирование отрицательных и вопросительных предложений</h3>
-            <p>Модальные глаголы имеют упрощённую форму отрицания и вопросов:</p>
-            <ul>
-                <li>Отрицание: добавляется <strong>not</strong> после модального глагола.
-                    <ul>
-                        <li>I <strong>must not</strong> forget the meeting.</li>
-                        <li>They <strong>should not</strong> be late.</li>
-                    </ul>
-                </li>
-                <li>Вопросы: инверсия модального глагола и подлежащего.
-                    <ul>
-                        <li><strong>Must</strong> you leave so early?</li>
-                        <li><strong>Should</strong> I call you later?</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+    const pairs = [
+      {id: 1, word: 'Ram', img: 'https://i.pinimg.com/736x/9c/41/93/9c41933a38c7c9edd31424df47cd6861.jpg'},
+      {id: 2, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
+      {id: 3, word: 'Rabbit', img: 'https://avatars.mds.yandex.net/i?id=6c2b61033d5b0bfa57fd56b9e583469e_l-5288839-images-thumbs&n=13'},
+      {id: 4, word: 'Bird', img: 'https://avatars.mds.yandex.net/i?id=b44db42ae67a1088b76dd423793e40ab_l-4306607-images-thumbs&ref=rim&n=13&w=2305&h=2560'},
+      {id: 5, word: 'Elephant', img: 'https://avatars.mds.yandex.net/i?id=1fa52a6e74759c17b5a6f127c3e6ef8ef5b4d9ac-5680887-images-thumbs&n=13'},
+      {id: 6, word: 'Wolf', img: 'https://avatars.mds.yandex.net/i?id=527a62ce8b275f99cb44147bdac558393fa0f8da-4766550-images-thumbs&n=13'},
+      {id: 7, word: 'Duck', img: 'https://i.pinimg.com/736x/14/3c/a1/143ca1e1a42e1336b8376cbea1863ab7.jpg'},
+      {id: 8, word: 'Horse', img: 'https://avatars.mds.yandex.net/i?id=e5a660a7c01fcbb66a7b6be983435992_l-10126215-images-thumbs&n=13'}
+    ];
 
-        <!-- 5. Дополнительная теория: Модальные глаголы в прошлом времени -->
-        <div class="section">
-            <h3>Модальные глаголы в прошлом времени</h3>
-            <p>Хотя модальные глаголы не имеют прямых форм прошедшего времени, существуют способы выражения прошедшего обязательства или советов:</p>
-            <ul>
-                <li><strong>Had to</strong>: прошедшая форма <strong>have to</strong>, используется для выражения обязательства в прошлом.
-                    <ul>
-                        <li>I <strong>had to</strong> work late yesterday.</li>
-                    </ul>
-                </li>
-                <li><strong>Should have / Ought to have</strong>: используются для выражения не выполненного совета или сожаления.
-                    <ul>
-                        <li>You <strong>should have</strong> studied harder.</li>
-                        <li>She <strong>ought to have</strong> informed us earlier.</li>
-                    </ul>
-                </li>
-                <li><strong>Must have</strong>: предполагает уверенность в том, что что-то произошло в прошлом.
-                    <ul>
-                        <li>They <strong>must have</strong> left already.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+    let cards = [];
+    pairs.forEach(p => {
+      cards.push({type: 'word', id: p.id, content: p.word});
+      cards.push({type: 'img', id: p.id, content: p.img});
+    });
 
-        <!-- (Опционально) Кнопка "Далее": переход к следующему уроку -->
-        <!-- 
-        <button class="next-lesson-btn" onclick="navigateToNextLesson()">
-            <i class="fa-solid fa-arrow-right next-icon"></i>
-            Далее
-        </button>
-        -->
+    // Перемешиваем
+    function shuffle(arr) {
+      for(let i = arr.length -1; i>0; i--){
+        let j = Math.floor(Math.random()*(i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+    cards = shuffle(cards);
 
+    // Создаем карточки DOM
+    gameContainer.innerHTML = '';
+    cards.forEach((card, i) => {
+      const cardEl = document.createElement('div');
+      cardEl.className = 'memory-card';
+      cardEl.dataset.id = card.id;
+      cardEl.dataset.type = card.type;
+      cardEl.dataset.index = i;
+      cardEl.style.width = '120px';
+      cardEl.style.height = '150px';
+      cardEl.style.border = '2px solid #666';
+      cardEl.style.borderRadius = '10px';
+      cardEl.style.backgroundColor = '#fff';
+      cardEl.style.display = 'flex';
+      cardEl.style.alignItems = 'center';
+      cardEl.style.justifyContent = 'center';
+      cardEl.style.cursor = 'pointer';
+      cardEl.style.userSelect = 'none';
+      cardEl.style.fontSize = '18px';
+      cardEl.style.fontWeight = 'bold';
+      cardEl.style.textAlign = 'center';
+      cardEl.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
+      cardEl.style.transition = 'transform 0.3s';
+      cardEl.style.position = 'relative';
+
+      // Скрытое содержимое (фронт и бэк)
+      const front = document.createElement('div');
+      front.className = 'front-face';
+      front.style.position = 'absolute';
+      front.style.width = '100%';
+      front.style.height = '100%';
+      front.style.backfaceVisibility = 'hidden';
+      front.style.borderRadius = '10px';
+      front.style.backgroundColor = '#89e66f';
+      front.style.display = 'flex';
+      front.style.alignItems = 'center';
+      front.style.justifyContent = 'center';
+      front.style.fontSize = '24px';
+      front.textContent = '?';
+
+      const back = document.createElement('div');
+      back.className = 'back-face';
+      back.style.position = 'absolute';
+      back.style.width = '100%';
+      back.style.height = '100%';
+      back.style.backfaceVisibility = 'hidden';
+      back.style.borderRadius = '10px';
+      back.style.backgroundColor = '#fff';
+      back.style.display = 'flex';
+      back.style.alignItems = 'center';
+      back.style.justifyContent = 'center';
+      back.style.transform = 'rotateY(180deg)';
+
+      if(card.type === 'word'){
+        back.textContent = card.content;
+        back.style.fontSize = '20px';
+        back.style.fontWeight = 'bold';
+        back.style.color = '#1e6a05';
+        back.style.padding = '10px';
+      } else {
+        const img = document.createElement('img');
+        img.src = card.content;
+        img.alt = 'animal';
+        img.style.maxWidth = '80px';
+        img.style.maxHeight = '80px';
+        back.appendChild(img);
+      }
+
+      cardEl.style.transformStyle = 'preserve-3d';
+      cardEl.style.transition = 'transform 0.5s';
+      cardEl.appendChild(front);
+      cardEl.appendChild(back);
+      gameContainer.appendChild(cardEl);
+    });
+
+    let flippedCards = [];
+    let matchedCount = 0;
+    const totalPairs = pairs.length;
+
+    gameContainer.addEventListener('click', e => {
+      const clicked = e.target.closest('.memory-card');
+      if (!clicked) return;
+      if (flippedCards.includes(clicked)) return;
+      if (clicked.classList.contains('matched')) return;
+      if (flippedCards.length === 2) return;
+
+      flipCard(clicked);
+
+      flippedCards.push(clicked);
+
+      if (flippedCards.length === 2){
+        const [card1, card2] = flippedCards;
+        if (card1.dataset.id === card2.dataset.id && card1.dataset.type !== card2.dataset.type) {
+          // Пара найдена
+          card1.classList.add('matched');
+          card2.classList.add('matched');
+          matchedCount++;
+          flippedCards = [];
+
+          if(matchedCount === totalPairs){
+            resultDiv.textContent = '🎉 Поздравляем! Вы нашли все пары!';
+          }
+        } else {
+          // Не пара, переворачиваем обратно через секунду
+          setTimeout(() => {
+            flipCard(card1);
+            flipCard(card2);
+            flippedCards = [];
+          }, 1000);
+        }
+      }
+    });
+
+    function flipCard(card) {
+      if(card.style.transform === 'rotateY(180deg)'){
+        card.style.transform = 'rotateY(0deg)';
+      } else {
+        card.style.transform = 'rotateY(180deg)';
+      }
+    }
+  })();
+
+</script>
     </div>
-
-    <!-- Обратите внимание: все скрипты теперь управляются через script.js -->
 </body>
 </html>

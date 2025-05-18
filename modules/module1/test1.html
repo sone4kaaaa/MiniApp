@@ -11,14 +11,14 @@
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333;
+            background-color: #a0eb91;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff;
+            color: #1e9004;
             margin-bottom: 20px;
         }
 
@@ -128,9 +128,7 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 1</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 1: Введение в английский язык</h2>
         <button class="back-button"
                 onclick="
                     document.getElementById('lesson-content').classList.add('hidden');
@@ -143,83 +141,69 @@
         </button>
 
         <div class="section">
-            <h3>Тест 1: Основы грамматики</h3>
             <div class="quiz">
-                <!-- Вопросы теста -->
+                <p>❗️Все ответы необходимо писать с маленькой буквы!</p>
                 <!-- Вопрос 1 -->
                 <div class="quiz-question">
-                    <label>1. How do you say "Спасибо" in English?</label>
-                    <input type="text" id="tq1" placeholder="Например, Thank you">
+                    <label><strong>1.</strong> Что изображено на картинке?</label>
+                    <img src="https://avatars.mds.yandex.net/get-shedevrum/12164887/59042c00d16211ee915a9239222b5864/orig" alt="Собака" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <input type="text" id="tq1">
                 </div>
                 
                 <!-- Вопрос 2 -->
                 <div class="quiz-question">
-                    <label>2. Fill in the blank: They ___ students.</label>
-                    <input type="text" id="tq2" placeholder="are/is/am">
+                    <label><strong>2.</strong> Как переводится слово "Ball"?</label>
+                    <input type="text" id="tq2">
                 </div>
                 
                 <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label>3. Choose the correct form of "to be": I ___ happy.</label>
+                    <label><strong>3.</strong> Какой звук из списка - гласный?</label>
                     <select id="tq3">
                         <option value="">Выберите ответ</option>
-                        <option value="am">am</option>
-                        <option value="are">are</option>
-                        <option value="is">is</option>
+                        <option value="/e/">/e/</option>
+                        <option value="/t/">/t/</option>
+                        <option value="/k/">/k/</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 4 -->
                 <div class="quiz-question">
-                    <label>4. How do you say "Good morning" in Russian?</label>
-                    <input type="text" id="tq4" placeholder="Например, Доброе утро">
+                    <label><strong>4.</strong> Как пишется цифра ВОСЕМЬ в английском языке?</label>
+                    <input type="text" id="tq4">
                 </div>
                 
                 <!-- Вопрос 5 -->
                 <div class="quiz-question">
-                    <label>5. Fill in the blank: She ___ a doctor.</label>
-                    <input type="text" id="tq5" placeholder="work/works">
+                    <label><strong>5.</strong> Что изображено на картинке?</label>
+                    <img src="https://i.pinimg.com/736x/e1/d0/1e/e1d01ec8930f6978a89f8b726e39d8a3.jpg" alt="Ксилофон" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <input type="text" id="tq5">
                 </div>
                 
                 <!-- Вопрос 6 -->
                 <div class="quiz-question">
-                    <label>6. Choose the correct form of "to be": They ___ here.</label>
+                    <label><strong>6.</strong> Выбери правильную транскрипция слова CAT (кошка).</label>
                     <select id="tq6">
                         <option value="">Выберите ответ</option>
-                        <option value="am">am</option>
-                        <option value="are">are</option>
-                        <option value="is">is</option>
+                        <option value="/cæt/">/cæt/</option>
+                        <option value="/kæt/">/kæt/</option>
+                        <option value="/kat/">/kat/</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 7 -->
                 <div class="quiz-question">
-                    <label>7. How do you say "До свидания" in English?</label>
-                    <input type="text" id="tq7" placeholder="Например, Goodbye">
+                    <label><strong>6.</strong> Через запятую без пробелов, напиши цифры от 0 до 3.</label>
+                    <input type="text" id="tq7">
                 </div>
                 
                 <!-- Вопрос 8 -->
                 <div class="quiz-question">
-                    <label>8. Fill in the blank: I ___ a student.</label>
-                    <input type="text" id="tq8" placeholder="are/is/am">
+                    <label><strong>8.</strong> Что изображено на картинке?</label>
+                    <img src="https://i.pinimg.com/736x/21/08/03/210803e6b57c6120720f2904bb865ba4.jpg" alt="Шляпа" style="max-width:100%; height:150px; margin-bottom:10px;">
+                    <input type="text" id="tq8">
                 </div>
                 
-                <!-- Вопрос 9 -->
-                <div class="quiz-question">
-                    <label>9. Choose the correct form of "to be": He ___ a teacher.</label>
-                    <select id="tq9">
-                        <option value="">Выберите ответ</option>
-                        <option value="am">am</option>
-                        <option value="are">are</option>
-                        <option value="is">is</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 10 -->
-                <div class="quiz-question">
-                    <label>10. How do you say "Извините" in English?</label>
-                    <input type="text" id="tq10" placeholder="Например, Excuse me">
-                </div>
                 
                 <button class="submit-btn" onclick="checkTest()">Проверить тест</button>
                 <div class="feedback" id="test-feedback"></div>
@@ -229,6 +213,5 @@
         
     </div>
 
-    
 </body>
 </html>

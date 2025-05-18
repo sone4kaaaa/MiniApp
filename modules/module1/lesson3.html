@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 3: Простое настоящее время и ежедневные действия</title>
+    <title>Урок 3: Знаки фонетической транскрипции</title>
     <style>
-        /* Локальные стили для уроков 1, 2 и 3 */
         .lesson-container {
             max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
             overflow-y: auto; /* Добавление вертикальной прокрутки */
             padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: #333; /* Тёмный фон */
+            background-color: lightcoral; /* Тёмный фон */
             padding: 20px;
             border-radius: 10px;
-            position: relative; /* Удалено, так как кнопка "Назад" будет не абсолютно позиционирована */
+            position: relative; 
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
-            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопки */
+            color: rgb(186, 11, 11); 
+            margin-bottom: 20px; 
         }
 
         /* Стили для кнопки "Назад" */
@@ -57,7 +56,7 @@
 
         .section h3 {
             margin-top: 0;
-            color: #333;
+            color: #1dc03b;
         }
 
         .section p,
@@ -79,6 +78,18 @@
             background-color: #f2f2f2;
             text-align: left;
         }
+
+        thead th:nth-child(1) { background-color: #b30000; color: white; }
+        thead th:nth-child(2) { background-color: #b36b00; color: white; }
+        thead th:nth-child(3) { background-color: #267326; color: white; }
+        thead th:nth-child(4) { background-color: #1a75ff; color: white; }
+        thead th:nth-child(5) { background-color: #663399; color: white; }
+
+        tbody td:nth-child(1) { background-color: #ffcccc; }
+        tbody td:nth-child(2) { background-color: #ffe0b3; }
+        tbody td:nth-child(3) { background-color: #ccffcc; }
+        tbody td:nth-child(4) { background-color: #cce0ff; }
+        tbody td:nth-child(5) { background-color: #e0ccff; }
 
         /* Кнопки */
         .submit-btn, .check-matching-btn {
@@ -174,22 +185,28 @@
             border: 1px solid #ccc;
             margin-left: 10px;
         }
+
+          .correct-answer {
+            background-color: #c8e6c9; /* зелёный */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .wrong-answer {
+            background-color: #ffcdd2; /* красный */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 3: Простое настоящее время и ежедневные действия</h2>
+        <h2>Урок 3: Знаки фонетической транскрипции</h2>
 
-        <!-- Кнопка "Назад" -->
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
@@ -197,117 +214,464 @@
         </button>
         
         <div class="section">
-            <h3>Новая лексика</h3>
-            <ul>
-                <li>Wake up - Просыпаться</li>
-                <li>Brush teeth - Чистить зубы</li>
-                <li>Have breakfast - Завтракать</li>
-                <li>Go to work - Ходить на работу</li>
-                <li>Study - Учиться</li>
-                <li>Eat lunch - Обедать</li>
-                <li>Return home - Возвращаться домой</li>
-                <li>Have dinner - Ужинать</li>
-                <li>Watch TV - Смотреть телевизор</li>
-                <li>Go to bed - Ложиться спать</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h3>Грамматика: Простое настоящее время (Simple Present Tense)</h3>
-            <p>Простое настоящее время используется для описания регулярных действий, привычек, фактов и общих истин.</p>
-        
-            <h4>Структура предложения</h4>
-            <p>Для всех лиц, кроме третьего лица единственного числа, используется основная форма глагола. Для третьего лица единственного числа добавляется окончание -s или -es.</p>
+            <h3>Гласные в транскрипции</h3>
+            <p>Ниже представлены гласные звуки, часто используемые в английской фонетике, с примерами слов, транскрипцией и переводом.</p>
             <table>
-                <tr>
-                    <th>Подлежащее</th>
-                    <th>Форма глагола</th>
-                </tr>
-                <tr>
-                    <td>I</td>
-                    <td>work</td>
-                </tr>
-                <tr>
-                    <td>You</td>
-                    <td>work</td>
-                </tr>
-                <tr>
-                    <td>He/She/It</td>
-                    <td>works</td>
-                </tr>
-                <tr>
-                    <td>We/They</td>
-                    <td>work</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Символ</th>
+                        <th>Описание</th>
+                        <th>Пример</th>
+                        <th>Транскрипция</th>
+                        <th>Перевод</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iː</td>
+                        <td>Долгий и</td>
+                        <td>see</td>
+                        <td>/siː/</td>
+                        <td>видеть</td>
+                    </tr>
+                    <tr>
+                        <td>i</td>
+                        <td>Краткий, открытый и</td>
+                        <td>sit</td>
+                        <td>/sɪt/</td>
+                        <td>сидеть</td>
+                    </tr>
+                    <tr>
+                        <td>e</td>
+                        <td>Как русское "э" под ударением</td>
+                        <td>bed</td>
+                        <td>/bed/</td>
+                        <td>кровать</td>
+                    </tr>
+                    <tr>
+                        <td>æ</td>
+                        <td>Более открытый, чем "э"</td>
+                        <td>cat</td>
+                        <td>/kæt/</td>
+                        <td>кот</td>
+                    </tr>
+                    <tr>
+                        <td>ɑː</td>
+                        <td>Долгий, глубокий а</td>
+                        <td>father</td>
+                        <td>/ˈfɑːðə/</td>
+                        <td>отец</td>
+                    </tr>
+                    <tr>
+                        <td>ɒ</td>
+                        <td>Краткий, открытый о</td>
+                        <td>hot</td>
+                        <td>/hɒt/</td>
+                        <td>горячий</td>
+                    </tr>
+                    <tr>
+                        <td>ɔː</td>
+                        <td>Долгий о</td>
+                        <td>call</td>
+                        <td>/kɔːl/</td>
+                        <td>звонить</td>
+                    </tr>
+                    <tr>
+                        <td>ʊ</td>
+                        <td>Краткий у</td>
+                        <td>book</td>
+                        <td>/bʊk/</td>
+                        <td>книга</td>
+                    </tr>
+                    <tr>
+                        <td>uː</td>
+                        <td>Долгий у</td>
+                        <td>blue</td>
+                        <td>/bluː/</td>
+                        <td>синий</td>
+                    </tr>
+                    <tr>
+                        <td>ʌ</td>
+                        <td>Краткий а</td>
+                        <td>cup</td>
+                        <td>/kʌp/</td>
+                        <td>чашка</td>
+                    </tr>
+                    <tr>
+                        <td>ɜː</td>
+                        <td>Долгий гласный, напоминающий "ё"</td>
+                        <td>bird</td>
+                        <td>/bɜːd/</td>
+                        <td>птица</td>
+                    </tr>
+                    <tr>
+                        <td>ə</td>
+                        <td>Безударный, как в "ну́жен"</td>
+                        <td>banana</td>
+                        <td>/bəˈnɑːnə/</td>
+                        <td>банан</td>
+                    </tr>
+                </tbody>
             </table>
-        
-            <h4>Примеры предложений</h4>
-            <ul>
-                <li>I wake up at 7 AM. - Я просыпаюсь в 7 утра.</li>
-                <li>She brushes her teeth every morning. - Она чистит зубы каждое утро.</li>
-                <li>They go to work by bus. - Они ходят на работу на автобусе.</li>
-                <li>He studies English every day. - Он учит английский каждый день.</li>
-                <li>We have dinner at 8 PM. - Мы ужинаем в 8 вечера.</li>
-            </ul>
-        </div>
-
-        <!-- Интерактивные задания -->
-        <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <div class="quiz">
-                <div class="quiz-question">
-                    <label>1. She ___ her teeth every morning.</label>
-                    <input type="text" id="q1" placeholder="work/works">
-                </div>
-                <div class="quiz-question">
-                    <label>2. They ___ to school by bus.</label>
-                    <input type="text" id="q2" placeholder="go/goes">
-                </div>
-                <div class="quiz-question">
-                    <label>3. I ___ breakfast at 7 AM.</label>
-                    <input type="text" id="q3" placeholder="have/has">
-                </div>
-                <button class="submit-btn" onclick="checkQuiz()">Проверить ответы</button>
-                <div class="feedback" id="quiz-feedback"></div>
-            </div>
         </div>
 
         <div class="section">
-            <h3>Задание 2: Сопоставьте слова</h3>
-            <div class="matching-game">
-                <div class="matching-item">
-                    <label>Wake up</label>
-                    <select id="match1">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">Просыпаться</option>
-                        <option value="2">Ужинать</option>
-                        <option value="3">Чистить зубы</option>
-                    </select>
-                </div>
-                <div class="matching-item">
-                    <label>Have breakfast</label>
-                    <select id="match2">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">Завтракать</option>
-                        <option value="2">Ходить на работу</option>
-                        <option value="3">Смотреть телевизор</option>
-                    </select>
-                </div>
-                <div class="matching-item">
-                    <label>Go to bed</label>
-                    <select id="match3">
-                        <option value="">Выберите перевод</option>
-                        <option value="1">Ложиться спать</option>
-                        <option value="2">Учиться</option>
-                        <option value="3">Возвращаться домой</option>
-                    </select>
-                </div>
-                <button class="check-matching-btn" onclick="checkMatching()">Проверить сопоставление</button>
-                <div class="matching-feedback" id="matching-feedback"></div>
-            </div>
+            <h3>Дифтонги в транскрипции</h3>
+            <p>Дифтонги — это сочетания двух гласных звуков в одном слоге. Ниже приведены основные дифтонги в английском языке с примерами и переводом.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Символ</th>
+                        <th>Описание</th>
+                        <th>Пример</th>
+                        <th>Транскрипция</th>
+                        <th>Перевод</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>eɪ</td>
+                        <td>Эй</td>
+                        <td>day</td>
+                        <td>/deɪ/</td>
+                        <td>день</td>
+                    </tr>
+                    <tr>
+                        <td>əʊ</td>
+                        <td>Эу</td>
+                        <td>go</td>
+                        <td>/gəʊ/</td>
+                        <td>идти</td>
+                    </tr>
+                    <tr>
+                        <td>aɪ</td>
+                        <td>Ай</td>
+                        <td>time</td>
+                        <td>/taɪm/</td>
+                        <td>время</td>
+                    </tr>
+                    <tr>
+                        <td>aʊ</td>
+                        <td>Ау</td>
+                        <td>house</td>
+                        <td>/haʊs/</td>
+                        <td>дом</td>
+                    </tr>
+                    <tr>
+                        <td>ɔɪ</td>
+                        <td>Ой</td>
+                        <td>boy</td>
+                        <td>/bɔɪ/</td>
+                        <td>мальчик</td>
+                    </tr>
+                    <tr>
+                        <td>ɪə</td>
+                        <td>Иа</td>
+                        <td>ear</td>
+                        <td>/ɪə/</td>
+                        <td>ухо</td>
+                    </tr>
+                    <tr>
+                        <td>eə</td>
+                        <td>Эа</td>
+                        <td>care</td>
+                        <td>/keə/</td>
+                        <td>забота</td>
+                    </tr>
+                    <tr>
+                        <td>ʊə</td>
+                        <td>Уа</td>
+                        <td>tour</td>
+                        <td>/tʊə/</td>
+                        <td>тур</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <div class="section">
+            <h3>Согласные в транскрипции</h3>
+            <p>Ниже представлены согласные звуки английского языка с описанием, примерами слов, транскрипцией и переводом.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Символ</th>
+                        <th>Описание</th>
+                        <th>Пример</th>
+                        <th>Транскрипция</th>
+                        <th>Перевод</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p</td>
+                        <td>П, с придыханием</td>
+                        <td>pen</td>
+                        <td>/pen/</td>
+                        <td>ручка</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>Б</td>
+                        <td>bad</td>
+                        <td>/bæd/</td>
+                        <td>плохой</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>М</td>
+                        <td>man</td>
+                        <td>/mæn/</td>
+                        <td>мужчина</td>
+                    </tr>
+                    <tr>
+                        <td>w</td>
+                        <td>Звук, близкий к "у", но губы более округлены</td>
+                        <td>win</td>
+                        <td>/wɪn/</td>
+                        <td>выигрывать</td>
+                    </tr>
+                    <tr>
+                        <td>f</td>
+                        <td>Ф</td>
+                        <td>fun</td>
+                        <td>/fʌn/</td>
+                        <td>веселье</td>
+                    </tr>
+                    <tr>
+                        <td>v</td>
+                        <td>В</td>
+                        <td>van</td>
+                        <td>/væn/</td>
+                        <td>фургон</td>
+                    </tr>
+                    <tr>
+                        <td>θ</td>
+                        <td>Глухой межзубный звук</td>
+                        <td>think</td>
+                        <td>/θɪŋk/</td>
+                        <td>думать</td>
+                    </tr>
+                    <tr>
+                        <td>ð</td>
+                        <td>Звонкий межзубный звук</td>
+                        <td>this</td>
+                        <td>/ðɪs/</td>
+                        <td>это</td>
+                    </tr>
+                    <tr>
+                        <td>s</td>
+                        <td>С</td>
+                        <td>sun</td>
+                        <td>/sʌn/</td>
+                        <td>солнце</td>
+                    </tr>
+                    <tr>
+                        <td>z</td>
+                        <td>З</td>
+                        <td>zoo</td>
+                        <td>/zuː/</td>
+                        <td>зоопарк</td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>Т, с придыханием</td>
+                        <td>top</td>
+                        <td>/tɒp/</td>
+                        <td>верх</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>Д</td>
+                        <td>dog</td>
+                        <td>/dɒg/</td>
+                        <td>собака</td>
+                    </tr>
+                    <tr>
+                        <td>n</td>
+                        <td>Н</td>
+                        <td>net</td>
+                        <td>/net/</td>
+                        <td>сеть</td>
+                    </tr>
+                    <tr>
+                        <td>l</td>
+                        <td>Л</td>
+                        <td>love</td>
+                        <td>/lʌv/</td>
+                        <td>любовь</td>
+                    </tr>
+                    <tr>
+                        <td>r</td>
+                        <td>Р, без вибрации</td>
+                        <td>red</td>
+                        <td>/red/</td>
+                        <td>красный</td>
+                    </tr>
+                    <tr>
+                        <td>ʃ</td>
+                        <td>Мягкий Ш</td>
+                        <td>ship</td>
+                        <td>/ʃɪp/</td>
+                        <td>корабль</td>
+                    </tr>
+                    <tr>
+                        <td>ʒ</td>
+                        <td>Мягкий Ж</td>
+                        <td>measure</td>
+                        <td>/ˈmeʒə/</td>
+                        <td>измерять</td>
+                    </tr>
+                    <tr>
+                        <td>tʃ</td>
+                        <td>Ч</td>
+                        <td>chair</td>
+                        <td>/tʃeə/</td>
+                        <td>стул</td>
+                    </tr>
+                    <tr>
+                        <td>dʒ</td>
+                        <td>Озвончённый Ч</td>
+                        <td>job</td>
+                        <td>/dʒɒb/</td>
+                        <td>работа</td>
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>К, с придыханием</td>
+                        <td>cat</td>
+                        <td>/kæt/</td>
+                        <td>кот</td>
+                    </tr>
+                    <tr>
+                        <td>g</td>
+                        <td>Г</td>
+                        <td>go</td>
+                        <td>/ɡəʊ/</td>
+                        <td>идти</td>
+                    </tr>
+                    <tr>
+                        <td>ŋ</td>
+                        <td>Носовой, задняя часть языка к мягкому нёбу</td>
+                        <td>sing</td>
+                        <td>/sɪŋ/</td>
+                        <td>петь</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>На выдохе</td>
+                        <td>hat</td>
+                        <td>/hæt/</td>
+                        <td>шляпа</td>
+                    </tr>
+                    <tr>
+                        <td>j</td>
+                        <td>Й</td>
+                        <td>yes</td>
+                        <td>/jes/</td>
+                        <td>да</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <h3>🧠 Игра: Найди правильную транскрипцию</h3>
+            <p>Выберите правильную транскрипцию для каждого слова:</p>
+
+            <form id="transcription-quiz">
+                <div class="quiz-question">
+                <label>1. Слово: <strong>cup</strong></label><br/>
+                <label><input type="radio" name="q1" value="1"> /kʌp/</label><br/>
+                <label><input type="radio" name="q1" value="0"> /kæp/</label><br/>
+                <label><input type="radio" name="q1" value="0"> /kɜːp/</label>
+                </div>
+
+                <div class="quiz-question">
+                <label>2. Слово: <strong>blue</strong></label><br/>
+                <label><input type="radio" name="q2" value="0"> /blu/</label><br/>
+                <label><input type="radio" name="q2" value="1"> /bluː/</label><br/>
+                <label><input type="radio" name="q2" value="0"> /blʌ/</label>
+                </div>
+
+                <div class="quiz-question">
+                <label>3. Слово: <strong>day</strong></label><br/>
+                <label><input type="radio" name="q3" value="0"> /daɪ/</label><br/>
+                <label><input type="radio" name="q3" value="1"> /deɪ/</label><br/>
+                <label><input type="radio" name="q3" value="0"> /dəʊ/</label>
+                </div>
+
+                <div class="quiz-question">
+                <label>4. Слово: <strong>think</strong></label><br/>
+                <label><input type="radio" name="q4" value="1"> /θɪŋk/</label><br/>
+                <label><input type="radio" name="q4" value="0"> /sɪŋk/</label><br/>
+                <label><input type="radio" name="q4" value="0"> /dɪŋk/</label>
+                </div>
+
+                <div class="quiz-question">
+                <label>5. Слово: <strong>school</strong></label><br/>
+                <label><input type="radio" name="q5" value="0"> /ʃuːl/</label><br/>
+                <label><input type="radio" name="q5" value="1"> /skuːl/</label><br/>
+                <label><input type="radio" name="q5" value="0"> /skɪl/</label>
+                </div>
+
+                <div class="quiz-question">
+                <label>6. Слово: <strong>bird</strong></label><br/>
+                <label><input type="radio" name="q6" value="1"> /bɜːd/</label><br/>
+                <label><input type="radio" name="q6" value="0"> /beɪd/</label><br/>
+                <label><input type="radio" name="q6" value="0"> /baɪd/</label>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkQuiz()">Проверить</button>
+
+                <div id="quiz-feedback" class="feedback"></div>
+            </form>
+        </div>
+
+        <script>
+        function checkQuiz() {
+            const form = document.getElementById('transcription-quiz');
+            const feedback = document.getElementById('quiz-feedback');
+            const formData = new FormData(form);
+            let score = 0;
+            const total = 6;
+
+            // Сброс подсветки у всех меток
+            const allLabels = form.querySelectorAll('label');
+            allLabels.forEach(label => {
+            label.classList.remove('correct-answer', 'wrong-answer');
+            });
+
+            // Для каждой группы радиокнопок
+            for (let i = 1; i <= total; i++) {
+            const radios = form.querySelectorAll(`input[name="q${i}"]`);
+            const selectedValue = formData.get(`q${i}`);
+
+            if (selectedValue !== null) {
+                radios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === "1") {
+                    // Правильный выбранный ответ - зеленая подсветка
+                    radio.parentElement.classList.add('correct-answer');
+                    score++;
+                    } else {
+                    // Неправильный выбранный ответ - красная подсветка
+                    radio.parentElement.classList.add('wrong-answer');
+                    }
+                }
+                });
+            }
+            }
+
+            // Вывод результата
+            feedback.style.display = 'block';
+            if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.innerText = 'Отлично! Все ответы верны!';
+            } else {
+            feedback.className = 'feedback error';
+            feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
+            }
+        }
+        </script>
     </div>
-
-    
 </body>
 </html>

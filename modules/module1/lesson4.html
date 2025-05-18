@@ -4,21 +4,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 4: Present Continuous (Расширенный)</title>
+    <title>Урок 4: Изучаем цвета</title>
     <style>
-        /* Локальные стили для урока, аналогично Уроку 1 */
         .lesson-container {
             max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
             overflow-y: auto; /* Добавление вертикальной прокрутки */
             padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: #333; /* Тёмный фон, как в Уроке 1 и 2 */
+            background-color: #5ccfba;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #184941; /* Белый цвет заголовка */
             margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопки */
         }
 
@@ -48,7 +47,6 @@
             height: 20px;
         }
 
-        /* Секции контента */
         .section {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
@@ -63,7 +61,7 @@
 
         .section p,
         .section li {
-            color: #333; /* Тёмный текст на светлом фоне */
+            color: #333; 
         }
 
         /* Таблицы */
@@ -185,241 +183,131 @@
         .next-icon {
             margin-right: 8px;
         }
+        li.black { color: black; }
+        li.gray { color: gray; }
+        li.red { color: red; }
+        li.orange { color: orange; }
+        li.brown { color: brown; }
+        li.yellow { color: #FFD700; } /* золотисто-желтый */
+        li.green { color: green; }
+        li.blue { color: blue; }
+        li.purple { color: purple; }
+        li.pink { color: pink; }
+
+        /* Сложные цвета */
+        li.red-orange { color: #FF4500; } /* оранжево-красный */
+        li.blue-purple { color: #6A5ACD; } /* сине-фиолетовый */
+
+        /* Светлые оттенки */
+        li.light-green { color: #90EE90; } /* светло-зеленый */
+        li.light-yellow { color: #FFFFE0; } /* светло-желтый */
+        li.light-blue { color: #ADD8E6; } /* голубой */
+
+        /* Темные оттенки */
+        li.dark-red { color: #8B0000; } /* темно-красный */
+        li.dark-yellow { color: #B8860B; } /* темно-желтый */
+
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 4: Present Continuous (Расширенный)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 4: Изучаем цвета</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
 
-        <!-- 1. Новая лексика -->
         <div class="section">
-            <h3>Новая лексика</h3>
-            <p>В этом уроке мы будем активно использовать лексику, связанную с действиями, которые можно выполнять прямо сейчас.</p>
-            <ul>
-                <li>Run - Бежать</li>
-                <li>Jump - Прыгать</li>
-                <li>Play - Играть (напр. на гитаре или в игру)</li>
-                <li>Write - Писать</li>
-                <li>Type - Печатать (на клавиатуре)</li>
-                <li>Watch - Смотреть (напр. телевизор)</li>
-                <li>Cook - Готовить (еду)</li>
-                <li>Read - Читать</li>
-                <li>Swim - Плавать</li>
-                <li>Talk on the phone - Разговаривать по телефону</li>
+            <h3>Основные цвета и понятия</h3>
+            <p>Color - так переводится слово «цвет» на английский язык.</p>
+            <p>Каждый цвет имеет огромное количество оттенков (shades), они могут быть теплыми (warm) или холодными (cool), нейтральными (neutral) или насыщенными (intense / vibrant).</p>
+            <p>Выделяют 11 основных цветов (primary colours), которые считаются базовыми и являются основами для других оттенков.</p>
+            <p>Из них 3 — нейтральные:</p>
+            <ul> 
+                <li>white — белый</li>
+                <li class="black">black — черный </li>
+                <li class="gray">gray — серый </li>
+            </ul>
+            <p>И остальные: </p>
+            <ul> 
+                <li class="red">red — красный</li>
+                <li class="orange">orange — оранжевый</li>
+                <li class="brown">brown — коричневый</li>
+                <li class="yellow">yellow — желтый</li>
+                <li class="green">green — зеленый</li>
+                <li class="blue">blue — синий</li>
+                <li class="purple">purple — фиолетовый</li>
+                <li class="pink">pink — розовый</li>
             </ul>
         </div>
-
-        <!-- 2. Грамматика: Present Continuous -->
+        <div class="section"><img src="https://i.pinimg.com/originals/e9/5e/b0/e95eb03bec9494dde46b7cd6bdfdd093.jpg" alt="Цвета" style="max-width:100%; height:450px; margin-bottom:10px;"></div>
         <div class="section">
-            <h3>Грамматика: Present Continuous</h3>
-            <p><strong>Present Continuous</strong> (или Present Progressive) описывает действие, которое происходит именно сейчас, в момент речи, или временно.</p>
-            <p><strong>Формула:</strong> <em>Подлежащее + am/is/are + глагол + ing</em></p>
-            <table>
-                <tr>
-                    <th>Утвердительная форма</th>
-                    <th>Пример</th>
-                </tr>
-                <tr>
-                    <td>I am running</td>
-                    <td>I am running in the park.</td>
-                </tr>
-                <tr>
-                    <td>She is cooking</td>
-                    <td>She is cooking dinner right now.</td>
-                </tr>
-                <tr>
-                    <td>They are watching</td>
-                    <td>They are watching TV at the moment.</td>
-                </tr>
-            </table>
-            <p><strong>Отрицательная форма:</strong> <em>Подлежащее + am/is/are + not + глагол + ing</em></p>
-            <ul>
-                <li>I am <strong>not</strong> running today.</li>
-                <li>He is <strong>not</strong> watching TV right now.</li>
-            </ul>
-            <p><strong>Вопросительная форма:</strong> <em>Am/Is/Are + Подлежащее + глагол + ing?</em></p>
-            <ul>
-                <li>Are you working now?</li>
-                <li>Is she cooking dinner?</li>
+            <h3>Сложные цвета</h3>
+            <p>Обозначить сложные цвета можно простым сложением двух основных названий. </p>
+            <p>Например:</p>
+            <ul> 
+                <li class="red-orange">red-orange (красно-оранжевый)</li>
+                <li class="blue-purple">blue-purple (сине-фиолетовый)</li>
             </ul>
         </div>
-
-        <!-- 3. Задание 1: Заполните пропуски -->
         <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <p>Вставьте правильную форму глагола, используя <strong>am / is / are</strong> и глагол с <strong>-ing</strong>:</p>
-            <div class="quiz-question">
-                <label>1. I ___ (to write) an email right now.</label>
-                <input type="text" id="q1" placeholder="Например, am writing">
-            </div>
-            <div class="quiz-question">
-                <label>2. They ___ (to cook) pasta at the moment.</label>
-                <input type="text" id="q2" placeholder="Например, are cooking">
-            </div>
-            <div class="quiz-question">
-                <label>3. She ___ (to swim) in the pool.</label>
-                <input type="text" id="q3" placeholder="Например, is swimming">
-            </div>
-            <button class="submit-btn" onclick="checkQuiz1()">Проверить ответы</button>
-            <div class="feedback" id="quiz1-feedback"></div>
+            <h3>Светлые оттенки</h3>
+            <p>Если хочется назвать светлый оттенок цвета, то перед произношением самого цвета добавляем слово - light.</p>
+            <p>Например:</p>
+            <ul> 
+                <li class="light-green">light green (светло-зеленый)</li>
+                <li class="light-yellow">light yellow (светло-желтый)</li>
+            </ul>
+            <p>Исключение:</p>
+            <ul> 
+                <li class="light-blue">light blue – обычно переводится как «голубой»</li>
+            </ul>
         </div>
-
-        <!-- 4. Задание 2: Сопоставьте слова -->
         <div class="section">
-            <h3>Задание 2: Сопоставьте слова с переводом</h3>
-            <div class="quiz-question">
-                <label>Talk on the phone</label>
-                <select id="match1">
-                    <option value="">Выберите перевод</option>
-                    <option value="1">Читать</option>
-                    <option value="2">Играть</option>
-                    <option value="3">Разговаривать по телефону</option>
-                </select>
+            <h3>Темные оттенки</h3>
+            <p>Обозначить темный оттенок цвета мы можем добавить перед произношением самого цвета слово - dark.</p>
+            <p>Например:</p>
+            <ul> 
+                <li class="dark-red">dark red (тёмно-красный)</li>
+                <li class="dark-yellow">dark yellow(тёмно-желтый)</li>
+            </ul>
+        </div> 
+        <div class="section">
+            <h3>▶️ Видео урок: Весёлая песенка про цвета</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_colors.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
             </div>
-            <div class="quiz-question">
-                <label>Watch</label>
-                <select id="match2">
-                    <option value="">Выберите перевод</option>
-                    <option value="1">Печатать</option>
-                    <option value="2">Смотреть</option>
-                    <option value="3">Прыгать</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>Type</label>
-                <select id="match3">
-                    <option value="">Выберите перевод</option>
-                    <option value="1">Готовить</option>
-                    <option value="2">Печатать</option>
-                    <option value="3">Бежать</option>
-                </select>
-            </div>
-            <button class="submit-btn" onclick="checkMatching()">Проверить сопоставление</button>
-            <div class="feedback" id="matching-feedback"></div>
         </div>
-
-        
+        <div class="section">
+            <h3>🌟 Попробуй назвать цвета этих предметов в форме диалога с учителем!</h3>
+            <p>— What colour is this apple? Какого цвета это яблоко?</p>
+            <img src="https://st3.depositphotos.com/1432405/12957/v/950/depositphotos_129570146-stock-illustration-apple-icon-cartoon-style.jpg" alt="Яблоко" style="max-width:100%; height:180px; margin-bottom:10px;">
+            <p>— It’s green. Оно зеленое.</p>
+            <p>— What colour is this banana? Какого цвета этот банан?</p>
+            <img src="https://i.pinimg.com/736x/86/e4/e9/86e4e986629bbee454c76b73d3a97d16--bananas.jpg" alt="Банан" style="max-width:100%; height:180px; margin-bottom:10px;">
+            <p>— It’s yellow. Он желтый</p>
+            <p>— What colour is this strawberries? Какого цвета эта клубника?</p>
+            <img src="https://i.pinimg.com/736x/b6/c3/83/b6c383400f2260795bafd15e7f5593ae.jpg" alt="Клубника" style="max-width:100%; height:180px; margin-bottom:10px;">
+            <p>— It’s red. Она красная</p>
+        </div>                 
     </div>
-
-    <script>
-        /************************************************************
-         * Задание 1: Проверка заполненных пропусков
-         ************************************************************/
-        function checkQuiz1() {
-            const answers = {
-                q1: 'am writing',
-                q2: 'are cooking',
-                q3: 'is swimming'
-            };
-
-            let score = 0;
-            let total = Object.keys(answers).length;
-
-            for (let key in answers) {
-                const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-                const correctAnswer = answers[key].toLowerCase();
-
-                if (userAnswer === correctAnswer) {
-                    score++;
-                    document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-                } else {
-                    document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-                }
-            }
-
-            const feedback = document.getElementById('quiz1-feedback');
-            feedback.style.display = 'block';
-            if (score === total) {
-                feedback.className = 'feedback success';
-                feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-            } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-            }
-        }
-
-        /************************************************************
-         * Задание 2: Сопоставление слов
-         ************************************************************/
-        function checkMatching() {
-            const matches = {
-                match1: '3', // Talk on the phone -> Разговаривать по телефону
-                match2: '2', // Watch -> Смотреть
-                match3: '2'  // Type -> Печатать
-            };
-
-            let score = 0;
-            let total = 3;
-
-            for (let key in matches) {
-                const userChoice = document.getElementById(key).value;
-                if (userChoice === matches[key]) {
-                    score++;
-                    document.getElementById(key).style.borderColor = '#28a745';
-                } else {
-                    document.getElementById(key).style.borderColor = '#dc3545';
-                }
-            }
-
-            const feedback = document.getElementById('matching-feedback');
-            feedback.style.display = 'block';
-            if (score === total) {
-                feedback.className = 'feedback success';
-                feedback.textContent = 'Все верно! Отличная работа.';
-            } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-            }
-        }
-
-        /************************************************************
-         * Кнопка "Далее": переход к следующему уроку
-         ************************************************************/
-        function navigateToNextLesson() {
-            try {
-                // Определяем номер текущего урока по заголовку: "Урок 4: ..."
-                const lessonTitle = document.querySelector('.lesson-container h2').textContent;
-                const regex = /Урок\s+(\d+)/i;
-                const match = lessonTitle.match(regex);
-                if (match && match[1]) {
-                    const currentLessonNumber = parseInt(match[1], 10);
-                    const nextLessonNumber = currentLessonNumber + 1;
-
-                    // Для module1 ищем кнопку "lesson5.html" или lessonN.html
-                    const nextBtn = window.parent.document.querySelector(
-                        `.lessons-container[data-module="module1"] button.lesson-button[data-lesson="lesson${nextLessonNumber}.html"]`
-                    );
-
-                    if (nextBtn) {
-                        nextBtn.click();
-                    } else {
-                        alert('Следующий урок (lesson' + nextLessonNumber + '.html) не найден. Возможно, это последний урок.');
-                    }
-                } else {
-                    alert('Не удалось определить номер урока из заголовка.');
-                }
-            } catch (e) {
-                console.error('navigateToNextLesson error:', e);
-                alert('Ошибка при переходе к следующему уроку.');
-            }
-        }
-    </script>
-      
 </body>
 </html>

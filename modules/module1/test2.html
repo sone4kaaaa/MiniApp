@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Тест 2</title>
     <style>
-        /* Общие стили для тестов, аналогично стилям уроков */
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон, как в уроках */
+            background-color: #a0eb91; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
-            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопок */
+            color: #1e9004; 
+            margin-bottom: 20px; 
         }
 
         /* Стили для кнопки "Назад" */
@@ -128,18 +127,12 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 2</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 2: Цвета, местоимения, артикли</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент теста
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
@@ -147,81 +140,82 @@
         </button>
 
         <div class="section">
-            <h3>Тест 2: Продвинутые структуры предложений</h3>
+            <p>❗️Все ответы необходимо писать с маленькой буквы!</p>
             <div class="quiz">
                 <!-- Вопросы теста -->
                 <!-- Вопрос 1 -->
                 <div class="quiz-question">
-                    <label>1. How do you say "Привет" in English?</label>
-                    <input type="text" id="q1" placeholder="Например, Hello">
+                    <label><strong>1.</strong> Какой цвет изображен на картинке?</label>
+                    <img src="https://i.pinimg.com/originals/2e/9d/f4/2e9df4fa7d41d7cec381a34d4e577d27.jpg" alt="Фиолетовый" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <input type="text" id="q1">
                 </div>
                 
                 <!-- Вопрос 2 -->
                 <div class="quiz-question">
-                    <label>2. Fill in the blank: He ___ an engineer.</label>
-                    <input type="text" id="q2" placeholder="am/is/are">
+                    <label><strong>2.</strong> Какое притяжательное местоимение (Форма II) соответствует слову "your"?</label>
+                    <input type="text" id="q2">
                 </div>
                 
                 <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label>3. Choose the correct form of "to have": They ___ a big house.</label>
+                    <label><strong>3.</strong> Какое местоимение используется в объектном падеже для "мы"?</label>
                     <select id="q3">
                         <option value="">Выберите ответ</option>
-                        <option value="have">have</option>
-                        <option value="has">has</option>
+                        <option value="us">us</option>
+                        <option value="we">we</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 4 -->
                 <div class="quiz-question">
-                    <label>4. How do you say "Я не понимаю" in English?</label>
-                    <input type="text" id="q4" placeholder="Например, I do not understand">
+                    <label><strong>4.</strong> Как будет на английском слово "сестра"?</label>
+                    <input type="text" id="q4">
                 </div>
                 
                 <!-- Вопрос 5 -->
                 <div class="quiz-question">
-                    <label>5. Fill in the blank: We ___ a new car last week. (Past Simple)</label>
-                    <input type="text" id="q5" placeholder="bought/buy/buys">
+                    <label><strong>5.</strong> Заполни пропуск: It is ___ apple.</label>
+                    <input type="text" id="q5">
                 </div>
                 
                 <!-- Вопрос 6 -->
                 <div class="quiz-question">
-                    <label>6. Choose the correct form: She ___ (to go) to school every day.</label>
+                    <label><strong>6.</strong> Выбери, что должно быть на месте пропуска:</label>
+                    <label>___ moon is very bright. (Луна очень яркая.)</label>
                     <select id="q6">
                         <option value="">Выберите ответ</option>
-                        <option value="go">go</option>
-                        <option value="goes">goes</option>
-                        <option value="went">went</option>
+                        <option value="an">an</option>
+                        <option value="the">the</option>
+                        <option value="a">a</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 7 -->
                 <div class="quiz-question">
-                    <label>7. How do you say "Как дела?" in English?</label>
-                    <input type="text" id="q7" placeholder="Например, How are you?">
+                    <label><strong>7.</strong> Как будет на английском "голубой"?</label>
+                    <input type="text" id="q7">
                 </div>
                 
                 <!-- Вопрос 8 -->
                 <div class="quiz-question">
-                    <label>8. Fill in the blank: I ___ breakfast at 7 AM every morning. (Present Simple)</label>
-                    <input type="text" id="q8" placeholder="have/has/had">
+                    <label><strong>8.</strong> Как переводится это слово "Parents"?</label>
+                    <input type="text" id="q8">
                 </div>
                 
                 <!-- Вопрос 9 -->
                 <div class="quiz-question">
-                    <label>9. Choose the correct form of "to be" in Past Simple: He ___ at home yesterday.</label>
+                    <label><strong>9.</strong> Выбери правильное местоимение: "This is ___ book."</label>
                     <select id="q9">
                         <option value="">Выберите ответ</option>
-                        <option value="is">is</option>
-                        <option value="are">are</option>
-                        <option value="was">was</option>
+                        <option value="mine">mine</option>
+                        <option value="my">my</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 10 -->
                 <div class="quiz-question">
-                    <label>10. How do you say "Извините, я опоздал" in English?</label>
-                    <input type="text" id="q10" placeholder='Например, Sorry, I am late'>
+                    <label><strong>10.</strong> Заполни пропуск: I see ___ dog. (Я вижу собаку.)</label>
+                    <input type="text" id="q10">
                 </div>
                 
                 <button class="submit-btn" onclick="checkTest2()">Проверить тест</button>

@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 9: Reported Speech (Косвенная речь)</title>
+    <title>Урок 9: Имя существительное</title>
     <style>
-        /* Локальные стили, аналогичные другим урокам с тёмным фоном */
         .lesson-container {
             max-height: 80vh; 
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #e6e270; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый текст заголовка */
+            color: #6f5e06; 
         }
 
-        /* Кнопка "Назад" */
         .back-button {
             display: flex;
             align-items: center;
@@ -76,6 +74,14 @@
             background-color: #f2f2f2;
             text-align: left;
         }
+
+        thead th:nth-child(1) { background-color: #b30000; color: white; }
+        thead th:nth-child(2) { background-color: #b36b00; color: white; }
+        thead th:nth-child(3) { background-color: #267326; color: white; }
+
+        tbody td:nth-child(1) { background-color: #ffcccc; }
+        tbody td:nth-child(2) { background-color: #ffe0b3; }
+        tbody td:nth-child(3) { background-color: #ccffcc; }
 
         /* Кнопки */
         .submit-btn {
@@ -159,7 +165,6 @@
             border-color: #28a745;
         }
 
-        /* Кнопка "Next Lesson" (если нужна) */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -185,9 +190,7 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 9: Reported Speech (Косвенная речь)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 9: Имя существительное</h2>
         <button class="back-button"
                 onclick="
                     document.getElementById('lesson-content').classList.add('hidden');
@@ -199,243 +202,120 @@
             Назад
         </button>
 
-        <!-- 1. Теория: Reported Speech -->
         <div class="section">
-            <h3>Теория: Что такое косвенная речь?</h3>
-            <p><strong>Reported Speech</strong> (или косвенная речь) — это способ пересказывать чужие высказывания, вопросы и повеления без точных цитат, а с изменениями времен, местоимений, указателей времени и места.</p>
-            <p>Например, прямая речь: <em>"I am happy," she said.</em>  
-               Косвенная речь: <em>She said (that) she was happy.</em></p>
-            <ul>
-                <li>Present Simple → Past Simple (He <strong>said</strong> he <strong>loved</strong> coffee.)</li>
-                <li>Present Continuous → Past Continuous (She <strong>said</strong> she <strong>was reading</strong> a book.)</li>
-                <li>Will → Would (They <strong>said</strong> they <strong>would arrive</strong> soon.)</li>
-                <li>Can → Could, May → Might, Must → Had to и т.д.</li>
-            </ul>
+            <p>У существительных в английском языке отсутствует категория рода, но они изменяются по числам. У существительных различают два падежа — <strong>общий</strong> и <strong>притяжательный</strong>.</p>
+            <h3>Число</h3>
+            <p>Множественное число существительных образуется с помощью соответствующих окончаний.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Способ образования</th>
+                        <th>Существительные (перевод)</th>
+                        <th>Итог образования</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-s (общий случай)</td>
+                        <td>book (книга), cat (кошка)</td>
+                        <td>book<b style="color:red;">s</b> (книги), cat<b style="color:red;">s</b> (кошки)</td>
+                    </tr>
+                    <tr>
+                        <td>-es (шипящие или свистящие звуки: -s, -ss, -ch, -x, -sh, -tch)</td>
+                        <td>bus (автобус), dress (платье), church (церковь), box (ящик), bush (куст), match (матч)</td>
+                        <td>bus<b style="color:red;">es</b> (автобусы), dress<b style="color:red;">es</b> (платья), church<b style="color:red;">es</b> (церкви), box<b style="color:red;">es</b> (ящики), bush<b style="color:red;">es</b> (кусты), match<b style="color:red;">es</b> (матчи)</td>
+                    </tr>
+                    <tr>
+                        <td>-es (оканчивающиеся на -о)</td>
+                        <td>hero (герой)</td>
+                        <td>hero<b style="color:red;">es</b> (герои)</td>
+                    </tr>
+                    <tr>
+                        <td>-ies (оканчивающиеся на -y после согласной)</td>
+                        <td>city (город), story (история)</td>
+                        <td>cit<b style="color:red;">ies</b> (города), stor<b style="color:red;">ies</b> (истории)</td>
+                    </tr>
+                    <tr>
+                        <td>-s (оканчивающиеся на -y после гласной)</td>
+                        <td>boy (мальчик), key (ключ)</td>
+                        <td>boy<b style="color:red;">s</b> (мальчики), key<b style="color:red;">s</b> (ключи)</td>
+                    </tr>
+                    <tr>
+                        <td>-ves (оканчивающиеся на -f / -fe)</td>
+                        <td>wolf (волк), knife (нож)</td>
+                        <td>wol<b style="color:red;">ves</b> (волки), kni<b style="color:red;">ves</b> (ножи)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- 2. Дополнительная теория: Изменение местоимений и указателей времени -->
         <div class="section">
-            <h3>Изменение местоимений и указателей времени</h3>
-            <p>При преобразовании прямой речи в косвенную важно корректно изменить местоимения и указатели времени, чтобы сохранить смысл высказывания в новом контексте.</p>
-            <ul>
-                <li><strong>Местоимения:</strong> Подлежащее и объект должны соответствовать говорящему в новой ситуации.
-                    <ul>
-                        <li>Прямая: "You are coming," he said to me.</li>
-                        <li>Косвенная: He said to me that I was coming.</li>
-                    </ul>
-                </li>
-                <li><strong>Указатели времени:</strong> Слова, указывающие на время, часто изменяются.
-                    <ul>
-                        <li>now → then</li>
-                        <li>today → that day</li>
-                        <li>yesterday → the day before</li>
-                        <li>tomorrow → the following day</li>
-                    </ul>
-                </li>
+            <h3>Особые случаи образования множественного числа</h3>
+            <table>
+        <thead>
+            <tr>
+                <th>Форма единственного числа</th>
+                <th>Форма множественного числа</th>
+                <th>Перевод</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>child</td><td>children</td><td>ребёнок — <span class="highlight">дети</span></td></tr>
+            <tr><td>foot</td><td>feet</td><td>нога — <span class="highlight">ноги</span></td></tr>
+            <tr><td>goose</td><td>geese</td><td>гусь — <span class="highlight">гуси</span></td></tr>
+            <tr><td>man</td><td>men</td><td>человек, мужчина — <span class="highlight">люди, мужчины</span></td></tr>
+            <tr><td>mouse</td><td>mice</td><td>мышь — <span class="highlight">мыши</span></td></tr>
+            <tr><td>person</td><td>people</td><td>человек — <span class="highlight">люди</span></td></tr>
+            <tr><td>sheep</td><td>sheep</td><td>овца — <span class="highlight">овцы</span></td></tr>
+            <tr><td>tooth</td><td>teeth</td><td>зуб — <span class="highlight">зубы</span></td></tr>
+            <tr><td>woman</td><td>women</td><td>женщина — <span class="highlight">женщины</span></td></tr>
+        </tbody>
+    </table>
+    <h3>Существительные</h3>
+        <table>
+        <thead>
+            <tr>
+                <th>Тип существительного</th>
+                <th>Примеры</th>
+                <th>Особенности</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Исчисляемые (можно сосчитать)</td>
+                <td>five books (пять книг), three flowers (три цветка)</td>
+                <td>Могут быть в единственном и множественном числе. Употребляются с артиклем a/an в единственном числе.</td>
+            </tr>
+            <tr>
+                <td>Неисчисляемые (вещества, материалы, абстрактные понятия)</td>
+                <td>money (деньги), work (работа), information (информация)</td>
+                <td>Всегда имеют форму единственного числа и не употребляются с артиклем a/an.</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class="section">
+            <h3>Притяжательный падеж</h3>
+            <p>Английский притяжательный падеж образуется добавлением <strong>’s</strong> к слову в единственном числе и добавлением <strong>’</strong> к слову во множественном числе.</p>
+            <p>Притяжательный падеж обычно выражает принадлежность.</p>
+            <h3><b style="color:red;">Общий падеж</b></h3>
+            <ul> 
+                <li>boy (мальчик)</li>
+                <li>girls (девочки)</li>
             </ul>
-            <p>Пример:</p>
-            <ul>
-                <li>Прямая: "I will see you tomorrow," she said.</li>
-                <li>Косвенная: She said that she would see me the following day.</li>
+            <h3><b style="color:red;">Притяжательный падеж</b></h3>
+            <ul> 
+                <li>boy’s (мальчика)</li>
+                <li>girls’ (девочек)</li>
+            </ul>
+            <p>Примеры:</p>
+            <ul> 
+                <li>the boy’s books (книги мальчика)</li>
+                <li>the student’s notes (записи студента)</li>
+                <li>children’s toys (игрушки детей)</li>
+                <li>pupils’ work (работа учеников)</li>
             </ul>
         </div>
-
-        <!-- 3. Дополнительная теория: Преобразование вопросов и повелений -->
-        <div class="section">
-            <h3>Преобразование вопросов и повелений в косвенную речь</h3>
-            <p>Косвенная речь не ограничивается только утверждениями. Вопросы и повеления также могут быть переданы косвенно с определёнными изменениями.</p>
-            <ul>
-                <li><strong>Вопросы:</strong>
-                    <ul>
-                        <li>Прямая: "Where do you live?" she asked.</li>
-                        <li>Косвенная: She asked me where I lived.</li>
-                    </ul>
-                </li>
-                <li><strong>Повеления и просьбы:</strong>
-                    <ul>
-                        <li>Прямая: "Please open the window," he said.</li>
-                        <li>Косвенная: He asked me to open the window.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Особенности:</p>
-            <ul>
-                <li>Для вопросов используется структура с вопросительными словами (what, where, when и т.д.) без вспомогательных глаголов.</li>
-                <li>Для повелений и просьб часто используются конструкции с <strong>to</strong> или инфинитивом.</li>
-            </ul>
-        </div>
-
-        <!-- 4. Дополнительная теория: Особенности временных форм -->
-        <div class="section">
-            <h3>Особенности временных форм</h3>
-            <p>При преобразовании прямой речи в косвенную часто происходит сдвиг времен. Это связано с тем, что косвенная речь отражает прошлое высказывание.</p>
-            <ul>
-                <li><strong>Present Simple → Past Simple</strong>
-                    <ul>
-                        <li>Прямая: "I like this song," she said.</li>
-                        <li>Косвенная: She said that she liked that song.</li>
-                    </ul>
-                </li>
-                <li><strong>Past Simple → Past Perfect</strong>
-                    <ul>
-                        <li>Прямая: "I saw him yesterday," she said.</li>
-                        <li>Косвенная: She said that she had seen him the day before.</li>
-                    </ul>
-                </li>
-                <li><strong>Present Perfect → Past Perfect</strong>
-                    <ul>
-                        <li>Прямая: "I have finished my work," he said.</li>
-                        <li>Косвенная: He said that he had finished his work.</li>
-                    </ul>
-                </li>
-                <li><strong>Will → Would</strong>
-                    <ul>
-                        <li>Прямая: "I will call you tomorrow," she said.</li>
-                        <li>Косвенная: She said that she would call me the following day.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Однако, если высказывание всё ещё актуально или находится в настоящем времени относительно момента говорения, временная форма может не меняться.</p>
-            <ul>
-                <li>Прямая: "Water boils at 100 degrees Celsius," he said.</li>
-                <li>Косвенная: He said that water boils at 100 degrees Celsius.</li>
-            </ul>
-        </div>
-
-        <!-- 5. Дополнительная теория: Reported Speech в вопросительных предложениях без вопросительного слова -->
-        <div class="section">
-            <h3>Reported Speech в вопросительных предложениях без вопросительного слова</h3>
-            <p>Когда в прямом вопросе нет вопросительного слова (Yes/No вопрос), косвенная речь оформляется как утверждение с использованием <strong>if</strong> или <strong>whether</strong>.</p>
-            <ul>
-                <li>Прямая: "Are you coming?" she asked.</li>
-                <li>Косвенная: She asked if I was coming.</li>
-                <li>Прямая: "Did you see him?" he asked.</li>
-                <li>Косвенная: He asked whether I had seen him.</li>
-            </ul>
-        </div>
-
-        <!-- 6. Дополнительная теория: Reported Speech в отрицательных предложениях -->
-        <div class="section">
-            <h3>Reported Speech в отрицательных предложениях</h3>
-            <p>При передаче отрицательных утверждений и повелений важно сохранить отрицание в косвенной речи.</p>
-            <ul>
-                <li>Прямая: "I don't like broccoli," she said.</li>
-                <li>Косвенная: She said that she didn't like broccoli.</li>
-                <li>Прямая: "Don't touch that," he told me.</li>
-                <li>Косвенная: He told me not to touch that.</li>
-            </ul>
-        </div>
-
-        <!-- 7. Дополнительная теория: Использование модальных глаголов в косвенной речи -->
-        <div class="section">
-            <h3>Использование модальных глаголов в косвенной речи</h3>
-            <p>Некоторые модальные глаголы изменяются при переходе от прямой к косвенной речи:</p>
-            <ul>
-                <li><strong>Can → Could</strong>
-                    <ul>
-                        <li>Прямая: "I can help you," he said.</li>
-                        <li>Косвенная: He said that he could help me.</li>
-                    </ul>
-                </li>
-                <li><strong>May → Might</strong>
-                    <ul>
-                        <li>Прямая: "May I come in?" she asked.</li>
-                        <li>Косвенная: She asked if she might come in.</li>
-                    </ul>
-                </li>
-                <li><strong>Must → Had to</strong>
-                    <ul>
-                        <li>Прямая: "You must wear a helmet," the police officer said.</li>
-                        <li>Косвенная: The police officer said that we had to wear a helmet.</li>
-                    </ul>
-                </li>
-                <li><strong>Will → Would</strong>
-                    <ul>
-                        <li>Прямая: "I will call you later," she said.</li>
-                        <li>Косвенная: She said that she would call me later.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Некоторые модальные глаголы не имеют прямых форм в прошедшем времени, поэтому при необходимости передать прошедшее обязательство или возможность используются другие конструкции.</p>
-        </div>
-
-        <!-- 8. Дополнительная теория: Reported Speech для прямых и косвенных вопросов -->
-        <div class="section">
-            <h3>Reported Speech для прямых и косвенных вопросов</h3>
-            <p>При передаче вопросов в косвенной речи важно правильно изменить порядок слов и сохранить смысл вопроса.</p>
-            <ul>
-                <li><strong>Прямой вопрос с вопросительным словом:</strong>
-                    <ul>
-                        <li>Прямая: "What are you doing?" she asked.</li>
-                        <li>Косвенная: She asked what I was doing.</li>
-                    </ul>
-                </li>
-                <li><strong>Прямой вопрос без вопросительного слова:</strong>
-                    <ul>
-                        <li>Прямая: "Did you finish your homework?" he asked.</li>
-                        <li>Косвенная: He asked if I had finished my homework.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 9. Дополнительная теория: Reported Speech для повелений и просьб с разными модальными глаголами -->
-        <div class="section">
-            <h3>Reported Speech для повелений и просьб с разными модальными глаголами</h3>
-            <p>При передаче повелений и просьб важно правильно выбрать структуру и модальные глаголы для сохранения смысла.</p>
-            <ul>
-                <li><strong>Must:</strong> Используется для сильных повелений и обязательств.
-                    <ul>
-                        <li>Прямая: "You must wear your seatbelt," the driver said.</li>
-                        <li>Косвенная: The driver said that we must wear our seatbelts.</li>
-                    </ul>
-                </li>
-                <li><strong>Should:</strong> Используется для советов и рекомендаций.
-                    <ul>
-                        <li>Прямая: "You should exercise regularly," she advised.</li>
-                        <li>Косвенная: She advised that I should exercise regularly.</li>
-                    </ul>
-                </li>
-                <li><strong>Have to:</strong> Используется для внешних обязательств и правил.
-                    <ul>
-                        <li>Прямая: "You have to submit the report by Friday," the manager said.</li>
-                        <li>Косвенная: The manager said that I had to submit the report by Friday.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 10. Дополнительная теория: Reported Speech и времена Perfect -->
-        <div class="section">
-            <h3>Reported Speech и времена Perfect</h3>
-            <p>При использовании времен Perfect в прямой речи, в косвенной речи они часто преобразуются в Past Perfect.</p>
-            <ul>
-                <li><strong>Present Perfect → Past Perfect</strong>
-                    <ul>
-                        <li>Прямая: "I have finished my work," he said.</li>
-                        <li>Косвенная: He said that he had finished his work.</li>
-                    </ul>
-                </li>
-                <li><strong>Past Perfect → Past Perfect</strong> (без изменений)
-                    <ul>
-                        <li>Прямая: "I had already left when you called," she explained.</li>
-                        <li>Косвенная: She explained that she had already left when I called.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Это помогает сохранить правильную последовательность времён и чётко отразить временные отношения между событиями.</p>
-        </div>
-
-        <!-- (Опционально) Кнопка "Далее": переход к следующему уроку -->
-        <!-- 
-        <button class="next-lesson-btn" onclick="navigateToNextLesson()">
-            <i class="fa-solid fa-arrow-right next-icon"></i>
-            Далее
-        </button>
-        -->
-
     </div>
-
-    <!-- Обратите внимание: все скрипты теперь управляются через script.js -->
 </body>
 </html>

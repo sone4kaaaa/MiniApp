@@ -1772,7 +1772,41 @@ window.checkAnswer = function(selectedNumber) {
         const answers = {
             q1: 'run',
             q2: 'swim',
-            q3: 'dance'
+            q3: 'dance',
+            q4: 'read'
+        };
+
+        let score = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+            } else {
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+            }
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
+    window.checkQuiz2_3 = function() {
+        const answers = {
+            q1: 'dress,socks,shoes',
+            q2: 'T-shirt,shorts,shorts,shoes',
+            q3: 'dress,socks,shoes',
+            q4: 'T-shirt,pants,shoes'
         };
 
         let score = 0;
@@ -1935,19 +1969,18 @@ window.checkAnswer = function(selectedNumber) {
     window.checkTest1 = function() {
         // Правильные ответы
         const answers = {
-            q1: 'had finished',             // #1 If she ___ her work early...
-            q2: 'will have been living',    // #2 By this time next year, I ___
-            q3: 'had + been + глагол-ing',  // #3 Past Perfect Continuous
-            q4: 'they have been building the bridge since 2018 and it\'s still not finished', 
-                                            // #4 (упростим проверку, можно более гибко)
-            q5: 'had known',                // #5 If I ___ about the traffic...
-            q6: 'has been working',         // #6 She ___ (тут Present Perfect Continuous)
-            q7: 'will have finished',       // #7 By the time you arrive, we ___
-            q8: 'she had been reading the book when i called', 
-                                            // #8 Convert to Past Perf. Continuous
-            q9: 'had left',                 // #9 If they ___ earlier...
-            q10: 'will have been studying'  // #10 By the end of this month, I ___
+            q1: 'морковь',                   
+            q2: 'banana',                    
+            q3: 'tomato',                  
+            q4: 'apple',                     
+            q5: 'run',                       
+            q6: 'drink tea',                    
+            q7: 'boots',                 
+            q8: 'hat',                      
+            q9: 'cucumber',                 
+            q10: 'eat'                       
         };
+
 
         let score = 0;
         const total = Object.keys(answers).length;

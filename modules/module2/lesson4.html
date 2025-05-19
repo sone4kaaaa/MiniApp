@@ -95,17 +95,17 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        .feedback {
+        .feedback, .matching-feedback {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
             display: none;
         }
-        .feedback.success {
+        .feedback.success, .matching-feedback.success {
             background-color: #d4edda;
             color: #155724;
         }
-        .feedback.error {
+        .feedback.error, .matching-feedback.error {
             background-color: #f8d7da;
             color: #721c24;
         }
@@ -189,20 +189,20 @@
             <p>Для образования вопросительных предложений с глаголом "to be" используется инверсия подлежащего и глагола.</p>
             <table>
                 <tr>
-                    <th>Утвердительное предложение</th>
-                    <th>Вопросительное предложение</th>
+                    <th>1.Утвердительное предложение</th>
+                    <th>2.Вопросительное предложение</th>
                 </tr>
                 <tr>
-                    <td>You are a teacher.</td>
-                    <td>Are you a teacher?</td>
+                    <td>1.You are a teacher.</td>
+                    <td>2.Are you a teacher?</td>
                 </tr>
                 <tr>
-                    <td>They are students.</td>
-                    <td>Are they students?</td>
+                    <td>1.They are students.</td>
+                    <td>2.Are they students?</td>
                 </tr>
                 <tr>
-                    <td>He is happy.</td>
-                    <td>Is he happy?</td>
+                    <td>1.He is happy.</td>
+                    <td>2.Is he happy?</td>
                 </tr>
             </table>
         
@@ -273,16 +273,16 @@
             <h3>🧠 Задание 1: Заполните пропуски</h3>
             <div class="quiz">
                 <div class="quiz-question">
-                    <label>1. You ___ a teacher.</label>
-                    <input type="text" id="q1" placeholder="are/is/am">
+                    <label>1. ___ you a teacher? (ответ с большой буквы)</label>
+                    <input type="text" id="q1" style="width: 150px;">
                 </div>
                 <div class="quiz-question">
-                    <label>2. He ___ happy.</label>
-                    <input type="text" id="q2" placeholder="are/is/am">
+                    <label>2. ___ he happy? (ответ с большой буквы)</label>
+                    <input type="text" id="q2" style="width: 150px;">
                 </div>
                 <div class="quiz-question">
-                    <label>3. I ___ from Russia.</label>
-                    <input type="text" id="q3" placeholder="are/is/am">
+                    <label>3. I ___ from Russia. (ответ с маленькой буквы)</label>
+                    <input type="text" id="q3" style="width: 150px;">
                 </div>
                 <button class="submit-btn" onclick="checkQuiz2_4()">Проверить ответы</button>
                 <div class="feedback" id="quiz-feedback"></div>
@@ -298,25 +298,25 @@
                         <option value="">Выберите перевод</option>
                         <option value="1">Как ты?</option>
                         <option value="2">Привет</option>
-                        <option value="3">Спасибо</option>
+                        <option value="3">Меня зовут...</option>
                     </select>
                 </div>
                 <div class="matching-item">
-                    <label>2. Good evening</label>
+                    <label>2. What is your name?</label>
                     <select id="match2">
                         <option value="">Выберите перевод</option>
-                        <option value="1">Добрый вечер</option>
-                        <option value="2">До свидания</option>
-                        <option value="3">Извините</option>
+                        <option value="1">Откуда ты?</option>
+                        <option value="2">Как тебя зовут?</option>
+                        <option value="3">Сколько тебе лет?</option>
                     </select>
                 </div>
                 <div class="matching-item">
-                    <label>3. See you later</label>
+                    <label>3. Where are you from?</label>
                     <select id="match3">
                         <option value="">Выберите перевод</option>
-                        <option value="1">До встречи</option>
-                        <option value="2">Как тебя зовут?</option>
-                        <option value="3">Меня зовут...</option>
+                        <option value="1">Откуда ты?</option>
+                        <option value="2">Как ты поживаешь?</option>
+                        <option value="3">Сколько тебе лет?</option>
                     </select>
                 </div>
                 <button class="check-matching-btn" onclick="checkMatching2_4()">Проверить сопоставление</button>

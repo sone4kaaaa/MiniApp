@@ -1228,116 +1228,147 @@ document.addEventListener('DOMContentLoaded', async () => {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
+    /**
+ * --- ИГРЫ ---
+ */
 
+// ---------- Игра: Соедини цифру и слово ----------
+const numberWords = [
+    "zero", "one", "two", "three", "four", "five",
+    "six", "seven", "eight", "nine", "ten", "eleven", "twelve"
+];
 
-    const maxNumber = 12;
-
-    let correctNumber = 0;
-
-    function getRandomInt(max, exclude = []) {
-        let num;
-        do {
-            num = Math.floor(Math.random() * max);
-        } while (exclude.includes(num));
-        return num;
+/**
+ * Функция перемешивания массива
+ * @param {Array} array - Массив для перемешивания
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
+}
 
-    window.playRandomAudio() = function() {
-        correctNumber = getRandomInt(maxNumber + 1);
-        const audioHTML = `
-            <audio controls autoplay>
-                <source src="./assets/audios/en_num_${correctNumber.toString().padStart(2, '0')}.mp3" type="audio/mp3">
-                Ваш браузер не поддерживает аудио.
-            </audio>
+/**
+ * Функция генерации игры "Соедини цифру и слово"
+ */
+function generateMatchingGame() {
+    const container = document.getElementById('matching-game');
+    if (!container) return; // Если контейнер не найден — выходим
+
+    let html = '';
+
+    // Создаём массив чисел от 0 до 12 и перемешиваем
+    const numbers = Array.from({ length: 13 }, (_, i) => i);
+    shuffleArray(numbers);
+
+    numbers.forEach(i => {
+        html += `
+            <div class="matching-item" id="match-${i}">
+                <label class="match-number match-color-${i}">${i}</label>
+                <select>
+                    <option value="">выбери</option>
+                    ${numberWords.map(word => `<option value="${word}">${word}</option>`).join('')}
+                </select>
+            </div>
         `;
-        document.getElementById('audio-player').innerHTML = audioHTML;
-        generateAnswerButtons();
-        document.getElementById('result').style.display = 'none';
+    });
+
+    container.innerHTML = html;
+}
+
+/**
+ * Функция проверки игры "Соедини цифру и слово"
+ */
+window.checkMatching = function() {
+    for (let i = 0; i <= 12; i++) {
+        const item = document.querySelector(`#match-${i}`);
+        if (!item) continue; // Если элемента нет — пропускаем
+
+        const select = item.querySelector('select');
+        const selected = select.value;
+        const correct = numberWords[i];
+
+        // Изменяем цвет в зависимости от правильности ответа
+        item.style.backgroundColor = selected === correct ? "#d4edda" : "#f8d7da";
+    }
+};
+
+// Запускаем игру при загрузке страницы
+generateMatchingGame();
+
+
+// ---------- Игра: Угадай число по аудио ----------
+const maxNumber = 12;
+let correctNumber = 0;
+
+/**
+ * Функция генерации случайного числа
+ * @param {number} max - Максимальное значение
+ * @param {Array} exclude - Массив чисел для исключения
+ */
+function getRandomInt(max, exclude = []) {
+    let num;
+    do {
+        num = Math.floor(Math.random() * max);
+    } while (exclude.includes(num));
+    return num;
+}
+
+/**
+ * Функция воспроизведения случайного аудио и генерации ответов
+ */
+window.playRandomAudio = function() {
+    correctNumber = getRandomInt(maxNumber + 1);
+    const audioHTML = `
+        <audio controls autoplay>
+            <source src="./assets/audios/en_num_${correctNumber.toString().padStart(2, '0')}.mp3" type="audio/mp3">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+    `;
+    document.getElementById('audio-player').innerHTML = audioHTML;
+    generateAnswerButtons();
+    document.getElementById('result').style.display = 'none';
+};
+
+/**
+ * Функция генерации кнопок для ответа
+ */
+function generateAnswerButtons() {
+    const answers = [correctNumber];
+    while (answers.length < 3) {
+        const rand = getRandomInt(maxNumber + 1, answers);
+        answers.push(rand);
     }
 
-    function generateAnswerButtons() {
-        const answers = [correctNumber];
-        while (answers.length < 3) {
-            const rand = getRandomInt(maxNumber + 1, answers);
-            answers.push(rand);
-        }
+    // Перемешиваем
+    answers.sort(() => Math.random() - 0.5);
 
-        // Перемешиваем
-        answers.sort(() => Math.random() - 0.5);
+    const buttonsHTML = answers.map(num => `
+        <button onclick="checkAnswer(${num})" class="submit-btn">${num}</button>
+    `).join('');
 
-        const buttonsHTML = answers.map(num => `
-            <button onclick="checkAnswer(${num})" class="submit-btn">${num}</button>
-        `).join('');
+    document.getElementById('answer-buttons').innerHTML = buttonsHTML;
+}
 
-        document.getElementById('answer-buttons').innerHTML = buttonsHTML;
+/**
+ * Функция проверки выбранного ответа
+ * @param {number} selectedNumber - Число, выбранное пользователем
+ */
+window.checkAnswer = function(selectedNumber) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.style.display = 'block';
+
+    if (selectedNumber === correctNumber) {
+        resultDiv.className = 'feedback success';
+        resultDiv.innerHTML = `✅ Молодец! Это <strong>${correctNumber}</strong>!<br><button onclick="playRandomAudio()" class="submit-btn">Следующее число ▶️</button>`;
+    } else {
+        resultDiv.className = 'feedback error';
+        resultDiv.innerHTML = `❌ Это не <strong>${selectedNumber}</strong>. Попробуй ещё раз!`;
     }
+};
 
-    function checkAnswer(selectedNumber) {
-        const resultDiv = document.getElementById('result');
-        resultDiv.style.display = 'block';
-
-        if (selectedNumber === correctNumber) {
-            resultDiv.className = 'feedback success';
-            resultDiv.innerHTML = `✅ Молодец! Это <strong>${correctNumber}</strong>!<br><button onclick="playRandomAudio()" class="submit-btn">Следующее число ▶️</button>`;
-        } else {
-            resultDiv.className = 'feedback error';
-            resultDiv.innerHTML = `❌ Это не <strong>${selectedNumber}</strong>. Попробуй ещё раз!`;
-        }
-    }
-
-    const numberWords = [
-        "zero", "one", "two", "three", "four", "five",
-        "six", "seven", "eight", "nine", "ten", "eleven", "twelve"
-    ];
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
-    function generateMatchingGame() {
-        const container = document.getElementById('matching-game');
-        let html = '';
-
-        // Создаём массив чисел от 0 до 12 и перемешиваем
-        const numbers = Array.from({ length: 13 }, (_, i) => i);
-        shuffleArray(numbers);
-
-        numbers.forEach(i => {
-            html += `
-                <div class="matching-item" id="match-${i}">
-                    <label class="match-number match-color-${i}">${i}</label>
-                    <select>
-                        <option value="">выбери</option>
-                        ${numberWords.map(word => `<option value="${word}">${word}</option>`).join('')}
-                    </select>
-                </div>
-            `;
-        });
-
-        container.innerHTML = html;
-    }
-
-
-    window.checkMatching() = function() {
-        for (let i = 0; i <= 12; i++) {
-            const item = document.querySelector(`#match-${i}`);
-            const select = item.querySelector('select');
-            const selected = select.value;
-            const correct = numberWords[i];
-
-            item.style.backgroundColor = selected === correct ? "#d4edda" : "#f8d7da";
-        }
-    }
-
-    generateMatchingGame();
-    document.addEventListener('DOMContentLoaded', generateMatchingGame);
-
-
-
-        window.checkQuiz08 = function() {
+    window.checkQuiz08 = function() {
         const answers = {
             q1: 'is',
             q2: 'are',

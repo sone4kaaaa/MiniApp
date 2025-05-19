@@ -380,51 +380,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-function checkQuiz05() {
-    const form = document.getElementById('transcription-quiz');
-    const feedback = document.getElementById('quiz-feedback');
-    const formData = new FormData(form);
-    let score = 0;
-    const total = 6;
-
-    // Сброс подсветки у всех меток
-    const allLabels = form.querySelectorAll('label');
-    allLabels.forEach(label => {
-        label.classList.remove('correct-answer', 'wrong-answer');
-    });
-
-    // Проверка каждого вопроса
-    for (let i = 1; i <= total; i++) {
-        const radios = form.querySelectorAll(`input[name="q${i}"]`);
-        const selectedValue = formData.get(`q${i}`);
-
-        if (selectedValue !== null) {
-            radios.forEach(radio => {
-                if (radio.checked) {
-                    if (radio.value === "1") {
-                        radio.parentElement.classList.add('correct-answer');
-                        score++;
-                    } else {
-                        radio.parentElement.classList.add('wrong-answer');
-                    }
-                }
-            });
-        }
-    }
-
-    // Вывод результата
-    feedback.style.display = 'block';
-    if (score === total) {
-        feedback.className = 'feedback success';
-        feedback.innerText = 'Отлично! Все ответы верны!';
-    } else {
-        feedback.className = 'feedback error';
-        feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
-    }
-}
-</script>
-
 </body>
 </html>

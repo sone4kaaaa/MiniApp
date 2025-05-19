@@ -72,16 +72,21 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
+
         table {
             border-collapse: collapse;
-            width: 100%;
-            min-width: 600px; /* минимальная ширина таблицы, чтобы не сжималась */
-            white-space: nowrap; /* запрещаем перенос слов/ячееек */
+            min-width: 600px;
+            table-layout: auto;
+            white-space: nowrap;
         }
+
         th, td {
             padding: 8px;
             border-bottom: 1px solid #ccc;
+            white-space: nowrap; /* 🔒 Не даёт переноситься содержимому */
+            text-align: left;
         }
+
         th {
             text-align: left;
         }

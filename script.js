@@ -1768,364 +1768,38 @@ window.checkAnswer = function(selectedNumber) {
         }
     };
 
-
-    /************************************************************
-     * Урок 10: Advanced Grammar — Inversion, Subjunctive, Emphatic Structures
-     ************************************************************/
-
-    /**
-     * Задание 1: Subjunctive / Inversion
-     */
-    window.checkSubjunctiveInversion = function() {
-        const correct = {
-            q1: 'be',
-            q2: 'have i seen',
-            q3: 'were'
+    window.checkQuiz2_2 = function() {
+        const answers = {
+            q1: 'run',
+            q2: 'swim',
+            q3: 'dance'
         };
-        let score = 0;
-        let total = 3;
-
-        for (let key in correct) {
-            let val = document.getElementById(key).value.trim().toLowerCase();
-            // Удаляем точки
-            val = val.replace(/\./g,'');
-            if (val === correct[key]) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745';
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545';
-            }
-        }
-
-        const fb = document.getElementById('subj-inv-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Сослагательное наклонение и инверсия применены верно.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Вы ответили верно на ${score} из ${total}. Проверьте ответы.`;
-        }
-    };
-
-    /**
-     * Задание 2: Сопоставьте инверсию
-     */
-    window.checkInversionMatch = function() {
-        // inv1 -> "We rarely meet" (1)
-        // inv2 -> "He knew little about the truth" (2)
-        const correct = { inv1: '1', inv2: '2' };
-        let score = 0;
-        let total = 2;
-
-        for (let key in correct) {
-            const val = document.getElementById(key).value;
-            if (val === correct[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
-
-        const fb = document.getElementById('inversion-match-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Все сопоставления верны (${score}/${total}). Отличная работа.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}. Исправьте ошибки.`;
-        }
-    };
-
-    /**
-     * Задание 3: Radio Quiz (Cleft types)
-     */
-    window.checkCleftRadio = function() {
-        const correct = { r1: 'It-cleft', r2: 'What-cleft' };
-        let score = 0;
-        let total = 2;
-
-        // r1
-        let user1 = '';
-        document.getElementsByName('r1').forEach(radio => {
-            if (radio.checked) user1 = radio.value;
-        });
-        if (user1 === correct.r1) score++;
-
-        // r2
-        let user2 = '';
-        document.getElementsByName('r2').forEach(radio => {
-            if (radio.checked) user2 = radio.value;
-        });
-        if (user2 === correct.r2) score++;
-
-        const fb = document.getElementById('cleft-radio-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Замечательно! Оба ответа (${score}/${total}) верны.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте снова.`;
-        }
-    };
-
-    /**
-     * Задание 4: Drag & Drop (Inversion)
-     */
-    window.checkInversionDrag = function() {
-        // "Hardly had we started when the lights went out."
-        const dropZone = document.getElementById('drop-zone');
-        const words = Array.from(dropZone.querySelectorAll('.draggable')).map(w => w.textContent.toLowerCase());
-        const userSentence = words.join(' ').trim();
-        const correctSentence = "hardly had we started when the lights went out.";
-
-        const fb = document.getElementById('inversion-drag-feedback');
-        fb.style.display = 'block';
-
-        if (userSentence === correctSentence) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Отлично! Инверсия в предложении оформлена корректно.';
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Получилось: "${userSentence}". Попробуйте другой порядок.`;
-        }
-    };
-
-    /**
-     * Задание 5: Исправьте ошибки (Subjunctive, Inversion)
-     */
-    window.checkSubjInversionErrors = function() {
-        // 1) It is crucial that he leave at 7 AM.
-        // 2) Never have I seen such dedication.
-        // 3) If I were you, I'd apply for the position.
-        let e1Val = document.getElementById('e1').textContent.trim().toLowerCase();
-        let e2Val = document.getElementById('e2').textContent.trim().toLowerCase();
-        let e3Val = document.getElementById('e3').textContent.trim().toLowerCase();
 
         let score = 0;
-        let total = 3;
-
-        // Проверка 1
-        if (e1Val.includes("it is crucial that he leave")) {
-            score++;
-            document.getElementById('e1').style.border = '2px solid #28a745';
-        } else {
-            document.getElementById('e1').style.border = '2px solid #dc3545';
-        }
-
-        // Проверка 2
-        if (e2Val.includes("never have i seen")) {
-            score++;
-            document.getElementById('e2').style.border = '2px solid #28a745';
-        } else {
-            document.getElementById('e2').style.border = '2px solid #dc3545';
-        }
-
-        // Проверка 3
-        if (e3Val.includes("if i were you")) {
-            score++;
-            document.getElementById('e3').style.border = '2px solid #28a745';
-        } else {
-            document.getElementById('e3').style.border = '2px solid #dc3545';
-        }
-
-        const fb = document.getElementById('subj-inv-error-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Отлично! Все ошибки исправлены правильно.';
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Вы исправили верно: ${score} из ${total}. Проверьте ещё раз.`;
-        }
-    };
-
-    /**
-     * Задание 6: Сопоставьте термин с переводом
-     */
-    window.checkTermMatching = function() {
-        // term1: "Subjunctive Mood" -> "Сослагательное наклонение" (1)
-        // term2: "Inversion" -> "Инверсия (перестановка слов)" (1)
-        const answers = { term1: '1', term2: '1' };
-        let score = 0;
-        let total = 2;
+        let total = Object.keys(answers).length;
 
         for (let key in answers) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === answers[key]) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
                 score++;
-                document.getElementById(key).style.borderColor = '#28a745';
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
             } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
             }
         }
 
-        const fb = document.getElementById('term-feedback');
-        fb.style.display = 'block';
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
         if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Замечательно! Вы верно сопоставили термины.';
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
         } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верных сопоставлений: ${score} из ${total}. Попробуйте ещё раз.`;
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
-
-    /**
-     * Задание 7: Radio Quiz (Mixing Emphatic & Subjunctive)
-     */
-    window.checkMixRadio = function() {
-        // r3 -> 'be'
-        // r4 -> 'that'
-        const correct = { r3: 'be', r4: 'that' };
-        let total = 2;
-        let score = 0;
-
-        let user3 = '';
-        document.getElementsByName('r3').forEach(radio => {
-            if (radio.checked) user3 = radio.value;
-        });
-        if (user3 === correct.r3) score++;
-
-        let user4 = '';
-        document.getElementsByName('r4').forEach(radio => {
-            if (radio.checked) user4 = radio.value;
-        });
-        if (user4 === correct.r4) score++;
-
-        const fb = document.getElementById('mix-radio-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Превосходно! Все ответы (${score}/${total}) верны.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте снова.`;
-        }
-    };
-
-    /**
-     * Задание 8: Drag & Drop (Emphatic "What" cleft)
-     */
-    window.checkWhatDrag = function() {
-        // "What he really wants is a chance to prove himself."
-        const dropZone = document.getElementById('drop-zone2');
-        const words = Array.from(dropZone.querySelectorAll('.draggable')).map(w => w.textContent.toLowerCase());
-        const userSentence = words.join(' ').trim();
-        const correctSentence = "what he really wants is a chance to prove himself.";
-
-        const fb = document.getElementById('what-drag-feedback');
-        fb.style.display = 'block';
-
-        if (userSentence === correctSentence) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Отлично! Cleft-предложение собрано правильно.';
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Получилось: "${userSentence}". Попробуйте другой порядок.`;
-        }
-    };
-
-    /**
-     * Инициализация Drag & Drop для урока 10
-     */
-    function initializeLesson10() {
-        // --- Задание 4 ---
-        const dragItems1 = document.querySelectorAll('.draggable1');
-        const dropZone1 = document.getElementById('drop-zone');
-    
-        dragItems1.forEach(item => {
-            // Запоминаем, где слово лежало изначально
-            item.dataset.originParent = item.parentElement.id;
-    
-            item.addEventListener('dragstart', function(e) {
-                // Указываем, что переносим по "id"
-                e.dataTransfer.setData('text/plain', e.target.id);
-                e.dataTransfer.effectAllowed = 'move';
-                // Ставим флажок: "ещё не упало"
-                item.dataset.dropped = "false";
-                e.target.style.opacity = '0.4';
-            });
-    
-            item.addEventListener('dragend', function(e) {
-                e.target.style.opacity = '1';
-                // Если dropped осталось "false", значит уронили мимо drop-zone
-                if (item.dataset.dropped === "false") {
-                    // Возвращаем в родной контейнер
-                    const origin = document.getElementById(item.dataset.originParent);
-                    origin.appendChild(item);
-                }
-            });
-        });
-    
-        dropZone1.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
-            dropZone1.classList.add('dragover');
-        });
-    
-        dropZone1.addEventListener('dragleave', function(e) {
-            dropZone1.classList.remove('dragover');
-        });
-    
-        dropZone1.addEventListener('drop', function(e) {
-            e.preventDefault();
-            dropZone1.classList.remove('dragover');
-            // Получаем id
-            const id = e.dataTransfer.getData('text/plain');
-            const draggedElement = document.getElementById(id);
-            // Помечаем, что упал успешно
-            draggedElement.dataset.dropped = "true";
-            dropZone1.appendChild(draggedElement);
-        });
-    
-        // --- Задание 8 ---
-        const dragItems2 = document.querySelectorAll('.draggable2');
-        const dropZone2 = document.getElementById('drop-zone2');
-    
-        dragItems2.forEach(item => {
-            // Запоминаем родительский контейнер
-            item.dataset.originParent = item.parentElement.id;
-    
-            item.addEventListener('dragstart', function(e) {
-                e.dataTransfer.setData('text/plain', e.target.id);
-                e.dataTransfer.effectAllowed = 'move';
-                item.dataset.dropped = "false";
-                e.target.style.opacity = '0.4';
-            });
-    
-            item.addEventListener('dragend', function(e) {
-                e.target.style.opacity = '1';
-                // Если флажок не установился -> возвращаем обратно
-                if (item.dataset.dropped === "false") {
-                    const origin = document.getElementById(item.dataset.originParent);
-                    origin.appendChild(item);
-                }
-            });
-        });
-    
-        dropZone2.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
-            dropZone2.classList.add('dragover');
-        });
-    
-        dropZone2.addEventListener('dragleave', function(e) {
-            dropZone2.classList.remove('dragover');
-        });
-    
-        dropZone2.addEventListener('drop', function(e) {
-            e.preventDefault();
-            dropZone2.classList.remove('dragover');
-            const id = e.dataTransfer.getData('text/plain');
-            const draggedElement = document.getElementById(id);
-            draggedElement.dataset.dropped = "true";
-            dropZone2.appendChild(draggedElement);
-        });
-    }
 
     /**
  * Функция добавляет кнопку "Закончить" в конец .quiz (для итогового теста)

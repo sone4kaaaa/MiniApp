@@ -1413,8 +1413,310 @@ window.checkAnswer = function(selectedNumber) {
         feedback.textContent = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
     }
 };
+    window.checkQuiz05 = function() {
+    const form = document.getElementById('transcription-quiz');
+    const feedback = document.getElementById('quiz-feedback');
+    const formData = new FormData(form);
+    let score = 0;
+    const total = 6;
 
+    // Сброс подсветки у всех меток
+    const allLabels = form.querySelectorAll('label');
+    allLabels.forEach(label => {
+        label.classList.remove('correct-answer', 'wrong-answer');
+    });
 
+    // Проверка каждого вопроса
+    for (let i = 1; i <= total; i++) {
+        const radios = form.querySelectorAll(`input[name="q${i}"]`);
+        const selectedValue = formData.get(`q${i}`);
+
+        if (selectedValue !== null) {
+            radios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === "1") {
+                        radio.parentElement.classList.add('correct-answer');
+                        score++;
+                    } else {
+                        radio.parentElement.classList.add('wrong-answer');
+                    }
+                }
+            });
+        }
+    }
+
+    // Вывод результата
+    feedback.style.display = 'block';
+    if (score === total) {
+        feedback.className = 'feedback success';
+        feedback.innerText = 'Отлично! Все ответы верны!';
+    } else {
+        feedback.className = 'feedback error';
+        feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
+    }
+};
+    window.initMatchingGame = function () {
+        const pairs = [
+        ["Father", "отец"],
+        ["Mother", "мать"],
+        ["Brother", "брат"],
+        ["Sister", "сестра"],
+        ["Grandmother", "бабушка"],
+        ["Grandfather", "дедушка"],
+        ["Wife", "жена"],
+        ["Husband", "муж"],
+        ["Son", "сын"],
+        ["Daughter", "дочь"]
+    ];
+
+    const cards = [];
+    const gameContainer = document.getElementById("matching-game");
+
+    // Создание карточек и перемешивание
+    pairs.forEach(([eng, rus]) => {
+        cards.push({ text: eng, pair: rus });
+        cards.push({ text: rus, pair: eng });
+    });
+
+    // Перемешать массив
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    shuffle(cards);
+
+    let flippedCards = [];
+    let lockBoard = false;
+
+    function createCard(cardObj) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.textContent = "";
+        card.dataset.text = cardObj.text;
+        card.dataset.pair = cardObj.pair;
+
+        card.addEventListener("click", function () {
+            if (lockBoard || card.classList.contains("flipped") || card.classList.contains("matched")) return;
+
+            card.classList.add("flipped");
+            card.textContent = card.dataset.text;
+            flippedCards.push(card);
+
+            if (flippedCards.length === 2) {
+                lockBoard = true;
+                const [first, second] = flippedCards;
+
+                if (first.dataset.text === second.dataset.pair || first.dataset.pair === second.dataset.text) {
+                    first.classList.add("matched");
+                    second.classList.add("matched");
+                    flippedCards = [];
+                    lockBoard = false;
+                } else {
+                    setTimeout(() => {
+                        first.classList.remove("flipped");
+                        second.classList.remove("flipped");
+                        first.textContent = "";
+                        second.textContent = "";
+                        flippedCards = [];
+                        lockBoard = false;
+                    }, 1000);
+                }
+            }
+        });
+
+        return card;
+    }
+
+    cards.forEach(cardObj => {
+        gameContainer.appendChild(createCard(cardObj));
+    });
+    };
+
+    window.checkQuiz06 = function () {
+        const answers = ["an", "a", "the", "an", "a", "an", "the", "an", "a", "the"];
+        let correct = 0;
+
+        for (let i = 0; i < answers.length; i++) {
+            const input = document.getElementById("q" + (i + 1));
+            const userInput = input.value.trim().toLowerCase();
+
+            if (userInput === answers[i]) {
+                input.style.border = "2px solid green";
+                correct++;
+            } else {
+                input.style.border = "2px solid red";
+            }
+        }
+
+        const feedback = document.getElementById("articles-feedback");
+        feedback.style.display = "block";
+
+        if (correct === answers.length) {
+            feedback.className = "feedback success";
+            feedback.innerText = "Умничка! Все ответы правильные 🎉";
+        } else {
+            feedback.className = "feedback error";
+            feedback.innerText = `Правильных ответов: ${correct} из 10. Попробуй ещё раз!`;
+        }
+    };
+    
+    window.initMemoryGame = function () {
+          (function(){
+            const gameContainer = document.getElementById('memory-game');
+            const resultDiv = document.getElementById('memory-result');
+
+            const pairs = [
+            {id: 1, word: 'Ram', img: 'https://i.pinimg.com/736x/9c/41/93/9c41933a38c7c9edd31424df47cd6861.jpg'},
+            {id: 2, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
+            {id: 3, word: 'Rabbit', img: 'https://avatars.mds.yandex.net/i?id=6c2b61033d5b0bfa57fd56b9e583469e_l-5288839-images-thumbs&n=13'},
+            {id: 4, word: 'Bird', img: 'https://avatars.mds.yandex.net/i?id=b44db42ae67a1088b76dd423793e40ab_l-4306607-images-thumbs&ref=rim&n=13&w=2305&h=2560'},
+            {id: 5, word: 'Elephant', img: 'https://avatars.mds.yandex.net/i?id=1fa52a6e74759c17b5a6f127c3e6ef8ef5b4d9ac-5680887-images-thumbs&n=13'},
+            {id: 6, word: 'Wolf', img: 'https://avatars.mds.yandex.net/i?id=527a62ce8b275f99cb44147bdac558393fa0f8da-4766550-images-thumbs&n=13'},
+            {id: 7, word: 'Duck', img: 'https://i.pinimg.com/736x/14/3c/a1/143ca1e1a42e1336b8376cbea1863ab7.jpg'},
+            {id: 8, word: 'Horse', img: 'https://avatars.mds.yandex.net/i?id=e5a660a7c01fcbb66a7b6be983435992_l-10126215-images-thumbs&n=13'}
+            ];
+
+            let cards = [];
+            pairs.forEach(p => {
+            cards.push({type: 'word', id: p.id, content: p.word});
+            cards.push({type: 'img', id: p.id, content: p.img});
+            });
+
+            // Перемешиваем
+            function shuffle(arr) {
+            for(let i = arr.length -1; i>0; i--){
+                let j = Math.floor(Math.random()*(i+1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+            }
+            cards = shuffle(cards);
+
+            // Создаем карточки DOM
+            gameContainer.innerHTML = '';
+            cards.forEach((card, i) => {
+            const cardEl = document.createElement('div');
+            cardEl.className = 'memory-card';
+            cardEl.dataset.id = card.id;
+            cardEl.dataset.type = card.type;
+            cardEl.dataset.index = i;
+            cardEl.style.width = '120px';
+            cardEl.style.height = '150px';
+            cardEl.style.border = '2px solid #666';
+            cardEl.style.borderRadius = '10px';
+            cardEl.style.backgroundColor = '#fff';
+            cardEl.style.display = 'flex';
+            cardEl.style.alignItems = 'center';
+            cardEl.style.justifyContent = 'center';
+            cardEl.style.cursor = 'pointer';
+            cardEl.style.userSelect = 'none';
+            cardEl.style.fontSize = '18px';
+            cardEl.style.fontWeight = 'bold';
+            cardEl.style.textAlign = 'center';
+            cardEl.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
+            cardEl.style.transition = 'transform 0.3s';
+            cardEl.style.position = 'relative';
+
+            // Скрытое содержимое (фронт и бэк)
+            const front = document.createElement('div');
+            front.className = 'front-face';
+            front.style.position = 'absolute';
+            front.style.width = '100%';
+            front.style.height = '100%';
+            front.style.backfaceVisibility = 'hidden';
+            front.style.borderRadius = '10px';
+            front.style.backgroundColor = '#89e66f';
+            front.style.display = 'flex';
+            front.style.alignItems = 'center';
+            front.style.justifyContent = 'center';
+            front.style.fontSize = '24px';
+            front.textContent = '?';
+
+            const back = document.createElement('div');
+            back.className = 'back-face';
+            back.style.position = 'absolute';
+            back.style.width = '100%';
+            back.style.height = '100%';
+            back.style.backfaceVisibility = 'hidden';
+            back.style.borderRadius = '10px';
+            back.style.backgroundColor = '#fff';
+            back.style.display = 'flex';
+            back.style.alignItems = 'center';
+            back.style.justifyContent = 'center';
+            back.style.transform = 'rotateY(180deg)';
+
+            if(card.type === 'word'){
+                back.textContent = card.content;
+                back.style.fontSize = '20px';
+                back.style.fontWeight = 'bold';
+                back.style.color = '#1e6a05';
+                back.style.padding = '10px';
+            } else {
+                const img = document.createElement('img');
+                img.src = card.content;
+                img.alt = 'animal';
+                img.style.maxWidth = '80px';
+                img.style.maxHeight = '80px';
+                back.appendChild(img);
+            }
+
+            cardEl.style.transformStyle = 'preserve-3d';
+            cardEl.style.transition = 'transform 0.5s';
+            cardEl.appendChild(front);
+            cardEl.appendChild(back);
+            gameContainer.appendChild(cardEl);
+            });
+
+            let flippedCards = [];
+            let matchedCount = 0;
+            const totalPairs = pairs.length;
+
+            gameContainer.addEventListener('click', e => {
+            const clicked = e.target.closest('.memory-card');
+            if (!clicked) return;
+            if (flippedCards.includes(clicked)) return;
+            if (clicked.classList.contains('matched')) return;
+            if (flippedCards.length === 2) return;
+
+            flipCard(clicked);
+
+            flippedCards.push(clicked);
+
+            if (flippedCards.length === 2){
+                const [card1, card2] = flippedCards;
+                if (card1.dataset.id === card2.dataset.id && card1.dataset.type !== card2.dataset.type) {
+                // Пара найдена
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                matchedCount++;
+                flippedCards = [];
+
+                if(matchedCount === totalPairs){
+                    resultDiv.textContent = '🎉 Поздравляем! Вы нашли все пары!';
+                }
+                } else {
+                // Не пара, переворачиваем обратно через секунду
+                setTimeout(() => {
+                    flipCard(card1);
+                    flipCard(card2);
+                    flippedCards = [];
+                }, 1000);
+                }
+            }
+            });
+
+            function flipCard(card) {
+            if(card.style.transform === 'rotateY(180deg)'){
+                card.style.transform = 'rotateY(0deg)';
+            } else {
+                card.style.transform = 'rotateY(180deg)';
+            }
+            }
+        })();
+    };
 
     window.checkQuiz08 = function() {
         const answers = {

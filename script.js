@@ -950,7 +950,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     /**
      * Функция проверки Теста 3
      */
-    window.checkTest3 = function() {
+    window.checkTest03 = function() {
         const answers = {
             q1: 'am', 
             q2: 'are',

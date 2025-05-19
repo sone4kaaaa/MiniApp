@@ -1772,8 +1772,7 @@ window.checkAnswer = function(selectedNumber) {
         const answers = {
             q1: 'run',
             q2: 'swim',
-            q3: 'dance',
-            q4: 'read'
+            q3: 'read'
         };
 
         let score = 0;

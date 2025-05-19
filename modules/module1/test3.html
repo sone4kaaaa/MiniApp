@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Тест 3</title>
     <style>
-        /* Общие стили для тестов, аналогично стилям уроков */
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон, как в уроках */
+            background-color: #a0eb91; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
-            margin-bottom: 20px; /* Отступ снизу для отделения заголовка от кнопок */
+            color: #1e9004; 
+            margin-bottom: 20px; 
         }
 
         /* Стили для кнопки "Назад" */
@@ -128,18 +127,12 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 3: Продвинутые структуры предложений</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 3: Основы граммтики, имя существительное, времена года</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент теста
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module1-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
@@ -149,79 +142,78 @@
         <div class="section">
             <h3>Тест 3: Продвинутые модальные глаголы и смешанные условные предложения</h3>
             <div class="quiz">
-                <!-- Вопросы теста -->
+                <p>❗️Все ответы необходимо писать с маленькой буквы!</p>
                 <!-- Вопрос 1 -->
                 <div class="quiz-question">
-                    <label>1. Как перевести на английский: "Он должен был прийти вчера". Используйте перфектный модальный глагол.</label>
-                    <input type="text" id="q1" placeholder="Например, He should have come yesterday.">
+                    <label><strong>1.</strong> Напиши форму "to be" для подлежащего "I"</label>
+                    <input type="text" id="q1">
                 </div>
                 
                 <!-- Вопрос 2 -->
                 <div class="quiz-question">
-                    <label>2. Заполните пропуск: If I ___ (to know) about the meeting, I would have attended.</label>
-                    <input type="text" id="q2" placeholder="Например, had known">
+                    <label><strong>2.</strong> Заполни пропуск: We ___ happy.</label>
+                    <input type="text" id="q2">
                 </div>
                 
                 <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label>3. Выберите правильную форму модального глагола: You ___ (could, should, must) have told me the truth.</label>
+                    <label><strong>3.</strong> Укажи правильную форму множественного числа от слова "city":</label>
+                    <label>It's hot and sunny.</label>
                     <select id="q3">
                         <option value="">Выберите ответ</option>
-                        <option value="could have">could have</option>
-                        <option value="should have">should have</option>
-                        <option value="must have">must have</option>
+                        <option value="summer">summer</option>
+                        <option value="autumn">autumn</option>
+                        <option value="winter">winter</option>
+                        <option value="spring">spring</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 4 -->
                 <div class="quiz-question">
-                    <label>4. Как перевести на английский: "Если бы я был богат, я бы путешествовал по миру" используя смешанное условное предложение.</label>
-                    <input type="text" id="q4" placeholder="Например, If I were rich, I would be traveling around the world.">
+                    <label><strong>4.</strong> Переведи на английский "домашние животные":</label>
+                    <input type="text" id="q4">
                 </div>
                 
                 <!-- Вопрос 5 -->
                 <div class="quiz-question">
-                    <label>5. Заполните пропуск: They ___ (might have, might) missed the train because of traffic.</label>
-                    <input type="text" id="q5" placeholder="Например, might have">
+                    <label><strong>5.</strong> Как образуется множественное число для слова "book"?</label>
+                    <input type="text" id="q5">
                 </div>
                 
                 <!-- Вопрос 6 -->
                 <div class="quiz-question">
-                    <label>6. Выберите правильную форму: If she had studied harder, she ___ (would, would have) passed the exam.</label>
+                    <label><strong>6.</strong> Как образуется притяжательный падеж от слова "girl" во множественном числе?</label>
                     <select id="q6">
                         <option value="">Выберите ответ</option>
-                        <option value="would have">would have</option>
-                        <option value="would">would</option>
+                        <option value="girls’s">girls’s</option>
+                        <option value="girls’">girls’</option>
+                        <option value="girls">girls</option>
                     </select>
                 </div>
                 
                 <!-- Вопрос 7 -->
                 <div class="quiz-question">
-                    <label>7. Как перевести на английский: "Я мог бы помочь, если бы знал". Используйте перфектный модальный глагол.</label>
-                    <input type="text" id="q7" placeholder="Например, I could have helped if I had known.">
+                    <label><strong>7.</strong> Заполни пропуск: She ___ a doctor.</label>
+                    <input type="text" id="q7">
                 </div>
                 
                 <!-- Вопрос 8 -->
                 <div class="quiz-question">
-                    <label>8. Заполните пропуск: He ___ (could have, could) been a great musician if he had practiced more.</label>
-                    <input type="text" id="q8" placeholder="Например, could have">
+                    <label><strong>8.</strong> Переведи на английский "Доброе утро"</label>
+                    <input type="text" id="q8">
                 </div>
                 
                 <!-- Вопрос 9 -->
                 <div class="quiz-question">
-                    <label>9. Выберите правильную форму модального глагола: You ___ (must, might, should) have completed the assignment by now.</label>
-                    <select id="q9">
-                        <option value="">Выберите ответ</option>
-                        <option value="must have">must have</option>
-                        <option value="might have">might have</option>
-                        <option value="should have">should have</option>
-                    </select>
+                    <label><strong>9.</strong> Напиши на английском что изображено на картинке (мн.ч.)</label>
+                    <img src="https://i.pinimg.com/736x/68/02/26/680226c0a1c6fd9bf7c46b8d67ff7eab.jpg" alt="Лошади" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <input type="text" id="q9">
                 </div>
                 
                 <!-- Вопрос 10 -->
                 <div class="quiz-question">
-                    <label>10. Как перевести на английский: "Если бы они не опоздали, они бы успели на поезд" используя смешанное условное предложение.</label>
-                    <input type="text" id="q10" placeholder="Например, If they hadn't been late, they would have caught the train.">
+                    <label><strong>10.</strong> Напиши форму "to be" для подлежащего "It"</label>
+                    <input type="text" id="q10">
                 </div>
                 
                 <button class="submit-btn" onclick="checkTest3()">Проверить тест</button>

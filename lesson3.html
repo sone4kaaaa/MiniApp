@@ -68,17 +68,19 @@
 
         
        .table-wrapper {
-            width: 300px;
+            width: 150px;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-
         table {
-            min-width: 600px; 
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 600px; /* минимальная ширина таблицы, чтобы не сжималась */
+            white-space: nowrap; /* запрещаем перенос слов/ячееек */
         }
-
         th, td {
             padding: 8px;
+            border-bottom: 1px solid #ccc;
         }
         th {
             text-align: left;

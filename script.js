@@ -1253,6 +1253,8 @@ function shuffleArray(array) {
  * Функция генерации игры "Соедини цифру и слово"
  */
 window.generateMatchingGame = function(){
+    document.getElementById('start-matching-btn').style.display = 'none';
+    document.getElementById('check-matching-btn').style.display = 'inline-block';
     const container = document.getElementById('matching-game');
     if (!container) return; // Если контейнер не найден — выходим
 
@@ -1364,6 +1366,50 @@ window.checkAnswer = function(selectedNumber) {
         resultDiv.innerHTML = `❌ Это не <strong>${selectedNumber}</strong>. Попробуй ещё раз!`;
     }
 };
+    window.checkQuiz03 = function() {
+            const form = document.getElementById('transcription-quiz');
+            const feedback = document.getElementById('quiz-feedback');
+            const formData = new FormData(form);
+            let score = 0;
+            const total = 6;
+
+            // Сброс подсветки у всех меток
+            const allLabels = form.querySelectorAll('label');
+            allLabels.forEach(label => {
+            label.classList.remove('correct-answer', 'wrong-answer');
+            });
+
+            // Для каждой группы радиокнопок
+            for (let i = 1; i <= total; i++) {
+            const radios = form.querySelectorAll(`input[name="q${i}"]`);
+            const selectedValue = formData.get(`q${i}`);
+
+            if (selectedValue !== null) {
+                radios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === "1") {
+                    // Правильный выбранный ответ - зеленая подсветка
+                    radio.parentElement.classList.add('correct-answer');
+                    score++;
+                    } else {
+                    // Неправильный выбранный ответ - красная подсветка
+                    radio.parentElement.classList.add('wrong-answer');
+                    }
+                }
+                });
+            }
+            }
+
+            // Вывод результата
+            feedback.style.display = 'block';
+            if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.innerText = 'Отлично! Все ответы верны!';
+            } else {
+            feedback.className = 'feedback error';
+            feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
+            }
+        };
 
     window.checkQuiz08 = function() {
         const answers = {

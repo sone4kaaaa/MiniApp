@@ -1768,11 +1768,76 @@ window.checkAnswer = function(selectedNumber) {
         }
     };
 
+    window.checkQuiz2_4 = function() {
+        const answers = {
+            q1: 'Is',
+            q2: 'Are',
+            q3: 'am'
+        };
+
+        let score = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+            } else {
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+            }
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
+
+    window.checkMatching2_4 = function() {
+        const matches = {
+            match1: '1',
+            match2: '2',
+            match3: '1'
+        };
+
+        let score = 0;
+        let total = Object.keys(matches).length;
+
+        for (let key in matches) {
+            const userChoice = document.getElementById(key).value;
+            if (userChoice === matches[key]) {
+                score++;
+                document.getElementById(key).style.borderColor = '#28a745';
+            } else {
+                document.getElementById(key).style.borderColor = '#dc3545';
+            }
+        }
+
+        const feedback = document.getElementById('matching-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = 'Все верно! Отличная работа.';
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
+        }
+    };
+
     window.checkQuiz2_2 = function() {
         const answers = {
             q1: 'run',
             q2: 'swim',
-            q3: 'read'
+            q3: 'dance',
+            q4: 'read'
         };
 
         let score = 0;

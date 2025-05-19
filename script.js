@@ -1,3 +1,6 @@
+Telegram.WebApp.ready();
+
+
 let tgUserId = null; // Будем хранить user_id от Telegram
 
 // Если открыто внутри Telegram WebApp:
@@ -1239,7 +1242,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return num;
     }
 
-    function playRandomAudio() {
+    window.playRandomAudio() = function() {
         correctNumber = getRandomInt(maxNumber + 1);
         const audioHTML = `
             <audio controls autoplay>
@@ -1318,7 +1321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
 
-    function checkMatching() {
+    window.checkMatching() = function() {
         for (let i = 0; i <= 12; i++) {
             const item = document.querySelector(`#match-${i}`);
             const select = item.querySelector('select');
@@ -1330,6 +1333,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     generateMatchingGame();
+    document.addEventListener('DOMContentLoaded', generateMatchingGame);
+
 
 
         window.checkQuiz08 = function() {

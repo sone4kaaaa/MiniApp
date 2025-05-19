@@ -63,17 +63,28 @@
         }
 
         /* Таблицы */
+        .table-wrapper {
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+        }
+
         table {
-            width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            min-width: 100%;
+            table-layout: auto;
+            white-space: nowrap;
         }
+
         th, td {
-            border: 1px solid #ccc;
             padding: 8px;
+            border-bottom: 1px solid #ccc;
+            white-space: nowrap; /* 🔒 Не даёт переноситься содержимому */
+            text-align: left;
         }
+
         th {
-            background-color: #f2f2f2;
             text-align: left;
         }
 
@@ -179,11 +190,11 @@
             margin-right: 8px;
         }
 
-        thead th:nth-child(1) { background-color: #b30000; color: white; }
-        thead th:nth-child(2) { background-color: #b36b00; color: white; }
-        thead th:nth-child(3) { background-color: #267326; color: white; }
-        thead th:nth-child(4) { background-color: #1a75ff; color: white; }
-        thead th:nth-child(5) { background-color: #663399; color: white; }
+        thead th:nth-child(1) { background-color: #b30000 !important; }
+        thead th:nth-child(2) { background-color: #b36b00 !important; }
+        thead th:nth-child(3) { background-color: #267326 !important; }
+        thead th:nth-child(4) { background-color: #1a75ff !important; }
+        thead th:nth-child(5) { background-color: #663399 !important; }
 
         tbody td:nth-child(1) { background-color: #ffcccc; }
         tbody td:nth-child(2) { background-color: #ffe0b3; }

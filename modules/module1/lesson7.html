@@ -186,6 +186,21 @@
             background-color: #dc3545;
             margin-left: 10px;
         }
+        .submit-btn, .check-matching-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover, .check-matching-btn:hover {
+            background-color: #4a00e0;
+        }
     </style>
 </head>
 <body>
@@ -238,7 +253,7 @@
         <div class="section" id="memory-game-section">
         <h3>🧩 Игра «Мемори с животными»</h3>
         <p>Найди пары: картинка и слово на английском!</p>
-        <div id="memory-game" style="display: grid; grid-template-columns: repeat(4, 120px); gap: 15px; justify-content: center;"></div>
+        <div id="memory-game" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; justify-content: center;"></div>
         <div id="memory-result" style="margin-top: 20px; font-weight: bold; color: green;"></div>
         <button class="check-matching-btn" onclick="initMemoryGame()">Начать</button>
         </div>

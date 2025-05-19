@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Тест 1: Advanced Verb Tenses</title>
+    <title>Тест 1 по темам: Овощи/Фрукты, Глаголы, Одежда</title>
     <style>
-        /* Единый стиль, аналогичный урокам */
 
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #51cf51; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #0aa417;
             margin-bottom: 20px;
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -112,17 +111,11 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 1: Advanced Verb Tenses (Продвинутые времена глаголов)</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 1 по темам: Овощи/Фрукты, Глаголы, Одежда</h2>
         <button class="back-button" onclick="
-            // Скрываем контент теста
             document.getElementById('lesson-content').classList.add('hidden');
-            // Очищаем содержимое
             document.getElementById('lesson-details').innerHTML = '';
-            // Показываем снова заголовок приложения
             document.getElementById('app-header').classList.remove('hidden');
-            // Показываем список уроков Модуля 2
             document.getElementById('module2-list').classList.remove('hidden');
         ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
@@ -130,100 +123,98 @@
         </button>
 
         <div class="section">
-            <h3>Тест 1: Advanced Verb Tenses</h3>
-            <div class="quiz">
-                <!-- Вопросы теста -->
-                <!-- Вопрос 1 -->
-                <div class="quiz-question">
-                    <label>1. Choose the correct form: If she ___ (to finish) her work early, she would have joined us for dinner.</label>
-                    <select id="q1">
-                        <option value="">Выберите ответ</option>
-                        <option value="had finished">had finished</option>
-                        <option value="finished">finished</option>
-                        <option value="has finished">has finished</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 2 -->
-                <div class="quiz-question">
-                    <label>2. Fill in the blank: By this time next year, I ___ (to live) in London for five years.</label>
-                    <input type="text" id="q2" placeholder="Например, will have been living">
-                </div>
-                
-                <!-- Вопрос 3 -->
-                <div class="quiz-question">
-                    <label>3. How do you form the Past Perfect Continuous tense?</label>
-                    <select id="q3">
-                        <option value="">Выберите ответ</option>
-                        <option value="had + been + глагол-ing">had + been + глагол-ing</option>
-                        <option value="have + been + глагол-ing">have + been + глагол-ing</option>
-                        <option value="had + глагол-ed">had + глагол-ed</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 4 -->
-                <div class="quiz-question">
-                    <label>4. Rewrite the sentence in Present Perfect Continuous: "They started building the bridge in 2018 and it's still not finished."</label>
-                    <input type="text" id="q4" placeholder="Например, They have been building the bridge since 2018 and it's still not finished.">
-                </div>
-                
-                <!-- Вопрос 5 -->
-                <div class="quiz-question">
-                    <label>5. Choose the correct form: If I ___ (to know) about the traffic, I would have left earlier.</label>
-                    <select id="q5">
-                        <option value="">Выберите ответ</option>
-                        <option value="had known">had known</option>
-                        <option value="knew">knew</option>
-                        <option value="have known">have known</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 6 -->
-                <div class="quiz-question">
-                    <label>6. Fill in the blank: She ___ (to work) here since she graduated.</label>
-                    <input type="text" id="q6" placeholder="Например, has been working">
-                </div>
-                
-                <!-- Вопрос 7 -->
-                <div class="quiz-question">
-                    <label>7. Choose the correct form: By the time you arrive, we ___ (to finish) our dinner.</label>
-                    <select id="q7">
-                        <option value="">Выберите ответ</option>
-                        <option value="will have finished">will have finished</option>
-                        <option value="have finished">have finished</option>
-                        <option value="will finish">will finish</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 8 -->
-                <div class="quiz-question">
-                    <label>8. Convert to Past Perfect Continuous: "She was reading the book when I called."</label>
-                    <input type="text" id="q8" placeholder="Например, She had been reading the book when I called.">
-                </div>
-                
-                <!-- Вопрос 9 -->
-                <div class="quiz-question">
-                    <label>9. Choose the correct form: If they ___ (to leave) earlier, they would have caught the train.</label>
-                    <select id="q9">
-                        <option value="">Выберите ответ</option>
-                        <option value="had left">had left</option>
-                        <option value="left">left</option>
-                        <option value="have left">have left</option>
-                    </select>
-                </div>
-                
-                <!-- Вопрос 10 -->
-                <div class="quiz-question">
-                    <label>10. Fill in the blank: By the end of this month, I ___ (to study) English for six years.</label>
-                    <input type="text" id="q10" placeholder="Например, will have been studying">
-                </div>
-                
-                <button class="submit-btn" onclick="checkTest1()">Проверить тест</button>
-                <div class="feedback" id="test1-feedback"></div>
-            </div>
+    <p>❗️Все ответы необходимо писать с маленькой буквы!</p>
+    <div class="quiz">
+        <!-- Вопрос 1 -->
+        <div class="quiz-question">
+            <label><strong>1.</strong> Выбери перевод слова "carrot"</label>
+            <select id="q1">
+                <option value="">Выберите ответ</option>
+                <option value="морковь">морковь</option>
+                <option value="капуста">капуста</option>
+                <option value="огурец">огурец</option>
+            </select>
         </div>
+
+        <!-- Вопрос 2 -->
+        <div class="quiz-question">
+            <label><strong>2.</strong> Заполни пропуск: A ___ is yellow and monkeys love it.</label>
+            <input type="text" id="q2">
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="quiz-question">
+            <label><strong>3.</strong> Выбери перевод слова "помидор"</label>
+            <select id="q3">
+                <option value="">Выберите ответ</option>
+                <option value="tomato">tomato</option>
+                <option value="potato">potato</option>
+                <option value="cabbage">cabbage</option>
+            </select>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="quiz-question">
+            <label><strong>4.</strong> What fruit is red and often used in juice? (Напиши на английском)</label>
+            <input type="text" id="q4">
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div class="quiz-question">
+            <label><strong>5.</strong> Выбери перевод слова "бежать"</label>
+            <select id="q5">
+                <option value="">Выберите ответ</option>
+                <option value="run">run</option>
+                <option value="jump">jump</option>
+                <option value="eat">eat</option>
+            </select>
+        </div>
+
+        <!-- Вопрос 6 -->
+        <div class="quiz-question">
+            <label><strong>6.</strong> Напиши на английском словосочетание "пить чай"</label>
+            <input type="text" id="q6">
+        </div>
+
+        <!-- Вопрос 7 -->
+        <div class="quiz-question">
+            <label><strong>7.</strong> Выбери как переводится слово "ботинки"</label>
+            <select id="q7">
+                <option value="">Выберите ответ</option>
+                <option value="boots">boots</option>
+                <option value="shirt">shirt</option>
+                <option value="hat">hat</option>
+            </select>
+        </div>
+
+        <!-- Вопрос 8 -->
+        <div class="quiz-question">
+            <label><strong>8.</strong> What do you wear on your head?</label>
+            <img src="https://i.pinimg.com/736x/21/08/03/210803e6b57c6120720f2904bb865ba4.jpg" alt="Шляпа" style="max-width:100%; height:150px; margin-bottom:10px;">
+            <input type="text" id="q8">
+        </div>
+
+        <!-- Вопрос 9 -->
+        <div class="quiz-question">
+            <label><strong>9.</strong> Выбери перевод слова "огурец"</label>
+            <select id="q9">
+                <option value="">Выберите ответ</option>
+                <option value="cucumber">cucumber</option>
+                <option value="carrot">carrot</option>
+                <option value="pepper">pepper</option>
+            </select>
+        </div>
+
+        <!-- Вопрос 10 -->
+        <div class="quiz-question">
+            <label><strong>10.</strong> Заполни пропуск: She likes to ___ apples. (есть)</label>
+            <input type="text" id="q10" placeholder="Например, eat">
+        </div>
+
+        <button class="submit-btn" onclick="checkTest1()">Проверить тест</button>
+        <div class="feedback" id="test1-feedback"></div>
     </div>
-    
+</div>
     
 </body>
 </html>

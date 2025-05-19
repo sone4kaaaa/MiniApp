@@ -951,18 +951,17 @@ document.addEventListener('DOMContentLoaded', async () => {
      * Функция проверки Теста 3
      */
     window.checkTest3 = function() {
-        // Подбираем ответы в соответствии с вопросами в HTML
         const answers = {
-            q1: 'he should have come yesterday', 
-            q2: 'had known',
-            q3: 'should have',
-            q4: 'if i were rich, i would be traveling around the world.',
-            q5: 'might have',
-            q6: 'would have',
-            q7: 'i could have helped if i had known.',
-            q8: 'could have',
-            q9: 'must have',
-            q10: "if they hadn't been late, they would have caught the train."
+            q1: 'am', 
+            q2: 'are',
+            q3: 'cities',
+            q4: 'pets',
+            q5: 'books',
+            q6: 'girls’',
+            q7: 'is',
+            q8: 'good morning',
+            q9: 'horses',
+            q10: "is"
         };
 
         let score = 0;
@@ -1008,30 +1007,17 @@ document.addEventListener('DOMContentLoaded', async () => {
      * Функция проверки Итогового теста (finaltest.html)
      */
     window.checkFinalTest = function() {
-        // Теперь ответы соответствуют реальному содержимому finaltest.html
         const answers = {
-            // 1) "If I ___ (to know) about your plan..." => "had known"
-            q1: 'had known',
-            // 2) "Я должен был предупредить тебя, но забыл." => перфектный модальный
-            q2: 'i should have warned you, but i forgot.',
-            // 3) "Never ___ (I / to see) such an incredible performance." => "have I seen"
-            q3: 'have i seen',
-            // 4) "It is crucial that he ___ (to finish) the project..." => "finish"
-            q4: 'finish',
-            // 5) "What I need is some rest."
-            q5: 'what i need is some rest',
-            // 6) смешанное условие: "If she ___ here now..."
-            // (в вашем примере: "were")
-            q6: 'were',
-            // 7) "Had I known the truth, I ___ differently." => "would have acted"
-            q7: 'would have acted',
-            // 8) "Если бы она не опоздала, она бы помогала нам сейчас"
-            // Ожидается: "if she hadn’t been late, she would be helping us now"
-            q8: 'if she hadn’t been late, she would be helping us now',
-            // 9) "She must have been very tired."
-            q9: 'she must have been very tired',
-            // 10) "The boss insists that she ___ (to attend) the meeting" => "attend"
-            q10: 'attend'
+            q1: 'twelve',
+            q2: 'money',
+            q3: 'summer',
+            q4: 'an apple',
+            q5: 'is',
+            q6: 'autumn',
+            q7: 'книги мальчика',
+            q8: 'cat',
+            q9: 'mine',
+            q10: 'a book'
         };
 
         let score = 0;

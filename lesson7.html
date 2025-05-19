@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Урок 7: Учим животных</title>
+    <style>
+        .lesson-container {
+            max-height: 80vh; 
+            overflow-y: auto;
+            padding-right: 10px;
+            background-color: #89e66f;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e6a05;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .section p,
+        .section li {
+            color: #333;
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffe4c4;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            width: 120px;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ffc299;
+        }
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Кнопки и прочие элементы */
+        .submit-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #4a00e0;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .quiz-question input[type="text"], .quiz-question select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Радиокнопки */
+        .radio-group {
+            margin-left: 20px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Drag & Drop */
+        .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .draggable {
+            padding: 8px 12px;
+            background-color: #ffc107;
+            border-radius: 8px;
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            flex: 1 1 100%;
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .drop-zone.dragover {
+            border-color: #28a745;
+        }
+        /* Стили для кнопки "Next Lesson" */
+        .next-lesson-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .next-lesson-btn:hover {
+            background-color: #0056b3;
+        }
+        .next-icon {
+            margin-right: 8px;
+        }
+
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .submit-btn, .undo-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .undo-btn {
+            background-color: #dc3545;
+            margin-left: 10px;
+        }
+        .submit-btn, .check-matching-btn {
+            display: inline-block;
+            padding: 10px;
+            background-color: #8e2de2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover, .check-matching-btn:hover {
+            background-color: #4a00e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h2>Урок 7: Учим животных</h2>
+        <button class="back-button"
+                onclick="
+                    document.getElementById('lesson-content').classList.add('hidden');
+                    document.getElementById('lesson-details').innerHTML = '';
+                    document.getElementById('app-header').classList.remove('hidden');
+                    document.getElementById('module1-list').classList.remove('hidden');
+                ">
+            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+            Назад
+        </button>
+        <div class="section">
+            <h3>Развлекательный урок. Изучаем новых животных</h3>
+            <p>Сегодня будет тематический урок, посвященный животным. Мы посмотрим мультик и сыграем в игру!</p>
+            <p>Перед просмотром мультика, запомним пару новых слов:</p>
+            <ul>
+                <li><strong>Cartoon</strong> [kɑːˈtuːn] — мультик</li>
+                <li><strong>Cinema</strong> [ˈsɪnəmə] — кино</li>
+                <li><strong>Film</strong> [fɪlm] — фильм</li>
+                <li><strong>Animals</strong> [ˈænɪməlz] — животные</li>
+                <li><strong>Pets</strong> [pets] — домашние животные</li>
+                <li><strong>Farm</strong> [fɑːm] — ферма</li>
+                <li><strong>House</strong> [haʊs] — дом</li>
+                <li><strong>Forest</strong> [ˈfɒrɪst] — лес</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>▶️ Мультик про ANIMALS</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_animals.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>         
+        <div class="section">
+            <h3>▶️ Мультик про PETS</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_pets.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>         
+        
+        <div class="section" id="memory-game-section">
+        <h3>🧩 Игра «Мемори с животными»</h3>
+        <p>Найди пары: картинка и слово на английском!</p>
+        <div id="memory-game" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 5px; justify-content: center; margin-left: 3px;"></div>
+        <div id="memory-result" style="margin-top: 20px; font-weight: bold; color: green;"></div>
+        <button class="check-matching-btn" onclick="initMemoryGame()">Начать</button>
+        </div>
+    </div>
+</body>
+</html>

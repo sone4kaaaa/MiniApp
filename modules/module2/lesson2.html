@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 2: Phrasal Verbs and Idiomatic Expressions</title>
+    <title>Урок 2: Глаголы</title>
     <style>
-        /* -- Единый стиль, аналогичный Уроку 1 -- */
-        
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #6fd1da; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #0c4ea9;
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -39,19 +37,34 @@
         }
 
         /* Таблицы (если нужны) */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         table {
-            width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            min-width: 350px; /* 👈 Это критично для правильного отображения */
+            table-layout: auto;
+            white-space: nowrap;
         }
+
         th, td {
-            border: 1px solid #ccc;
             padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
+            border-bottom: 1px solid #ccc;
+            white-space: nowrap; /* 🔒 Не даёт переноситься содержимому */
             text-align: left;
         }
+
+        th {
+            text-align: left;
+        }
+
+        thead th:nth-child(1) { background-color: #b30000 !important; }
+        thead th:nth-child(2) { background-color: #b36b00 !important; }
+
+        tbody td:nth-child(1) { background-color: #ffcccc; }
+        tbody td:nth-child(2) { background-color: #ffe0b3; }
 
         /* Кнопка "Назад" */
         .back-button {
@@ -148,106 +161,169 @@
         .next-icon {
             margin-right: 8px;
         }
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 2: Phrasal Verbs and Idiomatic Expressions</h2>
-
-       <!-- Кнопка "Назад" -->
+        <h2>Урок 2: Глаголы</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module2-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
 
-        <!-- 1. Введение -->
         <div class="section">
-            <h3>Введение</h3>
-            <p>Фразовые глаголы и идиоматические выражения являются неотъемлемой частью английского языка, особенно в разговорной речи. Они позволяют выражать сложные идеи и эмоции более естественно и живо.</p>
-        </div>
+            <h3>Английские глаголы</h3>
+            <p>Учить глаголы мы будем на протяжении всего изучения языка. Но самые распространенные глаголы английского следует изучить в первую очередь — именно этим мы сегодня и займемся.</p>
+        
+        <div class="section table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Глагол (англ.)</th>
+                <th>Перевод</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>to swim</td><td>плавать</td></tr>
+            <tr><td>to dance</td><td>танцевать</td></tr>
+            <tr><td>to work</td><td>работать</td></tr>
+            <tr><td>to be</td><td>быть</td></tr>
+            <tr><td>to have</td><td>иметь</td></tr>
+            <tr><td>to do</td><td>делать</td></tr>
+            <tr><td>to get</td><td>получать</td></tr>
+            <tr><td>to know</td><td>знать</td></tr>
+            <tr><td>to take</td><td>брать</td></tr>
+            <tr><td>can</td><td>могу</td></tr>
+            <tr><td>need</td><td>нужно</td></tr>
+            <tr><td>should</td><td>должен</td></tr>
+            <tr><td>to think</td><td>думать</td></tr>
+            <tr><td>to see</td><td>видеть</td></tr>
+            <tr><td>to give</td><td>давать</td></tr>
+            <tr><td>to like</td><td>нравиться</td></tr>
+            <tr><td>to buy</td><td>покупать</td></tr>
+            <tr><td>to eat</td><td>есть (кушать)</td></tr>
+            <tr><td>to sleep</td><td>спать</td></tr>
+            <tr><td>to drink</td><td>пить</td></tr>
+            <tr><td>to understand</td><td>понимать</td></tr>
+            <tr><td>to write</td><td>писать</td></tr>
+            <tr><td>to read</td><td>читать</td></tr>
+            <tr><td>to speak</td><td>говорить</td></tr>
+            <tr><td>to learn</td><td>учиться</td></tr>
+            <tr><td>to forget</td><td>забывать</td></tr>
+            <tr><td>to dream</td><td>мечтать</td></tr>
+            <tr><td>to play</td><td>играть</td></tr>
+            <tr><td>to drive</td><td>водить</td></tr>
+            <tr><td>to travel</td><td>путешествовать</td></tr>
+            <tr><td>to start</td><td>начинать</td></tr>
+            <tr><td>to stop</td><td>останавливаться</td></tr>
+            <tr><td>to clean</td><td>чистить</td></tr>
+            <tr><td>to help</td><td>помогать</td></tr>
+            <tr><td>to run</td><td>бегать</td></tr>
+            <tr><td>to cook</td><td>готовить (еду)</td></tr>
+            <tr><td>to open</td><td>открывать</td></tr>
+            <tr><td>to close</td><td>закрывать</td></tr>
+            <tr><td>to sing</td><td>петь</td></tr>
+        </tbody>
+    </table>
+</div>
+<p>Частица to не переводится, она обозначает начальную форму глагола (инфинитив)</p>
+</div>
+<div class="section">
+  <h3>Стишок для запоминания глаголов</h3>
+  <p>
+    Я люблю <b style="color:#1e90ff;">to swim</b> – я плыву, как дельфин,<br>
+    Потом <b style="color:#ff69b4;">to dance</b> — кружусь, как один!<br>
+    Мне нравится <b style="color:#32cd32;">to play</b> и немного <b style="color:#ff4500;">to run</b>,<br>
+    А ещё <b style="color:#8a2be2;">to dream</b> — вот это план!
+  </p>
+  <img src="https://cdn.vectorstock.com/i/500p/99/71/dolphin-jump-out-water-cartoon-marine-vector-38629971.jpg" alt="Swimming dolphin" width="250"/>
 
-        <!-- 2. Phrasal Verbs -->
-        <div class="section">
-            <h3>Phrasal Verbs (Фразовые глаголы)</h3>
-            <p><strong>Фразовый глагол</strong> состоит из глагола и одного или нескольких частиц, которые вместе придают глаголу новое значение.</p>
-            <ul>
-                <li><strong>Give up</strong> - сдаваться, бросать что-то.</li>
-                <li><strong>Look after</strong> - заботиться о ком-то/чем-то.</li>
-                <li><strong>Turn down</strong> - отклонять предложение.</li>
-                <li><strong>Bring up</strong> - воспитывать, поднимать тему.</li>
-                <li><strong>Run out of</strong> - закончиться, иссякнуть.</li>
-            </ul>
-            <p><strong>Примеры использования:</strong></p>
-            <ul>
-                <li>I decided to <strong>give up</strong> smoking for my health.</li>
-                <li>Can you <strong>look after</strong> my cat while I'm on vacation?</li>
-                <li>She <strong>turned down</strong> the job offer because the salary was too low.</li>
-            </ul>
-        </div>
+  <p>
+    Утром рано я встаю,<br>
+    <b style="color:#dc143c;">to work</b>, <b style="color:#1e90ff;">to read</b> и <b style="color:#daa520;">to do</b>.<br>
+    Мама просит: <b style="color:#ff8c00;">to clean</b> скорей!<br>
+    И <b style="color:#20b2aa;">to help</b> моих друзей.
+  </p>
+  <img src="https://avatars.mds.yandex.net/i?id=6071ee5e3ba6e2776b9ecf332dd2767e_l-9246913-images-thumbs&n=13" alt="Reading books" width="150"/>
+  <img src="https://i.pinimg.com/736x/78/a6/b0/78a6b0a86a9582853e82e080011a1512.jpg" alt="Cleaning" width="150"/>
 
-        <!-- 3. Idiomatic Expressions -->
-        <div class="section">
-            <h3>Idiomatic Expressions (Идиоматические выражения)</h3>
-            <p><strong>Идиоматическое выражение</strong> — это выражение, смысл которого не выводится из значений отдельных слов, а понимается как единое целое.</p>
-            <ul>
-                <li><strong>Break the ice</strong> - разрядить обстановку.</li>
-                <li><strong>Hit the nail on the head</strong> - попасть в точку.</li>
-                <li><strong>Spill the beans</strong> - раскрыть секрет.</li>
-                <li><strong>Once in a blue moon</strong> - очень редко.</li>
-                <li><strong>Under the weather</strong> - чувствовать себя плохо.</li>
-            </ul>
-            <p><strong>Примеры использования:</strong></p>
-            <ul>
-                <li>He told a joke to <strong>break the ice</strong> at the meeting.</li>
-                <li>She really <strong>hit the nail on the head</strong> with her idea.</li>
-            </ul>
-        </div>
+  <p>
+    Иногда хочу я <b style="color:#4b0082;">to sleep</b>,<br>
+    А потом поесть — <b style="color:#a52a2a;">to eat</b>,<br>
+    Чай попить — конечно, <b style="color:#4682b4;">to drink</b>!<br>
+    И о будущем <b style="color:#2e8b57;">to think</b>!
+  </p>
+  <img src="https://i.pinimg.com/736x/42/bc/12/42bc1227f602a4a47b6bc8ed0c81406f.jpg" alt="Sleeping child" width="170"/>
+  <img src="https://i.pinimg.com/originals/45/a1/86/45a1860a3f5bb8640a76174781d3d3d5.jpg" alt="Drinking tea" width="120"/>
 
-        <!-- 4. Differences between Phrasal Verbs and Idioms -->
-        <div class="section">
-            <h3>Differences between Phrasal Verbs and Idioms</h3>
-            <p>Хотя и фразовые глаголы, и идиомы часто используются в разговорной речи, они имеют разные характеристики:</p>
-            <ul>
-                <li><strong>Фразовые глаголы:</strong> состоят из глагола и одной/нескольких частиц; часто значение отличается от исходного глагола.</li>
-                <li><strong>Идиомы:</strong> выражения, смысл которых невозможно понять, переводя отдельные слова.</li>
-            </ul>
-        </div>
+  <p>
+    Я <b style="color:#00008b;">can</b> учиться, я <b style="color:#ff1493;">can</b> петь — <b style="color:#9932cc;">to sing</b>,<br>
+    Люблю <b style="color:#ff6347;">to travel</b>, <b style="color:#228b22;">to buy</b> всё, что <b style="color:#ff69b4;">I like</b> bring.<br>
+    Хочу всё <b style="color:#2f4f4f;">to know</b>, всё <b style="color:#1e90ff;">to learn</b> и понять —<br>
+    Как <b style="color:#800000;">to be</b>, <b style="color:#4169e1;">to have</b>, <b style="color:#daa520;">to get</b> и <b style="color:#20b2aa;">to start</b>!
+  </p>
+  <img src="https://avatars.mds.yandex.net/i?id=15ab1ff1100e0db27dd1cf2c71bac6a8_l-9730803-images-thumbs&n=13" alt="Singing child" width="250"/>
 
-        <!-- 5. Advanced Usage and Nuances -->
-        <div class="section">
-            <h3>Advanced Usage and Nuances</h3>
-            <p>Некоторые фразовые глаголы и идиомы имеют несколько значений и могут использоваться в разных контекстах:</p>
-            <ul>
-                <li><strong>Run out of</strong>:
-                    <ul>
-                        <li>We have <strong>run out of</strong> milk. (Закончился)</li>
-                        <li>She <strong>ran out of</strong> patience. (Потеряла терпение)</li>
-                    </ul>
-                </li>
-                <li><strong>Bring up</strong>:
-                    <ul>
-                        <li>They decided to <strong>bring up</strong> the issue during the meeting. (Поднять тему)</li>
-                        <li>She was <strong>brought up</strong> in a small town. (Воспитана)</li>
-                    </ul>
-                </li>
-            </ul>
+  <p>
+    Если надо — <b style="color:#b22222;">should</b> помочь,<br>
+    Сказать "hello", а не <b style="color:#000080;">to stop</b> в ночь.<br>
+    Я <b style="color:#ff8c00;">need</b> немного <b style="color:#4682b4;">to rest</b>,<br>
+    А потом снова <b style="color:#8b4513;">to do</b> мой best!
+  </p>
+  <img src="https://cdn.culture.ru/images/8bdae14a-43b2-5ed9-b801-24162bb5254e" alt="Studying" width="270"/>
+</div>
+<div class="section">
+            <h3>⭐️ Задание: Посмотри видео и напиши соответвующий глагол</h3>
+            <div>
+                <div class="quiz-question">
+                    <label><strong>1.</strong></label>
+                    <div class="media-container">
+                        <video controls>
+                            <source src="./assets/videos/run.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <input type="text" id="q1">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>2.</strong></label>
+                    <div class="media-container">
+                        <video controls>
+                            <source src="./assets/videos/swim.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <input type="text" id="q2">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>3.</strong></label>
+                    <div class="media-container">
+                        <video controls>
+                            <source src="./assets/videos/dance.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <input type="text" id="q3">
+                </div>
+                <button class="submit-btn" onclick="checkQuiz2_2()">Проверить</button>
+                <div class="feedback" id="quiz-feedback"></div>
+            </div>
         </div>
-
-        <!-- 6. Summary -->
-        <div class="section">
-            <h3>Итоги</h3>
-            <p>В этом уроке мы изучили фразовые глаголы и идиоматические выражения, их особенности и различия. Понимание и правильное использование этих конструкций позволит вам говорить более естественно и выразительно на английском языке.</p>
-        </div>
-    </div>
+</div>
 </body>
 </html>

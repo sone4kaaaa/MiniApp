@@ -1252,7 +1252,7 @@ function shuffleArray(array) {
 /**
  * Функция генерации игры "Соедини цифру и слово"
  */
-function generateMatchingGame() {
+window.generateMatchingGame = function(){
     const container = document.getElementById('matching-game');
     if (!container) return; // Если контейнер не найден — выходим
 
@@ -1275,7 +1275,7 @@ function generateMatchingGame() {
     });
 
     container.innerHTML = html;
-}
+};
 
 /**
  * Функция проверки игры "Соедини цифру и слово"
@@ -1293,9 +1293,6 @@ window.checkMatching = function() {
         item.style.backgroundColor = selected === correct ? "#d4edda" : "#f8d7da";
     }
 };
-
-// Запускаем игру при загрузке страницы
-generateMatchingGame();
 
 
 // ---------- Игра: Угадай число по аудио ----------

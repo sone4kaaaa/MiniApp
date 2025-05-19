@@ -65,25 +65,31 @@
         }
 
         /* Таблицы */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+
+        
+       .table-wrapper {
+            width: 300px;
+            overflow-x: auto;
         }
+
+
+        table {
+            min-width: 600px; 
+        }
+
         th, td {
-            border: 1px solid #ccc;
             padding: 8px;
         }
         th {
-            background-color: #f2f2f2;
             text-align: left;
         }
 
-        thead th:nth-child(1) { background-color: #b30000; color: white; }
-        thead th:nth-child(2) { background-color: #b36b00; color: white; }
-        thead th:nth-child(3) { background-color: #267326; color: white; }
-        thead th:nth-child(4) { background-color: #1a75ff; color: white; }
-        thead th:nth-child(5) { background-color: #663399; color: white; }
+        thead th:nth-child(1) { background-color: #b30000 !important; }
+        thead th:nth-child(2) { background-color: #b36b00 !important; }
+        thead th:nth-child(3) { background-color: #267326 !important; }
+        thead th:nth-child(4) { background-color: #1a75ff !important; }
+        thead th:nth-child(5) { background-color: #663399 !important; }
+
 
         tbody td:nth-child(1) { background-color: #ffcccc; }
         tbody td:nth-child(2) { background-color: #ffe0b3; }
@@ -216,6 +222,7 @@
         <div class="section">
             <h3>Гласные в транскрипции</h3>
             <p>Ниже представлены гласные звуки, часто используемые в английской фонетике, с примерами слов, транскрипцией и переводом.</p>
+            <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -314,10 +321,12 @@
                 </tbody>
             </table>
         </div>
+        </div>
 
         <div class="section">
             <h3>Дифтонги в транскрипции</h3>
             <p>Дифтонги — это сочетания двух гласных звуков в одном слоге. Ниже приведены основные дифтонги в английском языке с примерами и переводом.</p>
+            <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -387,10 +396,12 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
         <div class="section">
             <h3>Согласные в транскрипции</h3>
             <p>Ниже представлены согласные звуки английского языка с описанием, примерами слов, транскрипцией и переводом.</p>
+            <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -572,6 +583,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
         <div class="section">
             <h3>🧠 Игра: Найди правильную транскрипцию</h3>
@@ -620,58 +632,11 @@
                 <label><input type="radio" name="q6" value="0"> /baɪd/</label>
                 </div>
 
-                <button type="button" class="submit-btn" onclick="checkQuiz()">Проверить</button>
+                <button type="button" class="submit-btn" onclick="checkQuiz03()">Проверить</button>
 
                 <div id="quiz-feedback" class="feedback"></div>
             </form>
         </div>
-
-        <script>
-        function checkQuiz() {
-            const form = document.getElementById('transcription-quiz');
-            const feedback = document.getElementById('quiz-feedback');
-            const formData = new FormData(form);
-            let score = 0;
-            const total = 6;
-
-            // Сброс подсветки у всех меток
-            const allLabels = form.querySelectorAll('label');
-            allLabels.forEach(label => {
-            label.classList.remove('correct-answer', 'wrong-answer');
-            });
-
-            // Для каждой группы радиокнопок
-            for (let i = 1; i <= total; i++) {
-            const radios = form.querySelectorAll(`input[name="q${i}"]`);
-            const selectedValue = formData.get(`q${i}`);
-
-            if (selectedValue !== null) {
-                radios.forEach(radio => {
-                if (radio.checked) {
-                    if (radio.value === "1") {
-                    // Правильный выбранный ответ - зеленая подсветка
-                    radio.parentElement.classList.add('correct-answer');
-                    score++;
-                    } else {
-                    // Неправильный выбранный ответ - красная подсветка
-                    radio.parentElement.classList.add('wrong-answer');
-                    }
-                }
-                });
-            }
-            }
-
-            // Вывод результата
-            feedback.style.display = 'block';
-            if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.innerText = 'Отлично! Все ответы верны!';
-            } else {
-            feedback.className = 'feedback error';
-            feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
-            }
-        }
-        </script>
     </div>
 </body>
 </html>

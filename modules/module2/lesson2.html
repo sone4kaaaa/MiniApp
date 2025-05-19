@@ -40,7 +40,7 @@
 
         table {
             border-collapse: collapse;
-            min-width: 350px; /* 👈 Это критично для правильного отображения */
+            min-width: 220px; /* 👈 Это критично для правильного отображения */
             table-layout: auto;
             white-space: nowrap;
         }
@@ -300,7 +300,7 @@
                     <label><strong>2.</strong></label>
                     <div class="media-container">
                         <video controls>
-                            <source src="./assets/videos/dance.mp4" type="video/mp4">
+                            <source src="./assets/videos/swim.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
@@ -315,6 +315,16 @@
                         </video>
                     </div>
                     <input type="text" id="q3" style="width: 150px;">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>4.</strong></label>
+                    <div class="media-container">
+                        <video controls>
+                            <source src="./assets/videos/read.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <input type="text" id="q4" style="width: 150px;">
                 </div>
                 <button class="submit-btn" onclick="checkQuiz2_2()">Проверить</button>
                 <div class="feedback" id="quiz-feedback"></div>

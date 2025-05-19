@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 3: Advanced Conditional Structures</title>
+    <title>Урок 3: Изучаем одежду</title>
     <style>
-        /* -- Единый стиль, аналогичный Уроку 1 -- */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #e6dd6b; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #8da00e; 
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -152,107 +150,65 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 3: Advanced Conditional Structures (Продвинутые условные конструкции)</h2>
-
-       
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 3: Изучаем одежду</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 1
                     document.getElementById('module2-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-
-        <!-- 1. Введение -->
-        <div class="section">
-            <h3>Введение</h3>
-            <p>Условные конструкции (Conditionals) позволяют выражать предположения, гипотетические ситуации и их последствия. В этом уроке мы рассмотрим продвинутые виды условных предложений, включая смешанные условные конструкции и условные предложения с модальными глаголами.</p>
-        </div>
-
-        <!-- 2. Third Conditional -->
-        <div class="section">
-            <h3>Third Conditional (Третья условная форма)</h3>
-            <p>Используется для выражения гипотетических ситуаций в прошлом и их возможных последствий, которые не произошли.</p>
+        <div class="section" style="background-color: white;">
+            <h3>Clothes - Одежда</h3>
+            <p>Monkeys по имени Jack (boy) and Pims (girl) пришли сегодня к нам в гости! Давайте поможем выбрать как им лучше пойти на прогулку!</p>
+            <p>Первый образ Jack выбирал сам. На нем одето: </p>
+            <img src="https://thumbs.dreamstime.com/b/monkey-wearing-hat-28427623.jpg" alt="Jack1" style="max-width:100%; height:160px; margin-bottom:10px;">
             <ul>
-                <li><strong>Формула:</strong> If + Past Perfect, would have + past participle</li>
-                <li><strong>Пример:</strong> If I had known about the meeting, I would have attended.</li>
+                <li><strong>Hat</strong> — шляпа</li>
+                <li><strong>T-shirt</strong> — футболка</li>
+                <li><strong>Shorts</strong> — шорты</li>
             </ul>
-        </div>
-
-        <!-- 3. Mixed Conditionals -->
-        <div class="section">
-            <h3>Mixed Conditionals (Смешанные условные конструкции)</h3>
-            <p>Смешанные условные предложения сочетают разные времена в главной и придаточной частях:</p>
+            <p>Pims же решила одеться женственно. </p> 
+            <img src="https://i.pinimg.com/736x/1b/13/68/1b1368d8141f642a1cffc65d0a551f6b.jpg" alt="Pims1" style="max-width:100%; height:160px; margin-bottom:10px;">
             <ul>
-                <li><strong>Тип 1 (Прошлое -> Настоящее):</strong>
-                    <ul>
-                        <li>Формула: If + Past Perfect, would + base verb</li>
-                        <li>Пример: If she had taken the job, she would be living in New York now.</li>
-                    </ul>
-                </li>
-                <li><strong>Тип 2 (Настоящее -> Прошлое):</strong>
-                    <ul>
-                        <li>Формула: If + Past Simple, would have + past participle</li>
-                        <li>Пример: If I were taller, I would have joined the basketball team.</li>
-                    </ul>
-                </li>
+                <li><strong>Dress</strong> — платье</li>
+                <li><strong>Shoes</strong> — туфли</li>
             </ul>
+            <p>К своему красивому платью Pims решила взять розовую сумку - <strong>bag</strong>:</p> 
+            <img src="https://i.pinimg.com/736x/20/b3/c3/20b3c3f9e5be6896aff978bb195cc5d1.jpg" alt="Pims1" style="max-width:100%; height:120px; margin-bottom:10px;">
+            <p>Давайте посмотрим, что у Pims and Jack есть в шкафу!</p> 
+            <img src="https://img.razrisyika.ru/kart/103/410478-na-angliyskom-dlya-detey-odezhda-9.jpg" alt="Clothes" style="max-width:100%; height:500px; margin-bottom:10px;">
         </div>
-
-        <!-- 4. Conditionals with Modal Verbs -->
-        <div class="section">
-            <h3>Conditionals with Modal Verbs</h3>
-            <p>Модальные глаголы могут использоваться в условных предложениях для выражения различных нюансов:</p>
-            <ul>
-                <li><strong>Can</strong> - способность/возможность: If you can finish work early, you can join us.</li>
-                <li><strong>Should</strong> - совет/рекомендация: If you should need help, let me know.</li>
-                <li><strong>Must</strong> - обязанность/сильное предположение: If he must leave now, we will handle it.</li>
-            </ul>
-        </div>
-
-        <!-- 5. Zero Conditional -->
-        <div class="section">
-            <h3>Zero Conditional</h3>
-            <p>Используется для выражения общеизвестных истин или регулярных действий.</p>
-            <ul>
-                <li>Формула: If + Present Simple, Present Simple</li>
-                <li>Пример: If you heat water to 100°C, it boils.</li>
-            </ul>
-        </div>
-
-        <!-- 6. Second Conditional -->
-        <div class="section">
-            <h3>Second Conditional</h3>
-            <p>Для выражения маловероятных или гипотетических ситуаций в настоящем/будущем.</p>
-            <ul>
-                <li>Формула: If + Past Simple, would + base verb</li>
-                <li>Пример: If I won the lottery, I would travel the world.</li>
-            </ul>
-        </div>
-
-        <!-- 7. Advanced Conditional Clauses -->
-        <div class="section">
-            <h3>Advanced Conditional Clauses</h3>
-            <p>Некоторые сложные условные конструкции:</p>
-            <ul>
-                <li>Multiple Conditions: If it rains and if you study hard, you will pass.</li>
-                <li>Embedded Conditionals: I will go provided that you come with me.</li>
-            </ul>
-        </div>
-
-        <!-- 8. Итоги -->
-        <div class="section">
-            <h3>Итоги</h3>
-            <p>Мы рассмотрели продвинутые условные конструкции, включая третью и смешанную формы, а также условные с модальными глаголами. Эти знания помогут более точно выражать гипотетические ситуации и их последствия.</p>
-        </div>
+        <div class="section" style="background-color: white;">
+            <h3>⭐️ Задание: Заполни пропуски</h3>
+            <div>
+                <label>Необходимо с маленькой буквы без пробелов через запятую описать в чем одеты дети на картинках.</label>
+                <div class="quiz-question">
+                    <label><strong>1.</strong>This girl is wearing yellow ___, light green ___ and dark green ___.</label>
+                    <img src="https://uue.s3.eu-north-1.amazonaws.com/u/O/43/dc/2UWPdH.jpg" alt="Clothes" style="max-width:100%; height:160px; margin-bottom:10px;">
+                    <input type="text" id="q1" style="width: 250px;">
+                </div>
+                <label>Необходимо с маленькой буквы без пробелов через запятую описать в чем одеты дети на картинках.</label>
+                <div class="quiz-question">
+                    <label><strong>2.</strong>This boy is wearing green ___, dark blue ___, white ___ and blue ___.</label>
+                    <img src="https://avatars.mds.yandex.net/i?id=385cf3eea4ee143bd2e7e780b7a9453152febbdf-4954930-images-thumbs&n=13" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
+                    <input type="text" id="q2" style="width: 250px;">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>3.</strong>This girl is wearing red ___, white ___ and dark red ___.</label>
+                    <img src="https://avatars.mds.yandex.net/i?id=93799c92317d0b9d11603f63f7845c6a3718a313-12527828-images-thumbs&n=13" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
+                    <input type="text" id="q3" style="width: 250px;">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>4.</strong>This boy is wearing white ___, brown ___ and dark brown ___.</label>
+                    <img src="https://i.pinimg.com/originals/24/e8/f3/24e8f3a925ab30d681720ceed2dba7ee.jpg" alt="Clothes" style="max-width:100%; height:160px; margin-bottom:200px;">
+                    <input type="text" id="q4" style="width: 250px;">
+                </div>
+                <button class="submit-btn" onclick="checkQuiz2_3()">Проверить</button>
+                <div class="feedback" id="quiz-feedback"></div>
     </div>
 </body>
 </html>

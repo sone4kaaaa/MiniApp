@@ -213,7 +213,16 @@
 <body>
     <div class="lesson-container">
         <h2>Урок 7: My City</h2>
-
+<button class="back-button"
+        onclick="
+            document.getElementById('lesson-content').classList.add('hidden');
+            document.getElementById('lesson-details').innerHTML = '';
+            document.getElementById('app-header').classList.remove('hidden');
+            document.getElementById('module2-list').classList.remove('hidden');
+        ">
+    <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+    Назад
+</button>
         <div class="section">
             <h3>🏦 Изучим какие магазины бывают в городе:</h3>
             <p>Листай ➡️</p>

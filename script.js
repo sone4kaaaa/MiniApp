@@ -1770,8 +1770,8 @@ window.checkAnswer = function(selectedNumber) {
 
     window.checkQuiz2_4 = function() {
         const answers = {
-            q1: 'Is',
-            q2: 'Are',
+            q1: 'Are',
+            q2: 'Is',
             q3: 'am'
         };
 
@@ -2193,12 +2193,12 @@ window.checkAnswer = function(selectedNumber) {
         }
     };
 
-    window.checkIdioms = function() {
+    window.checkQuiz2_5 = function() {
         // Массив или объект с "правильными" ответами
         const answers = {
-            ie1: "don't spill the beans",
-            ie2: "once in a blue moon",
-            ie3: "under the weather"
+            ie1: "I have got a dog",
+            ie2: "has not got",
+            ie3: "Has she got a brother?"
         };
     
         let score = 0;

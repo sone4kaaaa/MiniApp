@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 6: Advanced Vocabulary Building</title>
+    <title>Урок 6: Shopping</title>
     <style>
-        /* -- Единый стиль, аналогичный Уроку 4 -- */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #ecdd51; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #c0a709; 
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -168,118 +166,157 @@
         .next-icon {
             margin-right: 8px;
         }
+        .word {
+            font-weight: bold;
+        }
+        .food {
+            color: #e67e22;
+        }
+        .dairy {
+            color: #3498db;
+        }
+        .meat {
+            color: #c0392b;
+        }
+        .fruit {
+            color: #27ae60;
+        }
+        .sugar {
+            color: #9b59b6;
+        }
+        .bread {
+            color: #d35400;
+        }
+        .transcription {
+            font-style: italic;
+            color: #555;
+        }
+        .translation {
+            color: #888;
+        }
     </style>
 </head>
 <body>
-    <div class="lesson-container">
-        <h2>Урок 6: Advanced Vocabulary Building (Продвинутое расширение словарного запаса)</h2>
+<div class="lesson-container">
+    <h2>Урок 6: В супермаркете (In the Supermarket)</h2>
+<button class="back-button"
+        onclick="
+            document.getElementById('lesson-content').classList.add('hidden');
+            document.getElementById('lesson-details').innerHTML = '';
+            document.getElementById('app-header').classList.remove('hidden');
+            document.getElementById('module2-list').classList.remove('hidden');
+        ">
+    <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+    Назад
+</button>
 
-        <!-- Кнопка "Назад" -->
-        <button class="back-button"
-                onclick="
-                    // 1. Скрываем контент урока
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
-                    document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
-                    document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 2
-                    document.getElementById('module2-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
+<div class="section">
+    <p>
+        I go to the <span class="word">supermarket</span> <span class="transcription">[ˈsuːpəˌmɑːrkɪt]</span>
+        <span class="translation">(супермаркет)</span> with my mom. We take a <span class="word">shopping cart</span> <span class="transcription">[ˈʃɒpɪŋ kɑːt]</span> <span class="translation">(тележка)</span>. There are many sections in the store.
+    </p>
+    <img src="https://i.pinimg.com/originals/9f/0d/26/9f0d26638ae54762ad89269f6456c8d4.png" alt="Photo1" style="max-width:100%; height:300px; margin-bottom:10px;">
+</div>
 
-        <!-- 1. Введение -->
-        <div class="section">
-            <h3>Введение</h3>
-            <p>Расширение словарного запаса — ключевой аспект овладения языком. В этом уроке мы рассмотрим стратегии и методы для эффективного увеличения количества выученных слов и их использования в речи.</p>
-        </div>
+<div class="section">
+    <h3>Sections in the supermarket / Отделы в супермаркете</h3>
 
-        <!-- 2. Стратегии запоминания новых слов -->
-        <div class="section">
-            <h3>Стратегии запоминания новых слов</h3>
-            <ul>
-                <li><strong>Мнемонические устройства:</strong> Использование ассоциаций для запоминания значений слов.</li>
-                <li><strong>Контекстуальное обучение:</strong> Запоминание слов через примеры предложений.</li>
-                <li><strong>Регулярное повторение:</strong> Повторение слов через интервалы времени для долгосрочного запоминания.</li>
-                <li><strong>Визуализация:</strong> Создание ментальных образов для ассоциации с новыми словами.</li>
-            </ul>
-        </div>
+    <p><strong class="fruit">Fruits and Vegetables</strong> <span class="transcription">[ˈfruːts ænd ˈvedʒtəblz]</span> — фрукты и овощи:</p>
+    <ul>
+        <li><span class="fruit">Carrot</span> [ˈkærət] — морковь</li>
+        <li><span class="fruit">Potato</span> [pəˈteɪtəʊ] — картошка</li>
+        <li><span class="fruit">Tomato</span> [təˈmɑːtəʊ] — помидор</li>
+        <li><span class="fruit">Cucumber</span> [ˈkjuːkʌmbə] — огурец</li>
+        <li><span class="fruit">Orange</span> [ˈɒrɪndʒ] — апельсин</li>
+    </ul>
 
-        <!-- 3. Тематические списки слов -->
-        <div class="section">
-            <h3>Тематические списки слов</h3>
-            <p>Изучение слов по темам помогает лучше их запоминать и использовать в соответствующих контекстах. Вот несколько полезных тем:</p>
-            <ul>
-                <li>Бизнес и экономика</li>
-                <li>Здоровье и медицина</li>
-                <li>Технологии и IT</li>
-                <li>Путешествия и туризм</li>
-                <li>Культура и искусство</li>
-            </ul>
-            <p>Пример тематического списка:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Слово</th>
-                        <th>Перевод</th>
-                        <th>Пример предложения</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Entrepreneur</td>
-                        <td>Предприниматель</td>
-                        <td>She is a successful entrepreneur who founded several startups.</td>
-                    </tr>
-                    <tr>
-                        <td>Innovation</td>
-                        <td>Инновация</td>
-                        <td>Innovation is crucial for the growth of any business.</td>
-                    </tr>
-                    <tr>
-                        <td>Revenue</td>
-                        <td>Доход</td>
-                        <td>The company's revenue has increased by 20% this quarter.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <p><strong class="meat">Meat and Fish</strong> <span class="transcription">[miːt ænd fɪʃ]</span> — мясо и рыба:</p>
+    <ul>
+        <li><span class="meat">Chicken</span> [ˈtʃɪkɪn] — курица</li>
+        <li><span class="meat">Beef</span> [biːf] — говядина</li>
+        <li><span class="meat">Fish</span> [fɪʃ] — рыба</li>
+        <li><span class="meat">Sausage</span> [ˈsɒsɪdʒ] — сосиска</li>
+        <li><span class="meat">Ham</span> [hæm] — ветчина</li>
+    </ul>
 
-        <!-- 4. Видео урок -->
-        <div class="section">
-            <h3>Видео урок: Эффективные методы запоминания слов</h3>
-            <div class="media-container">
-                <video controls>
-                    <source src="./assets/videos/video2.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-            <p>Просмотрите видео, чтобы узнать о лучших методах запоминания новых слов.</p>
-        </div>
+    <p><strong class="bread">Bread and Cereals</strong> <span class="transcription">[brɛd ænd ˈsɪəriəlz]</span> — хлеб и крупы:</p>
+    <ul>
+        <li><span class="bread">Bread</span> [brɛd] — хлеб</li>
+        <li><span class="bread">Rice</span> [raɪs] — рис</li>
+        <li><span class="bread">Pasta</span> [ˈpɑːstə] — макароны</li>
+        <li><span class="bread">Cereal</span> [ˈsɪəriəl] — хлопья</li>
+        <li><span class="bread">Bun</span> [bʌn] — булочка</li>
+         <li><span class="sugar">Chips</span> [tʃɪps] — чипсы</li>
+    </ul>
 
-        <!-- 5. Аудио тренировка -->
-        <div class="section">
-            <h3>Аудио тренировка: Использование новых слов в речи</h3>
-            <div class="media-container">
-                <audio controls>
-                    <source src="./assets/audios/audio2.mp3" type="audio/mpeg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-            <p>Прослушайте примеры использования новых слов и повторите их вслух.</p>
-        </div>
+    <p><strong class="dairy">Milk and Dairy</strong> <span class="transcription">[mɪlk ænd ˈdeəri]</span> — молочные продукты:</p>
+    <ul>
+        <li><span class="dairy">Milk</span> [mɪlk] — молоко</li>
+        <li><span class="dairy">Cheese</span> [tʃiːz] — сыр</li>
+        <li><span class="dairy">Yogurt</span> [ˈjoʊɡərt] — йогурт</li>
+        <li><span class="dairy">Butter</span> [ˈbʌtə] — масло</li>
+        <li><span class="dairy">Cream</span> [kriːm] — сливки</li>
+        <li><span class="dairy">Eggs</span> [ɛɡz] — яйца</li>
+    </ul>
 
-        <!-- 6. Итоги -->
-        <div class="section">
-            <h3>Итоги</h3>
-            <p>Расширение словарного запаса требует регулярной практики и применения различных стратегий. Используйте изученные методы для эффективного запоминания и использования новых слов в повседневной речи.</p>
-        </div>
-    </div>
+    <p><strong class="sugar">Sugary Foods</strong> <span class="transcription">[ˈʃʊɡəri fuːdz]</span> — сладости:</p>
+    <ul>
+        <li><span class="sugar">Chocolate</span> [ˈtʃɒklət] — шоколад</li>
+        <li><span class="sugar">Candy</span> [ˈkændi] — конфета</li>
+        <li><span class="sugar">Cookie</span> [ˈkʊki] — печенье</li>
+        <li><span class="sugar">Cake</span> [keɪk] — торт</li>
+        <li><span class="sugar">Ice cream</span> [ˈaɪs kriːm] — мороженое</li>
+        <li><span class="sugar">Jam</span> [dʒæm] — варенье</li>
+        <li><span class="sugar">Sugar</span> [ˈʃʊɡə] — сахар</li>
+    </ul>
+</div>
 
-    <script>
-        // Здесь вы можете добавить дополнительные скрипты для интерактивных упражнений, если необходимо.
-    </script>
+<div class="section">
+    <h3>Диалог в магазине</h3>
+    <p>
+        <strong>Mom:</strong> What do you want to buy?<br>
+        <strong>Child:</strong> I want <span class="meat">chicken</span>, <span class="bread">bread</span>, and <span class="sugar">ice cream</span>.<br>
+        <strong>Mom:</strong> Do you want some <span class="fruit">vegetables</span> too?<br>
+        <strong>Child:</strong> Yes! I like <span class="fruit">carrots</span> and <span class="fruit">cucumbers</span>.<br>
+        <strong>Mom:</strong> Great! Let’s go to the <span class="fruit">fruit and vegetables</span> section.<br>
+        <strong>Child:</strong> Can I have <span class="dairy">yogurt</span> too?<br>
+        <strong>Mom:</strong> Yes. And don’t forget <span class="bread">pasta</span> for dinner.<br>
+        <strong>Child:</strong> Okay! I like shopping!
+    </p>
+</div>
+<div class="section">
+  <h3>Игра: Собери список покупок</h3>
+  <p>Нажми на нужные продукты, чтобы добавить их в корзину, ориентируясь на список на русском:</p>
+  <p><strong>Список покупок:</strong> молоко, морковь, сосиска, торт, огурец, рис</p>
+
+  <button id="startBtn" class="submit-btn" onclick="initShoppingCartGame()">Начать игру</button>
+
+  <div id="items" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0; pointer-events: none; opacity: 0.5;">
+    <div class="draggable-item">Milk</div>
+    <div class="draggable-item">Cheese</div>
+    <div class="draggable-item">Carrot</div>
+    <div class="draggable-item">Cake</div>
+    <div class="draggable-item">Fish</div>
+    <div class="draggable-item">Sausage</div>
+    <div class="draggable-item">Bread</div>
+    <div class="draggable-item">Orange</div>
+    <div class="draggable-item">Rice</div>
+    <div class="draggable-item">Butter</div>
+    <div class="draggable-item">Cucumber</div>
+    <div class="draggable-item">Sugar</div>
+    <div class="draggable-item">Eggs</div>
+  </div>
+
+  <div id="cart" style="min-height: 100px; border: 2px dashed #aaa; padding: 10px; margin-bottom: 10px;">
+    <p><strong>Shopping Cart:</strong> (Нажимай на продукты)</p>
+  </div>
+
+  <button id="checkBtn" class="submit-btn" onclick="checkCart()" style="display: none;">Проверить</button>
+  <button id="clearBtn" class="submit-btn" onclick="clearCart()" style="display: none; margin-left: 10px;">Очистить корзину</button>
+
+  <div id="feedback" class="feedback" style="margin-top: 10px;"></div>
+</div>
+
+</div>
 </body>
 </html>

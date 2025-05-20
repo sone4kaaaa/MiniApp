@@ -2160,52 +2160,64 @@ window.initShoppingCartGame = function () {
     /**
      * Тест 2 (Модуль 2)
      */
-    window.checkTest22 = function() {
-        const answers = { 
-            q1: 'Have you got a brother?',                       
-            q2: 'have',                                          
-            q3: 'Has',                                           
-            q4: "She hasn't got a dog.",                         
-            q5: 'bread with butter',                             
-            q6: 'We have got oranges.',                          
-            q7: 'How old are you?',                             
-            q8: 'Where',                                         
-            q9: "He hasn't got a brother.",                      
-            q10: 'tea and coffee'                                
-        };
-
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const userEl = document.getElementById(key);
-            if (!userEl) continue;
-            let userAnswer = userEl.value.trim().toLowerCase();
-            userAnswer = userAnswer.replace(/[.?!]+$/, '');
-
-            let correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                userEl.style.borderColor = '#28a745';
-            } else {
-                userEl.style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('test2-feedback');
-        if (feedback) {
-            feedback.style.display = 'block';
-            if (score === total) {
-                feedback.className = 'feedback success';
-                feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-            } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-            }
-        }
+window.checkTest22 = function() {
+    const answers = { 
+        q1: 'Have you got a brother?',                       
+        q2: 'have',                                          
+        q3: 'Has',                                           
+        q4: "She hasn't got a dog.",                         
+        q5: 'bread with butter',                             
+        q6: 'We have got oranges.',                          
+        q7: 'How old are you?',                             
+        q8: 'Where',                                         
+        q9: "He hasn't got a brother.",                      
+        q10: 'tea and coffee'                                
     };
+
+    let score = 0;
+    const total = Object.keys(answers).length;
+
+    for (const key in answers) {
+        const userEl = document.getElementById(key);
+        if (!userEl) continue;
+
+        const correctAnswer = answers[key];
+
+        let userAnswer;
+        if (userEl.tagName.toLowerCase() === 'select') {
+            // Для select — сравниваем как есть (без изменения регистра и пунктуации)
+            userAnswer = userEl.value;
+        } else {
+            // Для input — обрезаем лишние пробелы и приводим к нижнему регистру
+            userAnswer = userEl.value.trim().toLowerCase();
+            userAnswer = userAnswer.replace(/[.?!]+$/, '');
+        }
+
+        let correctToCompare = correctAnswer;
+        if (userEl.tagName.toLowerCase() !== 'select') {
+            correctToCompare = correctToCompare.toLowerCase().replace(/[.?!]+$/, '');
+        }
+
+        if (userAnswer === correctToCompare) {
+            score++;
+            userEl.style.borderColor = '#28a745';
+        } else {
+            userEl.style.borderColor = '#dc3545';
+        }
+    }
+
+    const feedback = document.getElementById('test2-feedback');
+    if (feedback) {
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+        }
+    }
+};
 
 
     /**

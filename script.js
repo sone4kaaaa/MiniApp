@@ -1741,22 +1741,33 @@ window.initShoppingCartGame = function () {
     });
 
     window.checkCart = function () {
-        let correctCount = 0;
-        const cartItems = Array.from(cart.querySelectorAll('.in-cart')).map(el => el.textContent);
+    const cartItems = Array.from(cart.querySelectorAll('.in-cart')).map(el => el.textContent);
+    let correctCount = 0;
+    let extraItems = [];
 
-        correctItems.forEach(item => {
-            if (cartItems.includes(item)) correctCount++;
-        });
-
-        feedback.style.display = 'block';
-        if (correctCount === correctItems.length && cartItems.length === correctItems.length) {
-            feedback.className = "feedback success";
-            feedback.innerText = "Молодец! Всё верно 🛒✅";
+    // Подсчёт правильных и лишних товаров
+    cartItems.forEach(item => {
+        if (correctItems.includes(item)) {
+            correctCount++;
         } else {
-            feedback.className = "feedback error";
-            feedback.innerText = `Правильных: ${correctCount} из ${correctItems.length}. Попробуй снова!`;
+            extraItems.push(item);
         }
-    };
+    });
+
+    feedback.style.display = 'block';
+
+    if (correctCount === correctItems.length && extraItems.length === 0 && cartItems.length === correctItems.length) {
+        feedback.className = "feedback success";
+        feedback.innerText = "Молодец! Всё верно ✅";
+    } else if (extraItems.length > 0) {
+        feedback.className = "feedback error";
+        feedback.innerText = `В корзине лишние товары: ${extraItems.join(', ')}. Попробуй снова!`;
+    } else {
+        feedback.className = "feedback error";
+        feedback.innerText = `Правильных: ${correctCount} из ${correctItems.length}. Попробуй снова!`;
+    }
+};
+
 
     window.clearCart = function () {
         cart.innerHTML = `<p><strong>Shopping Cart:</strong> (Нажимай на продукты)</p>`;
@@ -2147,22 +2158,22 @@ window.initShoppingCartGame = function () {
 
 
     /**
-     * Тест 2 (Модуль 2): Phrasal Verbs and Idiomatic Expressions
-     * ID вопросов: q1..q10 (каждый свой)
+     * Тест 2 (Модуль 2)
      */
-    window.checkTest2 = function() {
-        const answers = {
-            q1: 'take care of someone/something', // #1 look after
-            q2: 'give away',                      // #2 She decided to ___
-            q3: 'dogs',                           // #3 It's raining cats and ___
-            q4: 'to initiate conversation',       // #4 break the ice
-            q5: 'wind down',                      // #5 After a long day, he likes to ___
-            q6: 'fix up',                         // #6 I need to ___ my car
-            q7: 'reveal a secret',                // #7 spill the beans
-            q8: 'tear down',                      // #8 They decided to ___ the old building
-            q9: 'blue',                           // #9 once in a ___ moon
-            q10: 'reject an offer'                // #10 turn down
+    window.checkTest22 = function() {
+        const answers = { 
+            q1: 'Have you got a brother?',                       
+            q2: 'have',                                          
+            q3: 'Has',                                           
+            q4: "She hasn't got a dog.",                         
+            q5: 'bread with butter',                             
+            q6: 'We have got oranges.',                          
+            q7: 'How old are you?',                             
+            q8: 'Where',                                         
+            q9: "He hasn't got a brother.",                      
+            q10: 'tea and coffee'                                
         };
+
 
         let score = 0;
         const total = Object.keys(answers).length;
@@ -2171,13 +2182,10 @@ window.initShoppingCartGame = function () {
             const userEl = document.getElementById(key);
             if (!userEl) continue;
             let userAnswer = userEl.value.trim().toLowerCase();
-            // Снимем точку или вопросительный знак, если есть
             userAnswer = userAnswer.replace(/[.?!]+$/, '');
 
             let correctAnswer = answers[key].toLowerCase();
 
-            // Для фразовых глаголов можно допустить варианты (например, 'give away' vs 'giveaway'),
-            // но в примере всё строго :)
             if (userAnswer === correctAnswer) {
                 score++;
                 userEl.style.borderColor = '#28a745';
@@ -2256,7 +2264,7 @@ window.initShoppingCartGame = function () {
     window.checkQuiz2_5 = function() {
         // Массив или объект с "правильными" ответами
         const answers = {
-            ie1: "I have got a dog",
+            ie1: "have got",
             ie2: "has not got",
             ie3: "Has she got a brother?"
         };

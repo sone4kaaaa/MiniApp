@@ -1703,7 +1703,67 @@ window.checkAnswer = function(selectedNumber) {
             }
         })();
     };
+window.initShoppingCartGame = function () {
+    const correctItems = ["Milk", "Carrot", "Sausage", "Cake", "Cucumber", "Rice"];
+    const items = document.querySelectorAll('.draggable-item');
+    const cart = document.getElementById('cart');
+    const feedback = document.getElementById('feedback');
+    const startBtn = document.getElementById('startBtn');
+    const checkBtn = document.getElementById('checkBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const itemsContainer = document.getElementById('items');
 
+    if (!startBtn || !cart || !items.length) return;
+
+    let selectedItems = [];
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            if (!gameStarted) return;
+            const clone = item.cloneNode(true);
+            clone.classList.add("in-cart");
+            cart.appendChild(clone);
+            selectedItems.push(item.textContent);
+        });
+    });
+
+    let gameStarted = false;
+
+    startBtn.addEventListener('click', () => {
+        gameStarted = true;
+        startBtn.style.display = 'none';
+        checkBtn.style.display = 'inline-block';
+        clearBtn.style.display = 'inline-block';
+        itemsContainer.style.pointerEvents = 'auto';
+        itemsContainer.style.opacity = '1';
+        feedback.innerText = '';
+        feedback.style.display = 'none';
+    });
+
+    window.checkCart = function () {
+        let correctCount = 0;
+        const cartItems = Array.from(cart.querySelectorAll('.in-cart')).map(el => el.textContent);
+
+        correctItems.forEach(item => {
+            if (cartItems.includes(item)) correctCount++;
+        });
+
+        feedback.style.display = 'block';
+        if (correctCount === correctItems.length && cartItems.length === correctItems.length) {
+            feedback.className = "feedback success";
+            feedback.innerText = "Молодец! Всё верно 🛒✅";
+        } else {
+            feedback.className = "feedback error";
+            feedback.innerText = `Правильных: ${correctCount} из ${correctItems.length}. Попробуй снова!`;
+        }
+    };
+
+    window.clearCart = function () {
+        cart.innerHTML = `<p><strong>Shopping Cart:</strong> (Нажимай на продукты)</p>`;
+        selectedItems = [];
+        feedback.style.display = 'none';
+    };
+};
     window.checkQuiz08 = function() {
         const answers = {
             q1: 'is',

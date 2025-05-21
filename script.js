@@ -1403,7 +1403,8 @@ window.checkAnswer = function(selectedNumber) {
         ["Son", "сын"],
         ["Daughter", "дочь"]
     ];
-
+    const startBtn = document.getElementById('startBtn');
+    startBtn.style.display = 'none';
     const cards = [];
     const gameContainer = document.getElementById("matching-game");
 
@@ -1502,7 +1503,8 @@ window.checkAnswer = function(selectedNumber) {
           (function(){
             const gameContainer = document.getElementById('memory-game');
             const resultDiv = document.getElementById('memory-result');
-
+            const startBtn = document.getElementById('startBtn');
+            startBtn.style.display = 'none';
             const pairs = [
             {id: 1, word: 'Ram', img: 'https://i.pinimg.com/736x/9c/41/93/9c41933a38c7c9edd31424df47cd6861.jpg'},
             {id: 2, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
@@ -2274,7 +2276,7 @@ window.checkTest22 = function() {
 
     window.checkQuiz2_9 = function() {
         const answers = {
-            q1: 'twenty one',
+            q1: 'twenty two',
             q2: 'thirty eight',
             q3: 'forty six',
             q4: 'sixty three',
@@ -2401,7 +2403,8 @@ window.checkTest22 = function() {
     startBtn.style.display = 'none';
     correctAnswered = false;
     const question = quizData[currentQuestion];
-    document.getElementById("body-image").src = question.img;
+    const bodyimg = document.getElementById("body-image").src = question.img;
+    bodyimg.style.display = 'inline-block';
     const optionsContainer = document.getElementById("options");
     optionsContainer.innerHTML = "";
 

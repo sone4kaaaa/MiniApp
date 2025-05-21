@@ -2271,7 +2271,40 @@ window.checkTest22 = function() {
         }
     };
 
+    window.checkQuiz2_9 = function() {
+        const answers = {
+            q1: 'twenty one',
+            q2: 'thirty eight',
+            q3: 'forty six',
+            q4: 'sixty three',
+            q5: 'ninety one'
+        };
 
+        let score = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+            } else {
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+            }
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
 
     // Функция проверки итогового теста для Модуля 3
     window.checkFinalTest3 = function() {

@@ -1036,58 +1036,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             let correctAnswer = answers[key].toLowerCase();
 
-            // Добавим "допустимые ответы" для некоторых вопросов
-            if (key === 'q2') {
-                // Вопрос 2: "I should have warned you, but I forgot." — несколько способов
-                const acceptableAnswers = [
-                    'i should have warned you, but i forgot.',
-                    'i should have warned you but i forgot.',
-                    'i should have warned you but forgot.',
-                    'i should have warned you but i forgot'
-                ];
-                if (acceptableAnswers.includes(userAnswer)) {
-                    correctAnswer = userAnswer; // Принимаем как верный
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            } else if (key === 'q5') {
-                // Вопрос 5: "What I need is some rest." — без/с точкой
-                const acceptableAnswers = [
-                    'what i need is some rest',
-                    'what i need is some rest.'
-                ];
-                if (acceptableAnswers.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            } else if (key === 'q8') {
-                // Вопрос 8: "If she hadn’t been late, she would be helping us now."
-                // Добавим все популярные варианты (прямой апостроф, наклонный апостроф, бэктик)
-                const acceptableAnswers = [
-                    "if she hadn't been late, she would be helping us now",
-                    "if she hadn’t been late, she would be helping us now",
-                    "if she hadn`t been late, she would be helping us now"
-                ];
-                if (acceptableAnswers.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            } else if (key === 'q9') {
-                // Вопрос 9: "She must have been very tired." — без/с точкой
-                const acceptableAnswers = [
-                    'she must have been very tired',
-                    'she must have been very tired.'
-                ];
-                if (acceptableAnswers.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            }
 
-            // Окончательная проверка
             if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
                 score++;
                 input.style.borderColor = '#28a745'; // зеленый
@@ -2323,56 +2272,6 @@ window.checkTest22 = function() {
     };
 
 
-    window.checkPhrasalVerbs = function() {
-        const answers = {
-            pe1: "don't spill the beans", // Пример (можно менять под реальную задачу)
-            pe2: "turn down",
-            pe3: "turn down"
-        };
-    
-        let score = 0;
-        const total = Object.keys(answers).length;
-    
-        // 1) Проверка поля pe1
-        let user1 = document.getElementById('pe1').value.trim().toLowerCase();
-        // Удаляем финальную точку
-        user1 = user1.replace(/\.+$/, '');
-        if (user1 === answers.pe1) {
-            score++;
-            document.getElementById('pe1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('pe1').style.borderColor = '#dc3545';
-        }
-    
-        // 2) Проверка поля pe2
-        let user2 = document.getElementById('pe2').value.trim().toLowerCase();
-        user2 = user2.replace(/\.+$/, '');
-        if (user2 === answers.pe2) {
-            score++;
-            document.getElementById('pe2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('pe2').style.borderColor = '#dc3545';
-        }
-    
-        // 3) Проверка селекта pe3
-        let user3 = document.getElementById('pe3').value;
-        if (user3 === answers.pe3) {
-            score++;
-            document.getElementById('pe3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('pe3').style.borderColor = '#dc3545';
-        }
-    
-        const feedback = document.getElementById('phrasal-verbs-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Отлично! Все ответы верны.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
 
     // Функция проверки итогового теста для Модуля 3
     window.checkFinalTest3 = function() {

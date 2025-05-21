@@ -2401,10 +2401,11 @@ window.checkTest22 = function() {
   function showQuestion() {
     const startBtn = document.getElementById('startBtn');
     startBtn.style.display = 'none';
+    const bodyImg = document.getElementById('question-image');
+    bodyImg.style.display = 'block';
     correctAnswered = false;
     const question = quizData[currentQuestion];
-    const bodyimg = document.getElementById("body-image").src = question.img;
-    bodyimg.style.display = 'inline-block';
+    document.getElementById("body-image").src = question.img;
     const optionsContainer = document.getElementById("options");
     optionsContainer.innerHTML = "";
 

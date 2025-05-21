@@ -1666,6 +1666,23 @@ window.initShoppingCartGame = function () {
 
     let selectedItems = [];
 
+    // Игра стартует сразу
+    let gameStarted = true;
+
+    // Скрываем кнопку старт сразу
+    startBtn.style.display = 'none';
+
+    // Показываем кнопки Проверить и Очистить сразу
+    checkBtn.style.display = 'inline-block';
+    clearBtn.style.display = 'inline-block';
+
+    // Активируем контейнер с товарами сразу
+    itemsContainer.style.pointerEvents = 'auto';
+    itemsContainer.style.opacity = '1';
+
+    feedback.innerText = '';
+    feedback.style.display = 'none';
+
     items.forEach(item => {
         item.addEventListener('click', () => {
             if (!gameStarted) return;
@@ -1674,19 +1691,6 @@ window.initShoppingCartGame = function () {
             cart.appendChild(clone);
             selectedItems.push(item.textContent);
         });
-    });
-
-    let gameStarted = false;
-
-    startBtn.addEventListener('click', () => {
-        gameStarted = true;
-        startBtn.style.display = 'none';
-        checkBtn.style.display = 'inline-block';
-        clearBtn.style.display = 'inline-block';
-        itemsContainer.style.pointerEvents = 'auto';
-        itemsContainer.style.opacity = '1';
-        feedback.innerText = '';
-        feedback.style.display = 'none';
     });
 
     window.checkCart = function () {
@@ -2170,57 +2174,54 @@ window.checkTest22 = function() {
 
 
     /**
-     * Тест 3 (Модуль 2): Advanced Conditional Structures
-     * ID вопросов: q1..q10 (каждый свой)
+     * Тест 3 (Модуль 2)
      */
-    window.checkTest3 = function() {
-        const answers = {
-            q1: 'had',            // #1 If I ___ (had) more time
-            q2: 'had known',      // #2 If they ___ about the traffic...
-            q3: 'if he had exercised, he wouldn\'t be out of shape now', 
-                                // #3 Mixed cond: didn't exercise -> out of shape now
-            q4: 'should',         // #4 If you ___ see her
-            q5: 'were',           // #5 If I ___ (were) you
-            q6: 'had studied',    // #6 If she ___ harder
-            q7: 'if they had invested in stocks, they would be wealthy now',
-                                // #7 Mixed cond
-            q8: 'might',          // #8 If he ___ come to the meeting
-            q9: 'had left',       // #9 If you ___ earlier
-            q10: 'had known'      // #10 If I ___ about the concert, I would be attending
-        };
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const userEl = document.getElementById(key);
-            if (!userEl) continue;
-            let userAnswer = userEl.value.trim().toLowerCase();
-            userAnswer = userAnswer.replace(/\.+$/, '');
-
-            let correctAnswer = answers[key].toLowerCase();
-
-            // Можно допустить варианты с апострофом etc.
-            if (userAnswer === correctAnswer) {
-                score++;
-                userEl.style.borderColor = '#28a745';
-            } else {
-                userEl.style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('test3-feedback');
-        if (feedback) {
-            feedback.style.display = 'block';
-            if (score === total) {
-                feedback.className = 'feedback success';
-                feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-            } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-            }
-        }
+    window.checkTest2_3 = function() {
+    const answers = {
+        q1: 'new year',          
+        q2: 'teen',        
+        q3: 'wednesday',         
+        q4: 'december',       
+        q5: "baker's",           
+        q6: 'costumes',          
+        q7: 'ty',            
+        q8: 'cafe',              
+        q9: 'september',         
+        q10: 'fireworks'         
     };
+
+    let score = 0;
+    const total = Object.keys(answers).length;
+
+    for (const key in answers) {
+        const userEl = document.getElementById(key);
+        if (!userEl) continue;
+        let userAnswer = userEl.value.trim().toLowerCase();
+        userAnswer = userAnswer.replace(/\.+$/, '');
+
+        let correctAnswer = answers[key].toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+            score++;
+            userEl.style.borderColor = '#28a745';
+        } else {
+            userEl.style.borderColor = '#dc3545'; 
+        }
+    }
+
+    const feedback = document.getElementById('test3-feedback');
+    if (feedback) {
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+        }
+    }
+};
+
 
     window.checkQuiz2_5 = function() {
         // Массив или объект с "правильными" ответами
@@ -2377,6 +2378,71 @@ window.checkTest22 = function() {
             feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
+
+    window.initBodyGuessGame = function () {
+  const quizData = [
+    { img: "https://media.baamboozle.com/uploads/images/153453/1603748867_187492", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
+    { img: "https://www.clipartmax.com/png/full/70-705132_boy-face-head-smile-young-png-image-cartoon-man-face.png", answer: "Head", options: ["Head", "Hair", "Back", "Ear"] },
+    { img: "https://i.pinimg.com/originals/9c/6c/c9/9c6cc908efa14dcea2d081f91c73ea0d.png", answer: "Mouth", options: ["Nose", "Mouth", "Eyes", "Teeth"] },
+    { img: "https://bumper-stickers.ru/34160-thickbox_default/glaza.jpg", answer: "Eyes", options: ["Cheeks", "Eyes", "Fingers", "Hair"] },
+    { img: "https://media.baamboozle.com/uploads/images/369062/1634708215_27059.png", answer: "Leg", options: ["Hand", "Leg", "Foot", "Arm"] },
+    { img: "https://img.meddoclab.ru/img/46/e6/46e636797e30b436b09b13e37c68f249.jpg", answer: "Tooth", options: ["Mouth", "Tooth", "Nose", "Ear"] },
+  ];
+
+  let currentQuestion = 0;
+  let correctAnswered = false;
+
+  function shuffleImg(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  function showQuestion() {
+    const startBtn = document.getElementById('startBtn');
+    startBtn.style.display = 'none';
+    correctAnswered = false;
+    const question = quizData[currentQuestion];
+    document.getElementById("body-image").src = question.img;
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
+
+    const shuffledOptions = shuffleImg([...question.options]);
+    shuffledOptions.forEach(option => {
+      const btn = document.createElement("button");
+      btn.textContent = option;
+      btn.className = "submit-btn";
+      btn.onclick = () => checkAnswerBody(btn, option, question.answer);
+      optionsContainer.appendChild(btn);
+    });
+  }
+
+  function checkAnswerBody(button, selected, correct) {
+    if (correctAnswered) return;
+
+    if (selected === correct) {
+      button.style.backgroundColor = "#28a745"; // зелёный
+      correctAnswered = true;
+
+      // блокируем все кнопки
+      const allButtons = document.querySelectorAll("#options button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion >= quizData.length) {
+          document.getElementById("game-container").innerHTML = "<h4>Игра завершена! Молодец!</h4>";
+        } else {
+          showQuestion();
+        }
+      }, 1000);
+    } else {
+      button.style.backgroundColor = "#dc3545"; // красный
+      button.disabled = true; // нельзя нажимать на уже выбранную неправильную
+    }
+  }
+
+  showQuestion();
+};
+
 
     /******************************************************************************
      *            ФУНКЦИИ ДЛЯ ПРОВЕРКИ ТЕСТОВ МОДУЛЯ 3

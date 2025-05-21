@@ -1893,10 +1893,10 @@ window.initShoppingCartGame = function () {
     };
     window.checkQuiz2_3 = function() {
         const answers = {
-            q1: 'dress,socks,shoes',
-            q2: 'T-shirt,shorts,shorts,shoes',
-            q3: 'dress,socks,shoes',
-            q4: 'T-shirt,pants,shoes'
+            q1: 'dress, socks, shoes',
+            q2: 'T-shirt, shorts, shorts, shoes',
+            q3: 'dress, socks, shoes',
+            q4: 'T-shirt, pants, shoes'
         };
 
         let score = 0;
@@ -1975,7 +1975,7 @@ window.initShoppingCartGame = function () {
         const answers = {
             q21: 'lemon',
             q22: 'I like to run, swim and dance',
-            q23: 'T-shirt,shorts,shoes',
+            q23: 'T-shirt, shorts, shoes',
             q24: '2',
             q25: 'I have got a sister',
             q26: '1',

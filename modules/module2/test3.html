@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Тест 3: Advanced Conditional Structures</title>
+    <title>Тест 3</title>
     <style>
-        /* Единый стиль, аналогичный урокам */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #51cf51; 
             padding: 20px;
             border-radius: 10px;
         }
-
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff; 
             margin-bottom: 20px;
         }
-
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
         .section h3 {
             margin-top: 0;
             color: #333;
         }
-
         .quiz-question {
             margin-bottom: 15px;
         }
-
         .quiz-question label {
             display: block;
             margin-bottom: 5px;
             color: #333;
             font-weight: bold;
         }
-
         .quiz-question input[type="text"],
         .quiz-question select {
             width: 90%;
@@ -54,7 +46,6 @@
             border: 1px solid #ccc;
             font-size: 16px;
         }
-
         .submit-btn {
             display: block;
             width: 100%;
@@ -68,11 +59,9 @@
             transition: background-color 0.3s ease;
             margin-top: 10px;
         }
-
         .submit-btn:hover {
             background-color: #4a00e0;
         }
-
         .feedback {
             margin-top: 20px;
             padding: 15px;
@@ -82,7 +71,6 @@
             display: none;
             font-size: 18px;
         }
-
         /* Кнопка "Назад" */
         .back-button {
             display: flex;
@@ -112,17 +100,12 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 3: Advanced Conditional Structures (Продвинутые условные конструкции)</h2>
+        <h2>Тест 3: Праздники, Цифры, Дни недели, Месяцы и Магазины</h2>
         
-        <!-- Кнопка "Назад" -->
         <button class="back-button" onclick="
-            // Скрываем контент теста
             document.getElementById('lesson-content').classList.add('hidden');
-            // Очищаем содержимое
             document.getElementById('lesson-details').innerHTML = '';
-            // Показываем снова заголовок приложения
             document.getElementById('app-header').classList.remove('hidden');
-            // Показываем список уроков Модуля 2
             document.getElementById('module2-list').classList.remove('hidden');
         ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
@@ -130,100 +113,83 @@
         </button>
 
         <div class="section">
-            <h3>Тест 3: Advanced Conditional Structures</h3>
             <div class="quiz">
-                <!-- Вопросы теста -->
-                <!-- Вопрос 1 -->
+                <!-- Вопрос 1: Праздники -->
                 <div class="quiz-question">
-                    <label>1. Choose the correct form: If I ___ (to have) more time, I would have completed the project.</label>
+                    <label><strong>1.</strong> Выбери праздник, под который подходит это описание:</label>
+                    <label>Children wait for gifts from Ded Moroz.</label>
                     <select id="q1">
                         <option value="">Выберите ответ</option>
-                        <option value="had">had</option>
-                        <option value="have">have</option>
-                        <option value="has">has</option>
+                        <option value="birthday">birthday</option>
+                        <option value="new year">new year</option>
+                        <option value="halloween">halloween</option>
                     </select>
                 </div>
                 
-                <!-- Вопрос 2 -->
+                <!-- Вопрос 2: Цифры -->
                 <div class="quiz-question">
-                    <label>2. Fill in the blank: If they ___ (to know) about the traffic, they wouldn't have been late.</label>
-                    <input type="text" id="q2" placeholder="Например, had known">
+                    <label><strong>2.</strong> Какой суффикс добавляется для цифр от 13 до 19 в английском языке?</label>
+                    <input type="text" id="q2">
                 </div>
                 
-                <!-- Вопрос 3 -->
+                <!-- Вопрос 3: Дни недели -->
                 <div class="quiz-question">
-                    <label>3. What is the correct mixed conditional form for the sentence: "He didn't exercise, so he is out of shape now."</label>
-                    <input type="text" id="q3" placeholder="Например, If he had exercised, he wouldn't be out of shape now.">
+                    <label><strong>3.</strong> Какой день недели идёт после вторника?</label>
+                    <input type="text" id="q3">
                 </div>
                 
-                <!-- Вопрос 4 -->
+                <!-- Вопрос 4: Месяцы -->
                 <div class="quiz-question">
-                    <label>4. Choose the correct modal verb: If you ___ (should, must, could) see her, tell her to call me.</label>
-                    <select id="q4">
+                    <label><strong>4.</strong> Какой месяц последний в году?</label>
+                    <input type="text" id="q4">
+                </div>
+                
+                <!-- Вопрос 5: Магазины -->
+                <div class="quiz-question">
+                    <label><strong>5.</strong> Как называется "булочная" по-английски?</label>
+                    <select id="q5">
                         <option value="">Выберите ответ</option>
-                        <option value="should">should</option>
-                        <option value="must">must</option>
-                        <option value="could">could</option>
+                        <option value="birthday">birthday</option>
+                        <option value="new year">new year</option>
+                        <option value="baker's">baker's</option>
                     </select>
                 </div>
                 
-                <!-- Вопрос 5 -->
+                <!-- Вопрос 6: Праздники (Хэллоуин) -->
                 <div class="quiz-question">
-                    <label>5. Fill in the blank with the correct form: If I ___ (to be) you, I would have taken that opportunity.</label>
-                    <input type="text" id="q5" placeholder="Например, were">
+                    <label><strong>6.</strong> На Хэллоуин дети надевают _________.</label>
+                    <img src="https://static.vecteezy.com/system/resources/previews/008/916/524/non_2x/cartoon-kids-with-halloween-costume-inside-pumpkin-basket-vector.jpg" alt="Хэллоуин" style="max-width:100%; height:180px; margin-bottom:10px;">
+                    <input type="text" id="q6">
                 </div>
                 
-                <!-- Вопрос 6 -->
+                <!-- Вопрос 7: Цифры -->
                 <div class="quiz-question">
-                    <label>6. Choose the correct form: If she ___ (to study) harder, she would have passed the exam.</label>
-                    <select id="q6">
-                        <option value="">Выберите ответ</option>
-                        <option value="had studied">had studied</option>
-                        <option value="studied">studied</option>
-                        <option value="has studied">has studied</option>
-                    </select>
+                    <label><strong>7.</strong> Какой суффикс добавляется для обозначения десятков в английском языке?</label>
+                    <input type="text" id="q7">
                 </div>
                 
-                <!-- Вопрос 7 -->
+                <!-- Вопрос 8: Магазины -->
                 <div class="quiz-question">
-                    <label>7. Convert to Mixed Conditional: "They didn't invest in stocks, so they aren't wealthy now."</label>
-                    <input type="text" id="q7" placeholder="Например, If they had invested in stocks, they would be wealthy now.">
+                    <label><strong>8.</strong> Как по-английски будет "кафе"?</label>
+                    <input type="text" id="q8">
                 </div>
                 
-                <!-- Вопрос 8 -->
+                <!-- Вопрос 9: Месяцы -->
                 <div class="quiz-question">
-                    <label>8. Choose the correct modal verb: If he ___ (might, should, must) come to the meeting, inform him in advance.</label>
-                    <select id="q8">
-                        <option value="">Выберите ответ</option>
-                        <option value="should">should</option>
-                        <option value="might">might</option>
-                        <option value="must">must</option>
-                    </select>
+                    <label><strong>9.</strong> Какой месяц идёт после августа?</label>
+                    <input type="text" id="q9">
                 </div>
                 
-                <!-- Вопрос 9 -->
+                <!-- Вопрос 10: Праздники -->
                 <div class="quiz-question">
-                    <label>9. Fill in the blank: If you ___ (to leave) earlier, you would be here by now.</label>
-                    <input type="text" id="q9" placeholder="Например, had left">
+                    <label><strong>10.</strong> Как по-английски будет "фейерверки"?</label>
+                    <input type="text" id="q10">
                 </div>
                 
-                <!-- Вопрос 10 -->
-                <div class="quiz-question">
-                    <label>10. Choose the correct mixed conditional form: "If I ___ (to know) about the concert, I would be attending it tonight."</label>
-                    <select id="q10">
-                        <option value="">Выберите ответ</option>
-                        <option value="had known">had known</option>
-                        <option value="knew">knew</option>
-                        <option value="has known">has known</option>
-                    </select>
-                </div>
-                
-                <button class="submit-btn" onclick="checkTest3()">Проверить тест</button>
+                <button class="submit-btn" onclick="checkTest2_3()">Проверить тест</button>
                 <div class="feedback" id="test3-feedback"></div>
             </div>
         </div>
     </div>
-
-    
 </body>
 </html>

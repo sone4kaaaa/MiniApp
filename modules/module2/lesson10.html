@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 10: Effective Communication Skills in English</title>
+    <title>Урок 10: Части тела</title>
     <style>
-        /* -- Единый стиль, аналогичный Уроку 4 -- */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #ef8336; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff; 
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -137,7 +135,6 @@
             color: #721c24;
         }
 
-        /* Дополнительно: стили для медиа (видео/аудио) */
         .media-container {
             text-align: center;
             margin: 20px 0;
@@ -148,7 +145,6 @@
             height: auto;
         }
 
-        /* Стили для кнопки "Next Lesson" */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -170,89 +166,178 @@
         .next-icon {
             margin-right: 8px;
         }
+        .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+        .vocab-card {
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .head { background-color: #ffebee; }
+        .head strong { color: #e53935; }
+
+        .eye { background-color: #e3f2fd; }
+        .eye strong { color: #1e88e5; }
+
+        .nose { background-color: #e8f5e9; }
+        .nose strong { color: #43a047; }
+
+        .mouth { background-color: #fff8e1; }
+        .mouth strong { color: #fbc02d; }
+
+        .ear { background-color: #f3e5f5; }
+        .ear strong { color: #8e24aa; }
+
+        .arm { background-color: #fce4ec; }
+        .arm strong { color: #d81b60; }
+
+        .hand { background-color: #ede7f6; }
+        .hand strong { color: #5e35b1; }
+
+        .leg { background-color: #e0f7fa; }
+        .leg strong { color: #00acc1; }
+
+        .foot { background-color: #fbe9e7; }
+        .foot strong { color: #ff7043; }
+
+        .stomach { background-color: #edeef0; }
+        .stomach strong { color: #546e7a; }
+
+        .teeth { background-color: #fff3e0; }
+        .teeth strong {color: #fb8c00; }
+
+        .fingers { background-color: #ede7f6; }
+        .fingers strong {color: #512da8; }
+
+        .cheeks { background-color: #f1f8e9; }
+        .cheeks strong {color: #689f38; }
+
+        .knee { background-color: #e3f2fd; }
+        .knee strong {color: #1976d2; }
+
+        .hair { background-color: #fce4ec; }
+        .hair strong {color: #6a1b9a; }
+
+        .eyebrows { background-color: #edeef0; }
+        .eyebrows strong {color: #37474f; }
+
+
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 10: Effective Communication Skills in English (Эффективные коммуникативные навыки на английском языке)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 10: Части тела</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 2
                     document.getElementById('module2-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
 
-        <!-- 1. Введение -->
         <div class="section">
-            <h3>Введение</h3>
-            <p>Эффективные коммуникативные навыки являются основой успешного общения на английском языке. В этом уроке мы рассмотрим ключевые аспекты эффективной коммуникации, включая вербальные и невербальные техники, активное слушание и обратную связь.</p>
-        </div>
+            <h3>My body - Моё тело</h3>
 
-        <!-- 2. Основные элементы эффективной коммуникации -->
-        <div class="section">
-            <h3>Основные элементы эффективной коммуникации</h3>
-            <ul>
-                <li><strong>Ясность и точность:</strong> Четкое выражение мыслей и идей.</li>
-                <li><strong>Активное слушание:</strong> Полное внимание к собеседнику.</li>
-                <li><strong>Невербальные сигналы:</strong> Жесты, мимика, зрительный контакт.</li>
-                <li><strong>Обратная связь:</strong> Конструктивные комментарии и уточнения.</li>
-            </ul>
-        </div>
-
-        <!-- 3. Вербальные техники коммуникации -->
-        <div class="section">
-            <h3>Вербальные техники коммуникации</h3>
-            <p>Ключевые аспекты вербальной коммуникации включают:</p>
-            <ul>
-                <li><strong>Использование простого языка:</strong> Избегание сложных конструкций и терминов.</li>
-                <li><strong>Контроль тона голоса:</strong> Поддержание дружелюбного и уверенного тона.</li>
-                <li><strong>Структурирование речи:</strong> Логичное и последовательное изложение мыслей.</li>
-                <li><strong>Использование вопросов:</strong> Вовлечение собеседника через вопросы.</li>
-            </ul>
-        </div>
-
-        <!-- 4. Невербальные техники коммуникации -->
-        <div class="section">
-            <h3>Невербальные техники коммуникации</h3>
-            <p>Невербальные сигналы могут значительно повлиять на восприятие вашей речи:</p>
-            <ul>
-                <li><strong>Зрительный контакт:</strong> Поддержание соответствующего уровня глазного контакта.</li>
-                <li><strong>Жесты и мимика:</strong> Использование выразительных жестов для подкрепления слов.</li>
-                <li><strong>Поза:</strong> Открытая и уверенная поза.</li>
-                <li><strong>Темп речи:</strong> Поддержание умеренного темпа для лучшего понимания.</li>
-            </ul>
-        </div>
-
-        <!-- 5. Примеры использования -->
-        <div class="section">
-            <h3>Примеры использования техник</h3>
-            <div class="example">
-                <p><strong>Situation:</strong> Презентация проекта на работе.</p>
-                <p><strong>Sentence:</strong> "Thank you for attending my presentation. If you have any questions, feel free to ask."</p>
+            <div class="vocab-list">
+            <div class="vocab-card head">
+                <p><strong>Head</strong> [hed] — голова</p>
+                <img src="https://www.clipartmax.com/png/full/70-705132_boy-face-head-smile-young-png-image-cartoon-man-face.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
             </div>
-            <div class="example">
-                <p><strong>Situation:</strong> Обсуждение идеи с коллегой.</p>
-                <p><strong>Sentence:</strong> "I understand your point of view. Let's explore this further together."</p>
+
+            <div class="vocab-card eye">
+                <p><strong>Eye</strong> [aɪ] — глаз</p>
+                <p><strong>Eyes</strong> [aɪz] — глаза</p>
+                <img src="https://bumper-stickers.ru/34160-thickbox_default/glaza.jpg" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
             </div>
-        </div>
 
+            <div class="vocab-card nose">
+                <p><strong>Nose</strong> [nəʊz] — нос</p>
+                <img src="https://png.pngtree.com/png-clipart/20221231/original/pngtree-cartoon-nose-png-image_8837559.png" alt="Фото" style="max-width:100%; height:120px; margin-bottom:10px;">
+            </div>
 
+            <div class="vocab-card mouth">
+                <p><strong>Mouth</strong> [maʊθ] — рот</p>
+                <img src="https://i.pinimg.com/originals/9c/6c/c9/9c6cc908efa14dcea2d081f91c73ea0d.png" alt="Фото" style="max-width:100%; height:100px; margin-bottom:10px;">
+            </div>
 
-        <!-- 8. Итоги -->
-        <div class="section">
-            <h3>Итоги</h3>
-            <p>Эффективные коммуникативные навыки позволяют вам ясно и уверенно выражать свои мысли, улучшать взаимодействие с окружающими и достигать поставленных целей. Регулярная практика этих техник приведет к заметному улучшению ваших навыков общения на английском языке.</p>
+            <div class="vocab-card ear">
+                <p><strong>Ear</strong> [ɪə] — ухо</p>
+                <p><strong>Ears</strong> [ˈɪəz] — уши</p>
+                <img src="https://www.pngplay.com/wp-content/uploads/15/Cartoon-Ears-PNG-Clipart-Background.png" alt="Фото" style="max-width:100%; height:100px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card arm">
+                <p><strong>Arm</strong> [ɑːm] — рука</p>
+                <img src="https://media.baamboozle.com/uploads/images/153453/1603748867_187492" alt="Фото" style="max-width:100%; height:140px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card hand">
+                <p><strong>Hand</strong> [hænd] — кисть</p>
+                <img src="https://png.pngtree.com/png-clipart/20220117/original/pngtree-cartoon-palm-element-material-png-image_7123678.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card leg">
+                <p><strong>Leg</strong> [leg] — нога</p>
+                <img src="https://media.baamboozle.com/uploads/images/369062/1634708215_27059.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card foot">
+                <p><strong>Foot</strong> [fʊt] — ступня</p>
+                <img src="http://png.pngtree.com/png-clipart/20230425/original/pngtree-cartoon-human-tissue-flesh-colored-foot-png-image_9099457.png" alt="Фото" style="max-width:100%; height:140px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card teeth">
+                <p><strong>Tooth</strong> [tuːθ] — зуб</p>
+                <p><strong>Teeth</strong> [tiːθ] — зубы</p>
+                <img src="https://img.meddoclab.ru/img/46/e6/46e636797e30b436b09b13e37c68f249.jpg" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card fingers">
+                <p><strong>Fingers</strong> [ˈfɪŋɡəz] — пальцы</p>
+                <img src="https://bumper-stickers.ru/31169-thickbox_default/simvol-mira-i-pobedy-palcami.jpg" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card cheeks">
+                <p><strong>Cheeks</strong> [tʃiːks] — щеки</p>
+                <img src="https://png.pngtree.com/png-clipart/20230814/original/pngtree-a-head-of-a-boy-human-head-background-vector-picture-image_10616849.png" alt="Фото" style="max-width:100%; height:150px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card knee">
+                <p><strong>Knee</strong> [niː] — колено</p>
+                <img src="https://cdn0.iconfinder.com/data/icons/body-parts-filled-color/300/162435272Untitled-3-1024.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card hair">
+                <p><strong>Hair</strong> [heə] — волосы</p>
+                <p><strong>blonde</strong> [blɒnd] — блондин</p>
+                <p><strong>brunette</strong> [bruːˈnet] — брюнет</p>
+                <img src="https://www.clipartmax.com/png/full/111-1111673_comb-hairbrush-clip-art-comb-hairbrush-clip-art.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
+
+            <div class="vocab-card eyebrows">
+                <p><strong>Eyebrows</strong> [ˈaɪbraʊz] — брови</p>
+                <img src="https://i0.wp.com/cdn130.picsart.com/291629640081211.png" alt="Фото" style="max-width:100%; height:180px; margin-bottom:10px;">
+            </div>
         </div>
     </div>
+        <div class="section">
+        <h3>🎮 Игра: Угадай часть тела</h3>
+        <div id="game-container">
+            <button id="startBtn" class="submit-btn" onclick="initBodyGuessGame()">Начать игру</button>
+            <div id="question-image" style="text-align: center; margin-bottom: 15px;">
+            <img id="body-image" src="" alt="Часть тела" style="max-width: 100%; height: 200px;" />
+            </div>
+            <div id="options" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+        </div>
+        
+</div>
 </body>
 </html>

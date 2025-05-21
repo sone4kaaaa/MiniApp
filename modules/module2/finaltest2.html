@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Итоговый тест (Модуль 2): Сложные конструкции</title>
+    <title>Итоговый тест по 2 модулю</title>
     <style>
-        /* Общие стили для тестов, аналогично стилям уроков */
         .lesson-container {
             max-height: 80vh; 
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333;
+            background-color: #e84646;
             padding: 20px;
             border-radius: 10px;
         }
@@ -45,7 +44,7 @@
             height: 20px;
         }
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -113,9 +112,7 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Итоговый тест (Модуль 2): Сложные конструкции</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Итоговый тест по 2 модулю</h2>
         <button class="back-button"
                 onclick="
                     document.getElementById('lesson-content').classList.add('hidden');
@@ -128,74 +125,95 @@
         </button>
 
         <div class="section">
-            <h3>Итоговый тест (Модуль 2): Subjunctive, Inversion и Emphasis</h3>
             <div class="quiz">
-                <!-- 10 вопросов теста -->
 
                 <!-- Вопрос 1 -->
                 <div class="quiz-question">
-                    <label>1. Как перевести на английский: "Если бы я знал заранее, я бы приготовился"? (используйте Third Conditional)</label>
-                    <input type="text" id="q21" placeholder="Например, If I had known in advance, I would have prepared.">
+                    <label><strong>1.</strong> О чем идёт речь? It's fruit. It's round, yellow, sour.</label>
+                    <input type="text" id="q21">
                 </div>
                 
                 <!-- Вопрос 2 -->
                 <div class="quiz-question">
-                    <label>2. Заполните пропуск: "Never ___ (I / to hear) such an unusual accent before."</label>
-                    <input type="text" id="q22" placeholder="Например, have I heard">
+                    <label><strong>2.</strong> Переведи на английский: "Мне нравится бегать, плавать и танцевать"</label>
+                    <input type="text" id="q22">
                 </div>
                 
                 <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label>3. "It is essential that she ___ (to arrive) on time." (Subjunctive)</label>
-                    <input type="text" id="q23" placeholder="Например, arrive">
+                    <label><strong>3.</strong> Заполни пропуски:</label>
+                    <label>This boy is wearing red ___, green ___ and red ___.</label>
+                    <img src="https://i.pinimg.com/736x/18/66/07/186607d443bc30781bf8be5bd485e4f0.jpg" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
+                    <input type="text" id="q23">
                 </div>
                 
                 <!-- Вопрос 4 -->
                 <div class="quiz-question">
-                    <label>4. С помощью "What-cleft": "То, что я хочу, — это немного тишины и покоя."</label>
-                    <input type="text" id="q24" placeholder="Например, What I want is some peace and quiet.">
+                    <label><strong>4.</strong> Выбери перевод предложения "What is your name?"</label>
+                    <select id="q24">
+                        <option value="">Выбери перевод</option>
+                        <option value="1">Откуда ты?</option>
+                        <option value="2">Как тебя зовут?</option>
+                        <option value="3">Сколько тебе лет?</option>
+                    </select>
                 </div>
                 
                 <!-- Вопрос 5 -->
                 <div class="quiz-question">
-                    <label>5. "Had they informed me earlier, I ___ (to leave) immediately." (инверсия + перфектный модальный)</label>
-                    <input type="text" id="q25" placeholder="Например, would have left">
+                    <label><strong>5.</strong> Переведи предложение на английский: "У меня есть сестра"</label>
+                    <input type="text" id="q25">
                 </div>
                 
                 <!-- Вопрос 6 -->
                 <div class="quiz-question">
-                    <label>6. Заполните пропуск: "If he ___ (to be) more careful, he wouldn't have dropped the vase." (смешанное/3-й тип)</label>
-                    <input type="text" id="q26" placeholder="Например, had been">
+                    <label><strong>6.</strong> Выбери что изображено на картинке</label>
+                    <img src="https://resh.edu.ru/uploads/lesson_extract/4558/20190306093928/OEBPS/objects/m_fren_4_16_4/5bac7741fbc7ce05995e97b2.jpg" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
+                    <select id="q26">
+                        <option value="">Выбери</option>
+                        <option value="1">cinema</option>
+                        <option value="2">theatre</option>
+                        <option value="3">library</option>
+                    </select>
                 </div>
 
                 <!-- Вопрос 7 -->
                 <div class="quiz-question">
-                    <label>7. Как сказать: "Он должен был прийти раньше" (используя перфектный модальный глагол must/should)?</label>
-                    <input type="text" id="q27" placeholder="Например, He should have arrived earlier.">
+                    <label><strong>7.</strong> Выбери в каком отделе продаются эти продукты:</label>
+                    <label>Chocolate, Ice cream, Candy, Cookie</label>
+                    <select id="q27">
+                        <option value="">Выбери отдел</option>
+                        <option value="1">Drinks</option>
+                        <option value="2">Fruits and Vegetables</option>
+                        <option value="3">Sugary Foods</option>
+                    </select>
                 </div>
 
                 <!-- Вопрос 8 -->
                 <div class="quiz-question">
-                    <label>8. "If only I ___ (to realize) how important this meeting was, I wouldn't have missed it."</label>
-                    <input type="text" id="q28" placeholder="Например, had realized">
+                    <label><strong>8.</strong> Выбери какому празднику соотвествует это описание:</label>
+                    <label>Children wear costumes and go trick-or-treating</label>
+                    <select id="q28">
+                        <option value="">Выбери праздник</option>
+                        <option value="1">Birthday</option>
+                        <option value="2">Halloween</option>
+                        <option value="3">New Year</option>
+                    </select>
                 </div>
 
                 <!-- Вопрос 9 -->
                 <div class="quiz-question">
-                    <label>9. "She must ___ (to have) a hard day, because she looks exhausted." (логическое предположение о прошедшем)</label>
-                    <input type="text" id="q29" placeholder="Например, must have had">
+                    <label><strong>9.</strong> Какой месяц является первым в году? Напиши по английски</label>
+                    <input type="text" id="q29">
                 </div>
 
                 <!-- Вопрос 10 -->
                 <div class="quiz-question">
-                    <label>10. "It was her kindness ___ impressed me the most." (It-cleft конструкция)</label>
-                    <input type="text" id="q210" placeholder="Например, It was her kindness that impressed me the most.">
+                    <label><strong>10.</strong> Что изображено на картинке?</label>
+                    <img src="https://i.pinimg.com/originals/9c/6c/c9/9c6cc908efa14dcea2d081f91c73ea0d.png" alt="Фото" style="max-width:100%; height:100px; margin-bottom:10px;">
+                    <input type="text" id="q210">
                 </div>
                 
-                <!-- Кнопка проверки теста (обратите внимание на checkFinalTest2) -->
                 <button class="submit-btn" onclick="checkFinalTest2()">Проверить тест</button>
-                
-                <!-- Блок для вывода фидбека -->
                 <div class="feedback" id="finaltest2-feedback"></div>
             </div>
         </div>

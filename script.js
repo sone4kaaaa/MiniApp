@@ -1971,23 +1971,18 @@ window.initShoppingCartGame = function () {
         }
     }
 
-    /**
-     * Функция проверки Итогового теста для Модуля 2
-     * (см. finaltest2.html)
-     */
     window.checkFinalTest2 = function() {
-        // Составляем объект ответов: ключи соответствуют ID (q21, q22, ...)
         const answers = {
-            q21: 'if i had known in advance, i would have prepared',
-            q22: 'have i heard',
-            q23: 'arrive',
-            q24: 'what i want is some peace and quiet',
-            q25: 'would have left',
-            q26: 'had been',
-            q27: 'he should have arrived earlier',
-            q28: 'had realized',
-            q29: 'must have had',
-            q210: 'it was her kindness that impressed me the most'
+            q21: 'lemon',
+            q22: 'I like to run, swim, and dance',
+            q23: 'T-shirt,shorts,shoes',
+            q24: '2',
+            q25: 'I have got a sister',
+            q26: '1',
+            q27: '3',
+            q28: '2',
+            q29: 'January',
+            q210: 'Mouth'
         };
 
         let score = 0;
@@ -1998,39 +1993,9 @@ window.initShoppingCartGame = function () {
             if (!input) continue;
 
             let userAnswer = input.value.trim().toLowerCase();
-            // Снимем финальные точки, если они есть
             userAnswer = userAnswer.replace(/\.+$/, '');
             let correctAnswer = answers[key].toLowerCase();
 
-            // При необходимости добавляем "acceptableAnswers" для вариантов
-            if (key === 'q27') {
-                // Допустим, принимаем "He must have arrived earlier."
-                // или "He should have arrived earlier."
-                const accept = [
-                    'he should have arrived earlier',
-                    'he must have arrived earlier'
-                ];
-                if (accept.includes(userAnswer)) {
-                    correctAnswer = userAnswer; 
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            } 
-            else if (key === 'q24') {
-                // "What I want is some peace and quiet."
-                // Принимаем вариант с точкой?
-                const accept = [
-                    'what i want is some peace and quiet',
-                    'what i want is some peace and quiet.'
-                ];
-                if (accept.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            }
-
-            // Проверка совпадения
             if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
                 score++;
                 input.style.borderColor = '#28a745';

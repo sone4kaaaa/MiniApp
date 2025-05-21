@@ -1974,7 +1974,7 @@ window.initShoppingCartGame = function () {
     window.checkFinalTest2 = function() {
         const answers = {
             q21: 'lemon',
-            q22: 'I like to run, swim, and dance',
+            q22: 'I like to run, swim and dance',
             q23: 'T-shirt,shorts,shoes',
             q24: '2',
             q25: 'I have got a sister',
@@ -1995,6 +1995,19 @@ window.initShoppingCartGame = function () {
             let userAnswer = input.value.trim().toLowerCase();
             userAnswer = userAnswer.replace(/\.+$/, '');
             let correctAnswer = answers[key].toLowerCase();
+
+            if (key === 'q22') {
+                const variants = [
+                    'I like to run, swim and dance',
+                    "I like to run,swim and dance",
+                    "i like to run,swim and dance"
+                ];
+                if (variants.includes(userAnswer)) {
+                    correctAnswer = userAnswer;
+                } else {
+                    correctAnswer = 'incorrect';
+                }
+            }
 
             if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
                 score++;

@@ -1996,19 +1996,6 @@ window.initShoppingCartGame = function () {
             userAnswer = userAnswer.replace(/\.+$/, '');
             let correctAnswer = answers[key].toLowerCase();
 
-            if (key === 'q22') {
-                const variants = [
-                    'I like to run, swim and dance',
-                    "I like to run,swim and dance",
-                    "i like to run,swim and dance"
-                ];
-                if (variants.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            }
-
             if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
                 score++;
                 input.style.borderColor = '#28a745';

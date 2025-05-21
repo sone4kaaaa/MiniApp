@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 9: Advanced Listening Comprehension Strategies</title>
+    <title>Урок 9: Дни недели, месяцы года и счёт</title>
     <style>
-        /* -- Единый стиль, аналогичный Уроку 4 -- */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #6644bd; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #340a5b; 
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -136,7 +134,6 @@
             color: #721c24;
         }
 
-        /* Дополнительно: стили для медиа (видео/аудио) */
         .media-container {
             text-align: center;
             margin: 20px 0;
@@ -147,7 +144,6 @@
             height: auto;
         }
 
-        /* Кнопка "Next Lesson" (если требуется) */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -169,79 +165,428 @@
         .next-icon {
             margin-right: 8px;
         }
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            font-size: 20px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px; 
+        }
+        .month {
+            background-color: #adddf5;
+            color: #004466;
+        }
+
+        .day {
+            background-color: #a5e3a5;
+            color: #006600;
+        }
+
+        .transcription {
+            font-style: italic;
+            color: #888;
+            font-size: 16px;
+        }
+
+        .number-list {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            background: #f0f4c3;
+            padding: 10px;
+            border-radius: 10px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .number-item {
+            flex: 0 0 auto;
+            width: 250px; /* фиксированная ширина для всех карточек */
+            background-color: #ffe082;
+            padding: 10px;
+            border-radius: 10px;
+            color: #3e2723;
+            scroll-snap-align: start;
+            box-sizing: border-box;
+        }
+
+        .number-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .number-item span {
+            display: block;
+        }
+        .big-number {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Цвета для разных чисел */
+        .num-13 { color: #e91e63; }
+        .num-14 { color: #9c27b0; }
+        .num-15 { color: #3f51b5; }
+        .num-16 { color: #2196f3; }
+        .num-17 { color: #009688; }
+        .num-18 { color: #4caf50; }
+        .num-19 { color: #ff9800; }
+        .num-20 { color: #e91e63; }
+        .num-30 { color: #9c27b0; }
+        .num-40 { color: #3f51b5; }
+        .num-50 { color: #2196f3; }
+        .num-60 { color: #009688; }
+        .num-70 { color: #4caf50; }
+        .num-80 { color: #ff9800; }
+        .num-90 { color: #e91e63; }
+        .num-100 { color: #9c27b0; }
+        .num-1000 { color: #3f51b5; }
+        .num-1000000 { color: #2196f3; }
+        .num-1000000000 { color: #009688; }
+
+        .word, .phonetic {
+            text-align: center;
+            display: block;
+        }
+        .word {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .phonetic {
+            font-style: italic;
+            color: #5d4037;
+        }
+
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 9: Advanced Listening Comprehension Strategies (Продвинутые стратегии понимания на слух)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 9: Дни недели, месяцы года и счёт</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 2
                     document.getElementById('module2-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
 
-        <!-- 1. Введение -->
         <div class="section">
-            <h3>Введение</h3>
-            <p>Понимание на слух — критически важный навык для успешного общения на английском языке. В этом уроке мы рассмотрим продвинутые стратегии, которые помогут вам улучшить свои способности восприятия речи на слух.</p>
-        </div>
-
-        <!-- 2. Техники активного слушания -->
-        <div class="section">
-            <h3>Техники активного слушания</h3>
-            <p>Активное слушание включает в себя:</p>
+            <h3>📅 Дни недели (Days of the week)</h3>
             <ul>
-                <li><strong>Фокусировка внимания:</strong> Полное сосредоточение на говорящем.</li>
-                <li><strong>Использование контекста:</strong> Понимание смысла через контекстуальную информацию.</li>
-                <li><strong>Запоминание ключевых слов:</strong> Фиксация важных терминов и фраз.</li>
-                <li><strong>Предугадывание информации:</strong> Ожидание следующих слов или идей.</li>
+                <li class="day">Monday – <span class="transcription">[ˈmʌndeɪ]</span> – Понедельник</li>
+                <li class="day">Tuesday – <span class="transcription">[ˈtjuːzdeɪ]</span> – Вторник</li>
+                <li class="day">Wednesday – <span class="transcription">[ˈwɛnzdeɪ]</span> – Среда</li>
+                <li class="day">Thursday – <span class="transcription">[ˈθɜːrzdeɪ]</span> – Четверг</li>
+                <li class="day">Friday – <span class="transcription">[ˈfraɪdeɪ]</span> – Пятница</li>
+                <li class="day">Saturday – <span class="transcription">[ˈsætədeɪ]</span> – Суббота</li>
+                <li class="day">Sunday – <span class="transcription">[ˈsʌndeɪ]</span> – Воскресенье</li>
             </ul>
         </div>
-
-        <!-- 3. Стратегии улучшения понимания -->
-        <div class="section">
-            <h3>Стратегии улучшения понимания</h3>
-            <ol>
-                <li><strong>Прослушивание различных акцентов:</strong> Развитие способности понимать разные варианты произношения.</li>
-                <li><strong>Прослушивание с субтитрами:</strong> Сочетание аудио с текстовой поддержкой.</li>
-                <li><strong>Повторное прослушивание:</strong> Прослушивание материалов несколько раз для лучшего понимания.</li>
-                <li><strong>Ведение заметок:</strong> Запись ключевых идей и деталей во время прослушивания.</li>
-            </ol>
-        </div>
-
-        <!-- 4. Примеры использования стратегий -->
-        <div class="section">
-            <h3>Примеры использования стратегий</h3>
-            <div class="example">
-                <p><strong>Situation:</strong> Прослушивание деловой презентации.</p>
-                <p><strong>Strategy:</strong> Вести заметки о ключевых моментах, использовать контекст для понимания новых терминов.</p>
-            </div>
-            <div class="example">
-                <p><strong>Situation:</strong> Прослушивание интервью на радио.</p>
-                <p><strong>Strategy:</strong> Повторное прослушивание с субтитрами для лучшего понимания деталей.</p>
+        <div class="section" style="background-color: white;">
+            <h3>▶️ Видео урок: Days of the week</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_days.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
             </div>
         </div>
-
-        <!-- 7. Итоги -->
         <div class="section">
-            <h3>Итоги</h3>
-            <p>Продвинутые стратегии понимания на слух помогут вам лучше воспринимать речь носителей языка, улучшат вашу беглость и понимание контекста. Регулярная практика этих методов приведет к значительному прогрессу в навыках аудирования.</p>
+            <h3>📆 Месяцы года (Months of the year)</h3>
+            <ul>
+                <li class="month">January – <span class="transcription">[ˈdʒænjuəri]</span> – Январь</li>
+                <li class="month">February – <span class="transcription">[ˈfebruəri]</span> – Февраль</li>
+                <li class="month">March – <span class="transcription">[mɑːtʃ]</span> – Март</li>
+                <li class="month">April – <span class="transcription">[ˈeɪprəl]</span> – Апрель</li>
+                <li class="month">May – <span class="transcription">[meɪ]</span> – Май</li>
+                <li class="month">June – <span class="transcription">[dʒuːn]</span> – Июнь</li>
+                <li class="month">July – <span class="transcription">[dʒuˈlaɪ]</span> – Июль</li>
+                <li class="month">August – <span class="transcription">[ˈɔːɡəst]</span> – Август</li>
+                <li class="month">September – <span class="transcription">[sɛpˈtɛmbə]</span> – Сентябрь</li>
+                <li class="month">October – <span class="transcription">[ɒkˈtəʊbə]</span> – Октябрь</li>
+                <li class="month">November – <span class="transcription">[nəʊˈvɛmbə]</span> – Ноябрь</li>
+                <li class="month">December – <span class="transcription">[dɪˈsɛmbə]</span> – Декабрь</li>
+            </ul>
         </div>
-    </div>
+        <div class="section" style="background-color: white;">
+            <h3>▶️ Видео урок: Months of the year</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="./assets/videos/videoplayback_months.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
 
-    <script>
-        // Здесь вы можете добавить дополнительные скрипты для интерактивных упражнений, если необходимо.
-    </script>
+        <div class="section">
+            <h3>Счёт от 13 до 19</h3>
+            <p>В этой части урока нам потребуется одно волшебное слово: <strong>teenager</strong> — подросток. При чем здесь числа?<br>
+                <strong>Суффикс –teen</strong><br>
+                Англичане взяли за основу своей арифметики числа от 1 до 12, названия которых мы изучили на предыдущих уроках. Начиная с 13, числа образуются при помощи специальных суффиксов.<br>
+                Когда дети начинают учить цифры на английском языке, ученики ещё совсем маленькие. Но многие уже знают, что в тринадцать лет станут не детьми, а подростками — teenagers.<br>
+                Точно также и с числами! Начиная с 13, они становятся взрослыми. И мы прибавляем к ним специальный суффикс <strong>–teen</strong><br>
+                Во время этого урока старайтесь очень четко и акцентированно произносить суффикс–teen во всех числах! Явно и акцентированно произносите звук «Н» на конце!
+            </p>
+            <p>Листай ➡️</p>
+            <div class="number-list">
+                <div class="number-item">
+                    <div class="big-number num-13">13</div>
+                    <span class="word">thirteen</span>
+                    <span class="phonetic">[ˌθɜːˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_13.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-14">14</div>
+                    <span class="word">fourteen</span>
+                    <span class="phonetic">[ˌfɔːˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_14.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-15">15</div>
+                    <span class="word">fifteen</span>
+                    <span class="phonetic">[ˌfɪfˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_15.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-16">16</div>
+                    <span class="word">sixteen</span>
+                    <span class="phonetic">[ˌsɪksˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_16.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-17">17</div>
+                    <span class="word">seventeen</span>
+                    <span class="phonetic">[ˌsɛv(ə)nˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_17.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-18">18</div>
+                    <span class="word">eighteen</span>
+                    <span class="phonetic">[ˌeɪˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_18.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-19">19</div>
+                    <span class="word">nineteen</span>
+                    <span class="phonetic">[ˌnaɪnˈtiːn]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_19.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Счёт от 20 до 90</h3>
+            <p>
+                Теперь познакомимся с «взрослыми» числами, которые заканчиваются на <strong>-ty</strong>. Это десятки: 20, 30, 40 и т.д.<br>
+                Суффикс <strong>-ty</strong> означает «-дцать» или «-десят».<br>
+                Будьте внимательны при произношении — не путайте <strong>-teen</strong> и <strong>-ty</strong>!<br>
+                Произносите окончание **-ty** чётко, с ударением на первом слоге!
+            </p>
+            <p>Листай ➡️</p>
+            <div class="number-list">
+                <div class="number-item">
+                    <div class="big-number num-20">20</div>
+                    <span class="word">twenty</span>
+                    <span class="phonetic">[ˈtwenti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_20.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-30">30</div>
+                    <span class="word">thirty</span>
+                    <span class="phonetic">[ˈθɜːti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_30.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-40">40</div>
+                    <span class="word">forty</span>
+                    <span class="phonetic">[ˈfɔːti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_40.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-50">50</div>
+                    <span class="word">fifty</span>
+                    <span class="phonetic">[ˈfɪfti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_50.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-60">60</div>
+                    <span class="word">sixty</span>
+                    <span class="phonetic">[ˈsɪksti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_60.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-70">70</div>
+                    <span class="word">seventy</span>
+                    <span class="phonetic">[ˈsev(ə)nti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_70.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-80">80</div>
+                    <span class="word">eighty</span>
+                    <span class="phonetic">[ˈeɪti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_80.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="number-item">
+                    <div class="big-number num-90">90</div>
+                    <span class="word">ninety</span>
+                    <span class="phonetic">[ˈnaɪnti]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_90.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <h3>Составные двузначные числа</h3>
+            <p>Вы уже знаете счет на английском до 20 и понимаете, как образуются круглые числа. А теперь пора выучить все числа от 20 до 100. Это просто! Английские двузначные числа образуются способом составления.</p>
+            <p>Мы берем десяток и прибавляем нужную цифру:<br>
+                <em>Пример:</em><br>
+                20 + 1 = 21<br>
+                twenty + one = twenty one<br>
+                двадцать + один = двадцать один
+            </p>
+        </div>
+        <div class="section">
+            <h3>✏️ Потренируйтесь составлять числа!</h3>
+            <div>
+                <div class="quiz-question">
+                    <label><strong>1.</strong> 20 + 2</label>
+                    <input type="text" id="q1">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>2.</strong> 30 + 8</label>
+                    <input type="text" id="q2">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>3.</strong> 40 + 6</label>
+                    <input type="text" id="q3">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>4.</strong> 60 + 3</label>
+                    <input type="text" id="q4">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>5.</strong> 90 + 1</label>
+                    <input type="text" id="q5">
+                </div>
+                <button class="submit-btn" onclick="checkQuiz2_9()">Проверить</button>
+                <div class="feedback" id="quiz-feedback"></div>
+            </div>
+        </div>
+            <div class="section">
+                <h3>Счёт от 100</h3>
+                <p>Листай ➡️</p>
+                <div class="number-list">
+                <div class="number-item">
+                    <div class="big-number num-100">100</div>
+                    <span class="word">a hundred OR one hundred</span>
+                    <span class="phonetic">[wʌn ˈhʌndrəd]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/en_num_100.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="number-item">
+                    <div class="big-number num-1000">1,000</div>
+                    <span class="word">a thousand OR one thousand</span>
+                    <span class="phonetic">[wʌn ˈθaʊzənd]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/one-thousand.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="number-item">
+                    <div class="big-number num-1000000">1,000,000</div>
+                    <span class="word">a million OR one million</span>
+                    <span class="phonetic">[wʌn ˈmɪljən]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/one-million.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="number-item">
+                    <div class="big-number num-1000000000" style="font-size: 40px;">1,000,000,000</div>
+                    <span class="word">a billion OR one billion</span>
+                    <span class="phonetic">[wʌn ˈbɪljən]</span>
+                    <div class="media-container">
+                        <audio controls>
+                            <source src="./assets/audios/one-billion.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+                </div>
+</div>
+</div>
 </body>
 </html>

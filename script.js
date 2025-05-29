@@ -595,63 +595,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // --- Кнопка «Далее» после теста ---
-    function addNextTestButton(currentTestNumber, modulePath, inputIds) {
-    const existingNextBtn = lessonDetails.querySelector('.next-test-btn');
-    if (existingNextBtn) return;
-
-    const nextBtn = document.createElement('button');
-    nextBtn.classList.add('next-test-btn', 'submit-btn');
-    nextBtn.textContent = 'Далее';
-    nextBtn.disabled = true; // блокируем кнопку пока поля не заполнены
-
-    // Формула следующего урока: (текущий тест N) => следующий урок = 3*N + 1
-    const nextLessonNumber = currentTestNumber * getTestsPerModule(modulePath) + 1;
-
-    nextBtn.addEventListener('click', () => {
-        finishLessonOrTest('test', modulePath, `test${currentTestNumber}.html`);
-
-        const nextLessonFile = `lesson${nextLessonNumber}.html`;
-        fetch(`modules/${modulePath}/${nextLessonFile}`)
-            .then(r => {
-                if (!r.ok) throw new Error('Network error');
-                return r.text();
-            })
-            .then(html => {
-                loadContent(html, modulePath);
-            })
-            .catch(e => {
-                // обработка ошибки
-            });
-    });
-
-    const allSections = lessonDetails.querySelectorAll('.section');
-    if (allSections.length > 0) {
-        const lastSection = allSections[allSections.length - 1];
-        lastSection.insertAdjacentElement('afterend', nextBtn);
-    } else {
-        lessonDetails.appendChild(nextBtn);
-    }
-
-    // Функция проверки заполненности полей
-    function checkInputs() {
-        const allFilled = inputIds.every(id => {
-            const el = document.getElementById(id);
-            return el && el.value.trim() !== '';
+    function addNextTestButton(currentTestNumber, modulePath) {
+        const existingNextBtn = lessonDetails.querySelector('.next-test-btn');
+        if (existingNextBtn) return;
+    
+        const nextBtn = document.createElement('button');
+        nextBtn.classList.add('next-test-btn', 'submit-btn');
+        nextBtn.textContent = 'Далее';
+    
+        // Формула следующего урока: (текущий тест N) => следующий урок = 3*N + 1
+        const nextLessonNumber = currentTestNumber * getTestsPerModule(modulePath) + 1;
+    
+        nextBtn.addEventListener('click', () => {
+            // Считаем, что пользователь «завершил» этот тест:
+            const completedTestFile = `test${currentTestNumber}.html`;
+            finishLessonOrTest('test', modulePath, `test${currentTestNumber}.html`);
+    
+            // Сразу грузим следующий урок 
+            const nextLessonFile = `lesson${nextLessonNumber}.html`;
+            fetch(`modules/${modulePath}/${nextLessonFile}`)
+                .then(r => {
+                    if (!r.ok) throw new Error('Network error');
+                    return r.text();
+                })
+                .then(html => {
+                    loadContent(html, modulePath);
+                })
+                .catch(e => {
+                   
+                });
         });
-        nextBtn.disabled = !allFilled;
-    }
-
-    // Добавляем обработчики для отслеживания изменений
-    inputIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.addEventListener('input', checkInputs);
+    
+        // Добавляем кнопку «Далее» под контентом
+        const allSections = lessonDetails.querySelectorAll('.section');
+        if (allSections.length > 0) {
+            const lastSection = allSections[allSections.length - 1];
+            lastSection.insertAdjacentElement('afterend', nextBtn);
+        } else {
+            lessonDetails.appendChild(nextBtn);
         }
-    });
-
-    checkInputs(); // первоначальная проверка
-}
-
+    }
 
     // --- Загрузка контента (урок или тест) ---
     function loadContent(html, modulePath) {
@@ -883,7 +866,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
-    addNextTestButton(1, 'module1', ['tq1', 'tq2', 'tq3', 'tq4', 'tq5', 'tq6', 'tq7', 'tq8']);
     };
 
     /**
@@ -1647,8 +1629,6 @@ window.checkAnswer = function(selectedNumber) {
             }
         })();
     };
-
-
 window.initShoppingCartGame = function () {
     const correctItems = ["Milk", "Carrot", "Sausage", "Cake", "Cucumber", "Rice"];
     const items = document.querySelectorAll('.draggable-item');

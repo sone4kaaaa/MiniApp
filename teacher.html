@@ -5,7 +5,7 @@
   <title>Teacher Panel</title>
   <style>
     body {
-      margin: 0; 
+      margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
       background: #f8f8f8;
@@ -13,7 +13,6 @@
     h2 {
       margin-top: 0;
     }
-    /* Поле поиска */
     .search-container {
       margin-bottom: 20px;
     }
@@ -25,7 +24,6 @@
       border-radius: 8px;
       box-sizing: border-box;
     }
-    /* Контейнер для одного «пользователя» */
     .user-block {
       margin-bottom: 10px;
     }
@@ -39,7 +37,6 @@
     .user-item:hover {
       background-color: #e8e8e8;
     }
-    /* Скрытый блок для деталей */
     .user-details {
       margin-top: 5px;
       padding: 10px;
@@ -49,9 +46,8 @@
       display: none;
     }
     .user-details.visible {
-      display: block; /* показываем, если есть класс .visible */
+      display: block;
     }
-    /* Сообщение о не найденном пользователе */
     .no-result {
       display: none;
       padding: 10px;
@@ -66,51 +62,74 @@
   </style>
 </head>
 <body>
-  <h2>Teacher Panel — Список пользователей</h2>
-
-  <!-- Контейнер для поиска -->
-  <div class="search-container">
-    <input type="text" id="search-input" class="search-input" placeholder="Поиск по user ID..." />
+  <div id="login-container">
+    <script async src="https://telegram.org/js/telegram-widget.js?7"
+      data-telegram-login="EnglishTestMiniApp_Bot"  
+      data-size="large"
+      data-userpic="false"
+      data-request-access="write"
+      data-on-auth="onTelegramAuth">
+    </script>
   </div>
 
-  <!-- Сообщение о не найденном пользователе -->
-  <div id="no-result" class="no-result">
-    Такой user ID не найден.
+  <div id="app-content" style="display: none;">
+    <h2>Teacher Panel — Список пользователей</h2>
+
+    <div class="search-container">
+      <input type="text" id="search-input" class="search-input" placeholder="Поиск по user ID..." />
+    </div>
+
+    <div id="no-result" class="no-result">
+      Такой user ID не найден.
+    </div>
+
+    <div id="user-list"></div>
   </div>
 
-  <div id="user-list">
-    <!-- Для каждого пользователя мы будем создавать .user-block -->
-  </div>
-
-  <!-- Подключаем Firebase (v9 compat) -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-  
-  <!-- Telegram WebApp JS (при необходимости) -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <script>
-    // Инициализация Firebase
     const firebaseConfig = {
-    apiKey: "AIzaSyA6JL5JlJktik0k_3D_0vMl4fCD-E_7560",
-    authDomain: "miniappenglish.firebaseapp.com",
-    projectId: "miniappenglish",
-    storageBucket: "miniappenglish.firebasestorage.app",
-    messagingSenderId: "643117676341",
-    appId: "1:643117676341:web:1b351a0ed7b7230f10fe7c",
-    measurementId: "G-M0GLSY5FC5"
-};
+      apiKey: "AIzaSyA6JL5JlJktik0k_3D_0vMl4fCD-E_7560",
+      authDomain: "miniappenglish.firebaseapp.com",
+      projectId: "miniappenglish",
+      storageBucket: "miniappenglish.appspot.com",
+      messagingSenderId: "643117676341",
+      appId: "1:643117676341:web:1b351a0ed7b7230f10fe7c",
+      measurementId: "G-M0GLSY5FC5"
+    };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+
+    function onTelegramAuth(user) {
+      console.log("Проверка прав доступа для user.id:", user.id);
+      db.collection("allowed_teachers").doc(user.id.toString()).get()
+        .then((docSnap) => {
+          if (docSnap.exists) {
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("app-content").style.display = "block";
+            loadAllUsers(); // загружаем список после авторизации
+          } else {
+            document.getElementById("login-container").innerHTML = `
+              <p style="color: red;">У вас нет доступа к панели учителя.</p>
+            `;
+          }
+        })
+        .catch((err) => {
+          console.error("Ошибка при проверке доступа:", err);
+          document.getElementById("login-container").innerHTML = `
+            <p style="color: red;">Произошла ошибка при проверке доступа.</p>
+          `;
+        });
+    }
 
     const userListDiv = document.getElementById('user-list');
     const searchInput = document.getElementById('search-input');
     const noResultDiv = document.getElementById('no-result');
-
-    // Объект для хранения ссылок на карточки пользователей по userId
     const userBlocks = {};
 
-    // Загружаем список всех документов из коллекции user_progress
     async function loadAllUsers() {
       try {
         const snapshot = await db.collection('user_progress').get();
@@ -123,48 +142,36 @@
       }
     }
 
-    // Функция добавляет "карточку" пользователя + скрытый блок деталей
     function addUserItem(userId) {
-      // Главный контейнер для одного пользователя
       const userBlock = document.createElement('div');
       userBlock.classList.add('user-block');
-      userBlock.setAttribute('data-user-id', userId); // Добавляем атрибут для фильтрации
+      userBlock.setAttribute('data-user-id', userId);
 
-      // Верхняя строка с userId (кликабельная)
       const userItem = document.createElement('div');
       userItem.classList.add('user-item');
       userItem.textContent = userId;
       userBlock.appendChild(userItem);
 
-      // Ниже создаём блок для отображения статистики
       const userDetails = document.createElement('div');
-      userDetails.classList.add('user-details'); // initially hidden
+      userDetails.classList.add('user-details');
       userBlock.appendChild(userDetails);
 
-      // При клике на userItem -> показываем/скрываем userDetails
       userItem.addEventListener('click', () => {
         toggleDetails(userId, userDetails);
       });
 
       userListDiv.appendChild(userBlock);
-
-      // Сохраняем ссылку на блок в объекте
       userBlocks[userId] = userBlock;
     }
 
-    // Функция показывает/скрывает блок userDetails
-    // Если блок скрыт — грузим статистику, если показан — скрываем
     async function toggleDetails(userId, userDetailsDiv) {
-      // Проверяем текущее состояние (скрыто или нет)
-      const isCurrentlyVisible = userDetailsDiv.classList.contains('visible');
-      if (isCurrentlyVisible) {
-        // Если уже показан -> скрыть
+      const isVisible = userDetailsDiv.classList.contains('visible');
+      if (isVisible) {
         userDetailsDiv.classList.remove('visible');
         return;
-      } 
-      // Иначе — показать (загрузим данные Firestore)
+      }
       userDetailsDiv.classList.add('visible');
-      
+
       try {
         const docRef = db.collection('user_progress').doc(userId);
         const docSnap = await docRef.get();
@@ -191,12 +198,10 @@
       }
     }
 
-    // Функция для фильтрации пользователей по поисковому запросу
     function filterUsers(query) {
       const normalizedQuery = query.trim().toLowerCase();
       let found = false;
 
-      // Если запрос пустой, показываем всех и скрываем сообщение о не найденном пользователе
       if (normalizedQuery === "") {
         Object.values(userBlocks).forEach(block => {
           block.style.display = 'block';
@@ -205,41 +210,24 @@
         return;
       }
 
-      // Проверяем, существует ли такой userId
       const matchedBlock = userBlocks[normalizedQuery];
       if (matchedBlock) {
-        // Показываем только найденный блок
         Object.values(userBlocks).forEach(block => {
-          if (block === matchedBlock) {
-            block.style.display = 'block';
-            found = true;
-          } else {
-            block.style.display = 'none';
-          }
+          block.style.display = block === matchedBlock ? 'block' : 'none';
         });
+        noResultDiv.classList.remove('visible');
       } else {
-        // Если не найден, скрываем все блоки и показываем сообщение
         Object.values(userBlocks).forEach(block => {
           block.style.display = 'none';
         });
-      }
-
-      // Показываем или скрываем сообщение о не найденном пользователе
-      if (matchedBlock) {
-        noResultDiv.classList.remove('visible');
-      } else {
         noResultDiv.classList.add('visible');
       }
     }
 
-    // Добавляем обработчик события на поле поиска
-    searchInput.addEventListener('input', (e) => {
+    searchInput?.addEventListener('input', (e) => {
       const query = e.target.value;
       filterUsers(query);
     });
-
-    // При загрузке страницы сразу отображаем список
-    loadAllUsers();
   </script>
 </body>
 </html>

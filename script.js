@@ -1,7 +1,6 @@
 Telegram.WebApp.ready();
 
-
-let tgUserId = null; // Будем хранить user_id от Telegram
+let tgUserId = null; 
 
 // Если открыто внутри Telegram WebApp:
 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
@@ -45,7 +44,6 @@ const db = firebase.firestore();
 
 /* ----- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ----- */
 window.userStats = {
-    modulesCompleted: 0,       // возможно, нужно или нет — по желанию
     lessonsCompleted: 0,       // от 0 до 30
     testsCompleted: 0,         // от 0 до 9 (промежуточные)
     finalTestsCompleted: 0,    // от 0 до 3 (итоговые)
@@ -387,8 +385,6 @@ function finishLessonOrTest(type, modulePath, fileName) {
       window.userStats.testsCompleted = Math.min(window.userStats.testsCompleted + 1, 9);
     } else if (type === 'final') {
       window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
-      // Если хотите одновременно засчитывать завершение модуля:
-      // window.userStats.modulesCompleted = ... (по желанию)
     }
 
     // Теперь сохраняем обновлённые данные в Firestore
@@ -420,13 +416,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     
 
     const userIdDisplayEl = document.getElementById("user-id-display");
-    
-
-    
-
-    
-
-
     const moduleButtons = document.querySelectorAll('.button[id$="-btn"]');
     const mainButtons = document.getElementById('main-buttons');
     const moduleMenus = document.querySelectorAll('.buttons.hidden[id$="-menu"]');
@@ -436,17 +425,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lessonContent = document.getElementById('lesson-content');
     const lessonDetails = document.getElementById('lesson-details');
     const appHeader = document.getElementById('app-header');
-
-
-    
-    
-
-    
-
-
-    
-
-    
 
     // --- Функции-помощники ---
     
@@ -477,8 +455,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     /**
-     * Разблокировать следующий элемент (следующий урок/тест) — НО без автоклика!
-     * completedFile: 'lesson3.html' или 'test1.html'
+     * Разблокировать следующий элемент (следующий урок/тест) 
      */
     
 
@@ -618,46 +595,63 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // --- Кнопка «Далее» после теста ---
-    function addNextTestButton(currentTestNumber, modulePath) {
-        const existingNextBtn = lessonDetails.querySelector('.next-test-btn');
-        if (existingNextBtn) return;
-    
-        const nextBtn = document.createElement('button');
-        nextBtn.classList.add('next-test-btn', 'submit-btn');
-        nextBtn.textContent = 'Далее';
-    
-        // Формула следующего урока: (текущий тест N) => следующий урок = 3*N + 1
-        const nextLessonNumber = currentTestNumber * getTestsPerModule(modulePath) + 1;
-    
-        nextBtn.addEventListener('click', () => {
-            // Считаем, что пользователь «завершил» этот тест:
-            const completedTestFile = `test${currentTestNumber}.html`;
-            finishLessonOrTest('test', modulePath, `test${currentTestNumber}.html`);
-    
-            // Сразу грузим следующий урок 
-            const nextLessonFile = `lesson${nextLessonNumber}.html`;
-            fetch(`modules/${modulePath}/${nextLessonFile}`)
-                .then(r => {
-                    if (!r.ok) throw new Error('Network error');
-                    return r.text();
-                })
-                .then(html => {
-                    loadContent(html, modulePath);
-                })
-                .catch(e => {
-                   
-                });
-        });
-    
-        // Добавляем кнопку «Далее» под контентом
-        const allSections = lessonDetails.querySelectorAll('.section');
-        if (allSections.length > 0) {
-            const lastSection = allSections[allSections.length - 1];
-            lastSection.insertAdjacentElement('afterend', nextBtn);
-        } else {
-            lessonDetails.appendChild(nextBtn);
-        }
+    function addNextTestButton(currentTestNumber, modulePath, inputIds) {
+    const existingNextBtn = lessonDetails.querySelector('.next-test-btn');
+    if (existingNextBtn) return;
+
+    const nextBtn = document.createElement('button');
+    nextBtn.classList.add('next-test-btn', 'submit-btn');
+    nextBtn.textContent = 'Далее';
+    nextBtn.disabled = true; // блокируем кнопку пока поля не заполнены
+
+    // Формула следующего урока: (текущий тест N) => следующий урок = 3*N + 1
+    const nextLessonNumber = currentTestNumber * getTestsPerModule(modulePath) + 1;
+
+    nextBtn.addEventListener('click', () => {
+        finishLessonOrTest('test', modulePath, `test${currentTestNumber}.html`);
+
+        const nextLessonFile = `lesson${nextLessonNumber}.html`;
+        fetch(`modules/${modulePath}/${nextLessonFile}`)
+            .then(r => {
+                if (!r.ok) throw new Error('Network error');
+                return r.text();
+            })
+            .then(html => {
+                loadContent(html, modulePath);
+            })
+            .catch(e => {
+                // обработка ошибки
+            });
+    });
+
+    const allSections = lessonDetails.querySelectorAll('.section');
+    if (allSections.length > 0) {
+        const lastSection = allSections[allSections.length - 1];
+        lastSection.insertAdjacentElement('afterend', nextBtn);
+    } else {
+        lessonDetails.appendChild(nextBtn);
     }
+
+    // Функция проверки заполненности полей
+    function checkInputs() {
+        const allFilled = inputIds.every(id => {
+            const el = document.getElementById(id);
+            return el && el.value.trim() !== '';
+        });
+        nextBtn.disabled = !allFilled;
+    }
+
+    // Добавляем обработчики для отслеживания изменений
+    inputIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('input', checkInputs);
+        }
+    });
+
+    checkInputs(); // первоначальная проверка
+}
+
 
     // --- Загрузка контента (урок или тест) ---
     function loadContent(html, modulePath) {
@@ -733,7 +727,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // --- populateLessons: создаём уроки и промежуточные тесты (блокируем все кроме первого урока) ---
+    // создаём уроки и промежуточные тесты (блокируем все кроме первого урока) ---
     function populateLessons(modulePath, totalLessons, testsPerModule) {
         const container = document.querySelector(`.lessons-container[data-module="${modulePath}"]`);
         if (!container) return;
@@ -784,8 +778,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     }
-
-    
 
     // Кнопки модулей => показываем меню
     moduleButtons.forEach(b => {
@@ -891,6 +883,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
+    addNextTestButton(1, 'module1', ['tq1', 'tq2', 'tq3', 'tq4', 'tq5', 'tq6', 'tq7', 'tq8']);
     };
 
     /**
@@ -1654,6 +1647,8 @@ window.checkAnswer = function(selectedNumber) {
             }
         })();
     };
+
+
 window.initShoppingCartGame = function () {
     const correctItems = ["Milk", "Carrot", "Sausage", "Cake", "Cucumber", "Rice"];
     const items = document.querySelectorAll('.draggable-item');
@@ -2888,14 +2883,11 @@ window.checkTest22 = function() {
     
 
     function showStats() {
-        // Добавляем finalTestsCompleted
-        const { modulesCompleted, lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
+        const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
         
-        // 1) Находим нашу модалку и контент
         const statsModal = document.getElementById('stats-modal');
         const statsContent = document.getElementById('stats-content');
     
-        // 2) Формируем HTML (примерный вариант)
         statsContent.innerHTML = `
             <h3>Моя статистика</h3>
             <p>Уроков завершено: ${lessonsCompleted} / 30</p>
@@ -2903,7 +2895,6 @@ window.checkTest22 = function() {
             <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
         `;
         
-        // 3) Показываем модальное окно
         statsModal.classList.remove('hidden');
     }
 

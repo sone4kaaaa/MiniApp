@@ -863,7 +863,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedback.className = 'feedback success';
         feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
     } else {
-        feedback.className = 'feedback error';
+        feedback.className = 'feedbackerror';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
     };
@@ -2391,17 +2391,43 @@ window.checkTest22 = function() {
     /******************************************************************************
      *            ФУНКЦИИ ДЛЯ ПРОВЕРКИ ТЕСТОВ МОДУЛЯ 3
      ******************************************************************************/
+    window.checkQuiz3_1 = function() {
+        const answers = {
+            q1: 'playing soccer',
+            q2: 'watching movies',
+            q3: 'play the piano',
+            q4: 'go hiking',
+            q5: 'play an instrument',
+            q6: 'piano'
+        };
 
+        let score = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+            } else {
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+            }
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
     // === Тест 1: Advanced Grammar Test (test1.html) ===
     window.checkAdvancedGrammarTest1 = function() {
-        // Пример правильных ответов (корректируйте на свои):
-        // Задание 1: tg1, tg2
-        // "If she _______ (have) more time, she _______ (travel) abroad."
-        // "The report _______ (submit) by the end of the day."
-        // Пусть будет:
-        // tg1: "had, would travel"
-        // tg2: "must be submitted" (либо "should be submitted", в зависимости от ваших условий)
-
         const correctAnswers = {
             tg1: ["had, would travel", "had would travel"], 
             tg2: ["must be submitted", "should be submitted", "is to be submitted"] // можно несколько вариантов

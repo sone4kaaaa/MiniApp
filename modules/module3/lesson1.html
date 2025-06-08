@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 1: Advanced Verb Tenses</title>
     <style>
-        /* Единый стиль, аналогичный Уроку 1 */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #58f795;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff; 
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9); 
+            background-color: rgb(255, 255, 255); 
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -38,7 +36,6 @@
             color: #333; 
         }
 
-        /* Таблицы (если нужны) */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -53,7 +50,6 @@
             text-align: left;
         }
 
-        /* Кнопка "Назад" */
         .back-button {
             display: flex;
             align-items: center;
@@ -79,7 +75,6 @@
             height: 20px;
         }
 
-        /* Стили для кнопок "submit-btn" */
         .submit-btn {
             display: inline-block;
             padding: 10px;
@@ -96,7 +91,6 @@
             background-color: #4a00e0;
         }
 
-        /* Поля ввода, select и feedback */
         .quiz-question {
             margin-bottom: 15px;
         }
@@ -116,9 +110,15 @@
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
+            display: none;
+        }
+        .feedback.success {
             background-color: #d4edda;
             color: #155724;
-            display: none;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
         }
         .finish-btn {
             margin-top: 20px;
@@ -158,115 +158,214 @@
         .next-icon {
             margin-right: 8px;
         }
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .media-container video,
+        .media-container audio {
+            max-width: 100%;
+            height: auto;
+        }
+        .hobby-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .hobby-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 160px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .hobby-card p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .hobby-card strong {
+            display: block;
+            font-size: 15px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 1: Advanced Verb Tenses (Продвинутые времена глаголов)</h2>
+    <h2>Урок 1: Хобби</h2>
+    <button class="back-button"
+            onclick="
+                document.getElementById('lesson-content').classList.add('hidden');
+                document.getElementById('lesson-details').innerHTML = '';
+                document.getElementById('app-header').classList.remove('hidden');
+                document.getElementById('module3-list').classList.remove('hidden');
+            ">
+        <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+        Назад
+    </button>
 
-        <!-- Кнопка "Назад" -->
-        <button class="back-button"
-                onclick="
-                    // 1. Скрываем контент урока
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
-                    document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
-                    document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 3
-                    document.getElementById('module3-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
+    <div class="section">
+        <h3>Хобби на английском языке</h3>
+        <p>Сегодня мы узнаем, как рассказать о своих любимых занятиях на английском языке. Это весело и очень полезно!</p>
+        <p>Слово <strong>hobby</strong> означает <strong>хобби</strong> или <strong>увлечение</strong>. Давайте посмотрим, какие бывают хобби:</p>
+    </div>
 
-        <!-- 1. Введение -->
-        <div class="section">
-            <h3>Введение</h3>
-            <p>В этом уроке мы рассмотрим продвинутые времена глаголов в английском языке, их использование и особенности. Понимание этих времен поможет вам выражать сложные временные отношения и нюансы в общении.</p>
+    <div class="section">
+    <h3>🎶 Музыкальные хобби</h3>
+    <div class="hobby-grid">
+        <div class="hobby-card">
+            <img src="https://static.tildacdn.com/tild3134-6134-4230-b965-323964373039/1674897615_top-fon-c.jpg" alt="Dancing">
+            <strong>Dancing</strong>
+            <p>танцы</p>
         </div>
-
-        <!-- 2. Present Perfect Continuous vs Past Perfect Continuous -->
-        <div class="section">
-            <h3>Present Perfect Continuous vs Past Perfect Continuous</h3>
-            <p>Оба времени используются для выражения длительных действий, но в разных временных контекстах.</p>
-            
-            <h4>Present Perfect Continuous</h4>
-            <p>Используется для действий, которые начались в прошлом и продолжаются до настоящего момента или только что завершились с видимым результатом.</p>
-            <ul>
-                <li><strong>Формула:</strong> have/has + been + глагол-ing</li>
-                <li><strong>Примеры:</strong>
-                    <ul>
-                        <li>I have been studying English for three years.</li>
-                        <li>She has been working here since 2010.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h4>Past Perfect Continuous</h4>
-            <p>Используется для действий, которые начались и продолжались до определённого момента в прошлом.</p>
-            <ul>
-                <li><strong>Формула:</strong> had + been + глагол-ing</li>
-                <li><strong>Примеры:</strong>
-                    <ul>
-                        <li>They had been traveling for hours when they finally arrived.</li>
-                        <li>She had been waiting for the bus before it started to rain.</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="hobby-card">
+            <img src="https://р44.навигатор.дети/images/events/cover/1c99ce822390d48d2719abbf7e621ac1_big.png" alt="Singing">
+            <strong>Singing</strong>
+            <p>пение</p>
         </div>
-
-        <!-- 3. Future Perfect Continuous -->
-        <div class="section">
-            <h3>Future Perfect Continuous</h3>
-            <p>Используется для выражения длительных действий, которые будут происходить до определённого момента в будущем.</p>
-            <ul>
-                <li><strong>Формула:</strong> will have been + глагол-ing</li>
-                <li><strong>Примеры:</strong>
-                    <ul>
-                        <li>By next month, I will have been working at this company for five years.</li>
-                        <li>They will have been traveling for two weeks by the time they return.</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="hobby-card">
+            <img src="https://avatars.mds.yandex.net/i?id=558c33fcdaba9139f979f444e5d7d7f2_l-12569756-images-thumbs&n=13" alt="Listening to music">
+            <strong>Listening to music</strong>
+            <p>прослушивание музыки</p>
         </div>
-
-        <!-- 4. Conditional Sentences: Mixed Conditionals -->
-        <div class="section">
-            <h3>Conditional Sentences: Mixed Conditionals</h3>
-            <p>Смешанные условные предложения сочетают разные времена в главной и придаточной частях для выражения сложных временных отношений.</p>
-            <ul>
-                <li><strong>Тип 1:</strong> Прошедшее условие с настоящим результатом
-                    <ul>
-                        <li><strong>Формула:</strong> If + Past Perfect, would + base verb</li>
-                        <li><strong>Пример:</strong> If I had studied harder, I would be a doctor now.</li>
-                    </ul>
-                </li>
-                <li><strong>Тип 2:</strong> Настоящее условие с прошедшим результатом
-                    <ul>
-                        <li><strong>Формула:</strong> If + Past Simple, would have + past participle</li>
-                        <li><strong>Пример:</strong> If she were more careful, she wouldn't have lost her keys.</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="hobby-card">
+            <img src="https://cdn.culture.ru/images/9d0994ee-6dd6-532e-a3d0-a2ed076c5f53" alt="Playing the piano">
+            <strong>Playing the piano</strong>
+            <p>игра на пианино</p>
         </div>
-
-        <!-- 5. Advanced Usage of Modals -->
-        <div class="section">
-            <h3>Advanced Usage of Modals</h3>
-            <p>Модальные глаголы могут использоваться в различных сложных конструкциях для выражения предположений, обязательств, советов и других нюансов.</p>
-            <ul>
-                <li><strong>Must have + past participle</strong> - выражает сильное предположение о прошлом.</li>
-                <li><strong>Could have / Might have + past participle</strong> - выражают возможность или вероятность в прошлом.</li>
-                <li><strong>Should have + past participle</strong> - выражает сожаление или критику в отношении прошлого действия.</li>
-            </ul>
+        <div class="hobby-card">
+            <img src="https://img.freepik.com/premium-vector/happy-children-boy-girl-playing-guitar_83111-1590.jpg" alt="Playing the guitar">
+            <strong>Playing the guitar</strong>
+            <p>игра на гитаре</p>
         </div>
-
-        <!-- 6. Summary -->
-        <div class="section">
-            <h3>Итоги</h3>
-            <p>В этом уроке мы рассмотрели продвинутые времена глаголов и смешанные условные предложения. Понимание этих конструкций позволит вам более точно и выразительно выражать временные отношения и нюансы в английском языке.</p>
         </div>
     </div>
+
+    <!-- Творческие хобби -->
+    <div class="section">
+        <h3>🖌️ Творческие хобби</h3>
+        <div class="hobby-grid">
+            <div class="hobby-card">
+                <img src="https://i.pinimg.com/originals/ce/16/61/ce1661ca0ed240b37f943d63ab8bb97f.jpg" alt="Drawing">
+                <strong>Drawing</strong>
+                <p>рисование карандашом</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://clipart-library.com/8300/2368/palette-and-paintbrushes-clipart-xl.png" alt="Painting">
+                <strong>Painting</strong>
+                <p>рисование красками</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://cdn1.imgbb.ru/preview/r/xUWzAra3r3AGN6fKc4nzrw/1080x-/adm/0/899/202107/f804153c0f4c6ec9279e68ccdfa7f20a.png" alt="Taking photographs">
+                <strong>Taking photographs</strong>
+                <p>создание фотографий</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://cdn.culture.ru/images/9d6dd5cd-6f87-53c3-aa7e-13eb698dba21" alt="Watching movies">
+                <strong>Watching movies</strong>
+                <p>просмотр фильмов</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/3612047/pub_5fb120868d19932be1a3fc81_5fb12103f2466e18103cb700/scale_1200" alt="Making video">
+                <strong>Making video</strong>
+                <p>съёмка видео</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Активные хобби -->
+    <div class="section">
+        <h3>⚽ Активные хобби</h3>
+        <div class="hobby-grid">
+            <div class="hobby-card">
+                <img src="https://example.com/soccer.jpg" alt="Playing football">
+                <strong>Playing football</strong>
+                <p>игра в футбол</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://example.com/swimming.jpg" alt="Swimming">
+                <strong>Swimming</strong>
+                <p>плавание</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://example.com/travelling.jpg" alt="Travelling">
+                <strong>Travelling</strong>
+                <p>путешествие</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://example.com/riding.jpg" alt="Riding">
+                <strong>Riding</strong>
+                <p>верховая езда</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://example.com/running.jpg" alt="Running">
+                <strong>Running</strong>
+                <p>бег</p>
+            </div>
+            <div class="hobby-card">
+                <img src="https://example.com/hiking.jpg" alt="Go hiking">
+                <strong>Go hiking</strong>
+                <p>ходить в поход</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>💡 Примеры:</h3>
+        <ul>
+            <li>I like singing. — Мне нравится петь.</li>
+            <li>She likes painting. — Ей нравится рисовать красками.</li>
+            <li>They play football. — Они играют в футбол.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h3>🎧 Прослушай аудио и вставь пропущенные хобби:</h3>
+        <div class="media-container">
+            <audio controls>
+                <source src="./assets/audios/audio_hobbies.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <p><strong>What do you like to do in your free time?</strong></p>
+        <p>
+            I enjoy <input type="text" id="q1" style="width: 200px;"> and 
+            <input type="text" id="q2" style="width: 200px;">. How about you?
+        </p>
+        <p>
+            I like to <input type="text" id="q3" style="width: 200px;"> and 
+            <input type="text" id="q4" style="width: 200px;">.
+        </p>
+        <p>
+            That sounds really fun. I’ve always wanted to learn how to 
+            <input type="text" id="q5" style="width: 200px;">. Maybe I should give the 
+            <input type="text" id="q6" style="width: 200px;"> a try.
+        </p>
+        <p>Definitely. It’s never too late to start learning something new.</p>
+        <button class="submit-btn" onclick="checkQuiz3_1()">Проверить</button>
+        <div class="feedback" id="quiz-feedback"></div>
+    </div>
+    <div class="section">
+        <h3>Учим новые слова из прослушанного аудио!</h3>
+        <ul>
+            <li><strong>free time</strong> — свободное время</li>
+            <li><strong>to enjoy doing smt</strong> — любить что-то делать</li>
+            <li><strong>fun</strong> — весело, интересно</li>
+            <li><strong>to give smt a try</strong> — попробовать что-то</li>
+            <li><strong>it‘s never too late to do smt</strong> — никогда не поздно делать что-то</li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

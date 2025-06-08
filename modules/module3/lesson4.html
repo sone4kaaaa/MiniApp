@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 4: Relative Clauses</title>
+    <title>Урок 4: Дом и мебель</title>
     <style>
-        /* Единый стиль, аналогичный Уроку 1 */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #c9c91d; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff; 
         }
 
         .section {
@@ -136,7 +134,7 @@
         .finish-btn:hover {
             background-color: #117a8b;
         }
-        /* Кнопка "Next Lesson" (если требуется) */
+
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -158,65 +156,139 @@
         .next-icon {
             margin-right: 8px;
         }
+        .word-block {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fdfdfd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .word-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .room { color: #007bff; }      
+        .furniture { color: #e83e8c; } 
+
+        .word-image {
+            width: 260px;
+            height: 260px;
+            object-fit: contain;
+        }
+
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 4: Relative Clauses (Определительные и неопределительные относительные придаточные предложения)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 4: Дом и мебель</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 3
                     document.getElementById('module3-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
+<section class="section">
+    <h3>Что такое "дом" по-английски?</h3>
+    <p>Слово <strong>house</strong> означает здание, в котором мы живем. А <strong>home</strong> — это наш уютный дом, в котором живёт семья. Давайте изучим, как называются основные части дома на английском языке.</p>
+    <h3>Части дома</h3>
+    <div class="word-block">
+        <img class="word-image" src="https://i.ytimg.com/vi/mdb4Z-Ig7zg/maxresdefault.jpg" alt="Living room">
+        <p><span class="word-text room">Living room — гостиная</span></p>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://avatars.mds.yandex.net/i?id=31c64b1dfde4da88c815c58290b5025a_l-5320304-images-thumbs&n=13" alt="Bedroom">
+        <span class="word-text room">Bedroom — спальня</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://fsd.multiurok.ru/html/2020/04/15/s_5e974b1739ea0/1419204_1.jpeg" alt="Kitchen">
+        <span class="word-text room">Kitchen — кухня</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://media.baamboozle.com/uploads/images/683986/1676817638_35050.jpeg" alt="Bathroom">
+        <span class="word-text room">Bathroom — ванная</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://i.pinimg.com/736x/32/d2/10/32d21079c28a9eff6e7a7ba7794e700c.jpg" alt="Dining room">
+        <span class="word-text room">Dining room — столовая</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://www.kvestbook.ru/media/photos/simposony-0.jpg" alt="Hall">
+        <span class="word-text room">Hall — коридор</span>
+    </div>
+</section>
 
-        <!-- 1. Введение в относительные придаточные предложения -->
-        <div class="section">
-            <h3>Введение в относительные придаточные предложения</h3>
-            <p>Относительные придаточные предложения (Relative Clauses) используются для добавления дополнительной информации о существительном или местоимении в основном предложении. Они вводятся относительными местоимениями: <strong>who, whom, whose, which, that</strong>.</p>
-            <p>Существует два типа относительных придаточных предложений:</p>
-            <ul>
-                <li><strong>Определительные (Defining)</strong> – Предоставляют необходимую информацию для уточнения существительного. Не отделяются запятыми.</li>
-                <li><strong>Неопределительные (Non-defining)</strong> – Добавляют дополнительную, но не обязательную информацию. Отделяются запятыми.</li>
-            </ul>
-        </div>
+<section class="section">
+    <h3>Мебель в доме</h3>
+    <p>Мебель помогает сделать наш дом удобным. Вот названия самых важных предметов мебели на английском:</p>
+    <div class="word-block">
+        <img class="word-image" src="https://i.pinimg.com/736x/7e/4c/9b/7e4c9bee2482ac398bbb992e2cc6d14f.jpg" alt="Chair">
+        <span class="word-text furniture">Chair — стул</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://i.pinimg.com/originals/af/f0/a1/aff0a1b7c1423f5a8d755480790747db.png" alt="Table">
+        <span class="word-text furniture">Table — стол</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://i.pinimg.com/originals/b9/2d/96/b92d967587a540d025543bcc2e876f19.png" alt="Bed">
+        <span class="word-text furniture">Bed — кровать</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://media.baamboozle.com/uploads/images/391993/1623005851_212306.png" alt="Sofa">
+        <span class="word-text furniture">Sofa — диван</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://www.clipartmax.com/png/full/125-1251042_book-room-arm-chair-sprite-002-book.png" alt="Armchair">
+        <span class="word-text furniture">Armchair — кресло</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://flomaster.top/o/uploads/posts/2023-10/1697762890_flomaster-top-p-shkaf-s-odezhdoi-risunok-krasivo-6.png" alt="Wardrobe">
+        <span class="word-text furniture">Wardrobe — шкаф</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://avatars.mds.yandex.net/i?id=b7e040596acea28a5658802c31940abaf7afa0a9-12531500-images-thumbs&n=13" alt="Desk">
+        <span class="word-text furniture">Desk — письменный стол</span>
+    </div>
+    <div class="word-block">
+        <img class="word-image" src="https://i.pinimg.com/736x/33/69/b7/3369b76de6bd295ea54eaadc04c17475.jpg" alt="Bookshelf">
+        <span class="word-text furniture">Bookshelf — книжная полка</span>
+    </div>
+</section>
 
-        <!-- 2. Структуры относительных придаточных предложений -->
-        <div class="section">
-            <h3>Структуры относительных придаточных предложений</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Тип</th>
-                        <th>Относительное местоимение</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Определительные</td>
-                        <td>who, whom, whose, which, that</td>
-                        <td>The teacher <strong>who</strong> helped me is very kind.</td>
-                    </tr>
-                    <tr>
-                        <td>Неопределительные</td>
-                        <td>who, which, whose</td>
-                        <td>Paris, <strong>which</strong> is the capital of France, is beautiful.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Важно выбирать правильное относительное местоимение в зависимости от роли в предложении и типа придаточного.</p>
-        </div>
+<section class="section">
+    <h3>Что можно сказать о своем доме?</h3>
+    <p>Когда ты хочешь рассказать о своём доме на английском языке, ты можешь использовать такие выражения:</p>
+    <ul>
+        <li><strong>There is a kitchen in my house.</strong> — В моем доме есть кухня.</li>
+        <li><strong>There are two bedrooms upstairs.</strong> — Наверху две спальни.</li>
+        <li><strong>We eat in the dining room.</strong> — Мы едим в столовой.</li>
+        <li><strong>I sleep in a big bed.</strong> — Я сплю на большой кровати.</li>
+        <li><strong>My favorite room is the living room.</strong> — Моя любимая комната — гостиная.</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h3>Как описывать дом</h3>
+    <p>Чтобы описать дом, можно использовать такие прилагательные:</p>
+    <ul>
+        <li><strong>Big</strong> — большой</li>
+        <li><strong>Small</strong> — маленький</li>
+        <li><strong>Cozy</strong> — уютный</li>
+        <li><strong>Bright</strong> — светлый</li>
+        <li><strong>Comfortable</strong> — удобный</li>
+    </ul>
+    <p>Например:</p>
+    <p><em>My house is big and bright.</em> — Мой дом большой и светлый.</p>
+    <p><em>The living room is very comfortable.</em> — Гостиная очень удобная.</p>
+</section> 
     </div>
 </body>
 </html>

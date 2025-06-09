@@ -110,14 +110,21 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        .feedback {
+        .feedback, .matching-feedback {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
-            background-color: #d4edda;
-            color: #155724;
             display: none;
         }
+        .feedback.success, .matching-feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error, .matching-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
         .finish-btn {
             margin-top: 20px;
             width: 100%;
@@ -260,15 +267,15 @@
     <h3>Задание: Переведи на английский язык</h3>
     <div class="quiz-question">
         <label for="q1"><strong>1. У меня есть синий рюкзак.</strong></label>
-        <input type="text" id="q1" style="width: 150px;">
+        <input type="text" id="q1" style="width: 185px;">
     </div>
     <div class="quiz-question">
         <label for="q2"><strong>2. Учитель в классе.</strong></label>
-        <input type="text" id="q2" style="width: 150px;">
+        <input type="text" id="q2" style="width: 185px;">
     </div>
     <div class="quiz-question">
         <label for="q3"><strong>3. У меня есть красная линейка.</strong></label>
-        <input type="text" id="q3" style="width: 150px;">
+        <input type="text" id="q3" style="width: 185px;">
     </div>
     <button class="submit-btn" onclick="checkQuiz3_10()">Проверить</button>
     <div class="feedback" id="quiz-feedback"></div>

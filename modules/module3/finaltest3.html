@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Итоговый тест: Сложн конструкции</title>
+    <title>Итоговый тест</title>
     <style>
-        /* Общие стили для тестов, аналогично стилям уроков */
         .lesson-container {
             max-height: 80vh; 
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333;
+            background-color: #e84646;
             padding: 20px;
             border-radius: 10px;
         }
@@ -84,18 +83,21 @@
         .submit-btn:hover {
             background-color: #218838;
         }
-        .feedback {
+        .feedback, .matching-feedback {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
-            background-color: #d4edda;
-            color: #155724;
             display: none;
         }
-        .feedback.error {
+        .feedback.success, .matching-feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error, .matching-feedback.error {
             background-color: #f8d7da;
             color: #721c24;
         }
+
         .finish-btn {
             margin-top: 20px;
             width: 100%;
@@ -116,7 +118,7 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Итоговый тест (Модуль 3): Advanced Structures</h2>
+        <h2>Итоговый тест по модулю 3</h2>
         
         <button class="back-button" onclick="
             document.getElementById('lesson-content').classList.add('hidden');
@@ -129,72 +131,69 @@
         </button>
 
         <div class="section">
-            <h3>Final Test for Module 3: Emphatic, Inversions, Complex Conditionals и т.д.</h3>
             <div class="quiz">
-
-                <!-- Вопрос 1 -->
                 <div class="quiz-question">
-                    <label>1. "It was only then that I ___ (to realize) the truth." (Эмфатическая конструкция)</label>
-                    <input type="text" id="q31" placeholder="Например, realized">
+                    <label><strong>1.</strong> Переведи на английский:"Она играет на пианино каждый день"</label>
+                    <input type="text" id="q31">
                 </div>
 
-                <!-- Вопрос 2 -->
                 <div class="quiz-question">
-                    <label>2. Заполните пропуск (смешанное условие): "If we ___ (to start) earlier, we wouldn't be rushing now."</label>
-                    <input type="text" id="q32" placeholder="Например, had started">
+                    <label><strong>2.</strong> Как будет по-английски «У меня есть красная ручка»?</label>
+                    <input type="text" id="q32">
                 </div>
 
-                <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label>3. "Never ___ (we / to expect) such a dramatic outcome." (Инверсия)</label>
-                    <input type="text" id="q33" placeholder="Например, did we expect">
-                </div>
-
-                <!-- Вопрос 4 -->
-                <div class="quiz-question">
-                    <label>4. Emphasis (What-cleft): "___ is crucial now is your determination."</label>
-                    <input type="text" id="q34" placeholder="Например, What is crucial now is your determination.">
-                </div>
-                
-                <!-- Вопрос 5 -->
-                <div class="quiz-question">
-                    <label>5. Переформулируйте в Emphasis (It-cleft): "I need honesty more than anything."</label>
-                    <input type="text" id="q35" placeholder="Например, It is honesty that I need more than anything.">
-                </div>
-
-                <!-- Вопрос 6 -->
-                <div class="quiz-question">
-                    <label>6. Выберите правильную форму Subjunctive: "It is essential that she ___ (to be) informed immediately."</label>
-                    <select id="q36">
-                        <option value="">Выберите...</option>
-                        <option value="is">is</option>
-                        <option value="be">be</option>
-                        <option value="will be">will be</option>
+                    <label><strong>3.</strong> Что означает выражение “It’s half past seven”?</label>
+                    <select id="q33">
+                        <option value="">Выбери ответ</option>
+                        <option value="Сейчас половина восьмого">Сейчас половина восьмого</option>
+                        <option value="Сейчас без пятнадцати семь">Сейчас без пятнадцати семь</option>
+                        <option value="Сейчас ровно семь">Сейчас ровно семь</option>
                     </select>
                 </div>
 
-                <!-- Вопрос 7 -->
                 <div class="quiz-question">
-                    <label>7. "Had I known his intentions, I ___ (to speak) up." (инверсия + перфектный модал)</label>
-                    <input type="text" id="q37" placeholder="Например, would have spoken">
+                    <label><strong>4.</strong> Выбери правильный вопрос:</label>
+                    <select id="q34">
+                        <option value="">Выбери ответ</option>
+                        <option value="Are they drawing right now?">Are they drawing right now?</option>
+                        <option value="They are drawing right now?">They are drawing right now?</option>
+                        <option value="Do they drawing now?">Do they drawing now?</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>5.</strong> Заполни пропуск: “There ___ a bank next to our library.”</label>
+                    <input type="text" id="q35">
+                </div>
+                <div class="quiz-question">
+                    <label><strong>6.</strong> Как будет по-английски: «В моем доме есть кухня»?</label>
+                    <input type="text" id="q36">
                 </div>
 
-                <!-- Вопрос 8 -->
                 <div class="quiz-question">
-                    <label>8. Заполните пропуск: "He must ___ (to have / do) something terrible to get such a reaction." (логическое предположение в прошлом)</label>
-                    <input type="text" id="q38" placeholder="Например, must have done">
+                    <label><strong>7.</strong> Выбери правильное предложение:</label>
+                    <select id="q37">
+                        <option value="">Выбери ответ</option>
+                        <option value="I am interested in to play football.">I am interested in to play football.</option>
+                        <option value="I am interested in playing football.">I am interested in playing football.</option>
+                        <option value="I am interested playing football.">I am interested playing football.</option>
+                    </select>
                 </div>
 
-                <!-- Вопрос 9 -->
                 <div class="quiz-question">
-                    <label>9. Mixed Conditional: "If they ___ (not / forget) the tickets, they would be watching the concert now."</label>
-                    <input type="text" id="q39" placeholder="Например, hadn’t forgotten">
+                    <label><strong>8.</strong> Заполните пропуск: “My brother is ___ than me.” (от прилагательного tall)</label>
+                    <input type="text" id="q38">
                 </div>
 
-                <!-- Вопрос 10 -->
                 <div class="quiz-question">
-                    <label>10. С помощью "What-cleft" переформулируйте: "I really want a bit of peace."</label>
-                    <input type="text" id="q310" placeholder="Например, What I really want is a bit of peace.">
+                    <label><strong>9.</strong> Как перевести: «Это самый красивый парк.» (Use the most beautiful)</label>
+                    <input type="text" id="q39">
+                </div>
+
+                <div class="quiz-question">
+                    <label><strong>10.</strong> Как сказать по-английски: «Мне нравится рисовать красками»?</label>
+                    <input type="text" id="q310">
                 </div>
 
                 <button class="submit-btn" onclick="checkFinalTest3()">Проверить тест</button>

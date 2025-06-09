@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Тест 1: Advanced Grammar Test</title>
     <style>
-        /* Единый стиль, аналогичный другим тестам */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #51cf51; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff; 
             margin-bottom: 20px;
         }
 
@@ -108,101 +106,105 @@
             width: 20px;
             height: 20px;
         }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 1: Advanced Grammar Test (Продвинутый грамматический тест)</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 1: Хобби, Present Simple, Конструкции There is/There are</h2>
         <button class="back-button" onclick="
-            // Скрываем контент теста
             document.getElementById('lesson-content').classList.add('hidden');
-            // Очищаем содержимое
             document.getElementById('lesson-details').innerHTML = '';
-            // Показываем снова заголовок приложения
             document.getElementById('app-header').classList.remove('hidden');
-            // Показываем список уроков Модуля 3
             document.getElementById('module3-list').classList.remove('hidden');
         ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
             Назад
         </button>
-
-        <!-- 1. Задание 1: Fill in the blanks -->
         <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <p>Заполните пропуски правильными формами глаголов:</p>
-            <div class="quiz-question">
-                <label>1. If she _______ (have) more time, she _______ (travel) abroad.</label>
-                <input type="text" id="tg1" placeholder="Например: had, would travel">
+            <div class="quiz">
+                <div class="quiz-question">
+                    <label><strong>1.</strong> Выбери Present Simple</label>
+                    <select id="q1">
+                        <option value="">Выбери ответ</option>
+                        <option value="I play football every Sunday.">I play football every Sunday.</option>
+                        <option value="I played football yesterday.">I played football yesterday.</option>
+                        <option value="I'm going to play football tomorrow.">I'm going to play football tomorrow.</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>2.</strong> Переведи на английский:"Мне нравится петь"</label>
+                    <input type="text" id="q2">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>3.</strong> Заполни пропуск: There ___ a school in my town.</label>
+                    <input type="text" id="q3">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>4.</strong> Выбери глагол с правильным окончанием: She ___ (watch) TV in the evening.</label>
+                    <input type="text" id="q4">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>5.</strong> Когда к глаголу добавляется -s?</label>
+                    <select id="q5">
+                        <option value="">Выбери ответ</option>
+                        <option value="Когда подлежащее — I.">Когда подлежащее — I.</option>
+                        <option value="Когда подлежащее — he, she, it.">Когда подлежащее — he, she, it.</option>
+                        <option value="Когда подлежащее — we, you.">Когда подлежащее — we, you.</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>6.</strong> Напиши на английском хобби с картинки</label>
+                    <img src="https://i.pinimg.com/originals/02/2e/f9/022ef9b0a9a6cd5d2d2b184afd102fcf.jpg" alt="Swimming" style="max-width:100%; height:120px; margin-bottom:10px;">
+                    <input type="text" id="q6">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>7.</strong> ____ a supermarket near my house.</label>
+                    <select id="q7">
+                        <option value="">Выбери ответ</option>
+                        <option value="There are">There are</option>
+                        <option value="There is">There is</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>8.</strong> ___ any cinemas in the street.</label>
+                    <select id="q8">
+                        <option value="">Выбери ответ</option>
+                        <option value="There isn't">There isn't</option>
+                        <option value="Are there">Are there</option>
+                        <option value="There aren't">There aren't</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>9.</strong> Сделай вопрос: You eat meat.</label>
+                    <input type="text" id="q9">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>10.</strong> Заполни пропуск: ___ Emma like chocolate?</label>
+                    <input type="text" id="q10">
+                </div>
+                
+                <button class="submit-btn" onclick="checkTest3_1()">Проверить тест</button>
+                <div class="feedback" id="test3-feedback"></div>
             </div>
-            <div class="quiz-question">
-                <label>2. The report _______ (submit) by the end of the day.</label>
-                <input type="text" id="tg2" placeholder="Например: must be submitted">
-            </div>
-            <button class="submit-btn" onclick="checkAdvancedGrammarTest1()">Проверить</button>
-            <div class="feedback" id="advancedgrammartest1-feedback"></div>
         </div>
 
-        <!-- 2. Задание 2: Sentence Transformation -->
-        <div class="section">
-            <h3>Задание 2: Преобразование предложений</h3>
-            <p>Преобразуйте предложения из страдательного залога в активный и наоборот:</p>
-            <ol>
-                <li>
-                    "The experiment was conducted by the research team."
-                    <br><input type="text" id="tg_rw1" placeholder="Например: The research team conducted the experiment.">
-                </li>
-                <li>
-                    "They have finished the project."
-                    <br><input type="text" id="tg_rw2" placeholder="Например: The project has been finished by them.">
-                </li>
-                <li>
-                    "If I were the manager, I would implement new policies."
-                    <br><input type="text" id="tg_rw3" placeholder="Например: If I were the manager, I would implement new policies.">
-                </li>
-            </ol>
-            <button class="submit-btn" onclick="checkSentenceTransformationTest1()">Проверить</button>
-            <div class="feedback" id="sentencetransformationtest1-feedback"></div>
-        </div>
-
-        <!-- 3. Задание 3: Modal Verbs in Complex Structures -->
-        <div class="section">
-            <h3>Задание 3: Модальные глаголы в сложных конструкциях</h3>
-            <p>Выберите правильный модальный глагол для завершения предложения:</p>
-            <div class="quiz-question">
-                <label>1. She _______ speak three languages fluently.</label>
-                <select id="tg_modal1">
-                    <option value="">Выберите модальный глагол</option>
-                    <option value="can">can</option>
-                    <option value="must">must</option>
-                    <option value="should">should</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>2. You _______ finish your assignment by tomorrow.</label>
-                <select id="tg_modal2">
-                    <option value="">Выберите модальный глагол</option>
-                    <option value="can">can</option>
-                    <option value="must">must</option>
-                    <option value="might">might</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>3. They _______ arrive earlier if they leave now.</label>
-                <select id="tg_modal3">
-                    <option value="">Выберите модальный глагол</option>
-                    <option value="would">would</option>
-                    <option value="should">should</option>
-                    <option value="could">could</option>
-                </select>
-            </div>
-            <button class="submit-btn" onclick="checkModalVerbsTest1()">Проверить</button>
-            <div class="feedback" id="modalverbs_test1-feedback"></div>
-        </div>
     </div>
-
-    
 </body>
 </html>

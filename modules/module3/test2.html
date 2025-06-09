@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Тест 2: Advanced Structures Test</title>
+    <title>Тест 2</title>
     <style>
-        /* Единый стиль, аналогичный Тесту 1 */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #51cf51; 
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff;
             margin-bottom: 20px;
         }
 
@@ -108,96 +106,107 @@
             width: 20px;
             height: 20px;
         }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Тест 2: Advanced Structures Test (Тест по продвинутым структурам)</h2>
-        
-        <!-- Кнопка "Назад" -->
+        <h2>Тест 2: Дом и мебель, Выражение предпочтений, Время</h2>
+    
         <button class="back-button" onclick="
-            // Скрываем контент теста
             document.getElementById('lesson-content').classList.add('hidden');
-            // Очищаем содержимое
             document.getElementById('lesson-details').innerHTML = '';
-            // Показываем снова заголовок приложения
             document.getElementById('app-header').classList.remove('hidden');
-            // Показываем список уроков Модуля 3
             document.getElementById('module3-list').classList.remove('hidden');
         ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
             Назад
         </button>
-
-        <!-- 1. Задание 1: Fill in the blanks -->
         <div class="section">
-            <h3>Задание 1: Заполните пропуски</h3>
-            <p>Заполните пропуски правильными конструкциями:</p>
-            <div class="quiz-question">
-                <label>1. It was _______ who inspired me to pursue this career.</label>
-                <input type="text" id="as1" placeholder="Например: it was he">
+            <div class="quiz">
+                <div class="quiz-question">
+                    <label><strong>1.</strong> Как по-английски "гостиная"?</label>
+                    <input type="text" id="q1">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>2.</strong> Переведи на английский:"Я без ума от катания на лыжах"</label>
+                    <input type="text" id="q2">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>3.</strong> Как задать вопрос: "Ты увлекаешься музыкой?"</label>
+                    <input type="text" id="q3">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>4.</strong> Как спросить: "Сколько времени?"</label>
+                    <input type="text" id="q4">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>5.</strong> Где мы обычно спим?</label>
+                    <select id="q5">
+                        <option value="">Выбери ответ</option>
+                        <option value="In the kitchen">In the kitchen</option>
+                        <option value="In the bedroom">In the bedroom</option>
+                        <option value="In the hall">In the hall</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>6.</strong> Напиши на английском что изображено на картинке</label>
+                    <img src="https://media.baamboozle.com/uploads/images/391993/1623005851_212306.png" alt="Sofa" style="max-width:100%; height:120px; margin-bottom:10px;">
+                    <input type="text" id="q6">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>7.</strong> Как правильно сказать: "Я плохо езжу на велосипеде"?</label>
+                    <select id="q7">
+                        <option value="">Выбери ответ</option>
+                        <option value="I am bad at cycling">I am bad at cycling</option>
+                        <option value="I bad cycling">I bad cycling</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>8.</strong> Что из этого — отрицание?</label>
+                    <select id="q8">
+                        <option value="">Выбери ответ</option>
+                        <option value="I am good at playing the piano">I am good at playing the piano</option>
+                        <option value="I am not good at playing the piano">I am not good at playing the piano</option>
+                        <option value="I playing the piano">I playing the piano</option>
+                    </select>
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>9.</strong> Напиши на английском что изображено на картинке</label>
+                    <img src="https://i.pinimg.com/originals/af/f0/a1/aff0a1b7c1423f5a8d755480790747db.png" alt="Table" style="max-width:100%; height:120px; margin-bottom:10px;">
+                    <input type="text" id="q9">
+                </div>
+                
+                <div class="quiz-question">
+                    <label><strong>10.</strong> Как описать комнату, если она уютная?</label>
+                    <select id="q10">
+                        <option value="">Выбери ответ</option>
+                        <option value="Big">Big</option>
+                        <option value="Bright">Bright</option>
+                        <option value="Cozy">Cozy</option>
+                    </select>
+                </div>
+                
+                <button class="submit-btn" onclick="checkTest3_2()">Проверить тест</button>
+                <div class="feedback" id="test3-feedback"></div>
             </div>
-            <div class="quiz-question">
-                <label>2. _______ do I enjoy reading mystery novels.</label>
-                <input type="text" id="as2" placeholder="Например: Rarely">
-            </div>
-            <button class="submit-btn" onclick="checkAdvancedStructuresTest2()">Проверить</button>
-            <div class="feedback" id="advancedstructures_test2-feedback"></div>
         </div>
 
-        <!-- 2. Задание 2: Sentence Transformation -->
-        <div class="section">
-            <h3>Задание 2: Преобразование предложений</h3>
-            <p>Преобразуйте предложения с использованием инверсии или эмфатических конструкций:</p>
-            <ol>
-                <li>
-                    "She has never visited Paris."
-                    <br><input type="text" id="as_rw1" placeholder="Например: Never has she visited Paris.">
-                </li>
-                <li>
-                    "They have only one goal."
-                    <br><input type="text" id="as_rw2" placeholder="Например: All they have is one goal.">
-                </li>
-                <li>
-                    "If he had studied harder, he would pass the exam."
-                    <br><input type="text" id="as_rw3" placeholder="Например: If he had studied harder, he would pass the exam.">
-                </li>
-            </ol>
-            <button class="submit-btn" onclick="checkSentenceTransformationTest2()">Проверить</button>
-            <div class="feedback" id="sentencetransformationtest2-feedback"></div>
-        </div>
-
-        <!-- 3. Задание 3: Modal Verbs in Complex Structures -->
-        <div class="section">
-            <h3>Задание 3: Модальные глаголы в сложных конструкциях</h3>
-            <p>Выберите правильный модальный глагол для завершения предложения:</p>
-            <div class="quiz-question">
-                <label>1. They _______ have completed the task by now.</label>
-                <select id="as_modal1">
-                    <option value="">Выберите модальный глагол</option>
-                    <option value="could">could</option>
-                    <option value="must">must</option>
-                    <option value="should">should</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>2. _______ you help me with this problem?</label>
-                <select id="as_modal2">
-                    <option value="">Выберите модальный глагол</option>
-                    <option value="Can">Can</option>
-                    <option value="Must">Must</option>
-                    <option value="Shall">Shall</option>
-                </select>
-            </div>
-            <div class="quiz-question">
-                <label>3. If you _______ (have) more experience, you _______ (get) the job.</label>
-                <input type="text" id="as_modal3" placeholder="Например: had, would get">
-            </div>
-            <button class="submit-btn" onclick="checkModalVerbsTest2()">Проверить</button>
-            <div class="feedback" id="modalverbs_test2-feedback"></div>
-        </div>
     </div>
-
-    
 </body>
 </html>

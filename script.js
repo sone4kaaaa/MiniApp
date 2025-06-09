@@ -2251,18 +2251,17 @@ window.checkTest22 = function() {
 
     // Функция проверки итогового теста для Модуля 3
     window.checkFinalTest3 = function() {
-        // Правильные ответы
         const answers = {
-            q31: 'realized', 
-            q32: 'had started',
-            q33: 'did we expect',
-            q34: 'what is crucial now is your determination',
-            q35: 'it is honesty that i need more than anything',
-            q36: 'be',
-            q37: 'would have spoken',
-            q38: 'must have done',
-            q39: 'hadn’t forgotten',  // принимаем варианты апострофа: hadn’t / hadn't
-            q310: 'what i really want is a bit of peace'
+            q31: 'She plays piano every day.', 
+            q32: 'I have got a red pen.',
+            q33: 'Сейчас половина восьмого',
+            q34: 'Are they drawing right now?',
+            q35: 'is',
+            q36: 'There is a kitchen in my house.',
+            q37: 'I am interested in playing football.',
+            q38: 'My brother is taller than me.',
+            q39: 'This is the most beautiful park.',  
+            q310: 'I like painting.'
         };
 
         let score = 0;
@@ -2271,8 +2270,6 @@ window.checkTest22 = function() {
         for (const key in answers) {
             const input = document.getElementById(key);
             if (!input) continue;
-
-            // Считываем ответ
             let userAnswer = '';
             if (input.tagName.toLowerCase() === 'select') {
                 userAnswer = input.value.trim().toLowerCase();
@@ -2280,26 +2277,9 @@ window.checkTest22 = function() {
                 userAnswer = input.value.trim().toLowerCase();
             }
 
-            // Удаляем точки/апострофы, если хотите (или добавляйте "acceptableAnswers")
             userAnswer = userAnswer.replace(/\.+$/, '');
 
             let correctAnswer = answers[key].toLowerCase();
-
-            // Добавим варианты, если нужно
-            // Если q39: hadn’t / hadn't
-            if (key === 'q39') {
-                const variants = [
-                    'hadn’t forgotten',
-                    "hadn't forgotten"
-                ];
-                if (variants.includes(userAnswer)) {
-                    correctAnswer = userAnswer;
-                } else {
-                    correctAnswer = 'incorrect';
-                }
-            }
-            
-            // Проверка
             if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
                 score++;
                 input.style.borderColor = '#28a745';
@@ -2490,450 +2470,144 @@ window.checkTest22 = function() {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
-    // === Тест 1: Advanced Grammar Test (test1.html) ===
-    window.checkAdvancedGrammarTest1 = function() {
-        const correctAnswers = {
-            tg1: ["had, would travel", "had would travel"], 
-            tg2: ["must be submitted", "should be submitted", "is to be submitted"] // можно несколько вариантов
-        };
-
-        let score = 0;
-        let total = 2;
-
-        // tg1
-        let user1 = document.getElementById('tg1').value.trim().toLowerCase();
-        // Удаляем лишние точки/запятые
-        user1 = user1.replace(/[.,]+$/g, '');
-        // Проверяем, входит ли ответ в массив допустимых
-        if (correctAnswers.tg1.map(a => a.toLowerCase()).includes(user1)) {
-            score++;
-            document.getElementById('tg1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg1').style.borderColor = '#dc3545';
-        }
-
-        // tg2
-        let user2 = document.getElementById('tg2').value.trim().toLowerCase();
-        user2 = user2.replace(/[.,]+$/g, '');
-        if (correctAnswers.tg2.map(a => a.toLowerCase()).includes(user2)) {
-            score++;
-            document.getElementById('tg2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg2').style.borderColor = '#dc3545';
-        }
-
-        // Показываем результат
-        const fb = document.getElementById('advancedgrammartest1-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
+    
+    window.checkTest3_1 = function() {
+    const answers = {
+        q1: 'I play football every Sunday.',          
+        q2: 'I like singing',        
+        q3: 'is',         
+        q4: 'watches',       
+        q5: "Когда подлежащее — he, she, it.",           
+        q6: 'Swimming',          
+        q7: 'There is',            
+        q8: "There aren't",              
+        q9: 'Do you eat meat?',         
+        q10: 'Does'         
     };
 
-    window.checkSentenceTransformationTest1 = function() {
-        // Задание 2 (test1.html): Преобразование предложений
-        // "The experiment was conducted by the research team."
-        // "They have finished the project."
-        // "If I were the manager, I would implement new policies."
+    let score = 0;
+    const total = Object.keys(answers).length;
 
-        // Примерные "правильные" варианты (подстраивайтесь под вашу логику)
-        const correctAnswers = {
-            tg_rw1: "the research team conducted the experiment",
-            tg_rw2: "the project has been finished by them",
-            tg_rw3: "if i were the manager, i would implement new policies"
-        };
+    for (const key in answers) {
+        const userEl = document.getElementById(key);
+        if (!userEl) continue;
+        let userAnswer = userEl.value.trim().toLowerCase();
+        userAnswer = userAnswer.replace(/\.+$/, '');
 
-        let score = 0;
-        let total = 3;
+        let correctAnswer = answers[key].toLowerCase();
 
-        // 1)
-        let user1 = document.getElementById('tg_rw1').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user1 === correctAnswers.tg_rw1) {
+        if (userAnswer === correctAnswer) {
             score++;
-            document.getElementById('tg_rw1').style.borderColor = '#28a745';
+            userEl.style.borderColor = '#28a745';
         } else {
-            document.getElementById('tg_rw1').style.borderColor = '#dc3545';
+            userEl.style.borderColor = '#dc3545'; 
         }
+    }
 
-        // 2)
-        let user2 = document.getElementById('tg_rw2').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user2 === correctAnswers.tg_rw2) {
-            score++;
-            document.getElementById('tg_rw2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg_rw2').style.borderColor = '#dc3545';
-        }
-
-        // 3)
-        let user3 = document.getElementById('tg_rw3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user3 === correctAnswers.tg_rw3) {
-            score++;
-            document.getElementById('tg_rw3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg_rw3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('sentencetransformationtest1-feedback');
-        fb.style.display = 'block';
+    const feedback = document.getElementById('test3-feedback');
+    if (feedback) {
+        feedback.style.display = 'block';
         if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Замечательно! Предложения преобразованы верно.`;
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
         } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Правильных ответов: ${score} из ${total}. Проверьте ещё раз.`;
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
         }
+    }
+};
+
+    window.checkTest3_2 = function() {
+    const answers = {
+        q1: 'Living room',          
+        q2: 'I am crazy about skiing',        
+        q3: 'She is dancing now',         
+        q4: 'We are reading',       
+        q5: "Is he playing football now?",           
+        q6: 'It is the baddest idea',          
+        q7: '-er',            
+        q8: "Good → the best",              
+        q9: 'singing',         
+        q10: 'than'         
     };
 
-    window.checkModalVerbsTest1 = function() {
-        // Задание 3 (test1.html): Модальные глаголы
-        // tg_modal1 => "can"
-        // tg_modal2 => "must"
-        // tg_modal3 => "could"
+    let score = 0;
+    const total = Object.keys(answers).length;
 
-        let correct = {
-            tg_modal1: 'can',
-            tg_modal2: 'must',
-            tg_modal3: 'could'
-        };
+    for (const key in answers) {
+        const userEl = document.getElementById(key);
+        if (!userEl) continue;
+        let userAnswer = userEl.value.trim().toLowerCase();
+        userAnswer = userAnswer.replace(/\.+$/, '');
 
-        let score = 0;
-        let total = 3;
+        let correctAnswer = answers[key].toLowerCase();
 
-        // 1
-        let user1 = document.getElementById('tg_modal1').value;
-        if (user1 === correct.tg_modal1) {
+        if (userAnswer === correctAnswer) {
             score++;
-            document.getElementById('tg_modal1').style.borderColor = '#28a745';
+            userEl.style.borderColor = '#28a745';
         } else {
-            document.getElementById('tg_modal1').style.borderColor = '#dc3545';
+            userEl.style.borderColor = '#dc3545'; 
         }
+    }
 
-        // 2
-        let user2 = document.getElementById('tg_modal2').value;
-        if (user2 === correct.tg_modal2) {
-            score++;
-            document.getElementById('tg_modal2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg_modal2').style.borderColor = '#dc3545';
-        }
-
-        // 3
-        let user3 = document.getElementById('tg_modal3').value;
-        if (user3 === correct.tg_modal3) {
-            score++;
-            document.getElementById('tg_modal3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('tg_modal3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('modalverbs_test1-feedback');
-        fb.style.display = 'block';
+    const feedback = document.getElementById('test3-feedback');
+    if (feedback) {
+        feedback.style.display = 'block';
         if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Модальные глаголы выбраны верно.`;
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
         } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
         }
+    }
+};
+
+    window.checkTest3_3 = function() {
+    const answers = {
+        q1: 'taller',          
+        q2: 'the coldest',        
+        q3: 'Are you interested in music?',         
+        q4: 'What time is it?',       
+        q5: "In the bedroom",           
+        q6: 'Sofa',          
+        q7: 'I am bad at cycling',            
+        q8: "I am not good at playing the piano",              
+        q9: 'Table',         
+        q10: 'Cozy'         
     };
 
-    // === Тест 2: Advanced Structures Test (test2.html) ===
-    window.checkAdvancedStructuresTest2 = function() {
-        // ... аналогичная логика
-        // as1, as2
-        const correct = {
-            as1: ["it was he", "it was my teacher", "it was john"], // пример
-            as2: ["rarely", "seldom"] // пример
-        };
+    let score = 0;
+    const total = Object.keys(answers).length;
 
-        let score = 0;
-        let total = 2;
+    for (const key in answers) {
+        const userEl = document.getElementById(key);
+        if (!userEl) continue;
+        let userAnswer = userEl.value.trim().toLowerCase();
+        userAnswer = userAnswer.replace(/\.+$/, '');
 
-        let user1 = document.getElementById('as1').value.trim().toLowerCase();
-        let user2 = document.getElementById('as2').value.trim().toLowerCase();
+        let correctAnswer = answers[key].toLowerCase();
 
-        // Проверка as1
-        if (correct.as1.some(ans => ans === user1)) {
+        if (userAnswer === correctAnswer) {
             score++;
-            document.getElementById('as1').style.borderColor = '#28a745';
+            userEl.style.borderColor = '#28a745';
         } else {
-            document.getElementById('as1').style.borderColor = '#dc3545';
+            userEl.style.borderColor = '#dc3545'; 
         }
-        // Проверка as2
-        if (correct.as2.includes(user2)) {
-            score++;
-            document.getElementById('as2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as2').style.borderColor = '#dc3545';
-        }
+    }
 
-        const fb = document.getElementById('advancedstructures_test2-feedback');
-        fb.style.display = 'block';
+    const feedback = document.getElementById('test3-feedback');
+    if (feedback) {
+        feedback.style.display = 'block';
         if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Все пропуски заполнены верно.`;
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
         } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
         }
-    };
-
-    window.checkSentenceTransformationTest2 = function() {
-        // as_rw1, as_rw2, as_rw3
-        // и т.д.
-        // Логика аналогична предыдущему
-        // ...
-
-        let correct = {
-            as_rw1: "never has she visited paris",
-            as_rw2: "all they have is one goal",
-            as_rw3: "if he had studied harder, he would pass the exam"
-        };
-
-        let score = 0;
-        let total = 3;
-
-        // 1
-        let user1 = document.getElementById('as_rw1').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user1 === correct.as_rw1) {
-            score++;
-            document.getElementById('as_rw1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_rw1').style.borderColor = '#dc3545';
-        }
-
-        // 2
-        let user2 = document.getElementById('as_rw2').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user2 === correct.as_rw2) {
-            score++;
-            document.getElementById('as_rw2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_rw2').style.borderColor = '#dc3545';
-        }
-
-        // 3
-        let user3 = document.getElementById('as_rw3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user3 === correct.as_rw3) {
-            score++;
-            document.getElementById('as_rw3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_rw3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('sentencetransformationtest2-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Все предложения преобразованы верно.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}.`;
-        }
-    };
-
-    window.checkModalVerbsTest2 = function() {
-        // as_modal1, as_modal2, as_modal3
-        // ...
-        let correct = {
-            as_modal1: 'must',
-            as_modal2: 'can',
-            as_modal3: ['had, would get', 'had would get']  // или т.д.
-        };
-
-        let score = 0;
-        let total = 3;
-
-        // 1
-        let user1 = document.getElementById('as_modal1').value;
-        if (user1.toLowerCase() === correct.as_modal1) {
-            score++;
-            document.getElementById('as_modal1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_modal1').style.borderColor = '#dc3545';
-        }
-
-        // 2
-        let user2 = document.getElementById('as_modal2').value;
-        if (user2.toLowerCase() === correct.as_modal2) {
-            score++;
-            document.getElementById('as_modal2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_modal2').style.borderColor = '#dc3545';
-        }
-
-        // 3
-        let user3 = document.getElementById('as_modal3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        // Можно проверить массив acceptableAnswers
-        if (correct.as_modal3.includes(user3)) {
-            score++;
-            document.getElementById('as_modal3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('as_modal3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('modalverbs_test2-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Замечательно! Все модальные формы верны.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}.`;
-        }
-    };
-
-    // === Тест 3: Comprehensive Grammar Test (test3.html) ===
-    window.checkComprehensiveGrammarTest = function() {
-        // cg1, cg2, cg3
-        // ...
-        let correct = {
-            cg1: ['she needs', 'she need'],  // Скажем, "she needs"
-            cg2: ['were, would take', 'were would take'], 
-            cg3: ['must have', 'should have', 'could have']
-        };
-
-        let score = 0;
-        let total = 3;
-
-        // 1
-        let user1 = document.getElementById('cg1').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (correct.cg1.includes(user1)) {
-            score++;
-            document.getElementById('cg1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg1').style.borderColor = '#dc3545';
-        }
-
-        // 2
-        let user2 = document.getElementById('cg2').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (correct.cg2.includes(user2)) {
-            score++;
-            document.getElementById('cg2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg2').style.borderColor = '#dc3545';
-        }
-
-        // 3
-        let user3 = document.getElementById('cg3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (correct.cg3.includes(user3)) {
-            score++;
-            document.getElementById('cg3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('comprehensivegrammar-test-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = `Отлично! Все ответы в Задании 1 верны.`;
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-    window.checkSentenceTransformationTest3 = function() {
-        // cg_rw1, cg_rw2, cg_rw3
-        // ...
-        let correct = {
-            cg_rw1: 'rarely has she visited museums',
-            cg_rw2: 'all they have is one goal',
-            cg_rw3: 'if he had studied harder, he would pass the exam'
-        };
-
-        let score = 0;
-        let total = 3;
-
-        // ...
-        let user1 = document.getElementById('cg_rw1').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user1 === correct.cg_rw1) {
-            score++;
-            document.getElementById('cg_rw1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_rw1').style.borderColor = '#dc3545';
-        }
-
-        let user2 = document.getElementById('cg_rw2').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user2 === correct.cg_rw2) {
-            score++;
-            document.getElementById('cg_rw2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_rw2').style.borderColor = '#dc3545';
-        }
-
-        let user3 = document.getElementById('cg_rw3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (user3 === correct.cg_rw3) {
-            score++;
-            document.getElementById('cg_rw3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_rw3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('sentencetransformationtest3-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Отлично! Предложения преобразованы верно.';
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}.`;
-        }
-    };
-
-    window.checkModalVerbsTest3 = function() {
-        // cg_modal1, cg_modal2, cg_modal3
-        // ...
-        let correct = {
-            cg_modal1: 'could',
-            cg_modal2: 'can',
-            cg_modal3: ['had, would get', 'had would get']
-        };
-
-        let score = 0;
-        let total = 3;
-
-        // 1
-        let user1 = document.getElementById('cg_modal1').value.toLowerCase();
-        if (user1 === correct.cg_modal1) {
-            score++;
-            document.getElementById('cg_modal1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_modal1').style.borderColor = '#dc3545';
-        }
-
-        // 2
-        let user2 = document.getElementById('cg_modal2').value.toLowerCase();
-        if (user2 === correct.cg_modal2) {
-            score++;
-            document.getElementById('cg_modal2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_modal2').style.borderColor = '#dc3545';
-        }
-
-        // 3
-        let user3 = document.getElementById('cg_modal3').value.trim().toLowerCase().replace(/[.,]+$/g, '');
-        if (correct.cg_modal3.includes(user3)) {
-            score++;
-            document.getElementById('cg_modal3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('cg_modal3').style.borderColor = '#dc3545';
-        }
-
-        const fb = document.getElementById('modalverbs_test3-feedback');
-        fb.style.display = 'block';
-        if (score === total) {
-            fb.className = 'feedback success';
-            fb.textContent = 'Отлично! С модальными глаголами всё в порядке.';
-        } else {
-            fb.className = 'feedback error';
-            fb.textContent = `Верно: ${score} из ${total}.`;
-        }
-    };
+    }
+};
 
     const statsBtn = document.getElementById('stats-btn');
     statsBtn.addEventListener('click', showStats);

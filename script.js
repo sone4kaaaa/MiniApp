@@ -2426,7 +2426,7 @@ window.checkTest22 = function() {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
-    window.checkMatching01 = function() {
+    window.checkMatching3_5 = function() {
         const matches = {
             match1: '2',
             match2: '2',

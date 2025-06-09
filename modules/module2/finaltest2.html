@@ -92,6 +92,14 @@
             color: #155724;
             display: none;
         }
+        .feedback.success, .matching-feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error, .matching-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
         .finish-btn {
             margin-top: 20px;
             width: 100%;
@@ -141,7 +149,7 @@
                 
                 <!-- Вопрос 3 -->
                 <div class="quiz-question">
-                    <label><strong>3.</strong> Заполни пропуски:</label>
+                    <label><strong>3.</strong> Заполни пропуски через запятую:</label>
                     <label>This boy is wearing red ___, green ___ and red ___.</label>
                     <img src="https://i.pinimg.com/736x/18/66/07/186607d443bc30781bf8be5bd485e4f0.jpg" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
                     <input type="text" id="q23">

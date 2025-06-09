@@ -72,15 +72,21 @@
             background-color: #4a00e0;
         }
 
-        .feedback {
+        .feedback, .matching-feedback {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
+            display: none;
+        }
+        .feedback.success, .matching-feedback.success {
             background-color: #d4edda;
             color: #155724;
-            display: none;
-            font-size: 18px;
         }
+        .feedback.error, .matching-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
 
         /* Кнопка "Назад" */
         .back-button {

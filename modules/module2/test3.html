@@ -62,15 +62,21 @@
         .submit-btn:hover {
             background-color: #4a00e0;
         }
-        .feedback {
+        .feedback, .matching-feedback {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
+            display: none;
+        }
+        .feedback.success, .matching-feedback.success {
             background-color: #d4edda;
             color: #155724;
-            display: none;
-            font-size: 18px;
         }
+        .feedback.error, .matching-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
         /* Кнопка "Назад" */
         .back-button {
             display: flex;
@@ -148,7 +154,7 @@
                 <div class="quiz-question">
                     <label><strong>5.</strong> Как называется "булочная" по-английски?</label>
                     <select id="q5">
-                        <option value="">Выберите ответ</option>
+                        <option value="">Выбери ответ</option>
                         <option value="newsagent's">newsagent's</option>
                         <option value="jeweller's">jeweller's</option>
                         <option value="baker's">baker's</option>
@@ -157,7 +163,7 @@
                 
                 <!-- Вопрос 6: Праздники (Хэллоуин) -->
                 <div class="quiz-question">
-                    <label><strong>6.</strong> На Хэллоуин дети надевают _________.</label>
+                    <label><strong>6.</strong> Что дети надевают на Хеллоуин? (напиши на английском)</label>
                     <img src="https://static.vecteezy.com/system/resources/previews/008/916/524/non_2x/cartoon-kids-with-halloween-costume-inside-pumpkin-basket-vector.jpg" alt="Хэллоуин" style="max-width:100%; height:180px; margin-bottom:10px;">
                     <input type="text" id="q6">
                 </div>

@@ -2458,6 +2458,38 @@ window.checkTest22 = function() {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
+    window.checkQuiz3_10 = function() {
+        const answers = {
+            q1: 'i have got a blue backpack',
+            q2: 'teacher is in the classroom',
+            q3: 'i have got a red ruler'
+        };
+
+        let score = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            const correctAnswer = answers[key].toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+            } else {
+                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+            }
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+        }
+    };
     // === Тест 1: Advanced Grammar Test (test1.html) ===
     window.checkAdvancedGrammarTest1 = function() {
         const correctAnswers = {

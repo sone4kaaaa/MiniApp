@@ -2426,6 +2426,38 @@ window.checkTest22 = function() {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
+    window.checkMatching01 = function() {
+        const matches = {
+            match1: '2',
+            match2: '2',
+            match3: '1',
+            match4: '1',
+            match5: '1'
+        };
+
+        let score = 0;
+        let total = Object.keys(matches).length;
+
+        for (let key in matches) {
+            const userChoice = document.getElementById(key).value;
+            if (userChoice === matches[key]) {
+                score++;
+                document.getElementById(key).style.borderColor = '#28a745';
+            } else {
+                document.getElementById(key).style.borderColor = '#dc3545';
+            }
+        }
+
+        const feedback = document.getElementById('matching-feedback');
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = 'Все верно! Отличная работа.';
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
+        }
+    };
     // === Тест 1: Advanced Grammar Test (test1.html) ===
     window.checkAdvancedGrammarTest1 = function() {
         const correctAnswers = {

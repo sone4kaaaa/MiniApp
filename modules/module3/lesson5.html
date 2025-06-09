@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 5: Advanced Usage of Modal Verbs</title>
+    <title>Урок 5: Выражение предпочтений</title>
     <style>
-        /* Единый стиль, аналогичный Уроку 1 */
-
         .lesson-container {
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 10px;
-            background-color: #333; /* Тёмный фон */
+            background-color: #891bbb;
             padding: 20px;
             border-radius: 10px;
         }
 
         h2 {
             text-align: center;
-            color: #fff; /* Белый цвет заголовка */
+            color: #fff;
         }
 
         .section {
-            background-color: rgba(255, 255, 255, 0.9); 
+            background-color: rgb(255, 255, 255); 
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -38,7 +36,6 @@
             color: #333; 
         }
 
-        /* Таблицы (если нужны) */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -53,7 +50,6 @@
             text-align: left;
         }
 
-        /* Кнопка "Назад" */
         .back-button {
             display: flex;
             align-items: center;
@@ -79,7 +75,6 @@
             height: 20px;
         }
 
-        /* Стили для кнопок "submit-btn" */
         .submit-btn {
             display: inline-block;
             padding: 10px;
@@ -96,7 +91,6 @@
             background-color: #4a00e0;
         }
 
-        /* Поля ввода, select и feedback */
         .quiz-question {
             margin-bottom: 15px;
         }
@@ -120,6 +114,14 @@
             color: #155724;
             display: none;
         }
+        .feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
         .finish-btn {
             margin-top: 20px;
             width: 100%;
@@ -131,12 +133,11 @@
             padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            display: block; /* Видна сразу */
+            display: block; 
         }
         .finish-btn:hover {
             background-color: #117a8b;
         }
-        /* Кнопка "Next Lesson" (если требуется) */
         .next-lesson-btn {
             margin-top: 20px;
             padding: 10px;
@@ -162,86 +163,152 @@
 </head>
 <body>
     <div class="lesson-container">
-        <h2>Урок 5: Advanced Usage of Modal Verbs (Расширенное использование модальных глаголов)</h2>
-
-        <!-- Кнопка "Назад" -->
+        <h2>Урок 5: Выражение предпочтений</h2>
         <button class="back-button"
                 onclick="
-                    // 1. Скрываем контент урока
                     document.getElementById('lesson-content').classList.add('hidden');
-                    // 2. Очищаем содержимое
                     document.getElementById('lesson-details').innerHTML = '';
-                    // 3. Показываем снова заголовок приложения
                     document.getElementById('app-header').classList.remove('hidden');
-                    // 4. Показываем список уроков Модуля 3
                     document.getElementById('module3-list').classList.remove('hidden');
                 ">
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
 
-        <!-- 1. Введение в модальные глаголы -->
         <div class="section">
-            <h3>Введение в модальные глаголы</h3>
-            <p>Модальные глаголы (Modal Verbs) используются для выражения возможностей, вероятностей, разрешений, обязанностей и других модальных значений. Расширенное использование модальных глаголов включает их комбинацию с другими структурами для выражения более сложных значений.</p>
+            <h3>1️⃣ Я увлекаюсь...</h3>
+            <p>Чтобы выразить предпочтение на английском языке, необходимо использовать следующие конструкции:</p>
+            <ul>
+                <li><strong>I am interested in playing football</strong> — Я увлекаюсь футболом</li>
+                <img src="https://uue.s3.eu-north-1.amazonaws.com/v/O/7Pbywm7Uc-x300.jpg" alt="Футбол" style="max-width:100%; height:150px; margin-bottom:10px;">
+                <li><strong>I am keen on playing chess</strong> — Я очень люблю играть в шахматы</li>
+                <img src="https://uue.s3.eu-north-1.amazonaws.com/v/O/7Pbzctyj0-x300.jpg" alt="Шахматы" style="max-width:100%; height:150px; margin-bottom:10px;">
+                <li><strong>I am crazy about skiing</strong> — Я без ума от катания на лыжах</li>
+                <img src="https://uue.s3.eu-north-1.amazonaws.com/v/O/7Pbzln8T4-x300.jpg" alt="Лыжи" style="max-width:100%; height:150px; margin-bottom:10px;">
+            </ul>
         </div>
 
-        <!-- 2. Расширенные модальные глаголы и их функции -->
         <div class="section">
-            <h3>Расширенные модальные глаголы и их функции</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Модальный глагол</th>
-                        <th>Функция</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Should</td>
-                        <td>Совет, рекомендация</td>
-                        <td>You should see a doctor.</td>
-                    </tr>
-                    <tr>
-                        <td>Could</td>
-                        <td>Возможность в прошлом, вежливые просьбы</td>
-                        <td>Could you help me?</td>
-                    </tr>
-                    <tr>
-                        <td>Must</td>
-                        <td>Необходимость, обязанность</td>
-                        <td>You must wear a helmet.</td>
-                    </tr>
-                    <tr>
-                        <td>Ought to</td>
-                        <td>Совет, моральная обязанность</td>
-                        <td>You ought to apologize.</td>
-                    </tr>
-                    <tr>
-                        <td>Shall</td>
-                        <td>Предложения, намерения</td>
-                        <td>Shall we dance?</td>
-                    </tr>
-                    <tr>
-                        <td>Might</td>
-                        <td>Возможность, вероятность</td>
-                        <td>It might rain today.</td>
-                    </tr>
-                    <tr>
-                        <td>Need to</td>
-                        <td>Необходимость</td>
-                        <td>You need to finish your homework.</td>
-                    </tr>
-                    <tr>
-                        <td>Dare</td>
-                        <td>Смелость, вызов</td>
-                        <td>Dare you jump off the cliff?</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Важно помнить, что модальные глаголы не изменяются по лицам и числам, всегда используются в форме основы.</p>
+            <h3>2️⃣ Я умею...</h3>
+            <p>Чтобы сказать о том, что вы умеете или не умеете делать, используйте:</p>
+            <ul>
+                <li><strong>I am good at running</strong> — Я хороша в беге</li>
+                <img src="https://uue.s3.eu-north-1.amazonaws.com/v/O/7Pbxs0lPP-x300.jpg" alt="Бег" style="max-width:100%; height:150px; margin-bottom:10px;">
+                <li><strong>I am bad at cycling</strong> — Я плохо езжу на велосипеде</li>
+                <img src="https://uue.s3.eu-north-1.amazonaws.com/v/O/7PbxR638E-x300.jpg" alt="Велосипед" style="max-width:100%; height:150px; margin-bottom:10px;">
+            </ul>
         </div>
+
+        <div class="section">
+            <h3>3️⃣ Как строятся такие предложения?</h3>
+            <p>Для составления таких предложений нам необходимы:</p>
+            <ol>
+                <li><strong>Глагол to be:</strong>
+                    <ul>
+                        <li>I am… — Я</li>
+                        <li>He is… — Он</li>
+                        <li>We are… — Мы</li>
+                    </ul>
+                </li>
+                <li><strong>Вспомогательные слова:</strong>
+                    <ul>
+                        <li>I am interested in…</li>
+                        <li>He is crazy about…</li>
+                        <li>We are keen on…</li>
+                    </ul>
+                </li>
+                <li><strong>Глагол с окончанием –ing:</strong>
+                    <ul>
+                        <li>I am interested in swimming — Я увлекаюсь плаванием</li>
+                        <li>He is crazy about playing football — Он без ума от игры в футбол</li>
+                    </ul>
+                </li>
+                <li><strong>Или существительное:</strong>
+                    <ul>
+                        <li>We are keen on games — Мы увлечены играми</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3>4️⃣ Отрицание</h3>
+            <p>Добавьте <strong>not</strong> после to be:</p>
+            <ul>
+                <li>I am not good at playing basketball — Я не умею хорошо играть в баскетбол</li>
+                <li>My sister is not crazy about swimming — Моя сестра не без ума от плавания</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>5️⃣ Вопросы</h3>
+            <p>To be — на первое место:</p>
+            <ul>
+                <li>Are they bad at running? — Yes, they are.</li>
+                <li>Is your child interested in music? — No, she isn't.</li>
+            </ul>
+            <p>С вопросительным словом:</p>
+            <ul>
+                <li>What are you good at? — В чем ты хорош?</li>
+                <li>What are you crazy about? — От чего ты без ума?</li>
+            </ul>
+        </div>
+<div class="section">
+    <h3>⭐️ Задание: Выбери правильный ответ</h3>
+
+    <div class="quiz-question">
+        <label>1. Что означает фраза "I am keen on swimming"?</label>
+        <select id="match1">
+            <option value="">Выбери ответ</option>
+            <option value="1">Я плаваю каждый день</option>
+            <option value="2">Я увлечён плаванием</option>
+            <option value="3">Я не умею плавать</option>
+        </select>
+    </div>
+
+    <div class="quiz-question">
+        <label>2. Выбери правильное предложение:</label>
+        <select id="match2">
+            <option value="">Выбери ответ</option>
+            <option value="1">She good at playing tennis</option>
+            <option value="2">She is good at playing tennis</option>
+            <option value="3">She is good playing tennis</option>
+        </select>
+    </div>
+
+    <div class="quiz-question">
+        <label>3. Как задать вопрос: «Ты увлекаешься музыкой?»</label>
+        <select id="match3">
+            <option value="">Выбери ответ</option>
+            <option value="1">Are you interested in music?</option>
+            <option value="2">Do you interested in music?</option>
+            <option value="3">You are interested in music?</option>
+        </select>
+    </div>
+
+    <div class="quiz-question">
+        <label>4. Выбери верное отрицательное предложение:</label>
+        <select id="match4">
+            <option value="">Выбери ответ</option>
+            <option value="1">I am not keen on running</option>
+            <option value="2">I no keen on running</option>
+            <option value="3">I am don’t keen on running</option>
+        </select>
+    </div>
+
+    <div class="quiz-question">
+        <label>5. Что ты спросишь, чтобы узнать, в чём человек хорош?</label>
+        <select id="match5">
+            <option value="">Выбери ответ</option>
+            <option value="1">What are you good at?</option>
+            <option value="2">Where are you good at?</option>
+            <option value="3">Who are you good at?</option>
+        </select>
+    </div>
+
+    <button class="submit-btn" onclick="checkMatching3_5()">Проверить</button>
+    <div class="feedback" id="matching-feedback"></div>
+</div>
     </div>
 </body>
 </html>

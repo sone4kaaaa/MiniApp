@@ -4,7 +4,6 @@ let tgUserId = null;
 
 // Если открыто внутри Telegram WebApp:
 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-    // Пытаемся получить данные initDataUnsafe
     const initData = Telegram.WebApp.initDataUnsafe || {};
     if (initData.user && initData.user.id) {
         tgUserId = String(initData.user.id);
@@ -16,7 +15,6 @@ if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
     console.log('Не в Telegram WebApp, возможно в браузере.');
 }
 
-// Фолбек: если tgUserId всё ещё null, возьмём ?user_id=... из URL
 if (!tgUserId) {
     const params = new URLSearchParams(window.location.search);
     tgUserId = params.get('user_id') || 'guest10';
@@ -47,6 +45,9 @@ window.userStats = {
     lessonsCompleted: 0,       // от 0 до 30
     testsCompleted: 0,         // от 0 до 9 (промежуточные)
     finalTestsCompleted: 0,    // от 0 до 3 (итоговые)
+    testsResults: {
+
+  }
   };
 window.completedItems = new Set();
 
@@ -89,7 +90,6 @@ async function saveUserDataToServer(userId) {
 
 /* ----- ЛОГИКА ПОЛУЧЕНИЯ user_id И СТАРТОВОЙ ЗАГРУЗКИ ----- */
 function getTelegramUserId() {
-    // Пробуем вытащить user_id из query-параметров
     const params = new URLSearchParams(window.location.search);
     return params.get('user_id') || "guest10";
 }
@@ -97,8 +97,6 @@ function getTelegramUserId() {
 function restoreUnlockItem(modulePath, fileName) {
     const container = document.querySelector(`.lessons-container[data-module="${modulePath}"]`);
     if (!container) return;
-
-    // Находим саму кнопку
     const currentBtn = container.querySelector(
         `[data-lesson="${fileName}"], [data-test="${fileName}"]`
     );
@@ -117,7 +115,7 @@ function restoreUnlockItem(modulePath, fileName) {
         unlockNextModule(modulePath);
     }
 
-    // А теперь разблокируем «следующую» кнопку по порядку
+    // разблокируем «следующую» кнопку по порядку
     const order = parseInt(currentBtn.dataset.order, 10);
     const nextOrder = order + 1;
     const nextBtn = container.querySelector(`[data-order="${nextOrder}"]`);
@@ -129,18 +127,13 @@ function restoreUnlockItem(modulePath, fileName) {
 
 function restoreUnlockedItems() {
     // Перебираем все UID из completedItems
-    // Пример UID: "module1-lesson3.html"
     for (const uid of window.completedItems) {
         const [modulePath, fileName] = uid.split("-");
-
         // Разблокируем текущий урок/тест
         restoreUnlockItem(modulePath, fileName);
     }
 }
 
-
-  
-  // Допустим, делаем функцию unlockItem(...)
 function unlockItem(modulePath, fileName) {
     const container = document.querySelector(`.lessons-container[data-module="${modulePath}"]`);
     if (!container) return;
@@ -153,13 +146,13 @@ function unlockItem(modulePath, fileName) {
 }
 
 function lockAllButFirstLesson() {
-    // 1) Блокируем ВСЕ уроки и тесты (все кнопки .lesson-button и .test-button)
+    // Блокируем ВСЕ уроки и тесты 
     const allLessonButtons = document.querySelectorAll('.lesson-button, .test-button');
     allLessonButtons.forEach(btn => {
         btn.disabled = true;
         btn.classList.add('locked', 'disabled');
     });
-    // 2) Разблокируем только первый урок module1 => lesson1.html
+    // Разблокируем только первый урок 
     const module1Container = document.querySelector('.lessons-container[data-module="module1"]');
     if (module1Container) {
         const firstLesson = module1Container.querySelector('[data-lesson="lesson1.html"]');
@@ -170,16 +163,12 @@ function lockAllButFirstLesson() {
     }
 }
 
-
-
-/* ===== Примерная функция: разблокировать кнопки на основании userStats ===== */
 function unlockItemsByStats() {
     const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
     if (window.userStats.lessonsCompleted >= 30 &&
         window.userStats.testsCompleted >= 9 &&
         window.userStats.finalTestsCompleted >= 3
     ) {
-        // Разблокируем все кнопки (какие хотите)
         const allButtons = document.querySelectorAll(
           '.lesson-button, .test-button, .final-test-btn, #module2-btn, #module3-btn'
         );
@@ -187,14 +176,9 @@ function unlockItemsByStats() {
             btn.disabled = false;
             btn.classList.remove('locked', 'disabled');
         });
-        
-        // После этого выходим, чтобы дальше не сработали никакие «else { disabled = true }»
         return;
     }
-    // 1. Модули
-    // Модуль1 (id="module1-btn") всегда открыт (или открыт по умолчанию)
-    // Модуль2 открывается, если finalTestsCompleted >= 1 (значит пройден итоговый тест модуля1)
-    // Модуль3 открывается, если finalTestsCompleted >= 2
+
     const module2Btn = document.getElementById('module2-btn');
     const module3Btn = document.getElementById('module3-btn');
     if (module2Btn) {
@@ -205,57 +189,40 @@ function unlockItemsByStats() {
       module3Btn.disabled = (finalTestsCompleted < 2);
       module3Btn.classList.toggle('disabled', finalTestsCompleted < 2);
     }
-  
-    // 2. Уроки
-    // Например, у нас 30 уроков. Урок N доступен, если N <= lessonsCompleted+1
-    // (т.е. «следующий» после уже пройденных, и все предыдущие).
    
     const maxLessonUnlocked = lessonsCompleted + 1;
     const lessonButtons = document.querySelectorAll('.lesson-button');
     lessonButtons.forEach(btn => {
-        const mod = btn.dataset.module; // "module1", "module2", "module3"
+        const mod = btn.dataset.module; 
         
-        // 1) Если это module2, но finalTestsCompleted < 1 => всё заблокировано
+        // Если это module2, но finalTestsCompleted < 1 => всё заблокировано
         if (mod === 'module2' && window.userStats.finalTestsCompleted < 1) {
             btn.disabled = true;
             btn.classList.add('locked','disabled');
             return; 
         }
-        // 2) Если это module3, но finalTestsCompleted < 2 => всё заблокировано
+        // Если это module3, но finalTestsCompleted < 2 => всё заблокировано
         if (mod === 'module3' && window.userStats.finalTestsCompleted < 2) {
             btn.disabled = true;
             btn.classList.add('locked','disabled');
             return;
         }
-
-        // Если дошли сюда, значит модуль «открыт». Теперь решаем, сколько уроков в нём разблокировать.
-        // Для module1 можно брать lessonsCompleted (0..10).
-        // Для module2 – нужно вычесть 10 (если у вас один общий счётчик).
-        // Для module3 – вычесть 20 и т.д.
-
         let localProgress = 0;
         let totalLessons = 10;
         
         if (mod === 'module1') {
-            // У нас общий lessonsCompleted, но мы берем min(lessonsCompleted, 10).
             localProgress = Math.min(window.userStats.lessonsCompleted, 10);
         } else if (mod === 'module2') {
-            // Отсекаем первые 10 уроков, которые относятся к module1
-            // localProgress = (общийLessons - 10), но не меньше 0, не больше 10
             localProgress = Math.min(Math.max(window.userStats.lessonsCompleted - 10, 0), 10);
         } else if (mod === 'module3') {
             localProgress = Math.min(Math.max(window.userStats.lessonsCompleted - 20, 0), 10);
         }
-
-        // Определяем номер урока
         const match = (btn.dataset.lesson || '').match(/lesson(\d+)\.html$/i);
         if (!match) {
-            // Может быть тест, тогда отдельная логика
             return;
         }
         const lessonNum = parseInt(match[1], 10);
 
-        // Если lessonNum <= localProgress + 1 => разблокируем
         if (lessonNum <= localProgress + 1) {
             btn.disabled = false;
             btn.classList.remove('locked','disabled');
@@ -267,7 +234,6 @@ function unlockItemsByStats() {
             window.userStats.testsCompleted >= 9 &&
             window.userStats.finalTestsCompleted >= 3) {
             
-            // Селектор подбирайте под все свои кнопки:
             const allButtons = document.querySelectorAll(
               '.lesson-button, .test-button, .final-test-btn, #module2-btn, #module3-btn'
             );
@@ -279,19 +245,16 @@ function unlockItemsByStats() {
         }
     });
   
-    // 3. Промежуточные тесты (test1.html, test2.html, ... test9.html)
-    // Пусть testN доступен, если lessonsCompleted >= 3*N
     const testButtons = document.querySelectorAll('.test-button');
     testButtons.forEach(btn => {
-        // 1) Узнаём, к какому модулю относится тест
-        const modulePath = btn.dataset.module; // "module1", "module2", "module3"
+        // Узнаём, к какому модулю относится тест
+        const modulePath = btn.dataset.module; 
         
-        // 2) Сначала проверяем, «открыт» ли модуль вообще
-        //    (finalTestsCompleted < 1 => module2 закрыт, < 2 => module3 закрыт)
+        // проверяем, «открыт» ли модуль вообще
         if (modulePath === 'module2' && window.userStats.finalTestsCompleted < 1) {
           btn.disabled = true;
           btn.classList.add('locked','disabled');
-          return; // даже не смотрим testNum
+          return; 
         }
         if (modulePath === 'module3' && window.userStats.finalTestsCompleted < 2) {
           btn.disabled = true;
@@ -299,14 +262,13 @@ function unlockItemsByStats() {
           return; 
         }
       
-        // 3) Если модуль разрешён, парсим номер теста из файла (test1.html => 1)
+        // Если модуль разрешён, парсим номер теста из файла (test1.html => 1)
         const file = btn.dataset.test || '';
         const m = file.match(/test(\d+)\.html$/i);
         if (!m) return;
         const testNum = parseInt(m[1], 10); // 1..9
       
-        // 4) Считаем «локальный прогресс» (сколько уроков реально прошли в этом модуле)
-        //    Если у вас один общий lessonsCompleted:
+        // Считаем «локальный прогресс» (сколько уроков реально прошли в этом модуле)
         let localProgress = 0;
         if (modulePath === 'module1') {
           localProgress = Math.min(window.userStats.lessonsCompleted, 10);
@@ -315,12 +277,8 @@ function unlockItemsByStats() {
         } else if (modulePath === 'module3') {
           localProgress = Math.min(Math.max(window.userStats.lessonsCompleted - 20, 0), 10);
         }
-      
-        // 5) Сколько уроков нужно пройти, чтобы открыть тест testNum?
-        //    Например, если testNum=1, пусть требуется 3 урока.
         const requiredLessons = testNum * 3; 
-      
-        // 6) Сравниваем
+    
         if (localProgress >= requiredLessons) {
           btn.disabled = false;
           btn.classList.remove('locked','disabled');
@@ -330,11 +288,6 @@ function unlockItemsByStats() {
         }
     });
   
-    // 4. Итоговые тесты
-    // finalTestBtns: .final-test-btn[data-module="module1"], etc.
-    // Модуль1: итоговый тест доступен, если lessonsCompleted >= 10
-    // Модуль2: итоговый тест доступен, если lessonsCompleted >= 20
-    // Модуль3: итоговый тест доступен, если lessonsCompleted >= 30
     const finalTest1 = document.querySelector('.final-test-btn[data-module="module1"]');
     const finalTest2 = document.querySelector('.final-test-btn[data-module="module2"]');
     const finalTest3 = document.querySelector('.final-test-btn[data-module="module3"]');
@@ -359,9 +312,9 @@ function unlockItemsByStats() {
 
 /**
  * Функция, когда пользователь «завершает» урок или тест.
- * @param {string} type - 'lesson' | 'test' | 'final'
- * @param {string} modulePath - например, 'module1'
- * @param {string} fileName - например, 'lesson3.html' или 'test1.html'
+ * @param {string} type 
+ * @param {string} modulePath 
+ * @param {string} fileName 
  */
 function finishLessonOrTest(type, modulePath, fileName) {
     // Создаём уникальный идентификатор для конкретного урока/теста
@@ -369,7 +322,6 @@ function finishLessonOrTest(type, modulePath, fileName) {
 
     // Проверяем, не было ли уже добавлено в completedItems
     if (window.completedItems.has(uid)) {
-      // Если уже есть — это значит, что статистику мы уже обновляли, повторно инкрементить не нужно
       console.log("Этот урок/тест уже отмечен как завершён:", uid);
       return;
     }
@@ -377,8 +329,6 @@ function finishLessonOrTest(type, modulePath, fileName) {
     // Добавляем в Set (теперь он считается пройденным)
     window.completedItems.add(uid);
 
-    // В зависимости от типа — инкрементируем соответствующий счётчик.
-    // Но обязательно делаем «зажим» (clamp), чтобы не превышало максимальных значений.
     if (type === 'lesson') {
       window.userStats.lessonsCompleted = Math.min(window.userStats.lessonsCompleted + 1, 30);
     } else if (type === 'test') {
@@ -387,10 +337,8 @@ function finishLessonOrTest(type, modulePath, fileName) {
       window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
     }
 
-    // Теперь сохраняем обновлённые данные в Firestore
+    // сохраняем обновлённые данные в Firestore
     saveUserDataToServer(window.userId);
-
-    // Вызов лирики разблокировок
     unlockItemsByStats();
 }
 document.addEventListener('DOMContentLoaded', async () => {
@@ -417,8 +365,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lessonContent = document.getElementById('lesson-content');
     const lessonDetails = document.getElementById('lesson-details');
     const appHeader = document.getElementById('app-header');
-
-    // --- Функции-помощники ---
     
     function getNextModule(modulePath) {
         const modules = ['module1', 'module2', 'module3'];
@@ -446,12 +392,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    /**
-     * Разблокировать следующий элемент (следующий урок/тест) 
-     */
-    
-
-    // --- Создание кнопки «Тест N» ---
     function createTestElement(testNumber, modulePath) {
         const btn = document.createElement('button');
         btn.textContent = `Тест ${testNumber}`;
@@ -462,7 +402,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Порядок для сортировки
         btn.dataset.order = testNumber * 2;
     
-        // Важно: изначально disabled
         btn.disabled = true;
     
         btn.addEventListener('click', () => {
@@ -507,9 +446,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (currentLessonNumber === getTotalLessons(modulePath)) {
             btn.textContent = 'Перейти к итоговому тесту';
             btn.addEventListener('click', () => {
-                // Для модуля 2 используем finaltest2.html
-                // Для модуля 3 используем finaltest3.html
-                // Для остальных — finaltest.html
                 let finalFile = 'finaltest.html';
                 if (modulePath === 'module2') {
                     finalFile = 'finaltest2.html';
@@ -534,7 +470,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             // Не последний урок
             const tpm = getTestsPerModule(modulePath);
-            // Если currentLessonNumber % tpm === 0 => пора на тест
             if (currentLessonNumber % tpm === 0) {
                 const testNumber = currentLessonNumber / tpm;
                 btn.textContent = 'Перейти к тесту';
@@ -595,7 +530,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         nextBtn.classList.add('next-test-btn', 'submit-btn');
         nextBtn.textContent = 'Далее';
     
-        // Формула следующего урока: (текущий тест N) => следующий урок = 3*N + 1
         const nextLessonNumber = currentTestNumber * getTestsPerModule(modulePath) + 1;
     
         nextBtn.addEventListener('click', () => {
@@ -637,17 +571,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     `;
 
     button.onclick = function () {
-        // Скрыть контент урока и восстановить интерфейс
         document.getElementById('lesson-content')?.classList.add('hidden');
         document.getElementById('lesson-details').innerHTML = '';
         document.getElementById('app-header')?.classList.remove('hidden');
 
-        // Скрыть все модули
         ['module1-list', 'module2-list', 'module3-list'].forEach(id => {
             document.getElementById(id)?.classList.add('hidden');
         });
 
-        // Показать нужный модуль на основе пути
         if (modulePath.includes('module1')) {
             document.getElementById('module1-list')?.classList.remove('hidden');
         } else if (modulePath.includes('module2')) {
@@ -671,7 +602,7 @@ function loadContent(html, modulePath) {
 
     const lessonContainer = document.querySelector(".lesson-container");
     if (lessonContainer) {
-        const backBtn = createBackButton(modulePath); // <-- передаём путь к модулю
+        const backBtn = createBackButton(modulePath); 
         lessonContainer.prepend(backBtn);
     }
 
@@ -710,7 +641,6 @@ function loadContent(html, modulePath) {
         btn.classList.add('finish-btn');
         btn.textContent = 'Закончить';
 
-        // Стили (вынести в CSS при желании)
         btn.style.width = '100%'; 
         btn.style.marginTop = '20px';
         btn.style.backgroundColor = '#17a2b8';
@@ -719,13 +649,10 @@ function loadContent(html, modulePath) {
         btn.style.fontSize = '18px';
 
         btn.addEventListener('click', () => {
-            // Скрываем контент
             lessonContent.classList.add('hidden');
             lessonDetails.innerHTML = '';
             appHeader.classList.remove('hidden');
-            // Показываем меню текущего модуля
             document.getElementById(`${modulePath}-menu`).classList.remove('hidden');
-            // Разблокируем следующий модуль
             unlockNextModule(modulePath);
         });
 
@@ -809,7 +736,6 @@ function loadContent(html, modulePath) {
         b.addEventListener('click', () => {
           moduleMenus.forEach(m => m.classList.add('hidden'));
           mainButtons.classList.remove('hidden');
-          // Сбросим отображение текущего модуля:
           document.getElementById('current-module').textContent = "";
         });
       });
@@ -842,15 +768,37 @@ function loadContent(html, modulePath) {
         });
     });
 
-    // Делаем loadContent доступной глобально
     window.loadContent = loadContent;
+    
+async function saveTestResultToDB(testId, testStats) {
+  // testStats: { correct: number, incorrect: number }
+  
+  // Обновляем локально:
+  window.userStats.testsResults[testId] = testStats;
+
+  // Обновляем счётчики в userStats
+  // Например, если тест ранее не был засчитан, увеличиваем completed:
+  const prevTest = window.completedItems.has(testId);
+  if (!prevTest) {
+    window.completedItems.add(testId);
+    if (testId.startsWith('final')) {
+      window.userStats.finalTestsCompleted++;
+    } else {
+      window.userStats.testsCompleted++;
+    }
+  }
+
+  // Сохраняем в Firestore (предполагается, что userId известен):
+  const userId = getTelegramUserId();
+  await saveUserDataToServer(userId);
+}
 
     /**
  * Универсальная функция проверки теста
  * @param {Object} answers 
  * @param {string} feedbackId 
  */
-function checkTest(answers, feedbackId) {
+async function checkTest(answers, feedbackId) {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -873,9 +821,9 @@ function checkTest(answers, feedbackId) {
 
         if (userAnswer === compareCorrect) {
             score++;
-            input.style.borderColor = '#28a745'; // зелёный
+            input.style.borderColor = '#28a745'; 
         } else {
-            input.style.borderColor = '#dc3545'; // красный
+            input.style.borderColor = '#dc3545'; 
         }
     }
 
@@ -890,6 +838,7 @@ function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
+    await saveTestResultToDB(testId, { correct: correctCount, incorrect: incorrectCount });
 };
 
 window.checkTest1 = function () {
@@ -1032,70 +981,106 @@ window.checkTest3_3 = function () {
     checkTest(answers, 'test3-feedback');
 };  
 
-    /**
-     * Функция проверки Итогового теста (finaltest.html)
-     */
-    window.checkFinalTest = function() {
-        const answers = {
-            q1: 'twelve',
-            q2: 'money',
-            q3: 'summer',
-            q4: 'an apple',
-            q5: 'is',
-            q6: 'autumn',
-            q7: 'книги мальчика',
-            q8: 'cat',
-            q9: 'mine',
-            q10: 'a book'
-        };
+/**
+ * Универсальная функция проверки финального теста
+ * @param {Object} answers1 
+ * @param {string} feedbackId1 
+ */
+async function checkFinalTestGeneric(answers1, feedbackId1) {
+    let score = 0;
+    const total = Object.keys(answers1).length;
 
-        let score = 0;
-        const total = Object.keys(answers).length;
+    for (const key in answers1) {
+        const input = document.getElementById(key);
+        if (!input) continue;
 
-        for (const key in answers) {
-            const input = document.getElementById(key);
-            if (!input) continue;
-
-            let userAnswer = '';
-            if (input.tagName.toLowerCase() === 'select') {
-                userAnswer = input.value.trim().toLowerCase();
-            } else {
-                userAnswer = input.value.trim().toLowerCase();
-            }
-
-            let correctAnswer = answers[key].toLowerCase();
-
-
-            if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
-                score++;
-                input.style.borderColor = '#28a745'; // зеленый
-            } else {
-                input.style.borderColor = '#dc3545'; // красный
-            }
-        }
-
-        const feedback = document.getElementById('finaltest-feedback');
-        if (!feedback) return;
-
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Превосходно! Все ответы верны (${score} из ${total}).`;
+        let userAnswer = '';
+        if (input.tagName.toLowerCase() === 'select') {
+            userAnswer = input.value.trim().toLowerCase();
         } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+            userAnswer = input.value.trim().toLowerCase().replace(/\.+$/, '');
         }
+
+        const correctAnswer = answers1[key].toLowerCase();
+
+        if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
+            score++;
+            input.style.borderColor = '#28a745'; 
+        } else {
+            input.style.borderColor = '#dc3545'; 
+        }
+    }
+
+    const feedback = document.getElementById(feedbackId1);
+    if (!feedback) return;
+
+    feedback.style.display = 'block';
+    if (score === total) {
+        feedback.className = 'feedback success';
+        feedback.textContent = `Превосходно! Все ответы верны (${score} из ${total}).`;
+    } else {
+        feedback.className = 'feedback error';
+        feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+    }
+    await saveTestResultToDB(testId, { correct: correctCount, incorrect: incorrectCount });
+}
+
+window.checkFinalTest = function () {
+    const answers1 = {
+        q1: 'twelve',
+        q2: 'money',
+        q3: 'summer',
+        q4: 'an apple',
+        q5: 'is',
+        q6: 'autumn',
+        q7: 'книги мальчика',
+        q8: 'cat',
+        q9: 'mine',
+        q10: 'a book'
     };
+    checkFinalTestGeneric(answers1, 'finaltest-feedback');
+};
+
+window.checkFinalTest2 = function () {
+    const answers1 = {
+        q21: 'lemon',
+        q22: 'I like to run, swim and dance',
+        q23: 'T-shirt, shorts, shoes',
+        q24: '2',
+        q25: 'I have got a sister',
+        q26: '1',
+        q27: '3',
+        q28: '2',
+        q29: 'January',
+        q210: 'Mouth'
+    };
+    checkFinalTestGeneric(answers1, 'finaltest2-feedback');
+};
+
+window.checkFinalTest3 = function () {
+    const answers1 = {
+        q31: 'She plays piano every day.',
+        q32: 'I have got a red pen.',
+        q33: 'Сейчас половина восьмого',
+        q34: 'Are they drawing right now?',
+        q35: 'is',
+        q36: 'There is a kitchen in my house.',
+        q37: 'I am interested in playing football.',
+        q38: 'My brother is taller than me.',
+        q39: 'This is the most beautiful park.',
+        q310: 'I like painting.'
+    };
+    checkFinalTestGeneric(answers1, 'finaltest3-feedback');
+};
 
     // Добавление кнопки "Итоговый тест" для каждого модуля
-   
     const finalTestButtons = document.querySelectorAll('.final-test-btn');
     finalTestButtons.forEach(btn => {
         btn.disabled = true;
         btn.classList.add('disabled');
         btn.addEventListener('click', () => {
             const modulePath = btn.dataset.module;
-            let testFile = 'finaltest.html';  // По умолчанию для module1
+            let testFile = 'finaltest.html';  
             if (modulePath === 'module2') {
                 testFile = 'finaltest2.html';
             } else if (modulePath === 'module3') {
@@ -1140,9 +1125,9 @@ window.checkTest3_3 = function () {
 
             if (userAnswer === correctAnswer) {
                 score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
+                document.getElementById(key).style.border = '2px solid #28a745'; 
             } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
+                document.getElementById(key).style.border = '2px solid #dc3545'; 
             }
         }
 
@@ -1350,7 +1335,6 @@ window.checkAnswer = function(selectedNumber) {
 
     // Проверка каждой группы радиокнопок
     for (let i = 1; i <= total; i++) {
-        // Важно: шаблонные строки для селектора
         const radios = form.querySelectorAll(`input[name="q${i}"]`);
         const selectedValue = formData.get(`q${i}`);
 
@@ -1992,53 +1976,7 @@ window.initShoppingCartGame = function () {
         }
     }
 
-    window.checkFinalTest2 = function() {
-        const answers = {
-            q21: 'lemon',
-            q22: 'I like to run, swim and dance',
-            q23: 'T-shirt, shorts, shoes',
-            q24: '2',
-            q25: 'I have got a sister',
-            q26: '1',
-            q27: '3',
-            q28: '2',
-            q29: 'January',
-            q210: 'Mouth'
-        };
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const input = document.getElementById(key);
-            if (!input) continue;
-
-            let userAnswer = input.value.trim().toLowerCase();
-            userAnswer = userAnswer.replace(/\.+$/, '');
-            let correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
-                score++;
-                input.style.borderColor = '#28a745';
-            } else {
-                input.style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('finaltest2-feedback');
-        if (!feedback) return;
-
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
     window.checkQuiz2_5 = function() {
-        // Массив или объект с "правильными" ответами
         const answers = {
             ie1: "have got",
             ie2: "has not got",
@@ -2048,7 +1986,7 @@ window.initShoppingCartGame = function () {
         let score = 0;
         let total = Object.keys(answers).length;
     
-        // 1) Проверка поля ie1
+
         let user1 = document.getElementById('ie1').value.trim().toLowerCase();
         if (user1 === answers.ie1) {
             score++;
@@ -2057,7 +1995,6 @@ window.initShoppingCartGame = function () {
             document.getElementById('ie1').style.borderColor = '#dc3545';
         }
     
-        // 2) Проверка поля ie2
         let user2 = document.getElementById('ie2').value.trim().toLowerCase();
         if (user2 === answers.ie2) {
             score++;
@@ -2066,7 +2003,6 @@ window.initShoppingCartGame = function () {
             document.getElementById('ie2').style.borderColor = '#dc3545';
         }
     
-        // 3) Проверка селекта ie3
         let user3 = document.getElementById('ie3').value;
         if (user3 === answers.ie3) {
             score++;
@@ -2121,58 +2057,6 @@ window.initShoppingCartGame = function () {
         }
     };
 
-    // Функция проверки итогового теста для Модуля 3
-    window.checkFinalTest3 = function() {
-        const answers = {
-            q31: 'She plays piano every day.', 
-            q32: 'I have got a red pen.',
-            q33: 'Сейчас половина восьмого',
-            q34: 'Are they drawing right now?',
-            q35: 'is',
-            q36: 'There is a kitchen in my house.',
-            q37: 'I am interested in playing football.',
-            q38: 'My brother is taller than me.',
-            q39: 'This is the most beautiful park.',  
-            q310: 'I like painting.'
-        };
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const input = document.getElementById(key);
-            if (!input) continue;
-            let userAnswer = '';
-            if (input.tagName.toLowerCase() === 'select') {
-                userAnswer = input.value.trim().toLowerCase();
-            } else {
-                userAnswer = input.value.trim().toLowerCase();
-            }
-
-            userAnswer = userAnswer.replace(/\.+$/, '');
-
-            let correctAnswer = answers[key].toLowerCase();
-            if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
-                score++;
-                input.style.borderColor = '#28a745';
-            } else {
-                input.style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('finaltest3-feedback');
-        if (!feedback) return;
-
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Превосходно! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
     window.initBodyGuessGame = function () {
   const quizData = [
     { img: "https://media.baamboozle.com/uploads/images/153453/1603748867_187492", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
@@ -2215,7 +2099,7 @@ window.initShoppingCartGame = function () {
     if (correctAnswered) return;
 
     if (selected === correct) {
-      button.style.backgroundColor = "#28a745"; // зелёный
+      button.style.backgroundColor = "#28a745";
       correctAnswered = true;
 
       // блокируем все кнопки
@@ -2231,18 +2115,14 @@ window.initShoppingCartGame = function () {
         }
       }, 1000);
     } else {
-      button.style.backgroundColor = "#dc3545"; // красный
-      button.disabled = true; // нельзя нажимать на уже выбранную неправильную
+      button.style.backgroundColor = "#dc3545"; 
+      button.disabled = true; 
     }
   }
 
   showQuestion();
 };
 
-
-    /******************************************************************************
-     *            ФУНКЦИИ ДЛЯ ПРОВЕРКИ ТЕСТОВ МОДУЛЯ 3
-     ******************************************************************************/
     window.checkQuiz3_1 = function() {
         const answers = {
             q1: 'playing soccer',
@@ -2351,7 +2231,7 @@ window.initShoppingCartGame = function () {
         document.getElementById('stats-modal').classList.add('hidden');
         // 2) Показываем главный экран с модулями
         mainButtons.classList.remove('hidden');
-        // 3) А все возможные экраны уроков/тестов/меню модулей скрываем
+        // 3) все возможные экраны уроков/тестов/меню модулей скрываем
         moduleMenus.forEach(m => m.classList.add('hidden'));
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.add('hidden');
@@ -2360,23 +2240,28 @@ window.initShoppingCartGame = function () {
     
 
     function showStats() {
-        const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
-        
-        const statsModal = document.getElementById('stats-modal');
-        const statsContent = document.getElementById('stats-content');
-    
-        statsContent.innerHTML = `
-            <h3>Моя статистика</h3>
-            <p>Уроков завершено: ${lessonsCompleted} / 30</p>
-            <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
-            <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
-        `;
-        
-        statsModal.classList.remove('hidden');
+    const { lessonsCompleted, testsCompleted, finalTestsCompleted, testsResults } = window.userStats;
+    const statsModal = document.getElementById('stats-modal');
+    const statsContent = document.getElementById('stats-content');
+
+    let resultsHtml = '';
+    for (const testId in testsResults) {
+        const { correct, incorrect } = testsResults[testId];
+        resultsHtml += `<p>${testId}: Правильных - ${correct}, Неправильных - ${incorrect}</p>`;
     }
 
-    unlockItemsByStats();
+    statsContent.innerHTML = `
+        <h3>Моя статистика</h3>
+        <p>Уроков завершено: ${lessonsCompleted} / 30</p>
+        <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
+        <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+        <h4>Детали тестов:</h4>
+        ${resultsHtml}
+    `;
 
+    statsModal.classList.remove('hidden');
+}
+    unlockItemsByStats();
     restoreUnlockedItems();
     
 });

@@ -992,6 +992,331 @@ li.dark-yellow { color: #B8860B; }
 .pt-10 {
     padding-top: 10px;
 }
+
+.lesson-container.module-2.lesson-6 {
+    background-color: #ecdd51;
+}
+.lesson-container.module-2.lesson-6 h2 {
+    color: #c0a709;
+}
+.lesson-container.module-2.lesson-6 .word {
+    font-weight: bold;
+}
+.lesson-container.module-2.lesson-6 .food {
+    color: #e67e22;
+}
+.lesson-container.module-2.lesson-6 .dairy {
+    color: #3498db;
+}
+.lesson-container.module-2.lesson-6 .meat {
+    color: #c0392b;
+}
+.lesson-container.module-2.lesson-6 .fruit {
+    color: #27ae60;
+}
+.lesson-container.module-2.lesson-6 .sugar {
+    color: #9b59b6;
+}
+.lesson-container.module-2.lesson-6 .drink {
+    color: #c1465e;
+}
+.lesson-container.module-2.lesson-6 .bread {
+    color: #d35400;
+}
+.lesson-container.module-2.lesson-6 .transcription {
+    font-style: italic;
+    color: #555;
+}
+.lesson-container.module-2.lesson-6 .translation {
+    color: #888;
+}
+.lesson-container.module-2.lesson-6 .shopitem
+{display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0; pointer-events: none; opacity: 0.5;}
+.lesson-container.module-2.lesson-6 .shopcart
+{min-height: 100px; border: 2px dashed #aaa; padding: 10px; margin-bottom: 10px;}
+
+.lesson-container.module-2.lesson-7 {
+    background-color: #2697ae;
+}
+.lesson-container.module-2.lesson-7 h2 {
+    color: #071243;
+}
+.lesson-container.module-2.lesson-7 .shop-list {
+display: flex;
+overflow-x: auto;
+gap: 10px;
+background: #f0f4c3;
+padding: 10px;
+border-radius: 10px;
+scroll-snap-type: x mandatory;
+}
+
+.lesson-container.module-2.lesson-7 .shop-item {
+flex: 0 0 auto;
+width: 250px; /* фиксированная ширина для всех карточек */
+background-color: #ffe082;
+padding: 10px;
+border-radius: 10px;
+color: #3e2723;
+scroll-snap-align: start;
+box-sizing: border-box;
+}
+
+.lesson-container.module-2.lesson-7 .shop-item img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 5px;
+margin-top: 5px;
+}
+.lesson-container.module-2.lesson-7 .shop-item span {
+display: block;
+}
+.lesson-container.module-2.lesson-7 .phonetic {
+font-style: italic;
+color: #5d4037;
+}
+.lesson-container.module-2.lesson-7 .example-text {
+background: #d1c4e9;
+padding: 15px;
+border-left: 5px solid #7e57c2;
+margin-top: 20px;
+border-radius: 10px;
+}
+.lesson-container.module-2.lesson-7 .example {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-left: 4px solid #17a2b8;
+            margin-bottom: 10px;
+        }
+
+
+.lesson-container.module-2.lesson-8 {
+    background-color: #efce49;
+}
+.lesson-container.module-2.lesson-8 h2 {
+    color: #797508;
+}
+/* Backgrounds */
+.bg-new-year     { background-color: #e0f7fa; }
+.bg-birthday     { background-color: #fff9c4; }
+.bg-halloween    { background-color: #fbe9e7; }
+.bg-womensday    { background-color: #fce4ec; }
+.bg-defender     { background-color: #e3f2fd; }
+.bg-knowledge    { background-color: #e8f5e9; }
+
+/* Title colors */
+.lesson-container.module-2.lesson-8 .title-new-year     { color: #00796b; }
+.lesson-container.module-2.lesson-8 .title-birthday     { color: #fbc02d; }
+.lesson-container.module-2.lesson-8 .title-halloween    { color: #d84315; }
+.lesson-container.module-2.lesson-8 .title-womensday    { color: #c2185b; }
+.lesson-container.module-2.lesson-8 .title-defender     { color: #1976d2; }
+.lesson-container.module-2.lesson-8 .title-knowledge    { color: #388e3c; }
+
+/* Word highlight colors */
+.word-special     { color: #f44336; }
+.word-celebrate   { color: #2196f3; }
+.word-decorate    { color: #9c27b0; }
+.word-gifts       { color: #ff9800; }
+.word-fireworks   { color: #4caf50; }
+.word-wishes      { color: #795548; }
+.word-fun         { color: #009688; }
+.word-presents    { color: #e91e63; }
+.word-song        { color: #3f51b5; }
+.word-balloons    { color: #8bc34a; }
+.word-candles     { color: #ff5722; }
+.word-costumes    { color: #9c27b0; }
+.word-trick       { color: #ff5722; }
+.word-candies     { color: #4caf50; }
+.word-carve       { color: #03a9f4; }
+.word-jack        { color: #f44336; }
+.word-smile       { color: #ff9800; }
+.word-concerts    { color: #4caf50; }
+.word-cards       { color: #9c27b0; }
+.word-protectors  { color: #4caf50; }
+.word-games       { color: #9c27b0; }
+.word-school      { color: #3f51b5; }
+.word-flowers     { color: #e91e63; }
+.word-bell        { color: #ff5722; }
+
+
+.lesson-container.module-2.lesson-9 {
+    background-color: #6644bd;
+}
+.lesson-container.module-2.lesson-9 h2 {
+    color: #340a5b;
+}
+.lesson-container.module-2.lesson-9 .section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lesson-container.module-2.lesson-9 .section li {
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px; 
+}
+.lesson-container.module-2.lesson-9 .month {
+    background-color: #adddf5;
+    color: #004466;
+}
+
+.lesson-container.module-2.lesson-9 .day {
+    background-color: #a5e3a5;
+    color: #006600;
+}
+
+.lesson-container.module-2.lesson-9 .transcription {
+    font-style: italic;
+    color: #888;
+    font-size: 16px;
+}
+
+.lesson-container.module-2.lesson-9 .number-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    background: #f0f4c3;
+    padding: 10px;
+    border-radius: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.lesson-container.module-2.lesson-9 .number-item {
+    flex: 0 0 auto;
+    width: 250px; /* фиксированная ширина для всех карточек */
+    background-color: #ffe082;
+    padding: 10px;
+    border-radius: 10px;
+    color: #3e2723;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+.lesson-container.module-2.lesson-9 .number-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.lesson-container.module-2.lesson-9 .number-item span {
+    display: block;
+}
+.lesson-container.module-2.lesson-9 .big-number {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.lesson-container.module-2.lesson-10 {
+    background-color: #ef8336;
+}
+.lesson-container.module-2.lesson-10 h2 {
+    color: #ae4901;
+}
+        .lesson-container.module-2.lesson-10 .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson-container.module-2.lesson-10 .vocab-card {
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.lesson-container.module-2.lesson-10 .head { background-color: #ffebee; }
+.lesson-container.module-2.lesson-10 .head strong { color: #e53935; }
+
+.lesson-container.module-2.lesson-10 .eye { background-color: #e3f2fd; }
+.lesson-container.module-2.lesson-10 .eye strong { color: #1e88e5; }
+
+.lesson-container.module-2.lesson-10 .nose { background-color: #e8f5e9; }
+.lesson-container.module-2.lesson-10 .nose strong { color: #43a047; }
+
+.lesson-container.module-2.lesson-10 .mouth { background-color: #fff8e1; }
+.lesson-container.module-2.lesson-10 .mouth strong { color: #fbc02d; }
+
+.lesson-container.module-2.lesson-10 .ear { background-color: #f3e5f5; }
+.lesson-container.module-2.lesson-10 .ear strong { color: #8e24aa; }
+
+.lesson-container.module-2.lesson-10 .arm { background-color: #fce4ec; }
+.lesson-container.module-2.lesson-10 .arm strong { color: #d81b60; }
+
+.lesson-container.module-2.lesson-10 .hand { background-color: #ede7f6; }
+.lesson-container.module-2.lesson-10 .hand strong { color: #5e35b1; }
+
+.lesson-container.module-2.lesson-10 .leg { background-color: #e0f7fa; }
+.lesson-container.module-2.lesson-10 .leg strong { color: #00acc1; }
+
+.lesson-container.module-2.lesson-10 .foot { background-color: #fbe9e7; }
+.lesson-container.module-2.lesson-10 .foot strong { color: #ff7043; }
+
+.lesson-container.module-2.lesson-10 .stomach { background-color: #edeef0; }
+.lesson-container.module-2.lesson-10 .stomach strong { color: #546e7a; }
+
+.lesson-container.module-2.lesson-10 .teeth { background-color: #fff3e0; }
+.lesson-container.module-2.lesson-10 .teeth strong {color: #fb8c00; }
+
+.lesson-container.module-2.lesson-10 .fingers { background-color: #ede7f6; }
+.lesson-container.module-2.lesson-10 .fingers strong {color: #512da8; }
+
+.lesson-container.module-2.lesson-10 .cheeks { background-color: #f1f8e9; }
+.lesson-container.module-2.lesson-10 .cheeks strong {color: #689f38; }
+
+.lesson-container.module-2.lesson-10 .knee { background-color: #e3f2fd; }
+.knee strong {color: #1976d2; }
+
+.lesson-container.module-2.lesson-10 .hair { background-color: #fce4ec; }
+.lesson-container.module-2.lesson-10 .hair strong {color: #6a1b9a; }
+
+.lesson-container.module-2.lesson-10 .eyebrows { background-color: #edeef0; }
+.lesson-container.module-2.lesson-10 .eyebrows strong {color: #37474f; }
+
+.lesson-container.module-2.lesson-10 .question-image
+{text-align: center; margin-bottom: 15px; display: none;}
+
+.lesson-container.module-2.lesson-10 .body-image
+{max-width: 100%; height: 200px;}
+
+.lesson-container.module-2.lesson-10 .options
+{display: flex; flex-direction: column; gap: 10px;}
+/* Цвета для разных чисел */
+.num-13 { color: #e91e63; }
+.num-14 { color: #9c27b0; }
+.num-15 { color: #3f51b5; }
+.num-16 { color: #2196f3; }
+.num-17 { color: #009688; }
+.num-18 { color: #4caf50; }
+.num-19 { color: #ff9800; }
+.num-20 { color: #e91e63; }
+.num-30 { color: #9c27b0; }
+.num-40 { color: #3f51b5; }
+.num-50 { color: #2196f3; }
+.num-60 { color: #009688; }
+.num-70 { color: #4caf50; }
+.num-80 { color: #ff9800; }
+.num-90 { color: #e91e63; }
+.num-100 { color: #9c27b0; }
+.num-1000 { color: #3f51b5; }
+.num-1000000 { color: #2196f3; }
+.num-1000000000 { color: #009688; }
+
+.lesson-container.module-2.lesson-9 .word, .phonetic {
+    text-align: center;
+    display: block;
+}
+.lesson-container.module-2.lesson-9 .word {
+    font-size: 20px;
+    font-weight: bold;
+}
+.lesson-container.module-2.lesson-9 .phonetic {
+    font-style: italic;
+    color: #5d4037;
+}
 /* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;

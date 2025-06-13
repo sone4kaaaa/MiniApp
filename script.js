@@ -45,9 +45,7 @@ window.userStats = {
     lessonsCompleted: 0,       // от 0 до 30
     testsCompleted: 0,         // от 0 до 9 (промежуточные)
     finalTestsCompleted: 0,    // от 0 до 3 (итоговые)
-    testsResults: {
-
-  }
+    testResults: {}
   };
 window.completedItems = new Set();
 
@@ -769,36 +767,13 @@ function loadContent(html, modulePath) {
     });
 
     window.loadContent = loadContent;
-    
-async function saveTestResultToDB(testId, testStats) {
-  // testStats: { correct: number, incorrect: number }
-  
-  // Обновляем локально:
-  window.userStats.testsResults[testId] = testStats;
-
-  // Обновляем счётчики в userStats
-  // Например, если тест ранее не был засчитан, увеличиваем completed:
-  const prevTest = window.completedItems.has(testId);
-  if (!prevTest) {
-    window.completedItems.add(testId);
-    if (testId.startsWith('final')) {
-      window.userStats.finalTestsCompleted++;
-    } else {
-      window.userStats.testsCompleted++;
-    }
-  }
-
-  // Сохраняем в Firestore (предполагается, что userId известен):
-  const userId = getTelegramUserId();
-  await saveUserDataToServer(userId);
-}
 
     /**
  * Универсальная функция проверки теста
  * @param {Object} answers 
  * @param {string} feedbackId 
  */
-async function checkTest(answers, feedbackId) {
+function checkTest(answers, feedbackId) {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -838,7 +813,21 @@ async function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
-    await saveTestResultToDB(testId, { correct: correctCount, incorrect: incorrectCount });
+
+    // после подсчёта score и total
+    const incorrect = total - score;
+    const testId = feedbackId.replace('-feedback', '');
+
+    window.userStats.testResults[testId] = {
+    correct: score,
+    incorrect: incorrect
+    };
+
+    // сохранить изменения в Firestore
+    if (window.userId) {
+    saveUserDataToServer(window.userId);
+    }
+
 };
 
 window.checkTest1 = function () {
@@ -900,7 +889,7 @@ window.checkTest1_2 = function () {
         q9: 'cucumber',                 
         q10: 'eat' 
     };
-    checkTest(answers, 'test1-feedback');
+    checkTest(answers, 'test12-feedback');
 };
 window.checkTest2_2 = function () {
     const answers = {
@@ -915,7 +904,7 @@ window.checkTest2_2 = function () {
         q9: "He hasn't got a brother.",                      
         q10: 'tea and coffee'
     };
-    checkTest(answers, 'test2-feedback');
+    checkTest(answers, 'test22-feedback');
 };
 window.checkTest3_2 = function () {
     const answers = {
@@ -930,7 +919,7 @@ window.checkTest3_2 = function () {
         q9: 'september',         
         q10: 'fireworks'
     };
-    checkTest(answers, 'test3-feedback');
+    checkTest(answers, 'test32-feedback');
 };
             
 window.checkTest1_3 = function () {
@@ -946,7 +935,7 @@ window.checkTest1_3 = function () {
         q9: 'Do you eat meat?',         
         q10: 'Does'
     };
-    checkTest(answers, 'test3-feedback');
+    checkTest(answers, 'test13-feedback');
 };       
 
 window.checkTest2_3 = function () {
@@ -962,7 +951,7 @@ window.checkTest2_3 = function () {
         q9: 'singing',         
         q10: 'than' 
     };
-    checkTest(answers, 'test3-feedback');
+    checkTest(answers, 'test23-feedback');
 };  
 
 window.checkTest3_3 = function () {
@@ -978,7 +967,7 @@ window.checkTest3_3 = function () {
         q9: 'Table',         
         q10: 'Cozy'
     };
-    checkTest(answers, 'test3-feedback');
+    checkTest(answers, 'test33-feedback');
 };  
 
 /**
@@ -986,7 +975,7 @@ window.checkTest3_3 = function () {
  * @param {Object} answers1 
  * @param {string} feedbackId1 
  */
-async function checkFinalTestGeneric(answers1, feedbackId1) {
+function checkFinalTestGeneric(answers1, feedbackId1) {
     let score = 0;
     const total = Object.keys(answers1).length;
 
@@ -1022,7 +1011,21 @@ async function checkFinalTestGeneric(answers1, feedbackId1) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
-    await saveTestResultToDB(testId, { correct: correctCount, incorrect: incorrectCount });
+
+    // после подсчёта score и total
+    const incorrect = total - score;
+    const testId = feedbackId.replace('-feedback', '');
+
+    window.userStats.testResults[testId] = {
+    correct: score,
+    incorrect: incorrect
+    };
+
+    // сохранить изменения в Firestore
+    if (window.userId) {
+    saveUserDataToServer(window.userId);
+    }
+
 }
 
 window.checkFinalTest = function () {
@@ -2231,7 +2234,7 @@ window.initShoppingCartGame = function () {
         document.getElementById('stats-modal').classList.add('hidden');
         // 2) Показываем главный экран с модулями
         mainButtons.classList.remove('hidden');
-        // 3) все возможные экраны уроков/тестов/меню модулей скрываем
+        // 3) А все возможные экраны уроков/тестов/меню модулей скрываем
         moduleMenus.forEach(m => m.classList.add('hidden'));
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.add('hidden');
@@ -2240,27 +2243,51 @@ window.initShoppingCartGame = function () {
     
 
     function showStats() {
-    const { lessonsCompleted, testsCompleted, finalTestsCompleted, testsResults } = window.userStats;
-    const statsModal = document.getElementById('stats-modal');
-    const statsContent = document.getElementById('stats-content');
+        const statsModal = document.getElementById('stats-modal');
+        const statsContent = document.getElementById('stats-content');
 
-    let resultsHtml = '';
-    for (const testId in testsResults) {
-        const { correct, incorrect } = testsResults[testId];
-        resultsHtml += `<p>${testId}: Правильных - ${correct}, Неправильных - ${incorrect}</p>`;
-    }
+        const lessonsCompleted = window.userStats.lessonsCompleted || 0;
+        const testsCompleted = window.userStats.testsCompleted || 0;
+        const finalTestsCompleted = window.userStats.finalTestsCompleted || 0;
+        const testResults = window.userStats.testResults || {};
 
-    statsContent.innerHTML = `
-        <h3>Моя статистика</h3>
-        <p>Уроков завершено: ${lessonsCompleted} / 30</p>
-        <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
-        <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
-        <h4>Детали тестов:</h4>
-        ${resultsHtml}
-    `;
+        let statsHtml = `
+            <h3>Моя статистика</h3>
+            <p>Уроков завершено: ${lessonsCompleted} / 30</p>
+            <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
+            <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+        `;
 
-    statsModal.classList.remove('hidden');
-}
+        const sortedTests = Object.keys(testResults).sort();
+
+        if (sortedTests.length > 0) {
+            statsHtml += `<h4>Результаты тестов:</h4><ul>`;
+            sortedTests.forEach(testId => {
+            const res = testResults[testId];
+            statsHtml += `<li>${formatTestName(testId)}: правильных — ${res.correct}, неправильных — ${res.incorrect}</li>`;
+            });
+            statsHtml += `</ul>`;
+        } else {
+            statsHtml += `<p>Пока нет результатов тестов.</p>`;
+        }
+
+        statsContent.innerHTML = statsHtml;
+        statsModal.style.display = 'block';
+        }
+
+        // Вспомогательная функция для отображения красивых названий тестов
+        function formatTestName(testId) {
+        if (testId.startsWith("test")) {
+            const num = testId.match(/\d+/);
+            return `Промежуточный тест ${num ? num[0] : ''}`;
+        } else if (testId.startsWith("finaltest")) {
+            const num = testId.match(/\d+/);
+            return `Итоговый тест ${num ? num[0] : ''}`;
+        } else {
+            return testId;
+        }
+        }
+
     unlockItemsByStats();
     restoreUnlockedItems();
     

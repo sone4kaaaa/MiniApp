@@ -1,285 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 10: Школа</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #117ca3; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #fff; /
-        }
-
-        .section {
-            background-color: rgba(255, 255, 255, 0.9); 
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333; 
-        }
-
-        /* Таблицы (если нужны) */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для кнопок "submit-btn" */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода, select и feedback */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback, .matching-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-        .finish-btn {
-            margin-top: 20px;
-            width: 100%;
-            background-color: #17a2b8;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block; /* Видна сразу */
-        }
-        .finish-btn:hover {
-            background-color: #117a8b;
-        }
-        /* Кнопка "Next Lesson" (если требуется) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-        .feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Урок 10: Школа</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="lesson-container">
-        <h2>Урок 10: Школа</h2>
-        <button class="back-button"
-                onclick="
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    document.getElementById('lesson-details').innerHTML = '';
-                    document.getElementById('app-header').classList.remove('hidden');
-                    document.getElementById('module3-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
-<div class="section">
-    <img src="https://i.pinimg.com/originals/b0/56/21/b0562143d697c41c98fce5a856d5aefd.png" alt="Школа" style="width:250px; margin-bottom:10px;">
-</div>
-<div class="section">
-    <h3>Словарик по теме "Школа"</h3>
-    <p><strong style="color:#007bff;">school</strong> [<i>skuːl</i>] — <span style="color:#117a8b;"><strong>школа</strong></span></p>
-    <p><strong style="color:#007bff;">backpack</strong> [<i>‘bækpæk</i>] — <span style="color:#117a8b;"><strong>рюкзак</strong></span></p>
-    <p><strong style="color:#007bff;">blackboard</strong> [<i>‘blækbɔːd</i>] — <span style="color:#117a8b;"><strong>доска</strong></span></p>
-    <p><strong style="color:#007bff;">chair</strong> [<i>ʧeə</i>] — <span style="color:#117a8b;"><strong>стул</strong></span></p>
-    <p><strong style="color:#007bff;">chalk</strong> [<i>ʧɔːk</i>] — <span style="color:#117a8b;"><strong>мел</strong></span></p>
-    <p><strong style="color:#007bff;">classroom</strong> [<i>‘klɑːsrum</i>] — <span style="color:#117a8b;"><strong>класс</strong></span></p>
-    <p><strong style="color:#007bff;">clock</strong> [<i>klɔk</i>] — <span style="color:#117a8b;"><strong>часы</strong></span></p>
-    <p><strong style="color:#007bff;">desk</strong> [<i>desk</i>] — <span style="color:#117a8b;"><strong>парта</strong></span></p>
-    <p><strong style="color:#007bff;">eraser</strong> [<i>ɪ’reɪzə</i>] — <span style="color:#117a8b;"><strong>ластик</strong></span></p>
-    <p><strong style="color:#007bff;">glue</strong> [<i>gluː</i>] — <span style="color:#117a8b;"><strong>клей</strong></span></p>
-    <p><strong style="color:#007bff;">locker</strong> [<i>‘lɔkə</i>] — <span style="color:#117a8b;"><strong>шкафчик</strong></span></p>
-    <p><strong style="color:#007bff;">marker</strong> [<i>‘mɑːkə</i>] — <span style="color:#117a8b;"><strong>маркер</strong></span></p>
-    <p><strong style="color:#007bff;">pen</strong> [<i>pen</i>] — <span style="color:#117a8b;"><strong>ручка</strong></span></p>
-    <p><strong style="color:#007bff;">pencil</strong> [<i>‘pen(t)s(ə)l</i>] — <span style="color:#117a8b;"><strong>карандаш</strong></span></p>
-    <p><strong style="color:#007bff;">pencil case</strong> [<i>‘pen(t)s(ə)lˌkeɪs</i>] — <span style="color:#117a8b;"><strong>пенал</strong></span></p>
-    <p><strong style="color:#007bff;">sharpener</strong> [<i>ʃɑːp(ə)nə</i>] — <span style="color:#117a8b;"><strong>точилка</strong></span></p>
-    <p><strong style="color:#007bff;">ruler</strong> [<i>‘ruːlə</i>] — <span style="color:#117a8b;"><strong>линейка</strong></span></p>
-    <p><strong style="color:#007bff;">globe</strong> [<i>ɡləʊb</i>] — <span style="color:#117a8b;"><strong>глобус</strong></span></p>
-    <p><strong style="color:#007bff;">map</strong> [<i>mæp</i>] — <span style="color:#117a8b;"><strong>карта</strong></span></p>
-    <p><strong style="color:#007bff;">scissors</strong> [<i>‘sɪzəz</i>] — <span style="color:#117a8b;"><strong>ножницы</strong></span></p>
-    <p><strong style="color:#007bff;">tape</strong> [<i>teɪp</i>] — <span style="color:#117a8b;"><strong>клейкая лента</strong></span></p>
-    <p><strong style="color:#007bff;">textbook</strong> [<i>‘tekstbuk</i>] — <span style="color:#117a8b;"><strong>учебник</strong></span></p>
-    <p><strong style="color:#007bff;">notebook</strong> [<i>‘nəutbuk</i>] — <span style="color:#117a8b;"><strong>тетрадь</strong></span></p>
-    <p><strong style="color:#007bff;">paper</strong> [<i>ˈpeɪpə</i>] — <span style="color:#117a8b;"><strong>бумага</strong></span></p>
-    <p style="margin-top: 15px;"><strong style="color:#d37726;">Повторим цвета и составим примеры предложений:</strong></p>
-    <ul style="color: #333; font-weight: bold;">
-        <li style="color: red;">I have got a red pen.</li>
-        <li style="color: green;">I have got a green ruler.</li>
-        <li style="color: orange;">I have got an orange pencil case.</li>
-        <li style="color: purple;">I have got a purple notebook.</li>
-    </ul>
-</div>
+  <div class="lesson-container module-3 lesson-10">
+    <h2>Урок 10: Школа</h2>
 
-<div class="section">
-    <h3>Предметы и школьная жизнь</h3>
-        <p><strong style="color:#8e2de2;">lesson</strong> — <span style="color:#333;"><strong>урок</strong></span></p>
-    <p><strong style="color:#8e2de2;">bell</strong> — <span style="color:#333;"><strong>звонок</strong></span></p>
-    <p><strong style="color:#8e2de2;">break</strong> — <span style="color:#333;"><strong>перемена</strong></span></p>
-    <p><strong style="color:#8e2de2;">mathematics</strong> — <span style="color:#333;"><strong>математика</strong></span></p>
-    <p><strong style="color:#8e2de2;">drawing</strong> — <span style="color:#333;"><strong>рисование</strong></span></p>
-    <p><strong style="color:#8e2de2;">education</strong> — <span style="color:#333;"><strong>образование</strong></span></p>
-    <p><strong style="color:#8e2de2;">curriculum</strong> — <span style="color:#333;"><strong>учебный план</strong></span></p>
-    <p><strong style="color:#8e2de2;">examination</strong> — <span style="color:#333;"><strong>экзамен</strong></span></p>
-    <p><strong style="color:#8e2de2;">exam</strong> — <span style="color:#333;"><strong>экзамен</strong></span></p>
-    <p><strong style="color:#8e2de2;">test</strong> — <span style="color:#333;"><strong>контрольная работа</strong></span></p>
-    <p><strong style="color:#8e2de2;">mark</strong> — <span style="color:#333;"><strong>оценка</strong></span></p>
-    <p><strong style="color:#8e2de2;">semester</strong> — <span style="color:#333;"><strong>семестр</strong></span></p>
-    <p><strong style="color:#8e2de2;">timetable</strong> — <span style="color:#333;"><strong>расписание</strong></span></p>
-    <p><strong style="color:#8e2de2;">holiday</strong> — <span style="color:#333;"><strong>каникулы</strong></span></p>
+    <div class="section">
+      <img src="https://i.pinimg.com/originals/b0/56/21/b0562143d697c41c98fce5a856d5aefd.png" alt="Школа" class="lesson-container module-3 lesson-10 image-main">
+    </div>
 
-    <p style="margin-top: 15px;"> Примеры: </p>
-    <ul style="font-weight: bold;">
-        <li style="color: #e65100;">I have got a test today.</li>
-        <li style="color: #2e7d32;">We have a break after the second lesson.</li>
-        <li style="color: #1e88e5;">Mathematics is interesting!</li>
-    </ul>
-</div>
+    <div class="section">
+      <h3>Словарик по теме "Школа"</h3>
 
-<div class="section">
-    <h3>Кто есть кто в школе</h3>
-    <p><strong style="color:#4a00e0;">teacher</strong> — <span style="color:#333;"><strong>учитель</strong></span></p>
-    <p><strong style="color:#4a00e0;">headmaster</strong> — <span style="color:#333;"><strong>директор школы</strong></span></p>
-    <p><strong style="color:#4a00e0;">pupil</strong> — <span style="color:#333;"><strong>ученик</strong></span></p>
-    <p><strong style="color:#4a00e0;">student</strong> — <span style="color:#333;"><strong>студент</strong></span></p>
+      <p><strong class="word-blue">school</strong> [<i>skuːl</i>] — <span class="word-ru">школа</span></p>
+      <p><strong class="word-blue">backpack</strong> [<i>‘bækpæk</i>] — <span class="word-ru">рюкзак</span></p>
+      <p><strong class="word-blue">blackboard</strong> [<i>‘blækbɔːd</i>] — <span class="word-ru">доска</span></p>
+      <p><strong class="word-blue">chair</strong> [<i>ʧeə</i>] — <span class="word-ru">стул</span></p>
+      <p><strong class="word-blue">chalk</strong> [<i>ʧɔːk</i>] — <span class="word-ru">мел</span></p>
+      <p><strong class="word-blue">classroom</strong> [<i>‘klɑːsrum</i>] — <span class="word-ru">класс</span></p>
+      <p><strong class="word-blue">clock</strong> [<i>klɔk</i>] — <span class="word-ru">часы</span></p>
+      <p><strong class="word-blue">desk</strong> [<i>desk</i>] — <span class="word-ru">парта</span></p>
+      <p><strong class="word-blue">eraser</strong> [<i>ɪ’reɪzə</i>] — <span class="word-ru">ластик</span></p>
+      <p><strong class="word-blue">glue</strong> [<i>gluː</i>] — <span class="word-ru">клей</span></p>
+      <p><strong class="word-blue">locker</strong> [<i>‘lɔkə</i>] — <span class="word-ru">шкафчик</span></p>
+      <p><strong class="word-blue">marker</strong> [<i>‘mɑːkə</i>] — <span class="word-ru">маркер</span></p>
+      <p><strong class="word-blue">pen</strong> [<i>pen</i>] — <span class="word-ru">ручка</span></p>
+      <p><strong class="word-blue">pencil</strong> [<i>‘pen(t)s(ə)l</i>] — <span class="word-ru">карандаш</span></p>
+      <p><strong class="word-blue">pencil case</strong> [<i>‘pen(t)s(ə)lˌkeɪs</i>] — <span class="word-ru">пенал</span></p>
+      <p><strong class="word-blue">sharpener</strong> [<i>ʃɑːp(ə)nə</i>] — <span class="word-ru">точилка</span></p>
+      <p><strong class="word-blue">ruler</strong> [<i>‘ruːlə</i>] — <span class="word-ru">линейка</span></p>
+      <p><strong class="word-blue">globe</strong> [<i>ɡləʊb</i>] — <span class="word-ru">глобус</span></p>
+      <p><strong class="word-blue">map</strong> [<i>mæp</i>] — <span class="word-ru">карта</span></p>
+      <p><strong class="word-blue">scissors</strong> [<i>‘sɪzəz</i>] — <span class="word-ru">ножницы</span></p>
+      <p><strong class="word-blue">tape</strong> [<i>teɪp</i>] — <span class="word-ru">клейкая лента</span></p>
+      <p><strong class="word-blue">textbook</strong> [<i>‘tekstbuk</i>] — <span class="word-ru">учебник</span></p>
+      <p><strong class="word-blue">notebook</strong> [<i>‘nəutbuk</i>] — <span class="word-ru">тетрадь</span></p>
+      <p><strong class="word-blue">paper</strong> [<i>ˈpeɪpə</i>] — <span class="word-ru">бумага</span></p>
 
-    <p style="margin-top: 15px;">Примеры:</p>
-    <ul>
-        <li style="color: #009688;"><strong>My teacher</strong> is kind.</li>
-        <li style="color: #c2185b;"><strong>The headmaster</strong> is in his office.</li>
-    </ul>
-</div>
+      <p class="lesson-container module-3 lesson-10 vocab-intro">Повторим цвета и составим примеры предложений:</p>
+      <ul class="vocab-list-colored">
+        <li class="red">I have got a red pen.</li>
+        <li class="green">I have got a green ruler.</li>
+        <li class="orange">I have got an orange pencil case.</li>
+        <li class="purple">I have got a purple notebook.</li>
+      </ul>
+    </div>
 
-<div class="section">
-    <h3>Задание: Переведи на английский язык</h3>
-    <div class="quiz-question">
+    <div class="section">
+      <h3>Предметы и школьная жизнь</h3>
+      <p><strong class="word-purple">lesson</strong> — <span class="word-gray">урок</span></p>
+      <p><strong class="word-purple">bell</strong> — <span class="word-gray">звонок</span></p>
+      <p><strong class="word-purple">break</strong> — <span class="word-gray">перемена</span></p>
+      <p><strong class="word-purple">mathematics</strong> — <span class="word-gray">математика</span></p>
+      <p><strong class="word-purple">drawing</strong> — <span class="word-gray">рисование</span></p>
+      <p><strong class="word-purple">education</strong> — <span class="word-gray">образование</span></p>
+      <p><strong class="word-purple">curriculum</strong> — <span class="word-gray">учебный план</span></p>
+      <p><strong class="word-purple">examination</strong> — <span class="word-gray">экзамен</span></p>
+      <p><strong class="word-purple">exam</strong> — <span class="word-gray">экзамен</span></p>
+      <p><strong class="word-purple">test</strong> — <span class="word-gray">контрольная работа</span></p>
+      <p><strong class="word-purple">mark</strong> — <span class="word-gray">оценка</span></p>
+      <p><strong class="word-purple">semester</strong> — <span class="word-gray">семестр</span></p>
+      <p><strong class="word-purple">timetable</strong> — <span class="word-gray">расписание</span></p>
+      <p><strong class="word-purple">holiday</strong> — <span class="word-gray">каникулы</span></p>
+
+      <p class="lesson-container module-3 lesson-10 vocab-intro">Примеры:</p>
+      <ul class="examples-list">
+        <li class="orange-dark">I have got a test today.</li>
+        <li class="green-dark">We have a break after the second lesson.</li>
+        <li class="blue-dark">Mathematics is interesting!</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Кто есть кто в школе</h3>
+      <p><strong class="word-indigo">teacher</strong> — <span class="word-gray">учитель</span></p>
+      <p><strong class="word-indigo">headmaster</strong> — <span class="word-gray">директор школы</span></p>
+      <p><strong class="word-indigo">pupil</strong> — <span class="word-gray">ученик</span></p>
+      <p><strong class="word-indigo">student</strong> — <span class="word-gray">студент</span></p>
+
+      <p class="lesson-container module-3 lesson-10 vocab-intro">Примеры:</p>
+      <ul>
+        <li class="teal"><strong>My teacher</strong> is kind.</li>
+        <li class="pink"><strong>The headmaster</strong> is in his office.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Задание: Переведи на английский язык</h3>
+      <div class="quiz-question">
         <label for="q1"><strong>1. У меня есть синий рюкзак.</strong></label>
-        <input type="text" id="q1" style="width: 185px;">
-    </div>
-    <div class="quiz-question">
+        <input type="text" id="q1" class="quiz-input">
+      </div>
+      <div class="quiz-question">
         <label for="q2"><strong>2. Учитель в классе.</strong></label>
-        <input type="text" id="q2" style="width: 185px;">
-    </div>
-    <div class="quiz-question">
+        <input type="text" id="q2" class="quiz-input">
+      </div>
+      <div class="quiz-question">
         <label for="q3"><strong>3. У меня есть красная линейка.</strong></label>
-        <input type="text" id="q3" style="width: 185px;">
+        <input type="text" id="q3" class="quiz-input">
+      </div>
+      <button class="submit-btn" onclick="checkQuiz3_10()">Проверить</button>
+      <div class="feedback" id="quiz-feedback"></div>
     </div>
-    <button class="submit-btn" onclick="checkQuiz3_10()">Проверить</button>
-    <div class="feedback" id="quiz-feedback"></div>
-</div>
-    </div>
+  </div>
 </body>
 </html>

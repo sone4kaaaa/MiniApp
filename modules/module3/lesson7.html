@@ -1,264 +1,101 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ru">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 7: Сравнительная степень</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #c92e2e; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #fff; 
-        }
-
-        .section {
-            background-color: rgba(255, 255, 255, 0.9); 
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333; 
-        }
-
-        /* Таблицы (если нужны) */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для кнопок "submit-btn" */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода, select и feedback */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #d4edda;
-            color: #155724;
-            display: none;
-        }
-        .finish-btn {
-            margin-top: 20px;
-            width: 100%;
-            background-color: #17a2b8;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block; /* Видна сразу */
-        }
-        .finish-btn:hover {
-            background-color: #117a8b;
-        }
-        /* Кнопка "Next Lesson" (если требуется) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-3 lesson-7">
         <h2>Урок 7: Сравнительная степень</h2>
-        <button class="back-button"
-                onclick="
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    document.getElementById('lesson-details').innerHTML = '';
-                    document.getElementById('app-header').classList.remove('hidden');
-                    document.getElementById('module3-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
+
         <div class="section">
-    <h3 style="color: #e53935;">1. Что такое сравнительная степень?</h3>
-    <p><strong style="color: #1a73e8;">Сравнительная степень</strong> — это форма прилагательного, с помощью которой мы сравниваем <span style="color: #d81b60;">два или более предмета</span>.</p>
-    <p style="background-color: #fce4ec; padding: 10px; border-radius: 5px;">
-        <strong>Примеры:</strong><br>
-        My brother is <span style="color: #388e3c; font-weight: bold;">taller</span> than me. <br>
-        This table is <span style="color: #388e3c; font-weight: bold;">more beautiful</span> than that table.
-    </p>
-</div>
+            <h3 class="title-red">1. Что такое сравнительная степень?</h3>
+            <p><strong class="blue">Сравнительная степень</strong> — это форма прилагательного, с помощью которой мы сравниваем <span class="pink">два или более предмета</span>.</p>
+            <p class="example-box pink-bg">
+                <strong>Примеры:</strong><br>
+                My brother is <span class="green bold">taller</span> than me. <br>
+                This table is <span class="green bold">more beautiful</span> than that table.
+            </p>
+        </div>
 
-<div class="section">
-    <h3 style="color: #fb8c00;">2. Как строится сравнительная степень?</h3>
-    <ol style="color: #333;">
-        <li><span style="color: #6a1b9a;"><strong>Сначала</strong></span> выбираем предмет:
-            <br><em style="color: #1565c0;">My mother...</em> / <em style="color: #1565c0;">You...</em>
-        </li>
-        <li><span style="color: #6a1b9a;"><strong>Потом</strong></span> добавляем глагол to be:
-            <br><em style="color: #1565c0;">My mother is...</em> / <em style="color: #1565c0;">You are...</em>
-        </li>
-        <li><span style="color: #6a1b9a;"><strong>Затем</strong></span> прилагательное:
-            <br><em style="color: #388e3c;">more interesting</em>, <em style="color: #388e3c;">smarter</em>
-        </li>
-        <li><span style="color: #6a1b9a;"><strong>И наконец</strong></span> — с чем сравниваем:
-            <br>используем союз <strong style="color: #e91e63;">than</strong> — "чем"
-        </li>
-    </ol>
+        <div class="section">
+            <h3 class="title-orange">2. Как строится сравнительная степень?</h3>
+            <ol class="text-default">
+                <li><span class="purple"><strong>Сначала</strong></span> выбираем предмет:
+                    <br><em class="blue-dark">My mother...</em> / <em class="blue-dark">You...</em>
+                </li>
+                <li><span class="purple"><strong>Потом</strong></span> добавляем глагол to be:
+                    <br><em class="blue-dark">My mother is...</em> / <em class="blue-dark">You are...</em>
+                </li>
+                <li><span class="purple"><strong>Затем</strong></span> прилагательное:
+                    <br><em class="green">more interesting</em>, <em class="green">smarter</em>
+                </li>
+                <li><span class="purple"><strong>И наконец</strong></span> — с чем сравниваем:
+                    <br>используем союз <strong class="pink">than</strong> — "чем"
+                </li>
+            </ol>
 
-    <p style="background-color: #fff3e0; padding: 10px; border-radius: 5px;">
-        <strong>Примеры:</strong><br>
-        My mother is <span style="color: #388e3c;">more interesting</span> than my father.<br>
-        You are <span style="color: #388e3c;">smarter</span> than my sister.
-    </p>
-</div>
+            <p class="example-box orange-bg">
+                <strong>Примеры:</strong><br>
+                My mother is <span class="green">more interesting</span> than my father.<br>
+                You are <span class="green">smarter</span> than my sister.
+            </p>
+        </div>
 
-<div class="section">
-    <h3 style="color: #43a047;">3. Прилагательные в сравнительной степени</h3>
-    <h4 style="color: #00796b;">Краткие прилагательные (1–2 слога)</h4>
-    <p>Добавляем <strong>-er</strong> к прилагательному:</p>
-    <ul>
-        <li><span style="color: #e53935;">Tall</span> → <strong style="color: #2e7d32;">Taller</strong></li>
-        <li><span style="color: #e53935;">Small</span> → <strong style="color: #2e7d32;">Smaller</strong></li>
-    </ul>
-    <p><strong>Исключения:</strong></p>
-    <ul>
-        <li><strong style="color: #6d4c41;">Big</strong> → Bigger</li>
-        <li><strong style="color: #6d4c41;">Happy</strong> → Happier</li>
-        <li><strong style="color: #6d4c41;">Bad</strong> → Worse</li>
-        <li><strong style="color: #6d4c41;">Good</strong> → Better</li>
-    </ul>
+        <div class="section">
+            <h3 class="title-green">3. Прилагательные в сравнительной степени</h3>
+            <h4 class="teal">Краткие прилагательные (1–2 слога)</h4>
+            <p>Добавляем <strong>-er</strong> к прилагательному:</p>
+            <ul>
+                <li><span class="red">Tall</span> → <strong class="green-dark">Taller</strong></li>
+                <li><span class="red">Small</span> → <strong class="green-dark">Smaller</strong></li>
+            </ul>
+            <p><strong>Исключения:</strong></p>
+            <ul>
+                <li><strong class="brown">Big</strong> → Bigger</li>
+                <li><strong class="brown">Happy</strong> → Happier</li>
+                <li><strong class="brown">Bad</strong> → Worse</li>
+                <li><strong class="brown">Good</strong> → Better</li>
+            </ul>
 
-    <h4 style="color: #00796b;">Длинные прилагательные (3+ слога)</h4>
-    <p>Добавляем слово <strong style="color: #1565c0;">more</strong> перед прилагательным:</p>
-    <ul>
-        <li><strong>More expensive</strong> – более дорогой</li>
-        <li><strong>More difficult</strong> – труднее</li>
-    </ul>
-</div>
+            <h4 class="teal">Длинные прилагательные (3+ слога)</h4>
+            <p>Добавляем слово <strong class="blue-dark">more</strong> перед прилагательным:</p>
+            <ul>
+                <li><strong>More expensive</strong> – более дорогой</li>
+                <li><strong>More difficult</strong> – труднее</li>
+            </ul>
+        </div>
 
-<div class="section">
-    <h3 style="color: #8e24aa;">4. Отрицательные предложения</h3>
-    <p>Добавляем <strong>not</strong> к глаголу to be:</p>
-    <p style="background-color: #e8f5e9; padding: 10px; border-radius: 5px;">
-        This computer is <strong style="color: #d32f2f;">not</strong> better than that one.<br>
-        I am <strong style="color: #d32f2f;">not</strong> more interesting than she is.
-    </p>
-</div>
+        <div class="section">
+            <h3 class="purple-light">4. Отрицательные предложения</h3>
+            <p>Добавляем <strong>not</strong> к глаголу to be:</p>
+            <p class="example-box green-bg">
+                This computer is <strong class="red-dark">not</strong> better than that one.<br>
+                I am <strong class="red-dark">not</strong> more interesting than she is.
+            </p>
+        </div>
 
-<div class="section">
-    <h3 style="color: #0288d1;">5. Вопросительные предложения</h3>
-    <p>Выносим глагол to be в начало:</p>
-    <p style="background-color: #ede7f6; padding: 10px; border-radius: 5px;">
-        Is the chair <strong style="color: #5e35b1;">bigger</strong> than the sofa?<br>
-        Are you <strong style="color: #5e35b1;">taller</strong> than your dad?
-    </p>
-</div>
+        <div class="section">
+            <h3 class="blue-light">5. Вопросительные предложения</h3>
+            <p>Выносим глагол to be в начало:</p>
+            <p class="example-box purple-bg">
+                Is the chair <strong class="purple-dark">bigger</strong> than the sofa?<br>
+                Are you <strong class="purple-dark">taller</strong> than your dad?
+            </p>
+        </div>
 
-<div class="section">
-    <h3 style="color: #f4511e;">Итог</h3>
-    <ul>
-        <li><strong style="color: #2e7d32;">-er</strong> для коротких прилагательных</li>
-        <li><strong style="color: #1565c0;">more</strong> для длинных</li>
-        <li><strong style="color: #d81b60;">than</strong> — всегда для сравнения</li>
-        <li><strong style="color: #8e24aa;">not</strong> — для отрицания</li>
-        <li><strong style="color: #f9a825;">Is/Are</strong> — впереди в вопросе</li>
-    </ul>
-</div>
-
-        
+        <div class="section">
+            <h3 class="orange-dark">Итог</h3>
+            <ul>
+                <li><strong class="green-dark">-er</strong> для коротких прилагательных</li>
+                <li><strong class="blue-dark">more</strong> для длинных</li>
+                <li><strong class="pink">than</strong> — всегда для сравнения</li>
+                <li><strong class="purple-light">not</strong> — для отрицания</li>
+                <li><strong class="yellow">Is/Are</strong> — впереди в вопросе</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

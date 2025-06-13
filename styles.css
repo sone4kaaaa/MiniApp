@@ -690,13 +690,49 @@ li.dark-yellow { color: #B8860B; }
 .lesson-container.module-1.lesson-6 h2 {
     color: #3d0d46;
 }
-.matching-game.module-1.lesson-6 {
+.lesson-container.module-1.lesson-6 .matching-game {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 30px;
     margin-top: 10px;
     margin-right: 20px;
 }
+.lesson-container.module-1.lesson-7 {
+    background-color: #89e66f;
+}
+
+.lesson-container.module-1.lesson-7 h2 {
+    color: #1e6a05;
+}
+
+.lesson-container.module-1.lesson-7 .memory-game-section {
+    padding-left: 80px;
+}
+
+.lesson-container.module-1.lesson-7 .memory-game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 8px;
+    justify-content: center;
+}
+
+.lesson-container.module-1.lesson-7 .memory-result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+}
+
+.lesson-container.module-1.lesson-7 .check-matching-btn {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 
 .card.module-1.lesson-6 {
     background-color: #ffe4c4;

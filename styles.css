@@ -587,6 +587,83 @@ th {
     border: 1px solid #ccc;
     margin-left: 10px;
 }
+
+/* Уникальные стили урока 4 */
+
+.lesson-container.module-1.lesson-4 {
+    background-color: #5ccfba;
+}
+
+.lesson-container.module-1.lesson-4 h2 {
+    color: #184941;
+}
+
+.radio-group {
+    margin-left: 20px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+.drag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.draggable {
+    padding: 8px 12px;
+    background-color: #ffc107;
+    border-radius: 8px;
+    cursor: move;
+    user-select: none;
+}
+
+.drop-zone {
+    flex: 1 1 100%;
+    min-height: 50px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+
+.drop-zone.dragover {
+    border-color: #28a745;
+}
+
+/* Цвета для списков li */
+
+li.black { color: black; }
+li.gray { color: gray; }
+li.red { color: red; }
+li.orange { color: orange; }
+li.brown { color: brown; }
+li.yellow { color: #FFD700; }
+li.green { color: green; }
+li.blue { color: blue; }
+li.purple { color: purple; }
+li.pink { color: pink; }
+
+/* Сложные цвета */
+
+li.red-orange { color: #FF4500; }
+li.blue-purple { color: #6A5ACD; }
+
+/* Светлые оттенки */
+
+li.light-green { color: #90EE90; }
+li.light-yellow { color: #f4f46e; }
+li.light-blue { color: #ADD8E6; }
+
+/* Темные оттенки */
+
+li.dark-red { color: #8B0000; }
+li.dark-yellow { color: #B8860B; }
+
+
 /* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;

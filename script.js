@@ -886,7 +886,7 @@ function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
-}
+};
 
 window.checkTest1 = function () {
     const answers = {

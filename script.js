@@ -627,43 +627,78 @@ document.addEventListener('DOMContentLoaded', async () => {
             lessonDetails.appendChild(nextBtn);
         }
     }
+    
+    function createBackButton(modulePath) {
+    const button = document.createElement("button");
+    button.className = "back-button";
+    button.innerHTML = `
+        <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+        Назад
+    `;
+
+    button.onclick = function () {
+        // Скрыть контент урока и восстановить интерфейс
+        document.getElementById('lesson-content')?.classList.add('hidden');
+        document.getElementById('lesson-details').innerHTML = '';
+        document.getElementById('app-header')?.classList.remove('hidden');
+
+        // Скрыть все модули
+        ['module1-list', 'module2-list', 'module3-list'].forEach(id => {
+            document.getElementById(id)?.classList.add('hidden');
+        });
+
+        // Показать нужный модуль на основе пути
+        if (modulePath.includes('module1')) {
+            document.getElementById('module1-list')?.classList.remove('hidden');
+        } else if (modulePath.includes('module2')) {
+            document.getElementById('module2-list')?.classList.remove('hidden');
+        } else if (modulePath.includes('module3')) {
+            document.getElementById('module3-list')?.classList.remove('hidden');
+        }
+    };
+
+    return button;
+}
 
     // --- Загрузка контента (урок или тест) ---
-    function loadContent(html, modulePath) {
-        lessonDetails.innerHTML = html;
-        mainButtons.classList.add('hidden');
-        moduleMenus.forEach(m => m.classList.add('hidden'));
-        lessonsListContainers.forEach(c => c.classList.add('hidden'));
-        lessonContent.classList.remove('hidden');
-        appHeader.classList.add('hidden');
-        
-        // Определяем, тест это или урок
-        if (html.includes('Тест') || html.includes('Test')) {
-            // Парсим номер (Тест 1, Тест 2...)
-            const re = /Тест\s+(\d+)/i;
-            const match = html.match(re);
-            if (match && match[1]) {
-                const testNum = parseInt(match[1], 10);
-                addNextTestButton(testNum, modulePath);
-            }
-            // Итоговый тест?
-            if (html.includes('Итоговый тест') || html.includes('finaltest.html')) {
-                addFinishButton(modulePath);
-            }
-        } else {
-            // Это урок
-            const re = /Урок\s+(\d+)/i;
-            const match = html.match(re);
-            if (match && match[1]) {
-                const lessonNum = parseInt(match[1], 10);
-                addNextLessonButton(lessonNum, modulePath);
-                // Урок 10 => возможно, инициализация DnD
-                if (lessonNum === 10) {
-                    initializeLesson10();
-                }
+function loadContent(html, modulePath) {
+    lessonDetails.innerHTML = html;
+    mainButtons.classList.add('hidden');
+    moduleMenus.forEach(m => m.classList.add('hidden'));
+    lessonsListContainers.forEach(c => c.classList.add('hidden'));
+    lessonContent.classList.remove('hidden');
+    appHeader.classList.add('hidden');
+
+    const lessonContainer = document.querySelector(".lesson-container");
+    if (lessonContainer) {
+        const backBtn = createBackButton(modulePath); // <-- передаём путь к модулю
+        lessonContainer.prepend(backBtn);
+    }
+
+    // Проверяем тип контента
+    if (html.includes('Тест') || html.includes('Test')) {
+        const re = /Тест\s+(\d+)/i;
+        const match = html.match(re);
+        if (match && match[1]) {
+            const testNum = parseInt(match[1], 10);
+            addNextTestButton(testNum, modulePath);
+        }
+        if (html.includes('Итоговый тест') || html.includes('finaltest.html')) {
+            addFinishButton(modulePath);
+        }
+    } else {
+        const re = /Урок\s+(\d+)/i;
+        const match = html.match(re);
+        if (match && match[1]) {
+            const lessonNum = parseInt(match[1], 10);
+            addNextLessonButton(lessonNum, modulePath);
+            if (lessonNum === 10) {
+                initializeLesson10();
             }
         }
     }
+}
+
 
     // --- Кнопка «Закончить» (итоговый тест) ---
     function addFinishButton(modulePath) {

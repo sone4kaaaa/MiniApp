@@ -835,7 +835,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Делаем loadContent доступной глобально
     window.loadContent = loadContent;
-    /**
+
+    
+/**
  * Универсальная функция проверки теста
  * @param {Object} answers - Объект с правильными ответами: { q1: 'ответ', ... }
  * @param {string} feedbackId - ID контейнера для обратной связи (например, 'test1-feedback')
@@ -884,12 +886,18 @@ function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
-};
+}
 
 window.checkTest1 = function () {
     const answers = {
-        tq1: 'dog', tq2: 'мяч', tq3: '/e/', tq4: 'eight',
-        tq5: 'xylophone', tq6: '/kæt/', tq7: 'zero,one,two,three', tq8: 'hat'
+        tq1: 'dog',
+        tq2: 'мяч',
+        tq3: '/e/',
+        tq4: 'eight',
+        tq5: 'xylophone',
+        tq6: '/kæt/',
+        tq7: 'zero,one,two,three',
+        tq8: 'hat'
     };
     checkTest(answers, 'test-feedback');
 };

@@ -835,22 +835,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Делаем loadContent доступной глобально
     window.loadContent = loadContent;
-
     /**
-     * Функция проверки Теста 1
-     */
-    window.checkTest1 = function() {
-    const answers = {
-        tq1: 'dog',       
-        tq2: 'мяч',             
-        tq3: '/e/',              
-        tq4: 'eight',                   
-        tq5: 'xylophone',             
-        tq6: '/kæt/',             
-        tq7: 'zero,one,two,three',         
-        tq8: 'hat'       
-    };
-
+ * Универсальная функция проверки теста
+ * @param {Object} answers - Объект с правильными ответами: { q1: 'ответ', ... }
+ * @param {string} feedbackId - ID контейнера для обратной связи (например, 'test1-feedback')
+ */
+function checkTest(answers, feedbackId) {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -858,22 +848,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         const input = document.getElementById(key);
         if (!input) continue;
 
-        // Считываем ответ
-        const userAnswer = input.value.trim().toLowerCase();
-        const correctAnswer = answers[key].toLowerCase();
+        let userAnswer = input.value.trim();
 
-        if (userAnswer === correctAnswer) {
-            score++;
-            // Подсветим зелёным
-            input.style.borderColor = '#28a745';
+        // Если элемент select, то берём value без обработки
+        if (input.tagName.toLowerCase() === 'select') {
+            // В select ответы не трогаем
         } else {
-            // Подсветим красным
-            input.style.borderColor = '#dc3545';
+            // Обработка input: нижний регистр и убираем финальную точку/знак
+            userAnswer = userAnswer.toLowerCase().replace(/[.?!]+$/, '');
+        }
+
+        let correctAnswer = answers[key];
+        let compareCorrect = correctAnswer;
+
+        if (input.tagName.toLowerCase() !== 'select') {
+            compareCorrect = correctAnswer.toLowerCase().replace(/[.?!]+$/, '');
+        }
+
+        if (userAnswer === compareCorrect) {
+            score++;
+            input.style.borderColor = '#28a745'; // зелёный
+        } else {
+            input.style.borderColor = '#dc3545'; // красный
         }
     }
 
-    // Отображаем результат
-    const feedback = document.getElementById('test-feedback');
+    const feedback = document.getElementById(feedbackId);
     if (!feedback) return;
 
     feedback.style.display = 'block';
@@ -881,10 +881,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedback.className = 'feedback success';
         feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
     } else {
-        feedback.className = 'feedbackerror';
+        feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
+};
+
+window.checkTest1 = function () {
+    const answers = {
+        tq1: 'dog', tq2: 'мяч', tq3: '/e/', tq4: 'eight',
+        tq5: 'xylophone', tq6: '/kæt/', tq7: 'zero,one,two,three', tq8: 'hat'
     };
+    checkTest(answers, 'test-feedback');
+};
+
 
     /**
      * Функция проверки Теста 2

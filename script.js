@@ -2,9 +2,7 @@ Telegram.WebApp.ready();
 
 let tgUserId = null; 
 
-// Если открыто внутри Telegram WebApp:
 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-    // Пытаемся получить данные initDataUnsafe
     const initData = Telegram.WebApp.initDataUnsafe || {};
     if (initData.user && initData.user.id) {
         tgUserId = String(initData.user.id);
@@ -15,8 +13,6 @@ if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
 } else {
     console.log('Не в Telegram WebApp, возможно в браузере.');
 }
-
-// Фолбек: если tgUserId всё ещё null, возьмём ?user_id=... из URL
 if (!tgUserId) {
     const params = new URLSearchParams(window.location.search);
     tgUserId = params.get('user_id') || 'guest10';
@@ -87,9 +83,7 @@ async function saveUserDataToServer(userId) {
     }
 }
 
-/* ----- ЛОГИКА ПОЛУЧЕНИЯ user_id И СТАРТОВОЙ ЗАГРУЗКИ ----- */
 function getTelegramUserId() {
-    // Пробуем вытащить user_id из query-параметров
     const params = new URLSearchParams(window.location.search);
     return params.get('user_id') || "guest10";
 }
@@ -837,12 +831,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.loadContent = loadContent;
 
 
-/**
- * Универсальная функция проверки теста
- * @param {Object} answers - Объект с правильными ответами: { q1: 'ответ', ... }
- * @param {string} feedbackId - ID контейнера для обратной связи (например, 'test1-feedback')
- */
-function checkTest(answers, feedbackId) {
+window.checkTest = function({ answers, feedbackId }) {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -850,184 +839,50 @@ function checkTest(answers, feedbackId) {
         const input = document.getElementById(key);
         if (!input) continue;
 
-        let userAnswer = input.value.trim();
+        let userAnswer = input.value.trim().toLowerCase().replace(/[.?!]+$/, '');
+        let correctAnswer = answers[key].toLowerCase().replace(/[.?!]+$/, '');
 
-        // Если элемент select, то берём value без обработки
         if (input.tagName.toLowerCase() === 'select') {
-            // В select ответы не трогаем
-        } else {
-            // Обработка input: нижний регистр и убираем финальную точку/знак
-            userAnswer = userAnswer.toLowerCase().replace(/[.?!]+$/, '');
+            userAnswer = input.value;
+            correctAnswer = answers[key];
         }
 
-        let correctAnswer = answers[key];
-        let compareCorrect = correctAnswer;
-
-        if (input.tagName.toLowerCase() !== 'select') {
-            compareCorrect = correctAnswer.toLowerCase().replace(/[.?!]+$/, '');
-        }
-
-        if (userAnswer === compareCorrect) {
+        if (userAnswer === correctAnswer) {
             score++;
-            input.style.borderColor = '#28a745'; // зелёный
+            input.style.borderColor = '#28a745'; 
         } else {
-            input.style.borderColor = '#dc3545'; // красный
+            input.style.borderColor = '#dc3545'; 
         }
     }
 
     const feedback = document.getElementById(feedbackId);
-    if (!feedback) return;
-
-    feedback.style.display = 'block';
-    if (score === total) {
-        feedback.className = 'feedback success';
-        feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-    } else {
-        feedback.className = 'feedback error';
-        feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
+    if (feedback) {
+        feedback.style.display = 'block';
+        if (score === total) {
+            feedback.className = 'feedback success';
+            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
+        } else {
+            feedback.className = 'feedback error';
+            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+        }
     }
 };
 
-window.checkTest1 = function () {
-    const answers = {
-        tq1: 'dog',
-        tq2: 'мяч',
-        tq3: '/e/',
-        tq4: 'eight',
-        tq5: 'xylophone',
-        tq6: '/kæt/',
-        tq7: 'zero,one,two,three',
-        tq8: 'hat'
-    };
-    checkTest(answers, 'test-feedback');
+document.getElementById('check-test1-btn').onclick = function() {
+    checkTest({
+        feedbackId: 'test-feedback',
+        answers: {
+            tq1: 'dog',
+            tq2: 'мяч',
+            tq3: '/e/',
+            tq4: 'eight',
+            tq5: 'xylophone',
+            tq6: '/kæt/',
+            tq7: 'zero,one,two,three',
+            tq8: 'hat'
+        }
+    });
 };
-
-window.checkTest2 = function () {
-    const answers = {
-        q1: 'purple',
-        q2: 'yours',
-        q3: 'us',
-        q4: 'sister',
-        q5: 'an',
-        q6: 'the',
-        q7: 'light blue',
-        q8: 'родители',
-        q9: 'my',
-        q10: 'a'
-    };
-    checkTest(answers, 'test2-feedback');
-};
-
-window.checkTest2 = function () {
-    const answers = {
-        q1: 'am', 
-        q2: 'are',
-        q3: 'cities',
-        q4: 'pets',
-        q5: 'books',
-        q6: 'girls’',
-        q7: 'is',
-        q8: 'good morning',
-        q9: 'horses',
-        q10: "is"
-    };
-    checkTest(answers, 'test3-feedback');
-};
-
-window.checkTest1_2 = function () {
-    const answers = {
-        q1: 'морковь',                   
-        q2: 'banana',                    
-        q3: 'tomato',                  
-        q4: 'apple',                     
-        q5: 'run',                       
-        q6: 'drink tea',                    
-        q7: 'boots',                 
-        q8: 'hat',                      
-        q9: 'cucumber',                 
-        q10: 'eat' 
-    };
-    checkTest(answers, 'test1-feedback');
-};
-window.checkTest2_2 = function () {
-    const answers = {
-        q1: 'Have you got a brother?',                       
-        q2: 'have',                                          
-        q3: 'Has',                                           
-        q4: "She hasn't got a dog.",                         
-        q5: 'bread with butter',                             
-        q6: 'We have got oranges.',                          
-        q7: 'How old are you?',                             
-        q8: 'Where',                                         
-        q9: "He hasn't got a brother.",                      
-        q10: 'tea and coffee'
-    };
-    checkTest(answers, 'test2-feedback');
-};
-window.checkTest3_2 = function () {
-    const answers = {
-        q1: 'new year',          
-        q2: 'teen',        
-        q3: 'wednesday',         
-        q4: 'december',       
-        q5: "baker's",           
-        q6: 'costumes',          
-        q7: 'ty',            
-        q8: 'cafe',              
-        q9: 'september',         
-        q10: 'fireworks'
-    };
-    checkTest(answers, 'test3-feedback');
-};
-            
-window.checkTest1_3 = function () {
-    const answers = {
-        q1: 'I play football every Sunday.',          
-        q2: 'I like singing',        
-        q3: 'is',         
-        q4: 'watches',       
-        q5: "Когда подлежащее — he, she, it.",           
-        q6: 'Swimming',          
-        q7: 'There is',            
-        q8: "There aren't",              
-        q9: 'Do you eat meat?',         
-        q10: 'Does'
-    };
-    checkTest(answers, 'test3-feedback');
-};       
-
-window.checkTest2_3 = function () {
-    const answers = {
-        q1: 'Living room',          
-        q2: 'I am crazy about skiing',        
-        q3: 'She is dancing now',         
-        q4: 'We are reading',       
-        q5: "Is he playing football now?",           
-        q6: 'It is the baddest idea',          
-        q7: '-er',            
-        q8: "Good → the best",              
-        q9: 'singing',         
-        q10: 'than' 
-    };
-    checkTest(answers, 'test3-feedback');
-};  
-
-window.checkTest3_3 = function () {
-    const answers = {
-        q1: 'taller',          
-        q2: 'the coldest',        
-        q3: 'Are you interested in music?',         
-        q4: 'What time is it?',       
-        q5: "In the bedroom",           
-        q6: 'Sofa',          
-        q7: 'I am bad at cycling',            
-        q8: "I am not good at playing the piano",              
-        q9: 'Table',         
-        q10: 'Cozy'
-    };
-    checkTest(answers, 'test3-feedback');
-};  
-
 
     /**
      * Функция проверки Итогового теста (finaltest.html)
@@ -2340,52 +2195,7 @@ window.initShoppingCartGame = function () {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
-    
-    window.checkTest1_3 = function() {
-    const answers = {
-        q1: 'I play football every Sunday.',          
-        q2: 'I like singing',        
-        q3: 'is',         
-        q4: 'watches',       
-        q5: "Когда подлежащее — he, she, it.",           
-        q6: 'Swimming',          
-        q7: 'There is',            
-        q8: "There aren't",              
-        q9: 'Do you eat meat?',         
-        q10: 'Does'         
-    };
 
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-        let userAnswer = userEl.value.trim().toLowerCase();
-        userAnswer = userAnswer.replace(/\.+$/, '');
-
-        let correctAnswer = answers[key].toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545'; 
-        }
-    }
-
-    const feedback = document.getElementById('test3-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
-};
     const statsBtn = document.getElementById('stats-btn');
     statsBtn.addEventListener('click', showStats);
 

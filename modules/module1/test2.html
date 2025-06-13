@@ -9,34 +9,17 @@
 <body>
     <div class="lesson-container test">
         <h2>Тест 2: Цвета, местоимения, артикли</h2>
-        <button class="back-button"
-                onclick="
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    document.getElementById('lesson-details').innerHTML = '';
-                    document.getElementById('app-header').classList.remove('hidden');
-                    document.getElementById('module1-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
-
         <div class="section">
             <div class="quiz">
-                <!-- Вопросы теста -->
-                <!-- Вопрос 1 -->
                 <div class="quiz-question">
                     <label><strong>1.</strong> Какой цвет изображен на картинке?</label>
                     <img src="https://i.pinimg.com/originals/2e/9d/f4/2e9df4fa7d41d7cec381a34d4e577d27.jpg" alt="Фиолетовый" style="max-width:100%; height:180px; margin-bottom:10px;">
                     <input type="text" id="q1">
                 </div>
-                
-                <!-- Вопрос 2 -->
                 <div class="quiz-question">
                     <label><strong>2.</strong> Какое притяжательное местоимение (Форма II) соответствует слову "your"?</label>
                     <input type="text" id="q2">
                 </div>
-                
-                <!-- Вопрос 3 -->
                 <div class="quiz-question">
                     <label><strong>3.</strong> Какое местоимение используется в объектном падеже для "мы"?</label>
                     <select id="q3">
@@ -45,20 +28,14 @@
                         <option value="we">we</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 4 -->
                 <div class="quiz-question">
                     <label><strong>4.</strong> Как будет на английском слово "сестра"?</label>
                     <input type="text" id="q4">
                 </div>
-                
-                <!-- Вопрос 5 -->
                 <div class="quiz-question">
                     <label><strong>5.</strong> Заполни пропуск: It is ___ apple.</label>
                     <input type="text" id="q5">
                 </div>
-                
-                <!-- Вопрос 6 -->
                 <div class="quiz-question">
                     <label><strong>6.</strong> Выбери, что должно быть на месте пропуска:</label>
                     <label>___ moon is very bright. (Луна очень яркая.)</label>
@@ -69,20 +46,14 @@
                         <option value="a">a</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 7 -->
                 <div class="quiz-question">
                     <label><strong>7.</strong> Как будет на английском "голубой"?</label>
                     <input type="text" id="q7">
                 </div>
-                
-                <!-- Вопрос 8 -->
                 <div class="quiz-question">
                     <label><strong>8.</strong> Как переводится это слово "Parents"?</label>
                     <input type="text" id="q8">
                 </div>
-                
-                <!-- Вопрос 9 -->
                 <div class="quiz-question">
                     <label><strong>9.</strong> Выбери правильное местоимение: "This is ___ book."</label>
                     <select id="q9">
@@ -91,21 +62,14 @@
                         <option value="my">my</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 10 -->
                 <div class="quiz-question">
                     <label><strong>10.</strong> Заполни пропуск: I see ___ dog. (Я вижу собаку.)</label>
                     <input type="text" id="q10">
                 </div>
-                
                 <button class="submit-btn" onclick="checkTest2()">Проверить тест</button>
                 <div class="feedback" id="test2-feedback"></div>
             </div>
-        </div>
-
-        
+        </div> 
     </div>
-
-    
 </body>
 </html>

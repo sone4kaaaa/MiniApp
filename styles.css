@@ -736,7 +736,7 @@ li.dark-yellow { color: #B8860B; }
 
 .module-1.lesson-6 .card {
     background-color: #ffe4c4;
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 8px;
     text-align: center;
     font-weight: bold;
@@ -915,6 +915,84 @@ li.dark-yellow { color: #B8860B; }
 .verb-firebrick { color: #b22222; }
 .verb-sienna { color: #8b4513; }
 
+.lesson-container.module-2.lesson-2 thead th:nth-child(1) { background-color: #b30000 !important; }
+.lesson-container.module-2.lesson-2 thead th:nth-child(2) { background-color: #b36b00 !important; }
+
+.lesson-container.module-2.lesson-2 tbody td:nth-child(1) { background-color: #ffcccc; }
+.lesson-container.module-2.lesson-2 tbody td:nth-child(2) { background-color: #ffe0b3; }
+
+.lesson-container.module-2.lesson-3 {
+    background-color: #e6dd6b;
+}
+.lesson-container.module-2.lesson-3 h2 {
+    color: #8da00e;
+}
+.lesson-container.module-2.lesson-4 {
+    background-color: #d654bf;
+}
+.lesson-container.module-2.lesson-4 h2 {
+    color: #6c0a76;
+}
+.lesson-container.module-2.lesson-4 .matching-game {
+            margin-top: 20px;
+        }
+
+        .lesson-container.module-2.lesson-4 .matching-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .lesson-container.module-2.lesson-4 .matching-item label {
+            flex: 1;
+            color: #333;
+        }
+
+        .lesson-container.module-2.lesson-4 .matching-item select {
+            flex: 2;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+        }
+
+.lesson-container.module-2.lesson-5 {
+    background-color: #d23838;
+}
+.lesson-container.module-2.lesson-5 h2 {
+    color: #6c0707;
+}
+
+.lesson5-image {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.height-160 {
+    height: 160px;
+}
+
+.height-130 {
+    height: 130px;
+}
+
+.height-80 {
+    height: 80px;
+}
+
+.highlight-green {
+    color: #067d14;
+}
+
+.info-box {
+    background-color: rgb(183, 248, 173);
+    border: 1px solid #000000;
+    padding-left: 8px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
 /* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;

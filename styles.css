@@ -743,7 +743,7 @@ li.dark-yellow { color: #B8860B; }
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     user-select: none;
     width: 100%;
     min-width: 100px;
@@ -811,28 +811,28 @@ li.dark-yellow { color: #B8860B; }
 }
 
 /* Сезонные секции */
-.summer {
+.lesson-container.module-1.lesson-10 .summer {
   background-color: rgb(241, 240, 149);
 }
 .summer-title {
   color: rgb(184, 181, 0);
 }
 
-.autumn {
+.lesson-container.module-1.lesson-10 .autumn {
   background-color: rgb(241, 193, 127);
 }
 .autumn-title {
   color: rgb(232, 137, 3);
 }
 
-.winter {
+.lesson-container.module-1.lesson-10 .winter {
   background-color: rgb(155, 208, 247);
 }
 .winter-title {
   color: rgb(3, 37, 232);
 }
 
-.spring {
+.lesson-container.module-1.lesson-10 .spring {
   background-color: rgb(153, 247, 162);
 }
 .spring-title {

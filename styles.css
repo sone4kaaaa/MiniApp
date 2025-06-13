@@ -499,6 +499,94 @@ th {
 .word.yellow { color: #f1c40f; }
 .word.zebra { color: #34495e; }
 
+/* Уникальные стили для урока 3: Знаки фонетической транскрипции */
+/* Для контейнера урока */
+.lesson-container.module-1.lesson-3 {
+    background-color: lightcoral;
+}
+
+/* Заголовок урока */
+.lesson-container.module-1.lesson-3 h2 {
+    color: rgb(186, 11, 11);
+}
+
+/* Заголовки секций */
+.lesson-container.module-1.lesson-3 .section h3 {
+    color: #1dc03b; 
+}
+
+/* Таблицы */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lesson-container.module-1.lesson-3 table {
+    border-collapse: collapse;
+    min-width: 1000px; /* важно для прокрутки */
+    table-layout: auto;
+    white-space: nowrap;
+}
+
+.lesson-container.module-1.lesson-3 th,
+.lesson-container.module-1.lesson-3 td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* Цвета заголовков таблицы */
+.lesson-container.module-1.lesson-3 thead th:nth-child(1) { background-color: #b30000 !important; }
+.lesson-container.module-1.lesson-3 thead th:nth-child(2) { background-color: #b36b00 !important; }
+.lesson-container.module-1.lesson-3 thead th:nth-child(3) { background-color: #267326 !important; }
+.lesson-container.module-1.lesson-3 thead th:nth-child(4) { background-color: #1a75ff !important; }
+.lesson-container.module-1.lesson-3 thead th:nth-child(5) { background-color: #663399 !important; }
+
+/* Цвета ячеек таблицы */
+.lesson-container.module-1.lesson-3 tbody td:nth-child(1) { background-color: #ffcccc; }
+.lesson-container.module-1.lesson-3 tbody td:nth-child(2) { background-color: #ffe0b3; }
+.lesson-container.module-1.lesson-3 tbody td:nth-child(3) { background-color: #ccffcc; }
+.lesson-container.module-1.lesson-3 tbody td:nth-child(4) { background-color: #cce0ff; }
+.lesson-container.module-1.lesson-3 tbody td:nth-child(5) { background-color: #e0ccff; }
+
+/* Секция */
+.lesson-container.module-1.lesson-3 .section {
+    background-color: rgb(255, 255, 255);
+}
+
+/* Классы для правильного/неправильного ответа */
+.correct-answer {
+    background-color: #c8e6c9;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.wrong-answer {
+    background-color: #ffcdd2;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* Стили сопоставления слов */
+.matching-game {
+    margin-top: 20px;
+}
+.matching-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.matching-item label {
+    flex: 1;
+    color: #333;
+}
+.matching-item select {
+    flex: 2;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
 /* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;

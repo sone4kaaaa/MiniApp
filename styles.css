@@ -1284,6 +1284,469 @@ border-radius: 10px;
 
 .lesson-container.module-2.lesson-10 .options
 {display: flex; flex-direction: column; gap: 10px;}
+
+.lesson-container.module-3.lesson-1 {
+    background-color: #58f795;
+}
+.lesson-container.module-3.lesson-1 h2 {
+    color: #028735;
+}
+.lesson-container.module-3.lesson-1 .hobby-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .lesson-container.module-3.lesson-1 .hobby-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 160px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .lesson-container.module-3.lesson-1 .hobby-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .lesson-container.module-3.lesson-1 .hobby-card p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .lesson-container.module-3.lesson-1 .hobby-card strong {
+            display: block;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+.lesson-container.module-3.lesson-2 {
+    background-color: #f67070;
+}
+.lesson-container.module-3.lesson-2 h2 {
+    color: #8c1111;
+}
+
+.lesson-container.module-3.lesson-2 .bold {
+    font-weight: bold;
+}
+
+.lesson-container.module-3.lesson-2 .green {
+    color: green;
+}
+
+.lesson-container.module-3.lesson-2 .blue {
+    color: blue;
+}
+
+.lesson-container.module-3.lesson-2 .orange {
+    color: orange;
+}
+
+.lesson-container.module-3.lesson-2 .red {
+    color: red;
+}
+
+.lesson-container.module-3.lesson-2 .purple {
+    color: purple;
+}
+
+.lesson-container.module-3.lesson-2 .teal {
+    color: teal;
+}
+
+.lesson-container.module-3.lesson-2 .darkblue {
+    color: darkblue;
+}
+
+.lesson-container.module-3.lesson-2 .brown {
+    color: brown;
+}
+
+.lesson-container.module-3.lesson-2 .violet {
+    color: #8e2de2;
+}
+
+.lesson-container.module-3.lesson-2 .large-text {
+    font-size: 18px;
+}
+.lesson-container.module-3.lesson-3 {
+    background-color: #11aec6;
+}
+.lesson-container.module-3.lesson-3 h2 {
+    color: #03616f;
+}
+.lesson-container.module-3.lesson-4 {
+    background-color: #e9e957;
+}
+.lesson-container.module-3.lesson-4 h2 {
+    color: #88880f;
+}
+.lesson-container.module-3.lesson-4 .word-block {
+            display: flex;
+            flex-direction: column; /* Новый стиль: расположение по вертикали */
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fdfdfd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .lesson-container.module-3.lesson-4 .word-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .lesson-container.module-3.lesson-4 .room { color: #007bff; }      
+        .lesson-container.module-3.lesson-4 .furniture { color: #e83e8c; } 
+
+        .lesson-container.module-3.lesson-4 .word-image {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+.lesson-container.module-3.lesson-5 {
+    background-color: #b656e2;
+}
+.lesson-container.module-3.lesson-5 h2 {
+    color: #5e0e82;
+}
+.lesson-container.module-3.lesson-6 {
+    background-color: #b656e2;
+}
+.lesson-container.module-3.lesson-6 h2 {
+    color: #5e0e82;
+}
+
+.lesson-container.module-3.lesson-6 .time-title {
+    color: #e91e63;
+}
+.lesson-container.module-3.lesson-6 .ask-title {
+    color: #4caf50;
+}
+.lesson-container.module-3.lesson-6 .oclock-title {
+    color: #ff9800;
+}
+.lesson-container.module-3.lesson-6 .ampm-title {
+    color: #9c27b0;
+}
+.lesson-container.module-3.lesson-6 .half-title {
+    color: #3f51b5;
+}
+.lesson-container.module-3.lesson-6 .quarter-title {
+    color: #ff5722;
+}
+.lesson-container.module-3.lesson-6 .diagram-title {
+    color: #951993;
+}
+.lesson-container.module-3.lesson-6 .rules-title {
+    color: #00bcd4;
+}
+.lesson-container.module-3.lesson-6 .green-bold {
+    color: #2e7d32;
+    font-weight: bold;
+}
+.lesson-container.module-3.lesson-6 .orange {
+    color: #ff5722;
+}
+.lesson-container.module-3.lesson-6 .blue {
+    color: #03a9f4;
+}
+.lesson-container.module-3.lesson-6 .purple {
+    color: #9c27b0;
+}
+.lesson-container.module-3.lesson-6 .green {
+    color: #4caf50;
+}
+.lesson-container.module-3.lesson-6 .red {
+    color: #f44336;
+}
+.lesson-container.module-3.lesson-6 .teal {
+    color: #009688;
+}
+.lesson-container.module-3.lesson-6 .oclock {
+    color: #2196f3;
+}
+.lesson-container.module-3.lesson-6 .oclock-blue {
+    color: #3f51b5;
+}
+.lesson-container.module-3.lesson-6 .pink {
+    color: #e91e63;
+}
+.lesson-container.module-3.lesson-6 .clock-image {
+    width: 250px;
+    margin-bottom: 10px;
+}
+.lesson-container.module-3.lesson-6 .rules-list {
+    color: #333;
+}
+.lesson-container.module-3.lesson-7 {
+    background-color: #c92e2e;
+}
+.lesson-container.module-3.lesson-7 h2 {
+    color: #890808;
+}
+
+.lesson-container.module-3.lesson-7 .title-red { color: #e53935; }
+.lesson-container.module-3.lesson-7 .blue { color: #1a73e8; }
+.lesson-container.module-3.lesson-7 .pink { color: #d81b60; }
+.lesson-container.module-3.lesson-7 .green { color: #388e3c; }
+.lesson-container.module-3.lesson-7 .bold { font-weight: bold; }
+
+.lesson-container.module-3.lesson-7 .example-box {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.lesson-container.module-3.lesson-7 .pink-bg { background-color: #fce4ec; }
+.lesson-container.module-3.lesson-7 .orange-bg { background-color: #fff3e0; }
+.lesson-container.module-3.lesson-7 .green-bg { background-color: #e8f5e9; }
+.lesson-container.module-3.lesson-7 .purple-bg { background-color: #ede7f6; }
+
+.lesson-container.module-3.lesson-7 .title-orange { color: #fb8c00; }
+.lesson-container.module-3.lesson-7 .text-default { color: #333; }
+.lesson-container.module-3.lesson-7 .purple { color: #6a1b9a; }
+.lesson-container.module-3.lesson-7 .blue-dark { color: #1565c0; }
+
+.lesson-container.module-3.lesson-7 .title-green { color: #43a047; }
+.lesson-container.module-3.lesson-7 .teal { color: #00796b; }
+.lesson-container.module-3.lesson-7 .red { color: #e53935; }
+.lesson-container.module-3.lesson-7 .green-dark { color: #2e7d32; }
+.lesson-container.module-3.lesson-7 .brown { color: #6d4c41; }
+
+.lesson-container.module-3.lesson-7 .purple-light { color: #8e24aa; }
+.lesson-container.module-3.lesson-7 .red-dark { color: #d32f2f; }
+
+.lesson-container.module-3.lesson-7 .blue-light { color: #0288d1; }
+.lesson-container.module-3.lesson-7 .purple-dark { color: #5e35b1; }
+
+.lesson-container.module-3.lesson-7 .orange-dark { color: #f4511e; }
+.lesson-container.module-3.lesson-7 .yellow { color: #f9a825; }
+
+.lesson-container.module-3.lesson-8 {
+    background-color: #de50b8;
+}
+.lesson-container.module-3.lesson-8 h2 {
+    color: #ae0367;
+}
+.lesson-container.module-3.lesson-8 .purple {
+    color: #4a00e0;
+}
+
+.lesson-container.module-3.lesson-8 .red {
+    color: #e60039;
+}
+
+.lesson-container.module-3.lesson-8 .blue {
+    color: #007bff;
+}
+
+.lesson-container.module-3.lesson-8 .bold-red {
+    color: #e60039;
+    font-weight: bold;
+}
+
+.lesson-container.module-3.lesson-8 .teal {
+    color: #17a2b8;
+}
+
+.lesson-container.module-3.lesson-8 .mt-20 {
+    margin-top: 20px;
+}
+
+.lesson-container.module-3.lesson-8 .text-dark {
+    color: #333;
+}
+
+.lesson-container.module-3.lesson-8 .dark {
+    color: #333;
+}
+
+.lesson-container.module-3.lesson-8 .example-block {
+    padding: 10px;
+}
+
+.lesson-container.module-3.lesson-8 .purple-border {
+    background-color: #f9f3ff;
+    border-left: 5px solid #8e2de2;
+}
+
+.lesson-container.module-3.lesson-8 .yellow-border {
+    background-color: #fff3cd;
+    border-left: 10px solid #ffc107;
+}
+
+.lesson-container.module-3.lesson-8 .red-border {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+}
+
+.lesson-container.module-3.lesson-8 .violet-border {
+    background-color: #e2e3f3;
+    border-left: 5px solid #6f42c1;
+}
+
+.lesson-container.module-3.lesson-9 {
+    background-color: #d37726;
+}
+.lesson-container.module-3.lesson-9 h2 {
+    color: #a34c00;
+}
+.lesson-container.module-3.lesson-9 .highlight-yellow {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .lesson-container.module-3.lesson-9 .example-block-1 {
+            background-color: #fce4ec;
+            padding: 10px;
+            border-left: 5px solid #d81b60;
+        }
+
+        .lesson-container.module-3.lesson-9 .color-purple-bold {
+            color: #8e2de2;
+            font-weight: bold;
+        }
+
+        .lesson-container.module-3.lesson-9 .to-be {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .lesson-container.module-3.lesson-9 .to-be-green {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .lesson-container.module-3.lesson-9 .highlight-green {
+            background-color: #c3f0ca;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .lesson-container.module-3.lesson-9 .example-block-2 {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-left: 5px solid #2196f3;
+        }
+
+        .lesson-container.module-3.lesson-9 .marker-word {
+            color: #c2185b;
+        }
+
+        .lesson-container.module-3.lesson-9 .marker-list {
+            background-color: #fff9c4;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .lesson-container.module-3.lesson-9 .example-block-3 {
+            background-color: #ffe0b2;
+            padding: 10px;
+            border-left: 5px solid #fb8c00;
+        }
+
+        .lesson-container.module-3.lesson-9 .highlight-red {
+            background-color: #ffcdd2;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .lesson-container.module-3.lesson-9 .example-block-4 {
+            background-color: #f8bbd0;
+            padding: 10px;
+            border-left: 5px solid #c2185b;
+        }
+
+        .lesson-container.module-3.lesson-9 .example-block-5 {
+            background-color: #dcedc8;
+            padding: 10px;
+            border-left: 5px solid #7cb342;
+        }
+
+        .lesson-container.module-3.lesson-9 .answer-list {
+            background-color: #c8e6c9;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .lesson-container.module-3.lesson-9 .yes {
+            color: #388e3c;
+        }
+
+        .lesson-container.module-3.lesson-9 .no {
+            color: #c62828;
+        }
+.lesson-container.module-3.lesson-10 {
+    background-color: #117ca3;
+}
+.lesson-container.module-3.lesson-10 h2 {
+    color: #004964;
+}
+
+.lesson-container.module-3.lesson-10 .image-main {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.lesson-container.module-3.lesson-10 .word-blue {
+  color: #007bff;
+}
+
+.lesson-container.module-3.lesson-10 .word-ru {
+  color: #117a8b;
+  font-weight: bold;
+}
+
+.lesson-container.module-3.lesson-10 .vocab-intro {
+  margin-top: 15px;
+  color: #d37726;
+  font-weight: bold;
+}
+
+.lesson-container.module-3.lesson-10 .vocab-list-colored li {
+  font-weight: bold;
+}
+
+.lesson-container.module-3.lesson-10 .red { color: red; }
+.lesson-container.module-3.lesson-10 .green { color: green; }
+.lesson-container.module-3.lesson-10 .orange { color: orange; }
+.lesson-container.module-3.lesson-10 .purple { color: purple; }
+
+.lesson-container.module-3.lesson-10 .word-purple {
+  color: #8e2de2;
+}
+.lesson-container.module-3.lesson-10 .word-gray {
+  color: #333;
+  font-weight: bold;
+}
+.lesson-container.module-3.lesson-10 .examples-list li {
+  font-weight: bold;
+}
+.lesson-container.module-3.lesson-10 .orange-dark { color: #e65100; }
+.lesson-container.module-3.lesson-10 .green-dark { color: #2e7d32; }
+.lesson-container.module-3.lesson-10 .blue-dark { color: #1e88e5; }
+
+.lesson-container.module-3.lesson-10 .word-indigo {
+  color: #4a00e0;
+}
+
+.lesson-container.module-3.lesson-10 .teal { color: #009688; }
+.lesson-container.module-3.lesson-10 .pink { color: #c2185b; }
+
+.lesson-container.module-3.lesson-10 .quiz-input {
+  width: 185px;
+}
+
+
 /* Цвета для разных чисел */
 .num-13 { color: #e91e63; }
 .num-14 { color: #9c27b0; }

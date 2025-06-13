@@ -4,152 +4,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 3: Изучаем одежду</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #e6dd6b; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #8da00e; 
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы (если нужны) */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для кнопок "submit-btn" */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода, select и feedback */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-         /* Стили для кнопки "Next Lesson" */
-         .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-2 lesson-3">
         <h2>Урок 3: Изучаем одежду</h2>
         <button class="back-button"
                 onclick="
@@ -161,7 +19,7 @@
             <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
             Назад
         </button>
-        <div class="section" style="background-color: white;">
+        <div class="section">
             <h3>Clothes - Одежда</h3>
             <p>Monkeys по имени Jack (boy) and Pims (girl) пришли сегодня к нам в гости! Давайте поможем выбрать как им лучше пойти на прогулку!</p>
             <p>Первый образ Jack выбирал сам. На нем одето: </p>
@@ -182,29 +40,29 @@
             <p>Давайте посмотрим, что у Pims and Jack есть в шкафу!</p> 
             <img src="https://img.razrisyika.ru/kart/103/410478-na-angliyskom-dlya-detey-odezhda-9.jpg" alt="Clothes" style="max-width:100%; height:500px; margin-bottom:10px;">
         </div>
-        <div class="section" style="background-color: white;">
+        <div class="section">
             <h3>⭐️ Задание: Заполни пропуски</h3>
             <div>
                 <label>Необходимо с маленькой буквы без пробелов через запятую описать в чем одеты дети на картинках.</label>
                 <div class="quiz-question">
                     <label><strong>1.</strong>This girl is wearing yellow ___, light green ___ and dark green ___.</label>
                     <img src="https://uue.s3.eu-north-1.amazonaws.com/u/O/43/dc/2UWPdH.jpg" alt="Clothes" style="max-width:100%; height:160px; margin-bottom:10px;">
-                    <input type="text" id="q1" style="width: 220px;">
+                    <input type="text" id="q1">
                 </div>
                 <div class="quiz-question">
                     <label><strong>2.</strong>This boy is wearing green ___, dark blue ___, white ___ and blue ___.</label>
                     <img src="https://avatars.mds.yandex.net/i?id=385cf3eea4ee143bd2e7e780b7a9453152febbdf-4954930-images-thumbs&n=13" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
-                    <input type="text" id="q2" style="width: 220px;">
+                    <input type="text" id="q2">
                 </div>
                 <div class="quiz-question">
                     <label><strong>3.</strong>This girl is wearing red ___, white ___ and dark red ___.</label>
                     <img src="https://avatars.mds.yandex.net/i?id=93799c92317d0b9d11603f63f7845c6a3718a313-12527828-images-thumbs&n=13" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
-                    <input type="text" id="q3" style="width: 220px;">
+                    <input type="text" id="q3">
                 </div>
                 <div class="quiz-question">
                     <label><strong>4.</strong>This boy is wearing white ___, brown ___ and dark brown ___.</label>
                     <img src="https://i.pinimg.com/originals/24/e8/f3/24e8f3a925ab30d681720ceed2dba7ee.jpg" alt="Clothes" style="max-width:100%; height:200px; margin-bottom:10px;">
-                    <input type="text" id="q4" style="width: 220px;">
+                    <input type="text" id="q4">
                 </div>
                 <button class="submit-btn" onclick="checkQuiz2_3()">Проверить</button>
                 <div class="feedback" id="quiz-feedback"></div>

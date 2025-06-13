@@ -837,18 +837,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.loadContent = loadContent;
 
 
-window.checkTest1 = function() {
-    const answers = {
-        tq1: 'dog',       
-        tq2: 'мяч',             
-        tq3: '/e/',              
-        tq4: 'eight',                   
-        tq5: 'xylophone',             
-        tq6: '/kæt/',             
-        tq7: 'zero,one,two,three',         
-        tq8: 'hat'       
-    };
-
+/**
+ * Универсальная функция проверки теста
+ * @param {Object} answers - Объект с правильными ответами: { q1: 'ответ', ... }
+ * @param {string} feedbackId - ID контейнера для обратной связи (например, 'test1-feedback')
+ */
+function checkTest(answers, feedbackId) {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -856,22 +850,32 @@ window.checkTest1 = function() {
         const input = document.getElementById(key);
         if (!input) continue;
 
-        // Считываем ответ
-        const userAnswer = input.value.trim().toLowerCase();
-        const correctAnswer = answers[key].toLowerCase();
+        let userAnswer = input.value.trim();
 
-        if (userAnswer === correctAnswer) {
-            score++;
-            // Подсветим зелёным
-            input.style.borderColor = '#28a745';
+        // Если элемент select, то берём value без обработки
+        if (input.tagName.toLowerCase() === 'select') {
+            // В select ответы не трогаем
         } else {
-            // Подсветим красным
-            input.style.borderColor = '#dc3545';
+            // Обработка input: нижний регистр и убираем финальную точку/знак
+            userAnswer = userAnswer.toLowerCase().replace(/[.?!]+$/, '');
+        }
+
+        let correctAnswer = answers[key];
+        let compareCorrect = correctAnswer;
+
+        if (input.tagName.toLowerCase() !== 'select') {
+            compareCorrect = correctAnswer.toLowerCase().replace(/[.?!]+$/, '');
+        }
+
+        if (userAnswer === compareCorrect) {
+            score++;
+            input.style.borderColor = '#28a745'; // зелёный
+        } else {
+            input.style.borderColor = '#dc3545'; // красный
         }
     }
 
-    // Отображаем результат
-    const feedback = document.getElementById('test-feedback');
+    const feedback = document.getElementById(feedbackId);
     if (!feedback) return;
 
     feedback.style.display = 'block';
@@ -879,184 +883,74 @@ window.checkTest1 = function() {
         feedback.className = 'feedback success';
         feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
     } else {
-        feedback.className = 'feedbackerror';
-        feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
+        feedback.className = 'feedback error';
+        feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
+};
+
+window.checkTest1 = function () {
+    const answers = {
+        tq1: 'dog',
+        tq2: 'мяч',
+        tq3: '/e/',
+        tq4: 'eight',
+        tq5: 'xylophone',
+        tq6: '/kæt/',
+        tq7: 'zero,one,two,three',
+        tq8: 'hat'
     };
+    checkTest(answers, 'test-feedback');
+};
 
-    /**
-     * Функция проверки Теста 2
-     */
-    window.checkTest2 = function() {
-        const answers = {
-            q1: 'purple',
-            q2: 'yours',
-            q3: 'us',
-            q4: 'sister',
-            q5: 'an',
-            q6: 'the',
-            q7: 'light blue',
-            q8: 'родители',
-            q9: 'my',
-            q10: 'a'
-        };
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const input = document.getElementById(key);
-            if (!input) continue;
-
-            let userAnswer = '';
-            if (input.tagName.toLowerCase() === 'select') {
-                userAnswer = input.value.trim().toLowerCase();
-            } else {
-                userAnswer = input.value.trim().toLowerCase();
-            }
-
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                input.style.borderColor = '#28a745'; // зеленый
-            } else {
-                input.style.borderColor = '#dc3545'; // красный
-            }
-        }
-
-        const feedback = document.getElementById('test2-feedback');
-        if (!feedback) return;
-
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
+window.checkTest2 = function () {
+    const answers = {
+        q1: 'purple',
+        q2: 'yours',
+        q3: 'us',
+        q4: 'sister',
+        q5: 'an',
+        q6: 'the',
+        q7: 'light blue',
+        q8: 'родители',
+        q9: 'my',
+        q10: 'a'
     };
+    checkTest(answers, 'test2-feedback');
+};
 
-    /**
-     * Функция проверки Теста 3
-     */
-    window.checkTest3 = function() {
-        const answers = {
-            q1: 'am', 
-            q2: 'are',
-            q3: 'cities',
-            q4: 'pets',
-            q5: 'books',
-            q6: 'girls’',
-            q7: 'is',
-            q8: 'good morning',
-            q9: 'horses',
-            q10: "is"
-        };
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const input = document.getElementById(key);
-            if (!input) continue;
-
-            // Считываем ответ пользователя
-            let userAnswer = input.value.trim().toLowerCase();
-            // Удалим финальную точку, если она есть, чтобы не мешала проверке
-            userAnswer = userAnswer.replace(/\.+$/, '');
-            
-            // Правильный ответ
-            let correctAnswer = answers[key].toLowerCase();
-            // Аналогично, если хотите, убираем у правильного ответа финальную точку
-            correctAnswer = correctAnswer.replace(/\.+$/, '');
-
-            // Проверка точного совпадения
-            if (userAnswer === correctAnswer) {
-                score++;
-                input.style.borderColor = '#28a745'; // Зеленый
-            } else {
-                input.style.borderColor = '#dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('test3-feedback');
-        if (!feedback) return;
-
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };/**
-     * Тест 1 (Модуль 2): Advanced Verb Tenses
-     * ID вопросов: q1..q10 (каждый свой)
-     */
-    window.checkTest1_2 = function() {
-        // Правильные ответы
-        const answers = {
-            q1: 'морковь',                   
-            q2: 'banana',                    
-            q3: 'tomato',                  
-            q4: 'apple',                     
-            q5: 'run',                       
-            q6: 'drink tea',                    
-            q7: 'boots',                 
-            q8: 'hat',                      
-            q9: 'cucumber',                 
-            q10: 'eat'                       
-        };
-
-
-        let score = 0;
-        const total = Object.keys(answers).length;
-
-        for (const key in answers) {
-            const userEl = document.getElementById(key);
-            if (!userEl) continue; // на случай опечаток
-            // Считываем ответ
-            let userAnswer = userEl.value.trim().toLowerCase();
-            // Удалим финальную точку, если есть
-            userAnswer = userAnswer.replace(/\.+$/, '');
-
-            let correctAnswer = answers[key].toLowerCase();
-
-            // Можно добавить "варианты ответов" для тех вопросов, где допускаются синонимы
-            // if (key === 'q4') { ... }
-
-            // Проверяем точное совпадение (или делаем более гибко)
-            if (userAnswer === correctAnswer) {
-                score++;
-                userEl.style.borderColor = '#28a745'; // зеленый
-            } else {
-                userEl.style.borderColor = '#dc3545'; // красный
-            }
-        }
-
-        // Показываем результат
-        const feedback = document.getElementById('test1-feedback');
-        if (feedback) {
-            feedback.style.display = 'block';
-            if (score === total) {
-                feedback.className = 'feedback success';
-                feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-            } else {
-                feedback.className = 'feedback error';
-                feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-            }
-        }
+window.checkTest2 = function () {
+    const answers = {
+        q1: 'am', 
+        q2: 'are',
+        q3: 'cities',
+        q4: 'pets',
+        q5: 'books',
+        q6: 'girls’',
+        q7: 'is',
+        q8: 'good morning',
+        q9: 'horses',
+        q10: "is"
     };
+    checkTest(answers, 'test3-feedback');
+};
 
-
-    /**
-     * Тест 2 (Модуль 2)
-     */
-window.checkTest2_2 = function() {
-    const answers = { 
+window.checkTest1_2 = function () {
+    const answers = {
+        q1: 'морковь',                   
+        q2: 'banana',                    
+        q3: 'tomato',                  
+        q4: 'apple',                     
+        q5: 'run',                       
+        q6: 'drink tea',                    
+        q7: 'boots',                 
+        q8: 'hat',                      
+        q9: 'cucumber',                 
+        q10: 'eat' 
+    };
+    checkTest(answers, 'test1-feedback');
+};
+window.checkTest2_2 = function () {
+    const answers = {
         q1: 'Have you got a brother?',                       
         q2: 'have',                                          
         q3: 'Has',                                           
@@ -1066,59 +960,11 @@ window.checkTest2_2 = function() {
         q7: 'How old are you?',                             
         q8: 'Where',                                         
         q9: "He hasn't got a brother.",                      
-        q10: 'tea and coffee'                                
+        q10: 'tea and coffee'
     };
-
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-
-        const correctAnswer = answers[key];
-
-        let userAnswer;
-        if (userEl.tagName.toLowerCase() === 'select') {
-            // Для select — сравниваем как есть (без изменения регистра и пунктуации)
-            userAnswer = userEl.value;
-        } else {
-            // Для input — обрезаем лишние пробелы и приводим к нижнему регистру
-            userAnswer = userEl.value.trim().toLowerCase();
-            userAnswer = userAnswer.replace(/[.?!]+$/, '');
-        }
-
-        let correctToCompare = correctAnswer;
-        if (userEl.tagName.toLowerCase() !== 'select') {
-            correctToCompare = correctToCompare.toLowerCase().replace(/[.?!]+$/, '');
-        }
-
-        if (userAnswer === correctToCompare) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545';
-        }
-    }
-
-    const feedback = document.getElementById('test2-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
+    checkTest(answers, 'test2-feedback');
 };
-
-
-    /**
-     * Тест 3 (Модуль 2)
-     */
-    window.checkTest3_2 = function() {
+window.checkTest3_2 = function () {
     const answers = {
         q1: 'new year',          
         q2: 'teen',        
@@ -1129,40 +975,12 @@ window.checkTest2_2 = function() {
         q7: 'ty',            
         q8: 'cafe',              
         q9: 'september',         
-        q10: 'fireworks'         
+        q10: 'fireworks'
     };
-
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-        let userAnswer = userEl.value.trim().toLowerCase();
-        userAnswer = userAnswer.replace(/\.+$/, '');
-
-        let correctAnswer = answers[key].toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545'; 
-        }
-    }
-
-    const feedback = document.getElementById('test3-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
-};window.checkTest1_3 = function() {
+    checkTest(answers, 'test3-feedback');
+};
+            
+window.checkTest1_3 = function () {
     const answers = {
         q1: 'I play football every Sunday.',          
         q2: 'I like singing',        
@@ -1173,42 +991,12 @@ window.checkTest2_2 = function() {
         q7: 'There is',            
         q8: "There aren't",              
         q9: 'Do you eat meat?',         
-        q10: 'Does'         
+        q10: 'Does'
     };
+    checkTest(answers, 'test3-feedback');
+};       
 
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-        let userAnswer = userEl.value.trim().toLowerCase();
-        userAnswer = userAnswer.replace(/\.+$/, '');
-
-        let correctAnswer = answers[key].toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545'; 
-        }
-    }
-
-    const feedback = document.getElementById('test3-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
-};
-
-    window.checkTest2_3 = function() {
+window.checkTest2_3 = function () {
     const answers = {
         q1: 'Living room',          
         q2: 'I am crazy about skiing',        
@@ -1219,42 +1007,12 @@ window.checkTest2_2 = function() {
         q7: '-er',            
         q8: "Good → the best",              
         q9: 'singing',         
-        q10: 'than'         
+        q10: 'than' 
     };
+    checkTest(answers, 'test3-feedback');
+};  
 
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-        let userAnswer = userEl.value.trim().toLowerCase();
-        userAnswer = userAnswer.replace(/\.+$/, '');
-
-        let correctAnswer = answers[key].toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545'; 
-        }
-    }
-
-    const feedback = document.getElementById('test3-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
-};
-
-    window.checkTest3_3 = function() {
+window.checkTest3_3 = function () {
     const answers = {
         q1: 'taller',          
         q2: 'the coldest',        
@@ -1265,81 +1023,11 @@ window.checkTest2_2 = function() {
         q7: 'I am bad at cycling',            
         q8: "I am not good at playing the piano",              
         q9: 'Table',         
-        q10: 'Cozy'         
+        q10: 'Cozy'
     };
+    checkTest(answers, 'test3-feedback');
+};  
 
-    let score = 0;
-    const total = Object.keys(answers).length;
-
-    for (const key in answers) {
-        const userEl = document.getElementById(key);
-        if (!userEl) continue;
-        let userAnswer = userEl.value.trim().toLowerCase();
-        userAnswer = userAnswer.replace(/\.+$/, '');
-
-        let correctAnswer = answers[key].toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            score++;
-            userEl.style.borderColor = '#28a745';
-        } else {
-            userEl.style.borderColor = '#dc3545'; 
-        }
-    }
-
-    const feedback = document.getElementById('test3-feedback');
-    if (feedback) {
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отлично! Все ответы верны (${score} из ${total}).`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    }
-}; 
-
-    // --- Загрузка контента (урок или тест) ---
-    function loadContent(html, modulePath) {
-        lessonDetails.innerHTML = html;
-        mainButtons.classList.add('hidden');
-        moduleMenus.forEach(m => m.classList.add('hidden'));
-        lessonsListContainers.forEach(c => c.classList.add('hidden'));
-        lessonContent.classList.remove('hidden');
-        appHeader.classList.add('hidden');
-         const lessonContainer = document.querySelector('.lesson-container');
-            if (lessonContainer && !lessonContainer.querySelector('.back-button')) {
-                const backBtn = createBackButton();
-                lessonContainer.prepend(backBtn);
-            }
-        // Определяем, тест это или урок
-        if (html.includes('Тест') || html.includes('Test')) {
-            // Парсим номер (Тест 1, Тест 2...)
-            const re = /Тест\s+(\d+)/i;
-            const match = html.match(re);
-            if (match && match[1]) {
-                const testNum = parseInt(match[1], 10);
-                addNextTestButton(testNum, modulePath);
-            }
-            // Итоговый тест?
-            if (html.includes('Итоговый тест') || html.includes('finaltest.html')) {
-                addFinishButton(modulePath);
-            }
-        } else {
-            // Это урок
-            const re = /Урок\s+(\d+)/i;
-            const match = html.match(re);
-            if (match && match[1]) {
-                const lessonNum = parseInt(match[1], 10);
-                addNextLessonButton(lessonNum, modulePath);
-                // Урок 10 => возможно, инициализация DnD
-                if (lessonNum === 10) {
-                    initializeLesson10();
-                }
-            }
-        }
-    }
 
     /**
      * Функция проверки Итогового теста (finaltest.html)

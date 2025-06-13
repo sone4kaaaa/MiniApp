@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             lessonDetails.appendChild(nextBtn);
         }
     }
-    
+
         function createBackButton() {
         const button = document.createElement("button");
         button.className = "back-button";
@@ -652,13 +652,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return button;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const lessonContainer = document.querySelector(".lesson-container");
-        if (lessonContainer) {
-            const backBtn = createBackButton();
-            lessonContainer.prepend(backBtn);
-        }
-    })
     // --- Загрузка контента (урок или тест) ---
     function loadContent(html, modulePath) {
         lessonDetails.innerHTML = html;
@@ -667,7 +660,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.remove('hidden');
         appHeader.classList.add('hidden');
-
+         const lessonContainer = document.querySelector('.lesson-container');
+            if (lessonContainer && !lessonContainer.querySelector('.back-button')) {
+                const backBtn = createBackButton();
+                lessonContainer.prepend(backBtn);
+            }
         // Определяем, тест это или урок
         if (html.includes('Тест') || html.includes('Test')) {
             // Парсим номер (Тест 1, Тест 2...)

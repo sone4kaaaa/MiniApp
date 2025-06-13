@@ -1014,7 +1014,7 @@ function checkFinalTestGeneric(answers1, feedbackId1) {
 
     // после подсчёта score и total
     const incorrect = total - score;
-    const testId = feedbackId.replace('-feedback', '');
+    const testId = feedbackId1.replace('-feedback', '');
 
     window.userStats.testResults[testId] = {
     correct: score,
@@ -2243,50 +2243,61 @@ window.initShoppingCartGame = function () {
     
 
     function showStats() {
-        const statsModal = document.getElementById('stats-modal');
-        const statsContent = document.getElementById('stats-content');
+    const statsModal = document.getElementById('stats-modal');
+    const statsContent = document.getElementById('stats-content');
 
-        const lessonsCompleted = window.userStats.lessonsCompleted || 0;
-        const testsCompleted = window.userStats.testsCompleted || 0;
-        const finalTestsCompleted = window.userStats.finalTestsCompleted || 0;
-        const testResults = window.userStats.testResults || {};
+    if (!statsModal || !statsContent) {
+        console.error("Элементы stats-modal или stats-content не найдены.");
+        return;
+    }
 
-        let statsHtml = `
-            <h3>Моя статистика</h3>
-            <p>Уроков завершено: ${lessonsCompleted} / 30</p>
-            <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
-            <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
-        `;
+    const stats = window.userStats || {};
+    const lessonsCompleted = stats.lessonsCompleted || 0;
+    const testsCompleted = stats.testsCompleted || 0;
+    const finalTestsCompleted = stats.finalTestsCompleted || 0;
+    const testResults = stats.testResults || {};
 
-        const sortedTests = Object.keys(testResults).sort();
+    let statsHtml = `
+        <h3>Моя статистика</h3>
+        <p>Уроков завершено: ${lessonsCompleted} / 30</p>
+        <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
+        <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+    `;
 
-        if (sortedTests.length > 0) {
-            statsHtml += `<h4>Результаты тестов:</h4><ul>`;
-            sortedTests.forEach(testId => {
+    const sortedTests = Object.keys(testResults).sort();
+
+    if (sortedTests.length > 0) {
+        statsHtml += `<h4>Результаты тестов:</h4><ul>`;
+        sortedTests.forEach(testId => {
             const res = testResults[testId];
-            statsHtml += `<li>${formatTestName(testId)}: правильных — ${res.correct}, неправильных — ${res.incorrect}</li>`;
-            });
-            statsHtml += `</ul>`;
-        } else {
-            statsHtml += `<p>Пока нет результатов тестов.</p>`;
-        }
+            if (res && typeof res.correct === 'number' && typeof res.incorrect === 'number') {
+                statsHtml += `<li>${formatTestName(testId)}: правильных — ${res.correct}, неправильных — ${res.incorrect}</li>`;
+            }
+        });
+        statsHtml += `</ul>`;
+    } else {
+        statsHtml += `<p>Пока нет результатов тестов.</p>`;
+    }
 
-        statsContent.innerHTML = statsHtml;
-        statsModal.style.display = 'block';
-        }
+    statsContent.innerHTML = statsHtml;
+    statsModal.style.display = 'block';
+}
 
-        // Вспомогательная функция для отображения красивых названий тестов
-        function formatTestName(testId) {
-        if (testId.startsWith("test")) {
-            const num = testId.match(/\d+/);
-            return `Промежуточный тест ${num ? num[0] : ''}`;
-        } else if (testId.startsWith("finaltest")) {
-            const num = testId.match(/\d+/);
-            return `Итоговый тест ${num ? num[0] : ''}`;
-        } else {
-            return testId;
-        }
-        }
+// Вспомогательная функция форматирования названий
+function formatTestName(testId) {
+    if (testId.startsWith("test")) {
+        const match = testId.match(/\d+/);
+        const num = match ? match[0] : '';
+        return `Промежуточный тест ${num}`;
+    } else if (testId.startsWith("finaltest")) {
+        const match = testId.match(/\d+/);
+        const num = match ? match[0] : '';
+        return `Итоговый тест ${num}`;
+    } else {
+        return testId;
+    }
+}
+
 
     unlockItemsByStats();
     restoreUnlockedItems();

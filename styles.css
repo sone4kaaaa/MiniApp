@@ -852,6 +852,69 @@ li.dark-yellow { color: #B8860B; }
 .lesson-container.finaltest h2 {
     color: #880b0b;
 }
+
+.lesson-container.finaltest .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+.lesson-container.finaltest .submit-btn:hover {
+    background-color: #218838;
+}
+
+.lesson-container.module-2.lesson-1 {
+    background-color: #5cbd77;
+}
+.lesson-container.module-2.lesson-1 h2 {
+    color: #117a0f;
+}
+.lesson-container.module-2.lesson-2 {
+    background-color: #6fd1da;
+}
+.lesson-container.module-2.lesson-2 h2 {
+    color: #0c4ea9;
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.input-verb {
+    width: 150px;
+}
+
+.verb-blue { color: #1e90ff; }
+.verb-pink { color: #ff69b4; }
+.verb-green { color: #32cd32; }
+.verb-orange { color: #ff4500; }
+.verb-purple { color: #8a2be2; }
+.verb-red { color: #dc143c; }
+.verb-gold { color: #daa520; }
+.verb-orange-dark { color: #ff8c00; }
+.verb-teal { color: #20b2aa; }
+.verb-indigo { color: #4b0082; }
+.verb-brown { color: #a52a2a; }
+.verb-steelblue { color: #4682b4; }
+.verb-seagreen { color: #2e8b57; }
+.verb-navy { color: #000080; }
+.verb-hotpink { color: #ff1493; }
+.verb-violet { color: #9932cc; }
+.verb-tomato { color: #ff6347; }
+.verb-forest { color: #228b22; }
+.verb-darkslate { color: #2f4f4f; }
+.verb-maroon { color: #800000; }
+.verb-royalblue { color: #4169e1; }
+.verb-firebrick { color: #b22222; }
+.verb-sienna { color: #8b4513; }
+
 /* Кнопка "Перейти к следующему уроку" */
 .lesson-content .next-lesson-btn {
     margin-top: 20px;
@@ -868,7 +931,22 @@ li.dark-yellow { color: #B8860B; }
 .lesson-content .next-lesson-btn:hover {
     background-color: #138496;
 }
-
+.finish-btn {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Видна сразу */
+}
+.finish-btn:hover {
+    background-color: #117a8b;
+}
 /* Стили для кнопки "Стрелочка назад" */
 .back-arrow {
     display: flex;

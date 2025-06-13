@@ -1481,14 +1481,10 @@ window.checkAnswer = function(selectedNumber) {
             const startBtn = document.getElementById('startBtn');
             startBtn.style.display = 'none';
             const pairs = [
-            {id: 1, word: 'Ram', img: 'https://i.pinimg.com/736x/9c/41/93/9c41933a38c7c9edd31424df47cd6861.jpg'},
-            {id: 2, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
-            {id: 3, word: 'Rabbit', img: 'https://avatars.mds.yandex.net/i?id=6c2b61033d5b0bfa57fd56b9e583469e_l-5288839-images-thumbs&n=13'},
-            {id: 4, word: 'Bird', img: 'https://avatars.mds.yandex.net/i?id=b44db42ae67a1088b76dd423793e40ab_l-4306607-images-thumbs&ref=rim&n=13&w=2305&h=2560'},
-            {id: 5, word: 'Elephant', img: 'https://avatars.mds.yandex.net/i?id=1fa52a6e74759c17b5a6f127c3e6ef8ef5b4d9ac-5680887-images-thumbs&n=13'},
-            {id: 6, word: 'Wolf', img: 'https://avatars.mds.yandex.net/i?id=527a62ce8b275f99cb44147bdac558393fa0f8da-4766550-images-thumbs&n=13'},
-            {id: 7, word: 'Duck', img: 'https://i.pinimg.com/736x/14/3c/a1/143ca1e1a42e1336b8376cbea1863ab7.jpg'},
-            {id: 8, word: 'Horse', img: 'https://avatars.mds.yandex.net/i?id=e5a660a7c01fcbb66a7b6be983435992_l-10126215-images-thumbs&n=13'}
+            {id: 1, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
+            {id: 2, word: 'Rabbit', img: 'https://avatars.mds.yandex.net/i?id=6c2b61033d5b0bfa57fd56b9e583469e_l-5288839-images-thumbs&n=13'},
+            {id: 3, word: 'Elephant', img: 'https://avatars.mds.yandex.net/i?id=1fa52a6e74759c17b5a6f127c3e6ef8ef5b4d9ac-5680887-images-thumbs&n=13'},
+            {id: 4, word: 'Wolf', img: 'https://avatars.mds.yandex.net/i?id=527a62ce8b275f99cb44147bdac558393fa0f8da-4766550-images-thumbs&n=13'}
             ];
 
             let cards = [];

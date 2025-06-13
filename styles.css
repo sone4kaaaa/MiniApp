@@ -734,7 +734,7 @@ li.dark-yellow { color: #B8860B; }
 }
 
 
-.card.module-1.lesson-6 {
+.module-1.lesson-6 .card {
     background-color: #ffe4c4;
     border-radius: 10px;
     padding: 8px;
@@ -750,12 +750,12 @@ li.dark-yellow { color: #B8860B; }
     margin-left: 3px;
 }
 
-.card.flipped.module-1.lesson-6 {
+.module-1.lesson-6 .card.flipped {
     background-color: #8e2de2;
     color: white;
 }
 
-.card.matched.module-1.lesson-6 {
+.module-1.lesson-6 .card.matched {
     background-color: #4caf50;
     color: white;
     cursor: default;

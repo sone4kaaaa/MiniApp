@@ -1,306 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 8: Holidays</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #efce49; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #797508; 
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        .example {
-            background-color: #e9ecef;
-            padding: 10px;
-            border-left: 4px solid #17a2b8;
-            margin-bottom: 10px;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Кнопка для проверки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"],
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback, .matching-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-
-        /* Дополнительно: стили для медиа (видео/аудио) */
-        .media-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .media-container video,
-        .media-container audio {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Кнопка "Next Lesson" (если требуется) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Урок 8: Holidays</title>
+  <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-<div class="lesson-container">
-  <h2>Урок 8: Holidays</h2>
-<button class="back-button"
-        onclick="
-            document.getElementById('lesson-content').classList.add('hidden');
-            document.getElementById('lesson-details').innerHTML = '';
-            document.getElementById('app-header').classList.remove('hidden');
-            document.getElementById('module2-list').classList.remove('hidden');
-        ">
-    <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-    Назад
-</button>
-  <!-- Новый год -->
-  <div class="section" style="background-color: #e0f7fa;">
-    <h3 style="color: #00796b;">New Year - Новый год</h3>
-    <p>
-      New Year is a very <span style="color: #f44336;"><b>special</b></span> holiday. 
-      People <span style="color: #2196f3;"><b>celebrate</b></span> it on the 1st of January. 
-      Families <span style="color: #9c27b0;"><b>decorate</b></span> their homes with lights and a Christmas tree. 
-      Children wait for <span style="color: #ff9800;"><b>gifts</b></span> from Ded Moroz. 
-      At midnight, people watch <span style="color: #4caf50;"><b>fireworks</b></span> and say "Happy New Year!". 
-      They eat tasty food and enjoy time together. 
-      Some people make <span style="color: #795548;"><b>wishes</b></span> for the new year.
-    </p>
-    <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/-1/99/29/27/79/57/30/100025716326b2.jpg" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #f44336;">special</span> – особенный [ˈspeʃəl]</li>
-      <li><span style="color: #2196f3;">celebrate</span> – праздновать [ˈseləbreɪt]</li>
-      <li><span style="color: #9c27b0;">decorate</span> – украшать [ˈdekəreɪt]</li>
-      <li><span style="color: #ff9800;">gifts</span> – подарки [ɡɪfts]</li>
-      <li><span style="color: #4caf50;">fireworks</span> – фейерверки [ˈfaɪəwɜːks]</li>
-      <li><span style="color: #795548;">wishes</span> – желания [ˈwɪʃɪz]</li>
-    </ul>
-  </div>
+  <div class="lesson-container module-2 lesson-8">
+    <h2>Урок 8: Holidays</h2>
+    <!-- Новый год -->
+    <div class="section bg-new-year">
+      <h3 class="title-new-year">New Year - Новый год</h3>
+      <p>
+        New Year is a very <span class="word-special"><b>special</b></span> holiday. 
+        People <span class="word-celebrate"><b>celebrate</b></span> it on the 1st of January. 
+        Families <span class="word-decorate"><b>decorate</b></span> their homes with lights and a Christmas tree. 
+        Children wait for <span class="word-gifts"><b>gifts</b></span> from Ded Moroz. 
+        At midnight, people watch <span class="word-fireworks"><b>fireworks</b></span> and say "Happy New Year!". 
+        They eat tasty food and enjoy time together. 
+        Some people make <span class="word-wishes"><b>wishes</b></span> for the new year.
+      </p>
+      <img src="https://main-cdn.sbermegamarket.ru/big2/hlr-system/-1/99/29/27/79/57/30/100025716326b2.jpg" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-special">special</span> – особенный [ˈspeʃəl]</li>
+        <li><span class="word-celebrate">celebrate</span> – праздновать [ˈseləbreɪt]</li>
+        <li><span class="word-decorate">decorate</span> – украшать [ˈdekəreɪt]</li>
+        <li><span class="word-gifts">gifts</span> – подарки [ɡɪfts]</li>
+        <li><span class="word-fireworks">fireworks</span> – фейерверки [ˈfaɪəwɜːks]</li>
+        <li><span class="word-wishes">wishes</span> – желания [ˈwɪʃɪz]</li>
+      </ul>
+    </div>
 
-  <!-- День рождения -->
-  <div class="section" style="background-color: #fff9c4;">
-    <h3 style="color: #fbc02d;">Birthday - День рождение</h3>
-    <p>
-      A birthday is a <span style="color: #009688;"><b>fun</b></span> day to celebrate. 
-      You get <span style="color: #e91e63;"><b>presents</b></span> and eat cake. 
-      Friends and family sing the "Happy Birthday" <span style="color: #3f51b5;"><b>song</b></span>. 
-      Children often have <span style="color: #8bc34a;"><b>balloons</b></span> and games. 
-      Some kids have a party at home or a play center. 
-      You blow out <span style="color: #ff5722;"><b>candles</b></span> and make a wish.
-    </p>
-    <img src="https://cdn.culture.ru/images/cff52e13-2ce8-5a7b-b9ea-c466580acae6" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #009688;">fun</span> – весело [fʌn]</li>
-      <li><span style="color: #e91e63;">presents</span> – подарки [ˈprezənts]</li>
-      <li><span style="color: #3f51b5;">song</span> – песня [sɒŋ]</li>
-      <li><span style="color: #8bc34a;">balloons</span> – шары [bəˈluːnz]</li>
-      <li><span style="color: #ff5722;">candles</span> – свечи [ˈkændlz]</li>
-    </ul>
-  </div>
+    <!-- День рождения -->
+    <div class="section bg-birthday">
+      <h3 class="title-birthday">Birthday - День рождения</h3>
+      <p>
+        A birthday is a <span class="word-fun"><b>fun</b></span> day to celebrate. 
+        You get <span class="word-presents"><b>presents</b></span> and eat cake. 
+        Friends and family sing the "Happy Birthday" <span class="word-song"><b>song</b></span>. 
+        Children often have <span class="word-balloons"><b>balloons</b></span> and games. 
+        Some kids have a party at home or a play center. 
+        You blow out <span class="word-candles"><b>candles</b></span> and make a wish.
+      </p>
+      <img src="https://cdn.culture.ru/images/cff52e13-2ce8-5a7b-b9ea-c466580acae6" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-fun">fun</span> – весело [fʌn]</li>
+        <li><span class="word-presents">presents</span> – подарки [ˈprezənts]</li>
+        <li><span class="word-song">song</span> – песня [sɒŋ]</li>
+        <li><span class="word-balloons">balloons</span> – шары [bəˈluːnz]</li>
+        <li><span class="word-candles">candles</span> – свечи [ˈkændlz]</li>
+      </ul>
+    </div>
 
-  <!-- Хэллоуин -->
-  <div class="section" style="background-color: #fbe9e7;">
-    <h3 style="color: #d84315;">Halloween - Хэллоуин</h3>
-    <p>
-      Halloween is on the 31st of October. 
-      Children wear <span style="color: #9c27b0;"><b>costumes</b></span> and go <span style="color: #ff5722;"><b>trick-or-treating</b></span>. 
-      They say "Trick or treat!" and get <span style="color: #4caf50;"><b>candies</b></span>. 
-      People <span style="color: #03a9f4;"><b>carve</b></span> pumpkins into <span style="color: #f44336;"><b>jack-o'-lanterns</b></span>. 
-      It is a little scary, but fun!
-    </p>
-    <img src="https://i.pinimg.com/736x/dc/b8/89/dcb8894b14e89a84a40a6001ca0a79bb.jpg" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #9c27b0;">costumes</span> – костюмы [ˈkɒstjuːmz]</li>
-      <li><span style="color: #ff5722;">trick-or-treating</span> – хеллоуинский обход [ˈtrɪk ɔː ˈtriːtɪŋ]</li>
-      <li><span style="color: #4caf50;">candies</span> – конфеты [ˈkændiz]</li>
-      <li><span style="color: #03a9f4;">carve</span> – вырезать [kɑːv]</li>
-      <li><span style="color: #f44336;">jack-o'-lanterns</span> – светильник из тыквы [ˌdʒæk əʊ ˈlæntənz]</li>
-    </ul>
-  </div>
+    <!-- Хэллоуин -->
+    <div class="section bg-halloween">
+      <h3 class="title-halloween">Halloween - Хэллоуин</h3>
+      <p>
+        Halloween is on the 31st of October. 
+        Children wear <span class="word-costumes"><b>costumes</b></span> and go <span class="word-trick"><b>trick-or-treating</b></span>. 
+        They say "Trick or treat!" and get <span class="word-candies"><b>candies</b></span>. 
+        People <span class="word-carve"><b>carve</b></span> pumpkins into <span class="word-jack"><b>jack-o'-lanterns</b></span>. 
+        It is a little scary, but fun!
+      </p>
+      <img src="https://i.pinimg.com/736x/dc/b8/89/dcb8894b14e89a84a40a6001ca0a79bb.jpg" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-costumes">costumes</span> – костюмы [ˈkɒstjuːmz]</li>
+        <li><span class="word-trick">trick-or-treating</span> – хеллоуинский обход [ˈtrɪk ɔː ˈtriːtɪŋ]</li>
+        <li><span class="word-candies">candies</span> – конфеты [ˈkændiz]</li>
+        <li><span class="word-carve">carve</span> – вырезать [kɑːv]</li>
+        <li><span class="word-jack">jack-o'-lanterns</span> – светильник из тыквы [ˌdʒæk əʊ ˈlæntənz]</li>
+      </ul>
+    </div>
 
-  <!-- 8 марта -->
-  <div class="section" style="background-color: #fce4ec;">
-    <h3 style="color: #c2185b;">International Women's Day - Международный женский день</h3>
-    <p>
-      On the 8th of March, we celebrate women. 
-      Children give flowers to their mothers and teachers. 
-      People say kind <span style="color: #2196f3;"><b>wishes</b></span> and <span style="color: #ff9800;"><b>smile</b></span>. 
-      It’s a day to say “thank you” to women. 
-      There are <span style="color: #4caf50;"><b>concerts</b></span> and <span style="color: #9c27b0;"><b>cards</b></span>. 
-    </p>
-    <img src="https://zhelayka.ru/wp-content/uploads/2024/03/otkrytki-devochkam-na-8-marta-22.jpg" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #2196f3;">wishes</span> – пожелания [ˈwɪʃɪz]</li>
-      <li><span style="color: #ff9800;">smile</span> – улыбаться [smaɪl]</li>
-      <li><span style="color: #4caf50;">concerts</span> – концерты [ˈkɒnsɜːts]</li>
-      <li><span style="color: #9c27b0;">cards</span> – открытки [kɑːdz]</li>
-    </ul>
-  </div>
+    <!-- 8 марта -->
+    <div class="section bg-womensday">
+      <h3 class="title-womensday">International Women's Day - Международный женский день</h3>
+      <p>
+        On the 8th of March, we celebrate women. 
+        Children give flowers to their mothers and teachers. 
+        People say kind <span class="word-wishes"><b>wishes</b></span> and <span class="word-smile"><b>smile</b></span>. 
+        It’s a day to say “thank you” to women. 
+        There are <span class="word-concerts"><b>concerts</b></span> and <span class="word-cards"><b>cards</b></span>. 
+      </p>
+      <img src="https://zhelayka.ru/wp-content/uploads/2024/03/otkrytki-devochkam-na-8-marta-22.jpg" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-wishes">wishes</span> – пожелания [ˈwɪʃɪz]</li>
+        <li><span class="word-smile">smile</span> – улыбаться [smaɪl]</li>
+        <li><span class="word-concerts">concerts</span> – концерты [ˈkɒnsɜːts]</li>
+        <li><span class="word-cards">cards</span> – открытки [kɑːdz]</li>
+      </ul>
+    </div>
 
-  <!-- 23 февраля -->
-  <div class="section" style="background-color: #e3f2fd;">
-    <h3 style="color: #1976d2;">Defender of the Fatherland Day - День защитника отечества</h3>
-    <p>
-      On the 23rd of February, we say thank you to boys and men. 
-      It is a day for <span style="color: #4caf50;"><b>protectors</b></span>. 
-      Boys in school get small <span style="color: #ff9800;"><b>gifts</b></span>. 
-      We have <span style="color: #9c27b0;"><b>games</b></span> and songs. 
-      People say good <span style="color: #03a9f4;"><b>wishes</b></span> to grandfathers, fathers, and brothers.
-    </p>
-    <img src="https://a.d-cd.net/2JUpjwvKg787alyb4ENndqU0WD4-960.jpg" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #4caf50;">protectors</span> – защитники [prəˈtɛktəz]</li>
-      <li><span style="color: #ff9800;">gifts</span> – подарки [ɡɪfts]</li>
-      <li><span style="color: #9c27b0;">games</span> – игры [ɡeɪmz]</li>
-      <li><span style="color: #03a9f4;">wishes</span> – пожелания [ˈwɪʃɪz]</li>
-    </ul>
-  </div>
+    <!-- 23 февраля -->
+    <div class="section bg-defender">
+      <h3 class="title-defender">Defender of the Fatherland Day - День защитника отечества</h3>
+      <p>
+        On the 23rd of February, we say thank you to boys and men. 
+        It is a day for <span class="word-protectors"><b>protectors</b></span>. 
+        Boys in school get small <span class="word-gifts"><b>gifts</b></span>. 
+        We have <span class="word-games"><b>games</b></span> and songs. 
+        People say good <span class="word-wishes"><b>wishes</b></span> to grandfathers, fathers, and brothers.
+      </p>
+      <img src="https://a.d-cd.net/2JUpjwvKg787alyb4ENndqU0WD4-960.jpg" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-protectors">protectors</span> – защитники [prəˈtɛktəz]</li>
+        <li><span class="word-gifts">gifts</span> – подарки [ɡɪfts]</li>
+        <li><span class="word-games">games</span> – игры [ɡeɪmz]</li>
+        <li><span class="word-wishes">wishes</span> – пожелания [ˈwɪʃɪz]</li>
+      </ul>
+    </div>
 
-  <!-- 1 сентября -->
-  <div class="section" style="background-color: #e8f5e9;">
-    <h3 style="color: #388e3c;">Knowledge Day - День Знаний</h3>
-    <p>
-      The 1st of September is the Day of Knowledge. 
-      It is the first day of <span style="color: #3f51b5;"><b>school</b></span>. 
-      Children wear uniforms and bring <span style="color: #e91e63;"><b>flowers</b></span> to their teachers. 
-      There is a <span style="color: #ff5722;"><b>bell</b></span> ceremony. 
-      Teachers and students are happy to see each other again.
-    </p>
-    <img src="https://i.pinimg.com/originals/58/3e/d7/583ed73e9387f77e63d5a04f4a85bbb6.jpg" alt="Photo" width="240"/>
-    <ul>
-      <li><span style="color: #3f51b5;">school</span> – школа [skuːl]</li>
-      <li><span style="color: #e91e63;">flowers</span> – цветы [ˈflaʊəz]</li>
-      <li><span style="color: #ff5722;">bell</span> – звонок [bel]</li>
-    </ul>
+    <!-- 1 сентября -->
+    <div class="section bg-knowledge">
+      <h3 class="title-knowledge">Knowledge Day - День Знаний</h3>
+      <p>
+        The 1st of September is the Day of Knowledge. 
+        It is the first day of <span class="word-school"><b>school</b></span>. 
+        Children wear uniforms and bring <span class="word-flowers"><b>flowers</b></span> to their teachers. 
+        There is a <span class="word-bell"><b>bell</b></span> ceremony. 
+        Teachers and students are happy to see each other again.
+      </p>
+      <img src="https://i.pinimg.com/originals/58/3e/d7/583ed73e9387f77e63d5a04f4a85bbb6.jpg" alt="Photo" width="240"/>
+      <ul>
+        <li><span class="word-school">school</span> – школа [skuːl]</li>
+        <li><span class="word-flowers">flowers</span> – цветы [ˈflaʊəz]</li>
+        <li><span class="word-bell">bell</span> – звонок [bel]</li>
+      </ul>
+    </div>
   </div>
-</div>
 </body>
 </html>

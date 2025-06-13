@@ -4,226 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 7: My City</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #2697ae; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #071243; 
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Примеры использования */
-        .example {
-            background-color: #e9ecef;
-            padding: 10px;
-            border-left: 4px solid #17a2b8;
-            margin-bottom: 10px;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Кнопка для проверки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"],
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback, .matching-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-
-        /* Дополнительно: стили для медиа (видео/аудио) */
-        .media-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .media-container video,
-        .media-container audio {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Кнопка "Next Lesson" (если требуется) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-        .shop-list {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            background: #f0f4c3;
-            padding: 10px;
-            border-radius: 10px;
-            scroll-snap-type: x mandatory;
-        }
-
-        .shop-item {
-            flex: 0 0 auto;
-            width: 250px; /* фиксированная ширина для всех карточек */
-            background-color: #ffe082;
-            padding: 10px;
-            border-radius: 10px;
-            color: #3e2723;
-            scroll-snap-align: start;
-            box-sizing: border-box;
-        }
-
-        .shop-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-        .shop-item span {
-            display: block;
-        }
-        .phonetic {
-            font-style: italic;
-            color: #5d4037;
-        }
-        .example-text {
-            background: #d1c4e9;
-            padding: 15px;
-            border-left: 5px solid #7e57c2;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-2 lesson-7">
         <h2>Урок 7: My City</h2>
-<button class="back-button"
-        onclick="
-            document.getElementById('lesson-content').classList.add('hidden');
-            document.getElementById('lesson-details').innerHTML = '';
-            document.getElementById('app-header').classList.remove('hidden');
-            document.getElementById('module2-list').classList.remove('hidden');
-        ">
-    <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-    Назад
-</button>
         <div class="section">
             <h3>🏦 Изучим какие магазины бывают в городе:</h3>
             <p>Листай ➡️</p>
@@ -278,43 +63,43 @@
     <h3>Также в городе есть и такие магазины:</h3>
     <p>Листай ➡️</p>
     <div class="shop-list">
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>clothes shop</strong><br>
             <span>магазин одежды</span>
             <span class="phonetic">[kləʊdz ʃɒp]</span>
             <img src="https://static.vecteezy.com/system/resources/previews/001/590/725/non_2x/fashion-clothes-store-background-free-vector.jpg" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>toy shop</strong><br>
             <span>магазин игрушек</span>
             <span class="phonetic">[tɔɪ ʃɒp]</span>
             <img src="https://avatars.mds.yandex.net/i?id=bb27919ad62db4bb24166c621c2a5a08_l-5276792-images-thumbs&n=13" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>jeweller's</strong><br>
             <span>ювелирный магазин</span>
             <span class="phonetic">[ˈdʒuːələz]</span>
             <img src="https://avatars.mds.yandex.net/i?id=5622016c015b9cc4f652f56cccc6a8d1_l-5354310-images-thumbs&n=13" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>chemist's</strong><br>
             <span>аптека</span>
             <span class="phonetic">[ˈkɛmɪsts]</span>
             <img src="https://avatars.mds.yandex.net/i?id=29522bebe1554597f881759301f82a33_l-4055879-images-thumbs&n=13" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>shoe shop</strong><br>
             <span>обувной магазин</span>
             <span class="phonetic">[ʃuː ʃɒp]</span>
             <img src="https://clipart-library.com/2023/1000_F_139005892_M2XXXqONVetdUTpHWLXxDJpGR555BePO.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>fast food restaurant</strong><br>
             <span>ресторан быстрого питания</span>
             <span class="phonetic">[fɑːst fuːd ˈrestərɒnt]</span>
             <img src="https://avatars.mds.yandex.net/i?id=8eda7dac2c4607c8992603573f614353_l-5242614-images-thumbs&n=13" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #b2ebf2;">
+        <div class="shop-item">
             <strong>greengrocer's</strong><br>
             <span>магазин овощей и фруктов</span>
             <span class="phonetic">[ˈɡriːnˌɡrəʊsəz]</span>
@@ -327,85 +112,85 @@
     <h3>🏛️ В городе есть и другие здания:</h3>
     <p>Листай ➡️</p>
     <div class="shop-list">
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>gym</strong><br>
             <span>спортзал</span>
             <span class="phonetic">[dʒɪm]</span>
             <img src="https://lingokids.com/wp-content/uploads/2020/04/shutterstock_468753482-2048x1622.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>library</strong><br>
             <span>библиотека</span>
             <span class="phonetic">[ˈlaɪbrəri]</span>
             <img src="https://static.vecteezy.com/system/resources/previews/000/362/317/non_2x/vector-exterior-of-a-library.jpg" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>cinema</strong><br>
             <span>кинотеатр</span>
             <span class="phonetic">[ˈsɪnəmə]</span>
             <img src="https://resh.edu.ru/uploads/lesson_extract/4558/20190306093928/OEBPS/objects/m_fren_4_16_4/5bac7741fbc7ce05995e97b2.jpg" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>theatre</strong><br>
             <span>театр</span>
             <span class="phonetic">[ˈθɪətə]</span>
             <img src="https://resh.edu.ru/uploads/lesson_extract/4558/20190306093928/OEBPS/objects/m_fren_4_16_4/5bac7741fbc7ce05995e97b1.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>church</strong><br>
             <span>церковь</span>
             <span class="phonetic">[tʃɜːtʃ]</span>
             <img src="https://clipart-library.com/2023/christian09aeps-18845.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>hospital</strong><br>
             <span>больница</span>
             <span class="phonetic">[ˈhɒspɪtəl]</span>
             <img src="https://static.vecteezy.com/system/resources/previews/004/493/133/non_2x/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-vector.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>school</strong><br>
             <span>школа</span>
             <span class="phonetic">[skuːl]</span>
             <img src="https://img.onmanorama.com/content/dam/mm/en/career-and-campus/top-news/images/2023/8/22/school-repsentational-main.jpg" alt="Photo" style="max-width:100%; height:150px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>post office</strong><br>
             <span>почта</span>
             <span class="phonetic">[ˈpəʊst ˌɒfɪs]</span>
             <img src="https://speakin.pl/wp-content/uploads/na-poczcie-przydatne-zwroty-po-angielsku.jpg" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>bank</strong><br>
             <span>банк</span>
             <span class="phonetic">[bæŋk]</span>
             <img src="https://avatars.mds.yandex.net/i?id=e2af41f481b851b9c1564bfe8cedbb226596060d-10389657-images-thumbs&ref=rim&n=33&w=266&h=250" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>museum</strong><br>
             <span>музей</span>
             <span class="phonetic">[mjuˈzɪəm]</span>
             <img src="https://i.pinimg.com/originals/72/fd/3b/72fd3b50c50a1b32fcb22913c915b2fc.png" alt="Photo" style="max-width:100%; height:200px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>police station</strong><br>
             <span>полицейский участок</span>
             <span class="phonetic">[pəˈliːs ˌsteɪʃən]</span>
             <img src="https://i.pinimg.com/736x/99/17/09/99170991ff4bb6e836619d8e1b82b160.jpg" alt="Photo" style="max-width:100%; height:170px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>fire station</strong><br>
             <span>пожарная станция</span>
             <span class="phonetic">[ˈfaɪə ˌsteɪʃən]</span>
             <img src="https://cdn.vectorstock.com/i/500p/08/37/fire-station-building-exterior-flat-vector-29920837.jpg" alt="Photo" style="max-width:100%; height:160px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>train station</strong><br>
             <span>вокзал</span>
             <span class="phonetic">[treɪn ˈsteɪʃən]</span>
             <img src="https://static.vecteezy.com/system/resources/previews/006/583/000/non_2x/train-station-scene-with-steam-locomotive-free-vector.jpg" alt="Photo" style="max-width:100%; height:160px; margin-bottom:10px; padding-top: 8px;">
         </div>
-        <div class="shop-item" style="background-color: #e1bee7;">
+        <div class="shop-item">
             <strong>bus stop</strong><br>
             <span>автобусная остановка</span>
             <span class="phonetic">[bʌs stɒp]</span>
@@ -413,9 +198,6 @@
         </div>
     </div>
 </div>
-
-
-
         <div class="section">
             <h3>🌍 Mini-story about the city</h3>
             <div class="example-text">

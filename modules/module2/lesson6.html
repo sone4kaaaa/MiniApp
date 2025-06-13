@@ -4,216 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 6: Shopping</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #ecdd51; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #c0a709; 
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Примеры использования */
-        .example {
-            background-color: #e9ecef;
-            padding: 10px;
-            border-left: 4px solid #17a2b8;
-            margin-bottom: 10px;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Кнопка для проверки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"],
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback, .matching-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-
-        /* Дополнительно: стили для медиа (видео/аудио) */
-        .media-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .media-container video,
-        .media-container audio {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Кнопка "Next Lesson" (если требуется) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-        .word {
-            font-weight: bold;
-        }
-        .food {
-            color: #e67e22;
-        }
-        .dairy {
-            color: #3498db;
-        }
-        .meat {
-            color: #c0392b;
-        }
-        .fruit {
-            color: #27ae60;
-        }
-        .sugar {
-            color: #9b59b6;
-        }
-        .drink {
-            color: #c1465e;
-        }
-        .bread {
-            color: #d35400;
-        }
-        .transcription {
-            font-style: italic;
-            color: #555;
-        }
-        .translation {
-            color: #888;
-        }
-    </style>
+    <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-<div class="lesson-container">
+<div class="lesson-container module-2 lesson-6">
     <h2>Урок 6: В супермаркете (In the Supermarket)</h2>
-<button class="back-button"
-        onclick="
-            document.getElementById('lesson-content').classList.add('hidden');
-            document.getElementById('lesson-details').innerHTML = '';
-            document.getElementById('app-header').classList.remove('hidden');
-            document.getElementById('module2-list').classList.remove('hidden');
-        ">
-    <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-    Назад
-</button>
-
 <div class="section">
     <p>
         I go to the <span class="word">supermarket</span> <span class="transcription">[ˈsuːpəˌmɑːrkɪt]</span>
@@ -306,7 +101,7 @@
 
   <button id="startBtn" class="submit-btn" onclick="initShoppingCartGame()">Начать игру</button>
 
-  <div id="items" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0; pointer-events: none; opacity: 0.5;">
+  <div id="items" class="shopitem">
     <div class="draggable-item">Milk</div>
     <div class="draggable-item">Cheese</div>
     <div class="draggable-item">Carrot</div>
@@ -321,17 +116,13 @@
     <div class="draggable-item">Sugar</div>
     <div class="draggable-item">Eggs</div>
   </div>
-
-  <div id="cart" style="min-height: 100px; border: 2px dashed #aaa; padding: 10px; margin-bottom: 10px;">
+  <div id="cart" class="shopcart">
     <p><strong>Shopping Cart:</strong> (Нажимай на продукты)</p>
   </div>
-
   <button id="checkBtn" class="submit-btn" onclick="checkCart()" style="display: none;">Проверить</button>
   <button id="clearBtn" class="submit-btn" onclick="clearCart()" style="display: none; margin-left: 10px;">Очистить</button>
-
   <div id="feedback" class="feedback" style="margin-top: 10px;"></div>
 </div>
-
 </div>
 </body>
 </html>

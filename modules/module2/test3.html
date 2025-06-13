@@ -4,123 +4,13 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Тест 3</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #51cf51; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-        h2 {
-            text-align: center;
-            color: #fff; 
-            margin-bottom: 20px;
-        }
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: bold;
-        }
-        .quiz-question input[type="text"],
-        .quiz-question select {
-            width: 90%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-        .feedback, .matching-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container test">
         <h2>Тест 3: Праздники, Цифры, Дни недели, Месяцы и Магазины</h2>
-        
-        <button class="back-button" onclick="
-            document.getElementById('lesson-content').classList.add('hidden');
-            document.getElementById('lesson-details').innerHTML = '';
-            document.getElementById('app-header').classList.remove('hidden');
-            document.getElementById('module2-list').classList.remove('hidden');
-        ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Назад">
-            Назад
-        </button>
-
         <div class="section">
             <div class="quiz">
-                <!-- Вопрос 1: Праздники -->
                 <div class="quiz-question">
                     <label><strong>1.</strong> Выбери праздник, под который подходит это описание:</label>
                     <label>Children wait for gifts from Ded Moroz.</label>
@@ -131,26 +21,18 @@
                         <option value="halloween">halloween</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 2: Цифры -->
                 <div class="quiz-question">
                     <label><strong>2.</strong> Какой суффикс добавляется для цифр от 13 до 19 в английском языке?</label>
                     <input type="text" id="q2">
                 </div>
-                
-                <!-- Вопрос 3: Дни недели -->
                 <div class="quiz-question">
                     <label><strong>3.</strong> Какой день недели идёт после Tuesday?</label>
                     <input type="text" id="q3">
                 </div>
-                
-                <!-- Вопрос 4: Месяцы -->
                 <div class="quiz-question">
                     <label><strong>4.</strong> Какой месяц последний в году?</label>
                     <input type="text" id="q4">
                 </div>
-                
-                <!-- Вопрос 5: Магазины -->
                 <div class="quiz-question">
                     <label><strong>5.</strong> Как называется "булочная" по-английски?</label>
                     <select id="q5">
@@ -160,33 +42,23 @@
                         <option value="baker's">baker's</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 6: Праздники (Хэллоуин) -->
                 <div class="quiz-question">
                     <label><strong>6.</strong> Что дети надевают на Хеллоуин? (напиши на английском)</label>
                     <img src="https://static.vecteezy.com/system/resources/previews/008/916/524/non_2x/cartoon-kids-with-halloween-costume-inside-pumpkin-basket-vector.jpg" alt="Хэллоуин" style="max-width:100%; height:180px; margin-bottom:10px;">
                     <input type="text" id="q6">
                 </div>
-                
-                <!-- Вопрос 7: Цифры -->
                 <div class="quiz-question">
                     <label><strong>7.</strong> Какой суффикс добавляется для обозначения десятков в английском языке?</label>
                     <input type="text" id="q7">
                 </div>
-                
-                <!-- Вопрос 8: Магазины -->
                 <div class="quiz-question">
                     <label><strong>8.</strong> Как по-английски будет "кафе"?</label>
                     <input type="text" id="q8">
                 </div>
-                
-                <!-- Вопрос 9: Месяцы -->
                 <div class="quiz-question">
                     <label><strong>9.</strong> Какой месяц идёт после августа? Ответ дай на английском.</label>
                     <input type="text" id="q9">
                 </div>
-                
-                <!-- Вопрос 10: Праздники -->
                 <div class="quiz-question">
                     <label><strong>10.</strong> Как по-английски будет "фейерверки"?</label>
                     <input type="text" id="q10">

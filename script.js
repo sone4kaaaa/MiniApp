@@ -393,9 +393,6 @@ function finishLessonOrTest(type, modulePath, fileName) {
     // Вызов лирики разблокировок
     unlockItemsByStats();
 }
-
-
-
 document.addEventListener('DOMContentLoaded', async () => {
 
     const userId = getTelegramUserId();
@@ -409,11 +406,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     populateLessons('module1', 10, 3);
     populateLessons('module2', 10, 3);
     populateLessons('module3', 10, 3);
-
-    //lockAllButFirstLesson();
-
-    
-    
 
     const userIdDisplayEl = document.getElementById("user-id-display");
     const moduleButtons = document.querySelectorAll('.button[id$="-btn"]');
@@ -635,22 +627,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             lessonDetails.appendChild(nextBtn);
         }
     }
-    
-        function createBackButton() {
-        const button = document.createElement("button");
-        button.className = "back-button";
-        button.innerHTML = `
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        `;
-        button.onclick = function () {
-            document.getElementById('lesson-content')?.classList.add('hidden');
-            document.getElementById('lesson-details').innerHTML = '';
-            document.getElementById('app-header')?.classList.remove('hidden');
-            document.getElementById('module2-list')?.classList.remove('hidden');
-        };
-        return button;
-    }
 
     // --- Загрузка контента (урок или тест) ---
     function loadContent(html, modulePath) {
@@ -660,11 +636,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.remove('hidden');
         appHeader.classList.add('hidden');
-        const lessonContainer = document.querySelector(".lesson-container");
-        if (lessonContainer) {
-            const backBtn = createBackButton();
-            lessonContainer.prepend(backBtn);
-        }
+        
         // Определяем, тест это или урок
         if (html.includes('Тест') || html.includes('Test')) {
             // Парсим номер (Тест 1, Тест 2...)

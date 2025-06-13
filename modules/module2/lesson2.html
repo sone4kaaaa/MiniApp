@@ -1,175 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ru">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 2: Глаголы</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #6fd1da; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #0c4ea9;
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы (если нужны) */
-
-        table {
-            border-collapse: collapse;
-            min-width: 220px; /* 👈 Это критично для правильного отображения */
-            table-layout: auto;
-            white-space: nowrap;
-        }
-
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc;
-            white-space: nowrap; /* 🔒 Не даёт переноситься содержимому */
-            text-align: left;
-        }
-
-        th {
-            text-align: left;
-        }
-
-        thead th:nth-child(1) { background-color: #d50909 !important; }
-        thead th:nth-child(2) { background-color: #cd8416 !important; }
-
-        tbody td:nth-child(1) { background-color: #ffcccc; }
-        tbody td:nth-child(2) { background-color: #ffe0b3; }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для кнопок "submit-btn" */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Поля ввода, select и feedback */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-         /* Стили для кнопки "Next Lesson" */
-         .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-        .media-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .media-container video,
-        .media-container audio {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-2 lesson-2">
         <h2>Урок 2: Глаголы</h2>
         <button class="back-button"
                 onclick="
@@ -182,108 +20,110 @@
             Назад
         </button>
 
-        <div class="section" style="background-color: white;">
+        <div class="section white-bg">
             <h3>Английские глаголы</h3>
             <p>Учить глаголы мы будем на протяжении всего изучения языка. Но самые распространенные глаголы английского следует изучить в первую очередь — именно этим мы сегодня и займемся.</p>
         
-        <div class="section">
-    <table>
-        <thead>
-            <tr>
-                <th>Глагол (англ.)</th>
-                <th>Перевод</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>to swim</td><td>плавать</td></tr>
-            <tr><td>to dance</td><td>танцевать</td></tr>
-            <tr><td>to work</td><td>работать</td></tr>
-            <tr><td>to be</td><td>быть</td></tr>
-            <tr><td>to have</td><td>иметь</td></tr>
-            <tr><td>to do</td><td>делать</td></tr>
-            <tr><td>to get</td><td>получать</td></tr>
-            <tr><td>to know</td><td>знать</td></tr>
-            <tr><td>to take</td><td>брать</td></tr>
-            <tr><td>can</td><td>могу</td></tr>
-            <tr><td>need</td><td>нужно</td></tr>
-            <tr><td>should</td><td>должен</td></tr>
-            <tr><td>to think</td><td>думать</td></tr>
-            <tr><td>to see</td><td>видеть</td></tr>
-            <tr><td>to give</td><td>давать</td></tr>
-            <tr><td>to like</td><td>нравиться</td></tr>
-            <tr><td>to buy</td><td>покупать</td></tr>
-            <tr><td>to eat</td><td>есть (кушать)</td></tr>
-            <tr><td>to sleep</td><td>спать</td></tr>
-            <tr><td>to drink</td><td>пить</td></tr>
-            <tr><td>to understand</td><td>понимать</td></tr>
-            <tr><td>to write</td><td>писать</td></tr>
-            <tr><td>to read</td><td>читать</td></tr>
-            <tr><td>to speak</td><td>говорить</td></tr>
-            <tr><td>to learn</td><td>учиться</td></tr>
-            <tr><td>to forget</td><td>забывать</td></tr>
-            <tr><td>to dream</td><td>мечтать</td></tr>
-            <tr><td>to play</td><td>играть</td></tr>
-            <tr><td>to drive</td><td>водить</td></tr>
-            <tr><td>to travel</td><td>путешествовать</td></tr>
-            <tr><td>to start</td><td>начинать</td></tr>
-            <tr><td>to stop</td><td>останавливаться</td></tr>
-            <tr><td>to clean</td><td>чистить</td></tr>
-            <tr><td>to help</td><td>помогать</td></tr>
-            <tr><td>to run</td><td>бегать</td></tr>
-            <tr><td>to cook</td><td>готовить (еду)</td></tr>
-            <tr><td>to open</td><td>открывать</td></tr>
-            <tr><td>to close</td><td>закрывать</td></tr>
-            <tr><td>to sing</td><td>петь</td></tr>
-        </tbody>
-    </table>
-</div>
-<p>Частица to не переводится, она обозначает начальную форму глагола (инфинитив)</p>
-</div>
-<div class="section" style="background-color: white;">
-  <h3>Стишок для запоминания глаголов</h3>
-  <p>
-    Я люблю <b style="color:#1e90ff;">to swim</b> – я плыву, как дельфин,<br>
-    Потом <b style="color:#ff69b4;">to dance</b> — кружусь, как один!<br>
-    Мне нравится <b style="color:#32cd32;">to play</b> и немного <b style="color:#ff4500;">to run</b>,<br>
-    А ещё <b style="color:#8a2be2;">to dream</b> — вот это план!
-  </p>
-  <img src="https://cdn.vectorstock.com/i/500p/99/71/dolphin-jump-out-water-cartoon-marine-vector-38629971.jpg" alt="Swimming dolphin" width="250"/>
+            <div class="section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Глагол (англ.)</th>
+                            <th>Перевод</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>to swim</td><td>плавать</td></tr>
+                        <tr><td>to dance</td><td>танцевать</td></tr>
+                        <tr><td>to work</td><td>работать</td></tr>
+                        <tr><td>to be</td><td>быть</td></tr>
+                        <tr><td>to have</td><td>иметь</td></tr>
+                        <tr><td>to do</td><td>делать</td></tr>
+                        <tr><td>to get</td><td>получать</td></tr>
+                        <tr><td>to know</td><td>знать</td></tr>
+                        <tr><td>to take</td><td>брать</td></tr>
+                        <tr><td>can</td><td>могу</td></tr>
+                        <tr><td>need</td><td>нужно</td></tr>
+                        <tr><td>should</td><td>должен</td></tr>
+                        <tr><td>to think</td><td>думать</td></tr>
+                        <tr><td>to see</td><td>видеть</td></tr>
+                        <tr><td>to give</td><td>давать</td></tr>
+                        <tr><td>to like</td><td>нравиться</td></tr>
+                        <tr><td>to buy</td><td>покупать</td></tr>
+                        <tr><td>to eat</td><td>есть (кушать)</td></tr>
+                        <tr><td>to sleep</td><td>спать</td></tr>
+                        <tr><td>to drink</td><td>пить</td></tr>
+                        <tr><td>to understand</td><td>понимать</td></tr>
+                        <tr><td>to write</td><td>писать</td></tr>
+                        <tr><td>to read</td><td>читать</td></tr>
+                        <tr><td>to speak</td><td>говорить</td></tr>
+                        <tr><td>to learn</td><td>учиться</td></tr>
+                        <tr><td>to forget</td><td>забывать</td></tr>
+                        <tr><td>to dream</td><td>мечтать</td></tr>
+                        <tr><td>to play</td><td>играть</td></tr>
+                        <tr><td>to drive</td><td>водить</td></tr>
+                        <tr><td>to travel</td><td>путешествовать</td></tr>
+                        <tr><td>to start</td><td>начинать</td></tr>
+                        <tr><td>to stop</td><td>останавливаться</td></tr>
+                        <tr><td>to clean</td><td>чистить</td></tr>
+                        <tr><td>to help</td><td>помогать</td></tr>
+                        <tr><td>to run</td><td>бегать</td></tr>
+                        <tr><td>to cook</td><td>готовить (еду)</td></tr>
+                        <tr><td>to open</td><td>открывать</td></tr>
+                        <tr><td>to close</td><td>закрывать</td></tr>
+                        <tr><td>to sing</td><td>петь</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Частица <b>to</b> не переводится, она обозначает начальную форму глагола (инфинитив)</p>
+        </div>
 
-  <p>
-    Утром рано я встаю,<br>
-    <b style="color:#dc143c;">to work</b>, <b style="color:#1e90ff;">to read</b> и <b style="color:#daa520;">to do</b>.<br>
-    Мама просит: <b style="color:#ff8c00;">to clean</b> скорей!<br>
-    И <b style="color:#20b2aa;">to help</b> моих друзей.
-  </p>
-  <img src="https://avatars.mds.yandex.net/i?id=6071ee5e3ba6e2776b9ecf332dd2767e_l-9246913-images-thumbs&n=13" alt="Reading books" width="100"/>
-  <img src="https://i.pinimg.com/736x/78/a6/b0/78a6b0a86a9582853e82e080011a1512.jpg" alt="Cleaning" width="100"/>
+        <div class="section white-bg">
+            <h3>Стишок для запоминания глаголов</h3>
+            <p>
+                Я люблю <b class="verb-blue">to swim</b> – я плыву, как дельфин,<br>
+                Потом <b class="verb-pink">to dance</b> — кружусь, как один!<br>
+                Мне нравится <b class="verb-green">to play</b> и немного <b class="verb-orange">to run</b>,<br>
+                А ещё <b class="verb-purple">to dream</b> — вот это план!
+            </p>
+            <img src="https://cdn.vectorstock.com/i/500p/99/71/dolphin-jump-out-water-cartoon-marine-vector-38629971.jpg" alt="Swimming dolphin" width="250"/>
 
-  <p>
-    Иногда хочу я <b style="color:#4b0082;">to sleep</b>,<br>
-    А потом поесть — <b style="color:#a52a2a;">to eat</b>,<br>
-    Чай попить — конечно, <b style="color:#4682b4;">to drink</b>!<br>
-    И о будущем <b style="color:#2e8b57;">to think</b>!
-  </p>
-  <img src="https://i.pinimg.com/736x/42/bc/12/42bc1227f602a4a47b6bc8ed0c81406f.jpg" alt="Sleeping child" width="120"/>
-  <img src="https://i.pinimg.com/originals/45/a1/86/45a1860a3f5bb8640a76174781d3d3d5.jpg" alt="Drinking tea" width="80"/>
+            <p>
+                Утром рано я встаю,<br>
+                <b class="verb-red">to work</b>, <b class="verb-blue">to read</b> и <b class="verb-gold">to do</b>.<br>
+                Мама просит: <b class="verb-orange-dark">to clean</b> скорей!<br>
+                И <b class="verb-teal">to help</b> моих друзей.
+            </p>
+            <img src="https://avatars.mds.yandex.net/i?id=6071ee5e3ba6e2776b9ecf332dd2767e_l-9246913-images-thumbs&n=13" alt="Reading books" width="100"/>
+            <img src="https://i.pinimg.com/736x/78/a6/b0/78a6b0a86a9582853e82e080011a1512.jpg" alt="Cleaning" width="100"/>
 
-  <p>
-    Я <b style="color:#00008b;">can</b> учиться, я <b style="color:#ff1493;">can</b> петь — <b style="color:#9932cc;">to sing</b>,<br>
-    Люблю <b style="color:#ff6347;">to travel</b>, <b style="color:#228b22;">to buy</b> всё, что <b style="color:#ff69b4;">I like</b> bring.<br>
-    Хочу всё <b style="color:#2f4f4f;">to know</b>, всё <b style="color:#1e90ff;">to learn</b> и понять —<br>
-    Как <b style="color:#800000;">to be</b>, <b style="color:#4169e1;">to have</b>, <b style="color:#daa520;">to get</b> и <b style="color:#20b2aa;">to start</b>!
-  </p>
-  <img src="https://avatars.mds.yandex.net/i?id=15ab1ff1100e0db27dd1cf2c71bac6a8_l-9730803-images-thumbs&n=13" alt="Singing child" width="250"/>
+            <p>
+                Иногда хочу я <b class="verb-indigo">to sleep</b>,<br>
+                А потом поесть — <b class="verb-brown">to eat</b>,<br>
+                Чай попить — конечно, <b class="verb-steelblue">to drink</b>!<br>
+                И о будущем <b class="verb-seagreen">to think</b>!
+            </p>
+            <img src="https://i.pinimg.com/736x/42/bc/12/42bc1227f602a4a47b6bc8ed0c81406f.jpg" alt="Sleeping child" width="120"/>
+            <img src="https://i.pinimg.com/originals/45/a1/86/45a1860a3f5bb8640a76174781d3d3d5.jpg" alt="Drinking tea" width="80"/>
 
-  <p>
-    Если надо — <b style="color:#b22222;">should</b> помочь,<br>
-    Сказать "hello", а не <b style="color:#000080;">to stop</b> в ночь.<br>
-    Я <b style="color:#ff8c00;">need</b> немного <b style="color:#4682b4;">to rest</b>,<br>
-    А потом снова <b style="color:#8b4513;">to do</b> мой best!
-  </p>
-  <img src="https://cdn.culture.ru/images/8bdae14a-43b2-5ed9-b801-24162bb5254e" alt="Studying" width="250"/>
-</div>
-<div class="section" style="background-color: white;">
+            <p>
+                Я <b class="verb-navy">can</b> учиться, я <b class="verb-hotpink">can</b> петь — <b class="verb-violet">to sing</b>,<br>
+                Люблю <b class="verb-tomato">to travel</b>, <b class="verb-forest">to buy</b> всё, что <b class="verb-pink">I like</b> bring.<br>
+                Хочу всё <b class="verb-darkslate">to know</b>, всё <b class="verb-blue">to learn</b> и понять —<br>
+                Как <b class="verb-maroon">to be</b>, <b class="verb-royalblue">to have</b>, <b class="verb-gold">to get</b> и <b class="verb-teal">to start</b>!
+            </p>
+            <img src="https://avatars.mds.yandex.net/i?id=15ab1ff1100e0db27dd1cf2c71bac6a8_l-9730803-images-thumbs&n=13" alt="Singing child" width="250"/>
+
+            <p>
+                Если надо — <b class="verb-firebrick">should</b> помочь,<br>
+                Сказать "hello", а не <b class="verb-navy">to stop</b> в ночь.<br>
+                Я <b class="verb-orange-dark">need</b> немного <b class="verb-steelblue">to rest</b>,<br>
+                А потом снова <b class="verb-sienna">to do</b> мой best!
+            </p>
+            <img src="https://cdn.culture.ru/images/8bdae14a-43b2-5ed9-b801-24162bb5254e" alt="Studying" width="250"/>
+        </div>
+
+        <div class="section white-bg">
             <h3>⭐️ Задание: Посмотри видео и напиши соответвующий глагол</h3>
             <div>
                 <div class="quiz-question">
@@ -294,7 +134,7 @@
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
-                    <input type="text" id="q1" style="width: 150px;">
+                    <input type="text" id="q1" class="input-verb">
                 </div>
                 <div class="quiz-question">
                     <label><strong>2.</strong></label>
@@ -304,7 +144,7 @@
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
-                    <input type="text" id="q2" style="width: 150px;">
+                    <input type="text" id="q2" class="input-verb">
                 </div>
                 <div class="quiz-question">
                     <label><strong>3.</strong></label>
@@ -314,7 +154,7 @@
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
-                    <input type="text" id="q3" style="width: 150px;">
+                    <input type="text" id="q3" class="input-verb">
                 </div>
                 <div class="quiz-question">
                     <label><strong>4.</strong></label>
@@ -324,11 +164,12 @@
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
-                    <input type="text" id="q4" style="width: 150px;">
+                    <input type="text" id="q4" class="input-verb">
                 </div>
                 <button class="submit-btn" onclick="checkQuiz2_2()">Проверить</button>
                 <div class="feedback" id="quiz-feedback"></div>
             </div>
         </div>
+    </div>
 </body>
 </html>

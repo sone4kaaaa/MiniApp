@@ -372,6 +372,12 @@ th {
 }
 
 /* Стили для карточек и цветов цифр */
+.cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+}
 .card {
     border: 5px solid;
     border-radius: 12px;
@@ -406,6 +412,28 @@ th {
 .card-11 { background: #e0f7fa; border-color: #00acc1; color: #00acc1; }
 .card-12 { background: #fce4ec; border-color: #ec407a; color: #ec407a; }
 
+.matching-game {
+            margin-top: 20px;
+        }
+
+        .matching-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .matching-item label {
+            flex: 1;
+            color: #333;
+        }
+
+        .matching-item select {
+            flex: 2;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+        }
 .match-number {
     font-size: 32px;
     font-weight: bold;

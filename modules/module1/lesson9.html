@@ -4,199 +4,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 9: Имя существительное</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh; 
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #e6e270; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #6f5e06; 
-        }
-
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Секции */
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        .table-wrapper {
-            max-width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table {
-            border-collapse: collapse;
-            min-width: 100%;
-            table-layout: auto;
-        }
-
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc;
-            text-align: left;
-        }
-
-        th {
-            text-align: left;
-        }
-
-        thead th:nth-child(1) { background-color: #b30000 !important; }
-        thead th:nth-child(2) { background-color: #b36b00 !important; }
-        thead th:nth-child(3) { background-color: #267326 !important; }
-
-        tbody td:nth-child(1) { background-color: #ffcccc; }
-        tbody td:nth-child(2) { background-color: #ffe0b3; }
-        tbody td:nth-child(3) { background-color: #ccffcc; }
-
-        /* Кнопки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Инпуты и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        /* Радиокнопки */
-        .radio-group {
-            margin-left: 20px;
-        }
-        .radio-group input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        /* Drag & Drop */
-        .drag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .draggable {
-            padding: 8px 12px;
-            background-color: #ffc107;
-            border-radius: 8px;
-            cursor: move;
-            user-select: none;
-        }
-        .drop-zone {
-            flex: 1 1 100%;
-            min-height: 50px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            transition: border-color 0.3s;
-        }
-        .drop-zone.dragover {
-            border-color: #28a745;
-        }
-
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-1 lesson-9">
         <h2>Урок 9: Имя существительное</h2>
         <button class="back-button"
                 onclick="
@@ -225,32 +36,32 @@
                     <tr>
                         <td>-s (общий случай)</td>
                         <td>book (книга), cat (кошка)</td>
-                        <td>book<b style="color:red;">s</b> (книги), cat<b style="color:red;">s</b> (кошки)</td>
+                        <td>book<span class="red-bold">s</span> (книги), cat<span class="red-bold">s</span> (кошки)</td>
                     </tr>
                     <tr>
                         <td>-es (шипящие или свистящие звуки: -s, -ss, -ch, -x, -sh, -tch)</td>
                         <td>bus (автобус), dress (платье), church (церковь), box (ящик), bush (куст), match (матч)</td>
-                        <td>bus<b style="color:red;">es</b> (автобусы), dress<b style="color:red;">es</b> (платья), church<b style="color:red;">es</b> (церкви), box<b style="color:red;">es</b> (ящики), bush<b style="color:red;">es</b> (кусты), match<b style="color:red;">es</b> (матчи)</td>
+                        <td>bus<span class="red-bold">es</span>, dress<span class="red-bold">es</span>, church<span class="red-bold">es</span>, box<span class="red-bold">es</span>, bush<span class="red-bold">es</span>, match<span class="red-bold">es</span></td>
                     </tr>
                     <tr>
                         <td>-es (оканчивающиеся на -о)</td>
                         <td>hero (герой)</td>
-                        <td>hero<b style="color:red;">es</b> (герои)</td>
+                        <td>hero<span class="red-bold">es</span> (герои)</td>
                     </tr>
                     <tr>
                         <td>-ies (оканчивающиеся на -y после согласной)</td>
                         <td>city (город), story (история)</td>
-                        <td>cit<b style="color:red;">ies</b> (города), stor<b style="color:red;">ies</b> (истории)</td>
+                        <td>cit<span class="red-bold">ies</span> (города), stor<span class="red-bold">ies</span> (истории)</td>
                     </tr>
                     <tr>
                         <td>-s (оканчивающиеся на -y после гласной)</td>
                         <td>boy (мальчик), key (ключ)</td>
-                        <td>boy<b style="color:red;">s</b> (мальчики), key<b style="color:red;">s</b> (ключи)</td>
+                        <td>boy<span class="red-bold">s</span> (мальчики), key<span class="red-bold">s</span> (ключи)</td>
                     </tr>
                     <tr>
                         <td>-ves (оканчивающиеся на -f / -fe)</td>
                         <td>wolf (волк), knife (нож)</td>
-                        <td>wol<b style="color:red;">ves</b> (волки), kni<b style="color:red;">ves</b> (ножи)</td>
+                        <td>wol<span class="red-bold">ves</span> (волки), kni<span class="red-bold">ves</span> (ножи)</td>
                     </tr>
                 </tbody>
             </table>
@@ -259,68 +70,73 @@
         <div class="section">
             <h3>Особые случаи образования множественного числа</h3>
             <table>
-        <thead>
-            <tr>
-                <th>Форма единственного числа</th>
-                <th>Форма множественного числа</th>
-                <th>Перевод</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>child</td><td>children</td><td>ребёнок — <span class="highlight">дети</span></td></tr>
-            <tr><td>foot</td><td>feet</td><td>нога — <span class="highlight">ноги</span></td></tr>
-            <tr><td>goose</td><td>geese</td><td>гусь — <span class="highlight">гуси</span></td></tr>
-            <tr><td>man</td><td>men</td><td>человек, мужчина — <span class="highlight">люди, мужчины</span></td></tr>
-            <tr><td>mouse</td><td>mice</td><td>мышь — <span class="highlight">мыши</span></td></tr>
-            <tr><td>person</td><td>people</td><td>человек — <span class="highlight">люди</span></td></tr>
-            <tr><td>sheep</td><td>sheep</td><td>овца — <span class="highlight">овцы</span></td></tr>
-            <tr><td>tooth</td><td>teeth</td><td>зуб — <span class="highlight">зубы</span></td></tr>
-            <tr><td>woman</td><td>women</td><td>женщина — <span class="highlight">женщины</span></td></tr>
-        </tbody>
-    </table>
-    <h3>Существительные</h3>
-        <table>
-        <thead>
-            <tr>
-                <th>Тип существительного</th>
-                <th>Примеры</th>
-                <th>Особенности</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Исчисляемые (можно сосчитать)</td>
-                <td>five books (пять книг), three flowers (три цветка)</td>
-                <td>Могут быть в единственном и множественном числе. Употребляются с артиклем a/an в единственном числе.</td>
-            </tr>
-            <tr>
-                <td>Неисчисляемые (вещества, материалы, абстрактные понятия)</td>
-                <td>money (деньги), work (работа), information (информация)</td>
-                <td>Всегда имеют форму единственного числа и не употребляются с артиклем a/an.</td>
-            </tr>
-        </tbody>
-        </table>
+                <thead>
+                    <tr>
+                        <th>Форма единственного числа</th>
+                        <th>Форма множественного числа</th>
+                        <th>Перевод</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>child</td><td>children</td><td>ребёнок — дети</td></tr>
+                    <tr><td>foot</td><td>feet</td><td>нога — ноги</td></tr>
+                    <tr><td>goose</td><td>geese</td><td>гусь — гуси</td></tr>
+                    <tr><td>man</td><td>men</td><td>человек, мужчина — люди, мужчины</td></tr>
+                    <tr><td>mouse</td><td>mice</td><td>мышь — мыши</td></tr>
+                    <tr><td>person</td><td>people</td><td>человек — люди</td></tr>
+                    <tr><td>sheep</td><td>sheep</td><td>овца — овцы</td></tr>
+                    <tr><td>tooth</td><td>teeth</td><td>зуб — зубы</td></tr>
+                    <tr><td>woman</td><td>women</td><td>женщина — женщины</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Существительные</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тип существительного</th>
+                        <th>Примеры</th>
+                        <th>Особенности</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Исчисляемые</td>
+                        <td>five books, three flowers</td>
+                        <td>Могут быть в ед. и мн. числе. С артиклем a/an в ед. числе.</td>
+                    </tr>
+                    <tr>
+                        <td>Неисчисляемые</td>
+                        <td>money, work, information</td>
+                        <td>Всегда в единственном числе, без a/an.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
         <div class="section">
             <h3>Притяжательный падеж</h3>
-            <p>Английский притяжательный падеж образуется добавлением <strong>’s</strong> к слову в единственном числе и добавлением <strong>’</strong> к слову во множественном числе.</p>
+            <p>Английский притяжательный падеж образуется добавлением <strong>’s</strong> к слову в единственном числе и <strong>’</strong> — во множественном.</p>
             <p>Притяжательный падеж обычно выражает принадлежность.</p>
-            <h3><b style="color:red;">Общий падеж</b></h3>
-            <ul> 
-                <li>boy (мальчик)</li>
-                <li>girls (девочки)</li>
+
+            <h3><span class="red-bold">Общий падеж</span></h3>
+            <ul>
+                <li>boy</li>
+                <li>girls</li>
             </ul>
-            <h3><b style="color:red;">Притяжательный падеж</b></h3>
-            <ul> 
-                <li>boy’s (мальчика)</li>
-                <li>girls’ (девочек)</li>
+
+            <h3><span class="red-bold">Притяжательный падеж</span></h3>
+            <ul>
+                <li>boy’s</li>
+                <li>girls’</li>
             </ul>
+
             <p>Примеры:</p>
-            <ul> 
-                <li>the boy’s books (книги мальчика)</li>
-                <li>the student’s notes (записи студента)</li>
-                <li>children’s toys (игрушки детей)</li>
-                <li>pupils’ work (работа учеников)</li>
+            <ul>
+                <li>the boy’s books</li>
+                <li>the student’s notes</li>
+                <li>children’s toys</li>
+                <li>pupils’ work</li>
             </ul>
         </div>
     </div>

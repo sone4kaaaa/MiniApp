@@ -1,278 +1,106 @@
-<!-- lessons/lesson10.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Урок 10: Времена года</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh; 
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #d6a2da; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #6f066a;
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Секции */
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Кнопки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Инпуты и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"], 
-        .quiz-question select {
-            width: 90%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-        /* Радиокнопки */
-        .radio-group {
-            margin-left: 20px;
-        }
-        .radio-group input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        /* Drag & Drop */
-        .drag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .draggable {
-            padding: 8px 12px;
-            background-color: #ffc107;
-            border-radius: 8px;
-            cursor: move;
-            user-select: none;
-        }
-        .drop-zone {
-            flex: 1 1 100%;
-            min-height: 50px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            transition: border-color 0.3s;
-        }
-        .drop-zone.dragover {
-            border-color: #28a745;
-        }
-
-        /* Кнопка "Next Lesson" (если нужна) */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Урок 10: Времена года</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="lesson-container">
-        <h2>Урок 10: Времена года</h2>
+  <div class="lesson-container module-1 lesson-10">
+    <h2>Урок 10: Времена года</h2>
 
-        <button class="back-button"
-                onclick="
-                    document.getElementById('lesson-content').classList.add('hidden');
-                    document.getElementById('lesson-details').innerHTML = '';
-                    document.getElementById('app-header').classList.remove('hidden');
-                    document.getElementById('module1-list').classList.remove('hidden');
-                ">
-            <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
-            Назад
-        </button>
-        <div class="section">
-            <p>🌟 Сегодняшний заключительный урок модуля 1 будет посвящен временам года (seasons). Мы прочитаем тексты, переведем их вместе и выучим новые слова!</p>
-            <p>После прохождения этого урока будет дано время дома на подготовку к итоговому тесту для проверки полученных знаний за модуль 1.</p>
-            <img src="https://avatars.mds.yandex.net/i?id=4a0b83c36bf611b715f637b0c9fada6f_l-8497448-images-thumbs&n=13" alt="Времена года" style="max-width:100%; height:200px; margin-bottom:10px;">
-        </div>
-        <div class="section" style="background-color:rgb(241, 240, 149);">
-            <h3>☀️ <b style="color:rgb(184, 181, 0);">Summer</b> - Лето</h3>
-            <p>It is summer. I like it. <br> <i>Это лето. Мне оно нравится.</i></p>
-            <p>It's hot and sunny in summer. <br> <i>Летом жарко и солнечно.</i></p>
-            <p>I can swim, run and climb trees. <br> <i>Я могу плавать, бегать и лазать по деревьям.</i></p>
-            <p>In summer I wear shorts, a T-shirt and a hat. <br> <i>Летом я ношу шорты, футболку и шляпу.</i></p>
+    <button class="back-button"
+            onclick="
+              document.getElementById('lesson-content').classList.add('hidden');
+              document.getElementById('lesson-details').innerHTML = '';
+              document.getElementById('app-header').classList.remove('hidden');
+              document.getElementById('module1-list').classList.remove('hidden');
+            ">
+      <img class="back-icon" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back">
+      Назад
+    </button>
 
-            <h3>Учим новые слова!</h3>
-            <ul>
-                <li><strong>hot</strong> - горячий</li>
-                <li><strong>sunny</strong> - солнечный</li>
-                <li><strong>swim</strong> - плавать</li>
-                <li><strong>run</strong> - бегать</li>
-                <li><strong>climb trees</strong> - лазать по деревьям</li>
-                <li><strong>wear</strong> - носить</li>
-                <li><strong>shorts</strong> - шорты</li>
-                <li><strong>T-shirt</strong> - футболка</li>
-            </ul>
-        </div>
-        <div class="section" style="background-color:rgb(241, 193, 127);">
-            <h3>🍁 <b style="color:rgb(232, 137, 3);">Autumn</b> - Осень</h3>
-            <p>It is autumn. <br> <i>Это осень.</i></p>
-            <p>It's windy and rainy. <br> <i>Ветрено и дождливо.</i></p>
-            <p>I wear a jacket and jeans in autumn. <br> <i>Осенью я ношу куртку и джинсы.</i></p>
-            <p>Children go to school. <br> <i>Дети идут в школу.</i></p>
-            <p>They can walk and play in the park. <br> <i>Они могут гулять и играть в парке.</i></p>
+    <div class="section">
+      <p>🌟 Сегодняшний заключительный урок модуля 1 будет посвящен временам года (seasons). Мы прочитаем тексты, переведем их вместе и выучим новые слова!</p>
+      <p>После прохождения этого урока будет дано время дома на подготовку к итоговому тесту для проверки полученных знаний за модуль 1.</p>
+      <img src="https://avatars.mds.yandex.net/i?id=4a0b83c36bf611b715f637b0c9fada6f_l-8497448-images-thumbs&n=13"
+           alt="Времена года"
+           class="season-image">
+    </div>
 
-            <h3>Учим новые слова!</h3>
-            <ul>
-                <li><strong>windy</strong> - ветрено</li>
-                <li><strong>rainy</strong> - дождливо</li>
-                <li><strong>jacket</strong> - куртка</li>
-                <li><strong>jeans</strong> - джинсы</li>
-                <li><strong>walk</strong> - гулять</li>
-                <li><strong>play</strong> - играть</li>
-                <li><strong>park</strong> - парк</li>
-            </ul>
-        </div>
-        <div class="section" style="background-color:rgb(155, 208, 247);">
-            <h3>☃️ <b style="color:rgb(3, 37, 232);">Winter</b> - Зима</h3>
-            <p>It is winter. <br> <i>Это зима.</i></p>
-            <p>It's cold and snowy in winter. <br> <i>Зимой холодно и снежно.</i></p>
-            <p>I like to drink hot tea in winter. <br> <i>Мне нравится пить горячий чай зимой.</i></p>
-            <p>Look! It is my snowman! <br> <i>Смотри! Это мой снеговик!</i></p>
+    <div class="section summer">
+      <h3>☀️ <b class="season-title summer-title">Summer</b> - Лето</h3>
+      <p>It is summer. I like it. <br> <i>Это лето. Мне оно нравится.</i></p>
+      <p>It's hot and sunny in summer. <br> <i>Летом жарко и солнечно.</i></p>
+      <p>I can swim, run and climb trees. <br> <i>Я могу плавать, бегать и лазать по деревьям.</i></p>
+      <p>In summer I wear shorts, a T-shirt and a hat. <br> <i>Летом я ношу шорты, футболку и шляпу.</i></p>
+      <h3>Учим новые слова!</h3>
+      <ul>
+        <li><strong>hot</strong> - горячий</li>
+        <li><strong>sunny</strong> - солнечный</li>
+        <li><strong>swim</strong> - плавать</li>
+        <li><strong>run</strong> - бегать</li>
+        <li><strong>climb trees</strong> - лазать по деревьям</li>
+        <li><strong>wear</strong> - носить</li>
+        <li><strong>shorts</strong> - шорты</li>
+        <li><strong>T-shirt</strong> - футболка</li>
+      </ul>
+    </div>
 
-            <h3>Учим новые слова!</h3>
-            <ul>
-                <li><strong>cold</strong> - холодный</li>
-                <li><strong>snowy</strong> - снежный</li>
-                <li><strong>drink</strong> - пить</li>
-                <li><strong>tea</strong> - чай</li>
-                <li><strong>look</strong> - смотреть</li>
-                <li><strong>snowman</strong> - снеговик</li>
-            </ul>
-        </div>
-        <div class="section" style="background-color:rgb(153, 247, 162);">
-            <h3>🌷 <b style="color:rgb(1, 171, 60);">Spring</b> - Весна</h3>
-            <p>It is spring. <br> <i>Это весна.</i></p>
-            <p>It's sunny and warm. <br> <i>Солнечно и тепло.</i></p>
-            <p>There are flowers and green trees. <br> <i>Цветы и зелёные деревья.</i></p>
-            <p>Spring is my favourite season. I love it! <br> <i>Весна — моё любимое время года. Я люблю её!</i></p>
+    <div class="section autumn">
+      <h3>🍁 <b class="season-title autumn-title">Autumn</b> - Осень</h3>
+      <p>It is autumn. <br> <i>Это осень.</i></p>
+      <p>It's windy and rainy. <br> <i>Ветрено и дождливо.</i></p>
+      <p>I wear a jacket and jeans in autumn. <br> <i>Осенью я ношу куртку и джинсы.</i></p>
+      <p>Children go to school. <br> <i>Дети идут в школу.</i></p>
+      <p>They can walk and play in the park. <br> <i>Они могут гулять и играть в парке.</i></p>
+      <h3>Учим новые слова!</h3>
+      <ul>
+        <li><strong>windy</strong> - ветрено</li>
+        <li><strong>rainy</strong> - дождливо</li>
+        <li><strong>jacket</strong> - куртка</li>
+        <li><strong>jeans</strong> - джинсы</li>
+        <li><strong>walk</strong> - гулять</li>
+        <li><strong>play</strong> - играть</li>
+        <li><strong>park</strong> - парк</li>
+      </ul>
+    </div>
 
-            <h3>Учим новые слова!</h3>
-            <ul>
-                <li><strong>warm</strong> - тёплый</li>
-                <li><strong>flowers</strong> - цветы</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h3>📚 Домашнее задание:</h3>
-            <p>Выучить любой текст про время года!</p>
-        </div>
+    <div class="section winter">
+      <h3>☃️ <b class="season-title winter-title">Winter</b> - Зима</h3>
+      <p>It is winter. <br> <i>Это зима.</i></p>
+      <p>It's cold and snowy in winter. <br> <i>Зимой холодно и снежно.</i></p>
+      <p>I like to drink hot tea in winter. <br> <i>Мне нравится пить горячий чай зимой.</i></p>
+      <p>Look! It is my snowman! <br> <i>Смотри! Это мой снеговик!</i></p>
+      <h3>Учим новые слова!</h3>
+      <ul>
+        <li><strong>cold</strong> - холодный</li>
+        <li><strong>snowy</strong> - снежный</li>
+        <li><strong>drink</strong> - пить</li>
+        <li><strong>tea</strong> - чай</li>
+        <li><strong>look</strong> - смотреть</li>
+        <li><strong>snowman</strong> - снеговик</li>
+      </ul>
+    </div>
+
+    <div class="section spring">
+      <h3>🌷 <b class="season-title spring-title">Spring</b> - Весна</h3>
+      <p>It is spring. <br> <i>Это весна.</i></p>
+      <p>It's sunny and warm. <br> <i>Солнечно и тепло.</i></p>
+      <p>There are flowers and green trees. <br> <i>Цветы и зелёные деревья.</i></p>
+      <p>Spring is my favourite season. I love it! <br> <i>Весна — моё любимое время года. Я люблю её!</i></p>
+      <h3>Учим новые слова!</h3>
+      <ul>
+        <li><strong>warm</strong> - тёплый</li>
+        <li><strong>flowers</strong> - цветы</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>📚 Домашнее задание:</h3>
+      <p>Выучить любой текст про время года!</p>
+    </div>
+  </div>
 </body>
 </html>

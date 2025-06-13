@@ -4,192 +4,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Урок 8: Основы английском грамматики</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh; /* Ограничение высоты контейнера для прокрутки */
-            overflow-y: auto; /* Добавление вертикальной прокрутки */
-            padding-right: 10px; /* Отступ для полосы прокрутки */
-            background-color: #dd7676; /* Фоновый цвет для контраста с заголовком */
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #6f0404;
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .section p,
-        .section li {
-            color: #333;
-        }
-
-        /* Таблицы */
-        .section table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .section th, .section td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        .section th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        /* Кнопка для проверки */
-        .submit-btn {
-            display: inline-block;
-            padding: 10px;
-            background-color: #8e2de2;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-        .submit-btn:hover {
-            background-color: #4a00e0;
-        }
-
-        /* Инпуты и фидбек */
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .quiz-question input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .quiz-question select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-
-        /* Радиокнопки */
-        .radio-group {
-            margin-left: 20px;
-        }
-        .radio-group input[type="radio"] {
-            margin-right: 8px;
-        }
-
-        /* Drag & Drop */
-        .drag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .draggable {
-            padding: 8px 12px;
-            background-color: #ffc107;
-            border-radius: 8px;
-            cursor: move;
-            user-select: none;
-        }
-        .drop-zone {
-            flex: 1 1 100%;
-            min-height: 50px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            transition: border-color 0.3s;
-        }
-        .drop-zone.dragover {
-            border-color: #28a745; /* Зеленый при наведении */
-        }
-
-        /* Кнопка "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стили для кнопки "Next Lesson" */
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="\styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container module-1 lesson-8">
         <h2>Урок 8: Основы английском грамматики</h2>
         <button class="back-button"
                 onclick="
@@ -300,15 +118,15 @@
             <div>
                 <div class="quiz-question">
                     <label>1. She ___ a doctor.</label>
-                    <input type="text" id="q1" style="width: 150px;">
+                    <input type="text" id="q1">
                 </div>
                 <div class="quiz-question">
                     <label>2. They ___ happy.</label>
-                    <input type="text" id="q2" style="width: 150px;">
+                    <input type="text" id="q2">
                 </div>
                 <div class="quiz-question">
                     <label>3. I ___ a student.</label>
-                    <input type="text" id="q3" style="width: 150px;">
+                    <input type="text" id="q3">
                 </div>
                 <button class="submit-btn" onclick="checkQuiz08()">Проверить</button>
                 <div class="feedback" id="quiz-feedback"></div>

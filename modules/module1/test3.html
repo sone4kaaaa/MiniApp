@@ -4,137 +4,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Тест 3</title>
-    <style>
-        .lesson-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 10px;
-            background-color: #a0eb91; 
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #1e9004; 
-            margin-bottom: 20px; 
-        }
-
-        /* Стили для кнопки "Назад" */
-        .back-button {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background-color: #ffe4c4;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px; /* Отступ снизу */
-            text-decoration: none;
-            width: 120px;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .back-button:hover {
-            background-color: #ffc299;
-        }
-        .back-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .section {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-
-        .quiz-question label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .quiz-question input[type="text"], .quiz-question select {
-            width: 90%;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background-color: #218838;
-        }
-
-        .next-lesson-btn {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-        }
-        .next-lesson-btn:hover {
-            background-color: #0056b3;
-        }
-        .next-icon {
-            margin-right: 8px;
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #d4edda;
-            color: #155724;
-            display: none;
-        }
-        .feedback.success, .matching-feedback.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .feedback.error, .matching-feedback.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="lesson-container">
+    <div class="lesson-container test">
         <h2>Тест 3: Основы грамматики, имя существительное, животные</h2>
         <button class="back-button"
                 onclick="
@@ -149,19 +22,14 @@
 
         <div class="section">
             <div class="quiz">
-                <!-- Вопрос 1 -->
                 <div class="quiz-question">
                     <label><strong>1.</strong> Напиши форму "to be" для подлежащего "I"</label>
                     <input type="text" id="q1">
                 </div>
-                
-                <!-- Вопрос 2 -->
                 <div class="quiz-question">
                     <label><strong>2.</strong> Заполни пропуск: We ___ happy.</label>
                     <input type="text" id="q2">
                 </div>
-                
-                <!-- Вопрос 3 -->
                 <div class="quiz-question">
                     <label><strong>3.</strong> Укажи правильную форму множественного числа от слова "city":</label>
                     <select id="q3">
@@ -171,20 +39,14 @@
                         <option value="cityes">cityes</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 4 -->
                 <div class="quiz-question">
                     <label><strong>4.</strong> Переведи на английский "домашние животные":</label>
                     <input type="text" id="q4">
                 </div>
-                
-                <!-- Вопрос 5 -->
                 <div class="quiz-question">
                     <label><strong>5.</strong> Как образуется множественное число для слова "book"?</label>
                     <input type="text" id="q5">
                 </div>
-                
-                <!-- Вопрос 6 -->
                 <div class="quiz-question">
                     <label><strong>6.</strong> Как образуется притяжательный падеж от слова "girl" во множественном числе?</label>
                     <select id="q6">
@@ -194,27 +56,19 @@
                         <option value="girls">girls</option>
                     </select>
                 </div>
-                
-                <!-- Вопрос 7 -->
                 <div class="quiz-question">
                     <label><strong>7.</strong> Заполни пропуск: She ___ a doctor.</label>
                     <input type="text" id="q7">
                 </div>
-                
-                <!-- Вопрос 8 -->
                 <div class="quiz-question">
                     <label><strong>8.</strong> Переведи на английский "Доброе утро"</label>
                     <input type="text" id="q8">
                 </div>
-                
-                <!-- Вопрос 9 -->
                 <div class="quiz-question">
                     <label><strong>9.</strong> Напиши на английском что изображено на картинке (мн.ч.)</label>
                     <img src="https://i.pinimg.com/736x/68/02/26/680226c0a1c6fd9bf7c46b8d67ff7eab.jpg" alt="Лошади" style="max-width:100%; height:180px; margin-bottom:10px;">
                     <input type="text" id="q9">
                 </div>
-                
-                <!-- Вопрос 10 -->
                 <div class="quiz-question">
                     <label><strong>10.</strong> Напиши форму "to be" для подлежащего "It"</label>
                     <input type="text" id="q10">
@@ -224,10 +78,6 @@
                 <div class="feedback" id="test3-feedback"></div>
             </div>
         </div>
-
-        
     </div>
-
-    
 </body>
 </html>

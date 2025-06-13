@@ -736,14 +736,13 @@ li.dark-yellow { color: #B8860B; }
 
 .module-1.lesson-6 .card {
     background-color: #ffe4c4;
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 8px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     user-select: none;
     width: 100%;
     min-width: 100px;

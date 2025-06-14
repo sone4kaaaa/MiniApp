@@ -883,7 +883,7 @@ window.checkTest1_2 = function () {
         q9: 'cucumber',                 
         q10: 'eat' 
     };
-    checkTest(answers, 'test1-feedback', 'module2.test1');
+    checkTest(answers, 'test12-feedback', 'module2.test1');
 };
 window.checkTest2_2 = function () {
     const answers = {
@@ -898,7 +898,7 @@ window.checkTest2_2 = function () {
         q9: "He hasn't got a brother.",                      
         q10: 'tea and coffee'
     };
-    checkTest(answers, 'test2-feedback', 'module2.test2');
+    checkTest(answers, 'test22-feedback', 'module2.test2');
 };
 window.checkTest3_2 = function () {
     const answers = {
@@ -913,7 +913,7 @@ window.checkTest3_2 = function () {
         q9: 'september',         
         q10: 'fireworks'
     };
-    checkTest(answers, 'test3-feedback', 'module2.test3');
+    checkTest(answers, 'test32-feedback', 'module2.test3');
 };
             
 window.checkTest1_3 = function () {
@@ -929,7 +929,7 @@ window.checkTest1_3 = function () {
         q9: 'Do you eat meat?',         
         q10: 'Does'
     };
-    checkTest(answers, 'test3-feedback', 'module3.test1');
+    checkTest(answers, 'test13-feedback', 'module3.test1');
 };       
 
 window.checkTest2_3 = function () {
@@ -945,7 +945,7 @@ window.checkTest2_3 = function () {
         q9: 'singing',         
         q10: 'than' 
     };
-    checkTest(answers, 'test3-feedback', 'module3.test2');
+    checkTest(answers, 'test23-feedback', 'module3.test2');
 };  
 
 window.checkTest3_3 = function () {
@@ -961,7 +961,7 @@ window.checkTest3_3 = function () {
         q9: 'Table',         
         q10: 'Cozy'
     };
-    checkTest(answers, 'test3-feedback', 'module3.test3');
+    checkTest(answers, 'test33-feedback', 'module3.test3');
 };  
 
 /**

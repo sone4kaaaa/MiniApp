@@ -45,9 +45,9 @@ window.userStats = {
     lessonsCompleted: 0,       // от 0 до 30
     testsCompleted: 0,         // от 0 до 9 (промежуточные)
     finalTestsCompleted: 0,    // от 0 до 3 (итоговые)
+    testResults: {}
   };
 window.completedItems = new Set();
-window.testResults = {};
 
 /* ----- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ FIRESTORE ----- */
 async function loadUserDataFromServer(userId) {
@@ -64,9 +64,6 @@ async function loadUserDataFromServer(userId) {
         if (savedData.completedItems) {
           window.completedItems = new Set(savedData.completedItems);
         }
-        if (savedData.testResults) {
-        window.testResults = savedData.testResults;
-        }
       } else {
         console.log("Документ для этого userId не найден в Firestore.");
       }
@@ -81,8 +78,7 @@ async function saveUserDataToServer(userId) {
       const dataToSave = {
         userStats: window.userStats,
         completedItems: Array.from(window.completedItems),
-        testResults: window.testResults, // <-- добавьте сюда
-        };
+      };
       await docRef.set(dataToSave, { merge: true });
       console.log("Прогресс сохранён:", dataToSave);
     } catch (error) {
@@ -311,6 +307,38 @@ function unlockItemsByStats() {
     }
 }
 
+
+/**
+ * Функция, когда пользователь «завершает» урок или тест.
+ * @param {string} type 
+ * @param {string} modulePath 
+ * @param {string} fileName 
+ */
+function finishLessonOrTest(type, modulePath, fileName) {
+    // Создаём уникальный идентификатор для конкретного урока/теста
+    const uid = `${modulePath}-${fileName}`;
+
+    // Проверяем, не было ли уже добавлено в completedItems
+    if (window.completedItems.has(uid)) {
+      console.log("Этот урок/тест уже отмечен как завершён:", uid);
+      return;
+    }
+
+    // Добавляем в Set (теперь он считается пройденным)
+    window.completedItems.add(uid);
+
+    if (type === 'lesson') {
+      window.userStats.lessonsCompleted = Math.min(window.userStats.lessonsCompleted + 1, 30);
+    } else if (type === 'test') {
+      window.userStats.testsCompleted = Math.min(window.userStats.testsCompleted + 1, 9);
+    } else if (type === 'final') {
+      window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
+    }
+
+    // сохраняем обновлённые данные в Firestore
+    saveUserDataToServer(window.userId);
+    unlockItemsByStats();
+}
 document.addEventListener('DOMContentLoaded', async () => {
 
     const userId = getTelegramUserId();
@@ -745,7 +773,7 @@ function loadContent(html, modulePath) {
  * @param {Object} answers 
  * @param {string} feedbackId 
  */
-function checkTest(answers, feedbackId) {
+function checkTest(answers, feedbackId, testId = '') {
     let score = 0;
     const total = Object.keys(answers).length;
 
@@ -768,9 +796,9 @@ function checkTest(answers, feedbackId) {
 
         if (userAnswer === compareCorrect) {
             score++;
-            input.style.borderColor = '#28a745'; 
+            input.style.borderColor = '#28a745';
         } else {
-            input.style.borderColor = '#dc3545'; 
+            input.style.borderColor = '#dc3545';
         }
     }
 
@@ -785,14 +813,16 @@ function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
-    // Сохраняем результат теста
-    const currentTestName = feedbackId.replace('-feedback', ''); // например, "test2"
-    window.testResults[currentTestName] = {
-        correct: score,
-        incorrect: total - score
-    };
 
+    // Сохраняем статистику в Firestore
+    const userId = getTelegramUserId();
+    if (testId) {
+        window.userStats.testResults = window.userStats.testResults || {};
+        window.userStats.testResults[testId] = { correct: score, total };
+        saveUserDataToServer(userId);
+    }
 };
+
 
 window.checkTest1 = function () {
     const answers = {
@@ -805,7 +835,7 @@ window.checkTest1 = function () {
         tq7: 'zero,one,two,three',
         tq8: 'hat'
     };
-    checkTest(answers, 'test-feedback');
+    checkTest(answers, 'test-feedback', 'module1.test1');
 };
 
 window.checkTest2 = function () {
@@ -821,10 +851,10 @@ window.checkTest2 = function () {
         q9: 'my',
         q10: 'a'
     };
-    checkTest(answers, 'test2-feedback');
+    checkTest(answers, 'test2-feedback', 'module1.test2');
 };
 
-window.checkTest3 = function () {
+window.checkTest2 = function () {
     const answers = {
         q1: 'am', 
         q2: 'are',
@@ -837,7 +867,7 @@ window.checkTest3 = function () {
         q9: 'horses',
         q10: "is"
     };
-    checkTest(answers, 'test3-feedback');
+    checkTest(answers, 'test3-feedback', 'module1.test3');
 };
 
 window.checkTest1_2 = function () {
@@ -853,7 +883,7 @@ window.checkTest1_2 = function () {
         q9: 'cucumber',                 
         q10: 'eat' 
     };
-    checkTest(answers, 'test12-feedback');
+    checkTest(answers, 'test1-feedback', 'module2.test1');
 };
 window.checkTest2_2 = function () {
     const answers = {
@@ -868,7 +898,7 @@ window.checkTest2_2 = function () {
         q9: "He hasn't got a brother.",                      
         q10: 'tea and coffee'
     };
-    checkTest(answers, 'test22-feedback');
+    checkTest(answers, 'test2-feedback', 'module2.test2');
 };
 window.checkTest3_2 = function () {
     const answers = {
@@ -883,7 +913,7 @@ window.checkTest3_2 = function () {
         q9: 'september',         
         q10: 'fireworks'
     };
-    checkTest(answers, 'test32-feedback');
+    checkTest(answers, 'test3-feedback', 'module2.test3');
 };
             
 window.checkTest1_3 = function () {
@@ -899,7 +929,7 @@ window.checkTest1_3 = function () {
         q9: 'Do you eat meat?',         
         q10: 'Does'
     };
-    checkTest(answers, 'test13-feedback');
+    checkTest(answers, 'test3-feedback', 'module3.test1');
 };       
 
 window.checkTest2_3 = function () {
@@ -915,7 +945,7 @@ window.checkTest2_3 = function () {
         q9: 'singing',         
         q10: 'than' 
     };
-    checkTest(answers, 'test23-feedback');
+    checkTest(answers, 'test3-feedback', 'module3.test2');
 };  
 
 window.checkTest3_3 = function () {
@@ -931,7 +961,7 @@ window.checkTest3_3 = function () {
         q9: 'Table',         
         q10: 'Cozy'
     };
-    checkTest(answers, 'test33-feedback');
+    checkTest(answers, 'test3-feedback', 'module3.test3');
 };  
 
 /**
@@ -939,7 +969,7 @@ window.checkTest3_3 = function () {
  * @param {Object} answers1 
  * @param {string} feedbackId1 
  */
-function checkFinalTestGeneric(answers1, feedbackId1) {
+function checkFinalTestGeneric(answers1, feedbackId1, testId = '') {
     let score = 0;
     const total = Object.keys(answers1).length;
 
@@ -975,13 +1005,14 @@ function checkFinalTestGeneric(answers1, feedbackId1) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
-    // Сохраняем результат финального теста
-    const currentTestName = feedbackId1.replace('-feedback', ''); // например, "finaltest2"
-    window.testResults[currentTestName] = {
-        correct: score,
-        incorrect: total - score
-    };
 
+    // Сохраняем статистику в Firestore
+    const userId = getTelegramUserId();
+    if (testId) {
+        window.userStats.testResults = window.userStats.testResults || {};
+        window.userStats.testResults[testId] = { correct: score, total };
+        saveUserDataToServer(userId);
+    }
 }
 
 window.checkFinalTest = function () {
@@ -997,7 +1028,7 @@ window.checkFinalTest = function () {
         q9: 'mine',
         q10: 'a book'
     };
-    checkFinalTestGeneric(answers1, 'finaltest-feedback');
+    checkFinalTestGeneric(answers1, 'finaltest-feedback', 'module1.finaltest');
 };
 
 window.checkFinalTest2 = function () {
@@ -1013,7 +1044,7 @@ window.checkFinalTest2 = function () {
         q29: 'January',
         q210: 'Mouth'
     };
-    checkFinalTestGeneric(answers1, 'finaltest2-feedback');
+    checkFinalTestGeneric(answers1, 'finaltest2-feedback', 'module2.finaltest');
 };
 
 window.checkFinalTest3 = function () {
@@ -1029,7 +1060,7 @@ window.checkFinalTest3 = function () {
         q39: 'This is the most beautiful park.',
         q310: 'I like painting.'
     };
-    checkFinalTestGeneric(answers1, 'finaltest3-feedback');
+    checkFinalTestGeneric(answers1, 'finaltest3-feedback', 'module3.finaltest');
 };
 
     // Добавление кнопки "Итоговый тест" для каждого модуля
@@ -1062,37 +1093,7 @@ window.checkFinalTest3 = function () {
                 });
         });
     });
-/**
- * Функция, когда пользователь «завершает» урок или тест.
- * @param {string} type 
- * @param {string} modulePath 
- * @param {string} fileName 
- */
-function finishLessonOrTest(type, modulePath, fileName) {
-    // Создаём уникальный идентификатор для конкретного урока/теста
-    const uid = `${modulePath}-${fileName}`;
 
-    // Проверяем, не было ли уже добавлено в completedItems
-    if (window.completedItems.has(uid)) {
-      console.log("Этот урок/тест уже отмечен как завершён:", uid);
-      return;
-    }
-
-    // Добавляем в Set (теперь он считается пройденным)
-    window.completedItems.add(uid);
-
-    if (type === 'lesson') {
-      window.userStats.lessonsCompleted = Math.min(window.userStats.lessonsCompleted + 1, 30);
-    } else if (type === 'test') {
-      window.userStats.testsCompleted = Math.min(window.userStats.testsCompleted + 1, 9);
-    } else if (type === 'final') {
-      window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
-    }
-
-    // сохраняем обновлённые данные в Firestore
-    saveUserDataToServer(window.userId);
-    unlockItemsByStats();
-}
     unlockItemsByStats();
 
 
@@ -2220,7 +2221,7 @@ window.initShoppingCartGame = function () {
         document.getElementById('stats-modal').classList.add('hidden');
         // 2) Показываем главный экран с модулями
         mainButtons.classList.remove('hidden');
-        // 3) А все возможные экраны уроков/тестов/меню модулей скрываем
+        // 3) все возможные экраны уроков/тестов/меню модулей скрываем
         moduleMenus.forEach(m => m.classList.add('hidden'));
         lessonsListContainers.forEach(c => c.classList.add('hidden'));
         lessonContent.classList.add('hidden');
@@ -2228,52 +2229,24 @@ window.initShoppingCartGame = function () {
     });
     
 
-function showStats() { 
-    const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
-    const statsModal = document.getElementById('stats-modal');
-    const statsContent = document.getElementById('stats-content');
-
-    // Заголовок и основная статистика
-    let html = `
-        <h3>Моя статистика</h3>
-        <p>Уроков завершено: ${lessonsCompleted} / 30</p>
-        <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
-        <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
-        <hr>
-        <h4>Результаты тестов:</h4>
-    `;
-
-    const testResults = window.testResults || {};
-
-    // Если результатов нет
-    if (Object.keys(testResults).length === 0) {
-        html += `<p>Тесты ещё не пройдены.</p>`;
-    } else {
-        // Проход по всем тестам
-        html += `<ul>`;
-        for (const testName in testResults) {
-            const { correct, incorrect } = testResults[testName];
-
-            // Преобразование testName в читаемый вид
-            let readableName = testName;
-            if (/^test\d+(_\d+)?$/.test(testName)) {
-                readableName = `Промежуточный тест ${testName.replace('test', '').replace('_', '.')}`;
-            } else if (/^finaltest\d+$/.test(testName)) {
-                readableName = `Итоговый тест ${testName.replace('finaltest', '')}`;
-            }
-
-            html += `<li>${readableName}: ✅ ${correct}, ❌ ${incorrect}</li>`;
-        }
-        html += `</ul>`;
+    function showStats() {
+        const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
+        
+        const statsModal = document.getElementById('stats-modal');
+        const statsContent = document.getElementById('stats-content');
+    
+        statsContent.innerHTML = `
+            <h3>Моя статистика</h3>
+            <p>Уроков завершено: ${lessonsCompleted} / 30</p>
+            <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
+            <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+        `;
+        
+        statsModal.classList.remove('hidden');
     }
 
-    statsContent.innerHTML = html;
-    statsModal.classList.remove('hidden');
-}
-
-
-
     unlockItemsByStats();
+
     restoreUnlockedItems();
     
 });

@@ -1,92 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title>Teacher Panel</title>
-  <style>
-    body {
-      margin: 0; 
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-    }
-    h2 {
-      margin-top: 0;
-    }
-    /* Поле поиска */
-    .search-container {
-      margin-bottom: 20px;
-    }
-    .search-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    /* Контейнер для одного «пользователя» */
-    .user-block {
-      margin-bottom: 10px;
-    }
-    .user-item {
-      cursor: pointer;
-      padding: 10px;
-      background-color: #fff;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    .user-item:hover {
-      background-color: #e8e8e8;
-    }
-    /* Скрытый блок для деталей */
-    .user-details {
-      margin-top: 5px;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      display: none;
-    }
-    .user-details.visible {
-      display: block; /* показываем, если есть класс .visible */
-    }
-    /* Сообщение о не найденном пользователе */
-    .no-result {
-      display: none;
-      padding: 10px;
-      background-color: #ffe6e6;
-      border: 1px solid #ffcccc;
-      border-radius: 8px;
-      color: #cc0000;
-    }
-    .no-result.visible {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="teacher">
   <h2>Teacher Panel — Список пользователей</h2>
 
   <!-- Контейнер для поиска -->
-  <div class="search-container">
-    <input type="text" id="search-input" class="search-input" placeholder="Поиск по user ID..." />
+  <div class="teacher-search-container">
+    <input type="text" id="search-input" class="teacher-search-input" placeholder="Поиск по user ID..." />
   </div>
 
   <!-- Сообщение о не найденном пользователе -->
-  <div id="no-result" class="no-result">
+  <div id="no-result" class="teacher-no-result">
     Такой user ID не найден.
   </div>
 
   <div id="user-list">
-    <!-- Для каждого пользователя создаем .user-block -->
+    <!-- Для каждого пользователя создаем .teacher-user-block -->
   </div>
 
-  <!-- Подключаем Firebase (v9 compat) -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
   
-  <!-- Telegram WebApp JS (при необходимости) -->
+  <!-- Telegram WebApp JS -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <script>
@@ -121,16 +61,16 @@
 
     function addUserItem(userId) {
       const userBlock = document.createElement('div');
-      userBlock.classList.add('user-block');
+      userBlock.classList.add('teacher-user-block');
       userBlock.setAttribute('data-user-id', userId);
 
       const userItem = document.createElement('div');
-      userItem.classList.add('user-item');
+      userItem.classList.add('teacher-user-item');
       userItem.textContent = userId;
       userBlock.appendChild(userItem);
 
       const userDetails = document.createElement('div');
-      userDetails.classList.add('user-details');
+      userDetails.classList.add('teacher-user-details');
       userBlock.appendChild(userDetails);
 
       userItem.addEventListener('click', () => {
@@ -215,7 +155,6 @@
 
     function filterUsers(query) {
       const normalizedQuery = query.trim().toLowerCase();
-      let found = false;
 
       if (normalizedQuery === "") {
         Object.values(userBlocks).forEach(block => block.style.display = 'block');

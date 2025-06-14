@@ -1912,3 +1912,69 @@ border-radius: 10px;
     margin-top: 110px;
     color: black;
 }
+
+.teacher {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+}
+
+.teacher h2 {
+  margin-top: 0;
+}
+
+.teacher-search-container {
+  margin-bottom: 20px;
+}
+
+.teacher-search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.teacher-user-block {
+  margin-bottom: 10px;
+}
+
+.teacher-user-item {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.teacher-user-item:hover {
+  background-color: #e8e8e8;
+}
+
+.teacher-user-details {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: none;
+}
+
+.teacher-user-details.visible {
+  display: block;
+}
+
+.teacher-no-result {
+  display: none;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  color: #cc0000;
+}
+
+.teacher-no-result.visible {
+  display: block;
+}

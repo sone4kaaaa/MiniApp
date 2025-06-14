@@ -1915,39 +1915,38 @@ border-radius: 10px;
 
 body.teacher {
   margin: 0;
-  padding: 20px;
+  padding: 30px;
   font-family: Arial, sans-serif;
   background: #f8f8f8;
 
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-  align-items: flex-start;    
-  justify-content: flex-start; 
-
-  font-size: 18px;            
-  max-width: 600px;           
+  font-size: 20px;              /* крупный базовый текст */
+  max-width: 800px;             /* шире контейнер */
   width: 100%;
   box-sizing: border-box;
 }
 
 .teacher h2 {
   margin-top: 0;
-  font-size: 2rem;           
-  font-weight: 700;
+  font-size: 2.5rem;            /* крупный заголовок */
+  font-weight: bold;
 }
 
 .teacher-search-container {
-  margin-bottom: 20px;
-  width: 100%;                
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 .teacher-search-input {
   width: 100%;
-  padding: 14px 16px;         
-  font-size: 18px;            
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 16px 20px;           /* больше отступ */
+  font-size: 1.3rem;            /* крупнее текст */
+  border: 2px solid #bbb;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -1958,33 +1957,33 @@ body.teacher {
 
 .teacher-user-block {
   display: block;
-  margin-bottom: 15px;        
+  margin-bottom: 20px;
   width: 100%;
 }
 
 .teacher-user-item {
   cursor: pointer;
-  padding: 14px 20px;         
+  padding: 18px 22px;
   background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1.1rem;         
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  font-size: 1.3rem;
   width: 100%;
   box-sizing: border-box;
 }
 
 .teacher-user-item:hover {
-  background-color: #e8e8e8;
+  background-color: #e0e0e0;
 }
 
 .teacher-user-details {
-  margin-top: 8px;
-  padding: 14px 20px;
+  margin-top: 10px;
+  padding: 18px 22px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
   display: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1995,19 +1994,20 @@ body.teacher {
 
 .teacher-no-result {
   display: none;
-  padding: 14px 20px;
+  padding: 18px 22px;
   background-color: #ffe6e6;
-  border: 1px solid #ffcccc;
-  border-radius: 8px;
+  border: 2px solid #ffb3b3;
+  border-radius: 10px;
   color: #cc0000;
   width: 100%;
   box-sizing: border-box;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .teacher-no-result.visible {
   display: block;
 }
+
 
 
 

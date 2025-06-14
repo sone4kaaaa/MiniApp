@@ -45,9 +45,9 @@ window.userStats = {
     lessonsCompleted: 0,       // от 0 до 30
     testsCompleted: 0,         // от 0 до 9 (промежуточные)
     finalTestsCompleted: 0,    // от 0 до 3 (итоговые)
-    testResults: {}
   };
 window.completedItems = new Set();
+window.testResults = {};
 
 /* ----- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ FIRESTORE ----- */
 async function loadUserDataFromServer(userId) {
@@ -64,6 +64,9 @@ async function loadUserDataFromServer(userId) {
         if (savedData.completedItems) {
           window.completedItems = new Set(savedData.completedItems);
         }
+        if (savedData.testResults) {
+        window.testResults = savedData.testResults;
+        }
       } else {
         console.log("Документ для этого userId не найден в Firestore.");
       }
@@ -78,7 +81,8 @@ async function saveUserDataToServer(userId) {
       const dataToSave = {
         userStats: window.userStats,
         completedItems: Array.from(window.completedItems),
-      };
+        testResults: window.testResults, // <-- добавьте сюда
+        };
       await docRef.set(dataToSave, { merge: true });
       console.log("Прогресс сохранён:", dataToSave);
     } catch (error) {
@@ -813,20 +817,12 @@ function checkTest(answers, feedbackId) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
-
-    // после подсчёта score и total
-    const incorrect = total - score;
-    const testId = feedbackId.replace('-feedback', '');
-
-    window.userStats.testResults[testId] = {
-    correct: score,
-    incorrect: incorrect
+    // Сохраняем результат теста
+    const currentTestName = feedbackId.replace('-feedback', ''); // например, "test2"
+    window.testResults[currentTestName] = {
+        correct: score,
+        incorrect: total - score
     };
-
-    // сохранить изменения в Firestore
-    if (window.userId) {
-    saveUserDataToServer(window.userId);
-    }
 
 };
 
@@ -860,7 +856,7 @@ window.checkTest2 = function () {
     checkTest(answers, 'test2-feedback');
 };
 
-window.checkTest2 = function () {
+window.checkTest3 = function () {
     const answers = {
         q1: 'am', 
         q2: 'are',
@@ -1011,20 +1007,12 @@ function checkFinalTestGeneric(answers1, feedbackId1) {
         feedback.className = 'feedback error';
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
-
-    // после подсчёта score и total
-    const incorrect = total - score;
-    const testId = feedbackId1.replace('-feedback', '');
-
-    window.userStats.testResults[testId] = {
-    correct: score,
-    incorrect: incorrect
+    // Сохраняем результат финального теста
+    const currentTestName = feedbackId1.replace('-feedback', ''); // например, "finaltest2"
+    window.testResults[currentTestName] = {
+        correct: score,
+        incorrect: total - score
     };
-
-    // сохранить изменения в Firestore
-    if (window.userId) {
-    saveUserDataToServer(window.userId);
-    }
 
 }
 
@@ -2242,61 +2230,49 @@ window.initShoppingCartGame = function () {
     });
     
 
-    function showStats() {
+function showStats() { 
+    const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
     const statsModal = document.getElementById('stats-modal');
     const statsContent = document.getElementById('stats-content');
 
-    if (!statsModal || !statsContent) {
-        console.error("Элементы stats-modal или stats-content не найдены.");
-        return;
-    }
-
-    const stats = window.userStats || {};
-    const lessonsCompleted = stats.lessonsCompleted || 0;
-    const testsCompleted = stats.testsCompleted || 0;
-    const finalTestsCompleted = stats.finalTestsCompleted || 0;
-    const testResults = stats.testResults || {};
-
-    let statsHtml = `
+    // Заголовок и основная статистика
+    let html = `
         <h3>Моя статистика</h3>
         <p>Уроков завершено: ${lessonsCompleted} / 30</p>
         <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
         <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+        <hr>
+        <h4>Результаты тестов:</h4>
     `;
 
-    const sortedTests = Object.keys(testResults).sort();
+    const testResults = window.testResults || {};
 
-    if (sortedTests.length > 0) {
-        statsHtml += `<h4>Результаты тестов:</h4><ul>`;
-        sortedTests.forEach(testId => {
-            const res = testResults[testId];
-            if (res && typeof res.correct === 'number' && typeof res.incorrect === 'number') {
-                statsHtml += `<li>${formatTestName(testId)}: правильных — ${res.correct}, неправильных — ${res.incorrect}</li>`;
+    // Если результатов нет
+    if (Object.keys(testResults).length === 0) {
+        html += `<p>Тесты ещё не пройдены.</p>`;
+    } else {
+        // Проход по всем тестам
+        html += `<ul>`;
+        for (const testName in testResults) {
+            const { correct, incorrect } = testResults[testName];
+
+            // Преобразование testName в читаемый вид
+            let readableName = testName;
+            if (/^test\d+(_\d+)?$/.test(testName)) {
+                readableName = `Промежуточный тест ${testName.replace('test', '').replace('_', '.')}`;
+            } else if (/^finaltest\d+$/.test(testName)) {
+                readableName = `Итоговый тест ${testName.replace('finaltest', '')}`;
             }
-        });
-        statsHtml += `</ul>`;
-    } else {
-        statsHtml += `<p>Пока нет результатов тестов.</p>`;
+
+            html += `<li>${readableName}: ✅ ${correct}, ❌ ${incorrect}</li>`;
+        }
+        html += `</ul>`;
     }
 
-    statsContent.innerHTML = statsHtml;
-    statsModal.style.display = 'block';
+    statsContent.innerHTML = html;
+    statsModal.classList.remove('hidden');
 }
 
-// Вспомогательная функция форматирования названий
-function formatTestName(testId) {
-    if (testId.startsWith("test")) {
-        const match = testId.match(/\d+/);
-        const num = match ? match[0] : '';
-        return `Промежуточный тест ${num}`;
-    } else if (testId.startsWith("finaltest")) {
-        const match = testId.match(/\d+/);
-        const num = match ? match[0] : '';
-        return `Итоговый тест ${num}`;
-    } else {
-        return testId;
-    }
-}
 
 
     unlockItemsByStats();

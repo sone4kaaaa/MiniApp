@@ -2230,23 +2230,59 @@ window.initShoppingCartGame = function () {
     
 
     function showStats() {
-        const { lessonsCompleted, testsCompleted, finalTestsCompleted } = window.userStats;
-        
+        const { lessonsCompleted, testsCompleted, finalTestsCompleted, testResults = {} } = window.userStats;
+
         const statsModal = document.getElementById('stats-modal');
         const statsContent = document.getElementById('stats-content');
-    
-        statsContent.innerHTML = `
+
+        // Группируем тесты по модулям
+        const modules = {};
+
+        for (const testId in testResults) {
+            const [module, test] = testId.split('.');
+            if (!modules[module]) {
+                modules[module] = [];
+            }
+
+            const result = testResults[testId];
+
+            // Человеко-понятное название теста
+            let testLabel = '';
+            const finalMatch = test.match(/^finaltest(\d*)$/);
+            const regularMatch = test.match(/^test(\d+)$/);
+
+            if (finalMatch) {
+                testLabel = 'итоговый тест';
+            } else if (regularMatch) {
+                testLabel = `тест ${regularMatch[1]}`;
+            } else {
+                testLabel = test; // fallback
+            }
+
+            modules[module].push(`- ${testLabel}: правильных ответов ${result.correct} из ${result.total}`);
+        }
+
+        let statsHtml = `
             <h3>Моя статистика</h3>
             <p>Уроков завершено: ${lessonsCompleted} / 30</p>
             <p>Промежуточных тестов пройдено: ${testsCompleted} / 9</p>
             <p>Итоговых тестов пройдено: ${finalTestsCompleted} / 3</p>
+            <hr>
         `;
-        
+
+        for (const module in modules) {
+            statsHtml += `<p><strong>${module.replace('module', 'Модуль ')}</strong></p><ul>`;
+            for (const line of modules[module]) {
+                statsHtml += `<li>${line}</li>`;
+            }
+            statsHtml += `</ul>`;
+        }
+
+        statsContent.innerHTML = statsHtml;
         statsModal.classList.remove('hidden');
     }
 
     unlockItemsByStats();
-
     restoreUnlockedItems();
     
 });

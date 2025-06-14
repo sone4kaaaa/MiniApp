@@ -311,38 +311,6 @@ function unlockItemsByStats() {
     }
 }
 
-
-/**
- * Функция, когда пользователь «завершает» урок или тест.
- * @param {string} type 
- * @param {string} modulePath 
- * @param {string} fileName 
- */
-function finishLessonOrTest(type, modulePath, fileName) {
-    // Создаём уникальный идентификатор для конкретного урока/теста
-    const uid = `${modulePath}-${fileName}`;
-
-    // Проверяем, не было ли уже добавлено в completedItems
-    if (window.completedItems.has(uid)) {
-      console.log("Этот урок/тест уже отмечен как завершён:", uid);
-      return;
-    }
-
-    // Добавляем в Set (теперь он считается пройденным)
-    window.completedItems.add(uid);
-
-    if (type === 'lesson') {
-      window.userStats.lessonsCompleted = Math.min(window.userStats.lessonsCompleted + 1, 30);
-    } else if (type === 'test') {
-      window.userStats.testsCompleted = Math.min(window.userStats.testsCompleted + 1, 9);
-    } else if (type === 'final') {
-      window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
-    }
-
-    // сохраняем обновлённые данные в Firestore
-    saveUserDataToServer(window.userId);
-    unlockItemsByStats();
-}
 document.addEventListener('DOMContentLoaded', async () => {
 
     const userId = getTelegramUserId();
@@ -1094,7 +1062,37 @@ window.checkFinalTest3 = function () {
                 });
         });
     });
+/**
+ * Функция, когда пользователь «завершает» урок или тест.
+ * @param {string} type 
+ * @param {string} modulePath 
+ * @param {string} fileName 
+ */
+function finishLessonOrTest(type, modulePath, fileName) {
+    // Создаём уникальный идентификатор для конкретного урока/теста
+    const uid = `${modulePath}-${fileName}`;
 
+    // Проверяем, не было ли уже добавлено в completedItems
+    if (window.completedItems.has(uid)) {
+      console.log("Этот урок/тест уже отмечен как завершён:", uid);
+      return;
+    }
+
+    // Добавляем в Set (теперь он считается пройденным)
+    window.completedItems.add(uid);
+
+    if (type === 'lesson') {
+      window.userStats.lessonsCompleted = Math.min(window.userStats.lessonsCompleted + 1, 30);
+    } else if (type === 'test') {
+      window.userStats.testsCompleted = Math.min(window.userStats.testsCompleted + 1, 9);
+    } else if (type === 'final') {
+      window.userStats.finalTestsCompleted = Math.min(window.userStats.finalTestsCompleted + 1, 3);
+    }
+
+    // сохраняем обновлённые данные в Firestore
+    saveUserDataToServer(window.userId);
+    unlockItemsByStats();
+}
     unlockItemsByStats();
 
 

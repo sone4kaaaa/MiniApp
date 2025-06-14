@@ -854,7 +854,7 @@ window.checkTest2 = function () {
     checkTest(answers, 'test2-feedback', 'module1.test2');
 };
 
-window.checkTest2 = function () {
+window.checkTest3 = function () {
     const answers = {
         q1: 'am', 
         q2: 'are',

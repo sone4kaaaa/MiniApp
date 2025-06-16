@@ -945,22 +945,6 @@ window.checkTest1_3 = function () {
 window.checkTest2_3 = function () {
     const answers = {
         q1: 'Living room',          
-        q2: 'I am crazy about skiing',        
-        q3: 'She is dancing now',         
-        q4: 'We are reading',       
-        q5: "Is he playing football now?",           
-        q6: 'It is the baddest idea',          
-        q7: '-er',            
-        q8: "Good → the best",              
-        q9: 'singing',         
-        q10: 'than' 
-    };
-    checkTest(answers, 'test23-feedback', 'module3.test2');
-};  
-
-window.checkTest3_3 = function () {
-    const answers = {
-        q1: 'taller',          
         q2: 'the coldest',        
         q3: 'Are you interested in music?',         
         q4: 'What time is it?',       
@@ -970,6 +954,22 @@ window.checkTest3_3 = function () {
         q8: "I am not good at playing the piano",              
         q9: 'Table',         
         q10: 'Cozy'
+    };
+    checkTest(answers, 'test23-feedback', 'module3.test2');
+};  
+
+window.checkTest3_3 = function () {
+    const answers = {
+        q1: 'taller',          
+        q2: 'I am crazy about skiing',        
+        q3: 'She is dancing now',         
+        q4: 'We are reading',       
+        q5: "Is he playing football now?",           
+        q6: 'It is the baddest idea',          
+        q7: '-er',            
+        q8: "Good → the best",              
+        q9: 'singing',         
+        q10: 'than' 
     };
     checkTest(answers, 'test33-feedback', 'module3.test3');
 };  

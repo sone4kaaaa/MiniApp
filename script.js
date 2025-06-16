@@ -40,6 +40,7 @@ firebase.initializeApp(firebaseConfig);
 // Получаем доступ к Firestore
 const db = firebase.firestore();
 
+
 /* ----- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ----- */
 window.userStats = {
     lessonsCompleted: 0,       // от 0 до 30
@@ -49,7 +50,8 @@ window.userStats = {
   };
 window.completedItems = new Set();
 
-/* ----- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ FIRESTORE ----- */
+
+/* ----- ФУНКЦИИ ДЛЯ FIRESTORE ----- */
 async function loadUserDataFromServer(userId) {
     try {
       const docRef = db.collection("user_progress").doc(userId);
@@ -1392,10 +1394,14 @@ window.checkMatching3_5 = function() {
 
 /* ----- ИГРЫ ----- */
 
+
 // ---------- Игра: Соедини цифру и слово ----------
 const numberWords = [
-    "zero", "one", "two", "three", "four", "five",
-    "six", "seven", "eight", "nine", "ten", "eleven", "twelve"
+    "zero", "one", "two", 
+    "three", "four", "five",
+    "six", "seven", "eight", 
+    "nine", "ten", "eleven", 
+    "twelve"
 ];
 
 /**
@@ -1437,6 +1443,7 @@ window.generateMatchingGame = function(){
     container.innerHTML = html;
 };
 
+
 /**
  * Функция проверки игры "Соедини цифру и слово"
  */
@@ -1453,6 +1460,8 @@ window.checkMatching = function() {
         item.style.backgroundColor = selected === correct ? "#d4edda" : "#f8d7da";
     }
 };
+
+
 
 
 // ---------- Игра: Угадай число по аудио ----------
@@ -1574,6 +1583,9 @@ window.checkAnswer = function(selectedNumber) {
 };
     
 
+
+
+/* ----- ИГРА КАРТОЧКИ СЕМЬЯ ----- */
     window.initMatchingGame = function () {
         const pairs = [
         ["Father", "отец"],
@@ -1651,13 +1663,16 @@ window.checkAnswer = function(selectedNumber) {
     });
     };
 
-    
+
+
+    /* ----- ИГРА КАРТОЧКИ ЖИВОТНЫХ ----- */
     window.initMemoryGame = function () {
           (function(){
             const gameContainer = document.getElementById('memory-game');
             const resultDiv = document.getElementById('memory-result');
             const startBtn = document.getElementById('startBtn');
             startBtn.style.display = 'none';
+            
             const pairs = [
             {id: 1, word: 'Fox', img: './assets/images/fox.png'}, 
             {id: 2, word: 'Rabbit', img: './assets/images/rabbit.png'},
@@ -1805,6 +1820,8 @@ window.checkAnswer = function(selectedNumber) {
     };
 
 
+
+/* ----- ИГРА ШОППИНГ ----- */
 window.initShoppingCartGame = function () {
     const correctItems = ["Milk", "Carrot", "Sausage", "Cake", "Cucumber", "Rice"];
     const items = document.querySelectorAll('.draggable-item');
@@ -1931,6 +1948,7 @@ window.initShoppingCartGame = function () {
 
 
 
+/* ----- ИГРА ЧАСТИ ТЕЛА ----- */
     window.initBodyGuessGame = function () {
   const quizData = [
     { img: "./assets/images/arm.png", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
@@ -2069,6 +2087,7 @@ window.initShoppingCartGame = function () {
     }
 
     unlockItemsByStats();
+
     restoreUnlockedItems();
     
 });

@@ -1505,10 +1505,10 @@ window.checkAnswer = function(selectedNumber) {
             const startBtn = document.getElementById('startBtn');
             startBtn.style.display = 'none';
             const pairs = [
-            {id: 1, word: 'Fox', img: 'https://avatars.mds.yandex.net/i?id=f7bfe4f6b5d56075fcf4942b0bad0b8be30a699d-10115282-images-thumbs&n=13'}, 
-            {id: 2, word: 'Rabbit', img: 'https://avatars.mds.yandex.net/i?id=6c2b61033d5b0bfa57fd56b9e583469e_l-5288839-images-thumbs&n=13'},
-            {id: 3, word: 'Elephant', img: 'https://avatars.mds.yandex.net/i?id=1fa52a6e74759c17b5a6f127c3e6ef8ef5b4d9ac-5680887-images-thumbs&n=13'},
-            {id: 4, word: 'Wolf', img: 'https://avatars.mds.yandex.net/i?id=527a62ce8b275f99cb44147bdac558393fa0f8da-4766550-images-thumbs&n=13'}
+            {id: 1, word: 'Fox', img: './assets/images/fox.png'}, 
+            {id: 2, word: 'Rabbit', img: './assets/images/rabbit.png'},
+            {id: 3, word: 'Elephant', img: './assets/images/elephant.png'},
+            {id: 4, word: 'Wolf', img: './assets/images/wolf.png'}
             ];
 
             let cards = [];
@@ -2049,12 +2049,12 @@ window.initShoppingCartGame = function () {
 
     window.initBodyGuessGame = function () {
   const quizData = [
-    { img: "https://media.baamboozle.com/uploads/images/153453/1603748867_187492", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
-    { img: "https://www.clipartmax.com/png/full/70-705132_boy-face-head-smile-young-png-image-cartoon-man-face.png", answer: "Head", options: ["Head", "Hair", "Back", "Ear"] },
-    { img: "https://i.pinimg.com/originals/9c/6c/c9/9c6cc908efa14dcea2d081f91c73ea0d.png", answer: "Mouth", options: ["Nose", "Mouth", "Eyes", "Teeth"] },
-    { img: "https://bumper-stickers.ru/34160-thickbox_default/glaza.jpg", answer: "Eyes", options: ["Cheeks", "Eyes", "Fingers", "Hair"] },
-    { img: "https://media.baamboozle.com/uploads/images/369062/1634708215_27059.png", answer: "Leg", options: ["Hand", "Leg", "Foot", "Arm"] },
-    { img: "https://img.meddoclab.ru/img/46/e6/46e636797e30b436b09b13e37c68f249.jpg", answer: "Tooth", options: ["Mouth", "Tooth", "Nose", "Ear"] },
+    { img: "./assets/images/arm.png", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
+    { img: "./assets/images/head.png", answer: "Head", options: ["Head", "Hair", "Back", "Ear"] },
+    { img: "./assets/images/mouth.png", answer: "Mouth", options: ["Nose", "Mouth", "Eyes", "Teeth"] },
+    { img: "./assets/images/eyes.png", answer: "Eyes", options: ["Cheeks", "Eyes", "Fingers", "Hair"] },
+    { img: "./assets/images/leg.png", answer: "Leg", options: ["Hand", "Leg", "Foot", "Arm"] },
+    { img: "./assets/images/tooth.png", answer: "Tooth", options: ["Mouth", "Tooth", "Nose", "Ear"] },
   ];
 
   let currentQuestion = 0;

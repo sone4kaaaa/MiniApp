@@ -2,7 +2,7 @@ Telegram.WebApp.ready();
 
 let tgUserId = null; 
 
-// Если открыто внутри Telegram WebApp:
+// Если открыто внутри Telegram WebApp
 if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
     const initData = Telegram.WebApp.initDataUnsafe || {};
     if (initData.user && initData.user.id) {
@@ -678,7 +678,7 @@ function loadContent(html, modulePath) {
             lessonBtn.dataset.module = modulePath;
             lessonBtn.dataset.order = order;
     
-            // Только Урок №1 разблокирован:
+            // Только Урок №1 разблокирован
             if (i === 1) {
                 lessonBtn.disabled = false;
                 lessonBtn.classList.remove('locked', 'disabled');
@@ -768,6 +768,9 @@ function loadContent(html, modulePath) {
 
     window.loadContent = loadContent;
 
+
+
+/* ----- ПРОВЕРКА ПРОМЕЖУТОЧНЫХ ТЕСТОВ ----- */
     /**
  * Универсальная функция проверки теста
  * @param {Object} answers 
@@ -782,23 +785,27 @@ function checkTest(answers, feedbackId, testId = '') {
         if (!input) continue;
 
         let userAnswer = input.value.trim();
-        if (input.tagName.toLowerCase() === 'select') {
-        } else {
+        const isSelect = input.tagName.toLowerCase() === 'select';
+
+        if (!isSelect) {
             userAnswer = userAnswer.toLowerCase().replace(/[.?!]+$/, '');
         }
 
-        let correctAnswer = answers[key];
-        let compareCorrect = correctAnswer;
-
-        if (input.tagName.toLowerCase() !== 'select') {
-            compareCorrect = correctAnswer.toLowerCase().replace(/[.?!]+$/, '');
+        let correctAnswers = answers[key];
+        if (!Array.isArray(correctAnswers)) {
+            correctAnswers = [correctAnswers];
         }
 
-        if (userAnswer === compareCorrect) {
+        // Приводим все правильные ответы к нужному виду
+        const normalizedCorrectAnswers = correctAnswers.map(ans => {
+            return isSelect ? ans : ans.toLowerCase().replace(/[.?!]+$/, '');
+        });
+
+        if (normalizedCorrectAnswers.includes(userAnswer)) {
             score++;
-            input.style.borderColor = '#28a745';
+            input.style.borderColor = '#28a745'; // зелёный
         } else {
-            input.style.borderColor = '#dc3545';
+            input.style.borderColor = '#dc3545'; // красный
         }
     }
 
@@ -814,15 +821,14 @@ function checkTest(answers, feedbackId, testId = '') {
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуй ещё раз.`;
     }
 
-    // Сохраняем статистику в Firestore
-    const userId = getTelegramUserId();
-    if (testId) {
+    // Сохраняем статистику
+    const userId = getTelegramUserId?.();
+    if (testId && userId) {
         window.userStats.testResults = window.userStats.testResults || {};
         window.userStats.testResults[testId] = { correct: score, total };
         saveUserDataToServer(userId);
     }
-};
-
+}
 
 window.checkTest1 = function () {
     const answers = {
@@ -885,6 +891,7 @@ window.checkTest1_2 = function () {
     };
     checkTest(answers, 'test12-feedback', 'module2.test1');
 };
+
 window.checkTest2_2 = function () {
     const answers = {
         q1: 'Have you got a brother?',                       
@@ -900,6 +907,7 @@ window.checkTest2_2 = function () {
     };
     checkTest(answers, 'test22-feedback', 'module2.test2');
 };
+
 window.checkTest3_2 = function () {
     const answers = {
         q1: 'new year',          
@@ -964,6 +972,9 @@ window.checkTest3_3 = function () {
     checkTest(answers, 'test33-feedback', 'module3.test3');
 };  
 
+
+
+/* ----- ПРОВЕРКА ИТОГОВЫХ ТЕСТОВ ----- */
 /**
  * Универсальная функция проверки финального теста
  * @param {Object} answers1 
@@ -978,19 +989,31 @@ function checkFinalTestGeneric(answers1, feedbackId1, testId = '') {
         if (!input) continue;
 
         let userAnswer = '';
-        if (input.tagName.toLowerCase() === 'select') {
+        const isSelect = input.tagName.toLowerCase() === 'select';
+
+        if (isSelect) {
             userAnswer = input.value.trim().toLowerCase();
         } else {
             userAnswer = input.value.trim().toLowerCase().replace(/\.+$/, '');
         }
 
-        const correctAnswer = answers1[key].toLowerCase();
+        let correctAnswers = answers1[key];
 
-        if (userAnswer === correctAnswer && correctAnswer !== 'incorrect') {
+        // Преобразуем одиночный ответ в массив
+        if (!Array.isArray(correctAnswers)) {
+            correctAnswers = [correctAnswers];
+        }
+
+        // Нормализуем все варианты
+        const normalizedCorrect = correctAnswers.map(ans =>
+            isSelect ? ans.trim().toLowerCase() : ans.trim().toLowerCase().replace(/\.+$/, '')
+        );
+
+        if (normalizedCorrect.includes(userAnswer) && !normalizedCorrect.includes('incorrect')) {
             score++;
-            input.style.borderColor = '#28a745'; 
+            input.style.borderColor = '#28a745'; // Зелёный
         } else {
-            input.style.borderColor = '#dc3545'; 
+            input.style.borderColor = '#dc3545'; // Красный
         }
     }
 
@@ -1006,14 +1029,15 @@ function checkFinalTestGeneric(answers1, feedbackId1, testId = '') {
         feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
     }
 
-    // Сохраняем статистику в Firestore
-    const userId = getTelegramUserId();
-    if (testId) {
+    // Сохраняем статистику
+    const userId = getTelegramUserId?.();
+    if (testId && userId) {
         window.userStats.testResults = window.userStats.testResults || {};
         window.userStats.testResults[testId] = { correct: score, total };
         saveUserDataToServer(userId);
     }
 }
+
 
 window.checkFinalTest = function () {
     const answers1 = {
@@ -1034,7 +1058,7 @@ window.checkFinalTest = function () {
 window.checkFinalTest2 = function () {
     const answers1 = {
         q21: 'lemon',
-        q22: 'I like to run, swim and dance',
+        q22: ['I like to run, swim and dance', 'I like to run,swim and dance', 'I like to run, to swim and to dance', 'I like to run,to swim and to dance'],
         q23: ["T-shirt, shorts, shoes", "T-shirt,shorts,shoes"],
         q24: '2',
         q25: 'I have got a sister',
@@ -1096,6 +1120,9 @@ window.checkFinalTest3 = function () {
 
     unlockItemsByStats();
 
+
+
+/* ----- ПРОВЕРКА КВИЗОВ В УРОКАХ ----- */
 window.checkQuiz = function(config) {
     const {
         answers,
@@ -1288,6 +1315,7 @@ window.checkQuiz3_10 = function () {
 };
 
 
+/* ----- ПРОВЕРКА МЭТЧЕЙ В УРОКАХ ----- */
 window.checkMatchingUniversal = function(matches, feedbackId = 'matching-feedback') {
     let score = 0;
     let total = Object.keys(matches).length;
@@ -1361,9 +1389,8 @@ window.checkMatching3_5 = function() {
 
 
 
-    /**
- * --- ИГРЫ ---
- */
+
+/* ----- ИГРЫ ----- */
 
 // ---------- Игра: Соедини цифру и слово ----------
 const numberWords = [
@@ -1902,6 +1929,8 @@ window.initShoppingCartGame = function () {
         }
     }
 
+
+
     window.initBodyGuessGame = function () {
   const quizData = [
     { img: "./assets/images/arm.png", answer: "Arm", options: ["Leg", "Hand", "Arm", "Foot"] },
@@ -2004,7 +2033,6 @@ window.initShoppingCartGame = function () {
 
             const result = testResults[testId];
 
-            // Человеко-понятное название теста
             let testLabel = '';
             const finalMatch = test.match(/^finaltest(\d*)$/);
             const regularMatch = test.match(/^test(\d+)$/);
@@ -2014,7 +2042,7 @@ window.initShoppingCartGame = function () {
             } else if (regularMatch) {
                 testLabel = `тест ${regularMatch[1]}`;
             } else {
-                testLabel = test; // fallback
+                testLabel = test; 
             }
 
             modules[module].push(`- ${testLabel}: правильных ответов ${result.correct} из ${result.total}`);

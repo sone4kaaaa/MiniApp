@@ -832,7 +832,7 @@ window.checkTest1 = function () {
         tq4: 'eight',
         tq5: 'xylophone',
         tq6: '/kæt/',
-        tq7: 'zero,one,two,three',
+        tq7: ["zero,one,two,three", "zero, one, two, three"],
         tq8: 'hat'
     };
     checkTest(answers, 'test-feedback', 'module1.test1');
@@ -1035,7 +1035,7 @@ window.checkFinalTest2 = function () {
     const answers1 = {
         q21: 'lemon',
         q22: 'I like to run, swim and dance',
-        q23: 'T-shirt, shorts, shoes',
+        q23: ["T-shirt, shorts, shoes", "T-shirt,shorts,shoes"],
         q24: '2',
         q25: 'I have got a sister',
         q26: '1',
@@ -1096,12 +1096,13 @@ window.checkFinalTest3 = function () {
 
     unlockItemsByStats();
 
-    window.checkQuiz = function(config) {
+window.checkQuiz = function(config) {
     const {
         answers,
         feedbackId = 'quiz-feedback',
-        exact = false, // сравнение без toLowerCase()
-        matchIds = null // если нужно сравнивать только некоторые поля
+        exact = false,
+        matchIds = null,
+        allowAnyOrder = false 
     } = config;
 
     let score = 0;
@@ -1113,18 +1114,40 @@ window.checkFinalTest3 = function () {
         if (!element) return;
 
         let userValue = element.value.trim();
-        let correctValue = answers[key];
+        const expected = answers[key];
+        const correctValues = Array.isArray(expected) ? expected : [expected];
 
-        if (!exact) {
-            userValue = userValue.toLowerCase();
-            correctValue = correctValue.toLowerCase();
+        let isCorrect = false;
+
+        for (let correct of correctValues) {
+            let u = userValue;
+            let c = correct;
+
+            if (!exact) {
+                u = u.toLowerCase();
+                c = c.toLowerCase();
+            }
+
+            if (allowAnyOrder) {
+                const uArr = u.split(',').map(s => s.trim()).sort();
+                const cArr = c.split(',').map(s => s.trim()).sort();
+                if (JSON.stringify(uArr) === JSON.stringify(cArr)) {
+                    isCorrect = true;
+                    break;
+                }
+            } else {
+                if (u === c) {
+                    isCorrect = true;
+                    break;
+                }
+            }
         }
 
-        if (userValue === correctValue) {
+        if (isCorrect) {
             score++;
-            element.style.border = '2px solid #28a745'; // Зеленый
+            element.style.border = '2px solid #28a745';
         } else {
-            element.style.border = '2px solid #dc3545'; // Красный
+            element.style.border = '2px solid #dc3545';
         }
     });
 
@@ -1207,24 +1230,28 @@ window.checkQuiz2_5 = function () {
     checkQuiz({
         answers: {
             ie1: "have got",
-            ie2: "has not got",
+            ie2: ["hasn't got", "has not got"],
             ie3: "Has she got a brother?"
         },
         feedbackId: 'idioms-feedback',
-        exact: true
+        exact: true,
+        allowAnyOrder: true
     });
 };
+
 window.checkQuiz2_3 = function () {
     checkQuiz({
         answers: {
-            q1: 'dress,socks,shoes',
-            q2: 'T-shirt,shorts,shorts,shoes',
-            q3: 'dress,socks,shoes',
-            q4: 'T-shirt,pants,shoes'
+            q1: ['dress,socks,shoes', 'dress, socks, shoes'],
+            q2: ['T-shirt,shorts,socks,shoes', 'T-shirt, shorts, socks, shoes'],
+            q3: ['dress,socks,shoes', 'dress, socks, shoes'],
+            q4: ['T-shirt,pants,shoes', 'T-shirt, pants, shoes']
         },
-        exact: true
+        exact: false,
+        allowAnyOrder: true
     });
 };
+
 
 window.checkQuiz2_9 = function () {
     checkQuiz({
@@ -1260,41 +1287,78 @@ window.checkQuiz3_10 = function () {
     });
 };
 
-    window.checkMatching01 = function() {
-        const matches = {
-            match1: '1',
-            match2: '3',
-            match3: '2',
-            match4: '1',
-            match5: '3',
-            match6: '1',
-            match7: '2',
-            match8: '1'
-        };
 
-        let score = 0;
-        let total = Object.keys(matches).length;
+window.checkMatchingUniversal = function(matches, feedbackId = 'matching-feedback') {
+    let score = 0;
+    let total = Object.keys(matches).length;
 
-        for (let key in matches) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === matches[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
+    for (let key in matches) {
+        const input = document.getElementById(key);
+        const userChoice = input.value.trim();
 
-        const feedback = document.getElementById('matching-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Все верно! Отличная работа.';
+        if (userChoice === matches[key]) {
+            score++;
+            input.style.borderColor = '#28a745'; 
         } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
+            input.style.borderColor = '#dc3545'; 
         }
+    }
+
+    const feedback = document.getElementById(feedbackId);
+    feedback.style.display = 'block';
+
+    if (score === total) {
+        feedback.className = 'feedback success';
+        feedback.textContent = 'Все верно! Отличная работа.';
+    } else {
+        feedback.className = 'feedback error';
+        feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
+    }
+};
+
+window.checkMatching01 = function() {
+    const matches = {
+        match1: '1',
+        match2: '3',
+        match3: '2',
+        match4: '1',
+        match5: '3',
+        match6: '1',
+        match7: '2',
+        match8: '1'
     };
+    window.checkMatchingUniversal(matches);
+};
+
+window.checkMatching08 = function() {
+    const matches = {
+        match1: '1',
+        match2: '2',
+        match3: '1'
+    };
+    window.checkMatchingUniversal(matches);
+};
+
+window.checkMatching2_4 = function() {
+    const matches = {
+        match1: '1',
+        match2: '2',
+        match3: '1'
+    };
+    window.checkMatchingUniversal(matches);
+};
+
+window.checkMatching3_5 = function() {
+    const matches = {
+        match1: '2',
+        match2: '2',
+        match3: '1',
+        match4: '1',
+        match5: '1'
+    };
+    window.checkMatchingUniversal(matches);
+};
+
 
 
     /**
@@ -1434,7 +1498,7 @@ window.checkAnswer = function(selectedNumber) {
     }
 };
 
-    window.checkQuiz03 = function() {
+    window.checkQuizRadio = function() {
     const form = document.getElementById('transcription-quiz');
     const feedback = document.getElementById('quiz-feedback');
 
@@ -1481,48 +1545,8 @@ window.checkAnswer = function(selectedNumber) {
         feedback.textContent = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
     }
 };
-    window.checkQuiz05 = function() {
-    const form = document.getElementById('transcription-quiz');
-    const feedback = document.getElementById('quiz-feedback');
-    const formData = new FormData(form);
-    let score = 0;
-    const total = 6;
+    
 
-    // Сброс подсветки у всех меток
-    const allLabels = form.querySelectorAll('label');
-    allLabels.forEach(label => {
-        label.classList.remove('correct-answer', 'wrong-answer');
-    });
-
-    // Проверка каждого вопроса
-    for (let i = 1; i <= total; i++) {
-        const radios = form.querySelectorAll(`input[name="q${i}"]`);
-        const selectedValue = formData.get(`q${i}`);
-
-        if (selectedValue !== null) {
-            radios.forEach(radio => {
-                if (radio.checked) {
-                    if (radio.value === "1") {
-                        radio.parentElement.classList.add('correct-answer');
-                        score++;
-                    } else {
-                        radio.parentElement.classList.add('wrong-answer');
-                    }
-                }
-            });
-        }
-    }
-
-    // Вывод результата
-    feedback.style.display = 'block';
-    if (score === total) {
-        feedback.className = 'feedback success';
-        feedback.innerText = 'Отлично! Все ответы верны!';
-    } else {
-        feedback.className = 'feedback error';
-        feedback.innerText = `Вы набрали ${score} из ${total}. Попробуйте ещё раз!`;
-    }
-};
     window.initMatchingGame = function () {
         const pairs = [
         ["Father", "отец"],
@@ -1832,68 +1856,6 @@ window.initShoppingCartGame = function () {
 };
     
 
-    window.checkMatching08 = function() {
-        const matches = {
-            match1: '1',
-            match2: '2',
-            match3: '1'
-        };
-
-        let score = 0;
-        let total = Object.keys(matches).length;
-
-        for (let key in matches) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === matches[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('matching-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Все верно! Отличная работа.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-    window.checkMatching2_4 = function() {
-        const matches = {
-            match1: '1',
-            match2: '2',
-            match3: '1'
-        };
-
-        let score = 0;
-        let total = Object.keys(matches).length;
-
-        for (let key in matches) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === matches[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('matching-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Все верно! Отличная работа.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
     /**
  * Функция добавляет кнопку "Закончить" в конец .quiz (для итогового теста)
  * @param {string} modulePath - путь текущего модуля, например "module1"
@@ -2007,40 +1969,6 @@ window.initShoppingCartGame = function () {
 };
 
     
-    window.checkMatching3_5 = function() {
-        const matches = {
-            match1: '2',
-            match2: '2',
-            match3: '1',
-            match4: '1',
-            match5: '1'
-        };
-
-        let score = 0;
-        let total = Object.keys(matches).length;
-
-        for (let key in matches) {
-            const userChoice = document.getElementById(key).value;
-            if (userChoice === matches[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = '#28a745';
-            } else {
-                document.getElementById(key).style.borderColor = '#dc3545';
-            }
-        }
-
-        const feedback = document.getElementById('matching-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Все верно! Отличная работа.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-
 
     const statsBtn = document.getElementById('stats-btn');
     statsBtn.addEventListener('click', showStats);

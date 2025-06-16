@@ -1096,41 +1096,169 @@ window.checkFinalTest3 = function () {
 
     unlockItemsByStats();
 
+    window.checkQuiz = function(config) {
+    const {
+        answers,
+        feedbackId = 'quiz-feedback',
+        exact = false, // сравнение без toLowerCase()
+        matchIds = null // если нужно сравнивать только некоторые поля
+    } = config;
 
-    window.checkQuiz01 = function() {
-        const answers = {
+    let score = 0;
+    const keys = matchIds || Object.keys(answers);
+    const total = keys.length;
+
+    keys.forEach((key) => {
+        const element = document.getElementById(key);
+        if (!element) return;
+
+        let userValue = element.value.trim();
+        let correctValue = answers[key];
+
+        if (!exact) {
+            userValue = userValue.toLowerCase();
+            correctValue = correctValue.toLowerCase();
+        }
+
+        if (userValue === correctValue) {
+            score++;
+            element.style.border = '2px solid #28a745'; // Зеленый
+        } else {
+            element.style.border = '2px solid #dc3545'; // Красный
+        }
+    });
+
+    const feedback = document.getElementById(feedbackId);
+    if (!feedback) return;
+
+    feedback.style.display = 'block';
+
+    if (score === total) {
+        feedback.className = 'feedback success';
+        feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
+    } else {
+        feedback.className = 'feedback error';
+        feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+    }
+};
+
+window.checkQuiz01 = function () {
+    checkQuiz({
+        answers: {
             q1: 'zebra',
             q2: 'tiger',
             q3: 'dog',
             q4: 'cat',
             q5: 'owl'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; 
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; 
-            }
         }
+    });
+};
 
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
+window.checkQuiz06 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'an',
+            q2: 'a',
+            q3: 'the',
+            q4: 'an',
+            q5: 'a',
+            q6: 'an',
+            q7: 'the',
+            q8: 'an',
+            q9: 'a',
+            q10: 'the'
+        },
+        feedbackId: 'articles-feedback'
+    });
+};
+
+window.checkQuiz08 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'is',
+            q2: 'are',
+            q3: 'am'
         }
-    };
+    });
+};
+
+window.checkQuiz2_2 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'run',
+            q2: 'swim',
+            q3: 'dance',
+            q4: 'read'
+        }
+    });
+};
+window.checkQuiz2_4 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'Are',
+            q2: 'Is',
+            q3: 'am'
+        },
+        exact: true
+    });
+};
+
+window.checkQuiz2_5 = function () {
+    checkQuiz({
+        answers: {
+            ie1: "have got",
+            ie2: "has not got",
+            ie3: "Has she got a brother?"
+        },
+        feedbackId: 'idioms-feedback',
+        exact: true
+    });
+};
+window.checkQuiz2_3 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'dress,socks,shoes',
+            q2: 'T-shirt,shorts,shorts,shoes',
+            q3: 'dress,socks,shoes',
+            q4: 'T-shirt,pants,shoes'
+        },
+        exact: true
+    });
+};
+
+window.checkQuiz2_9 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'twenty two',
+            q2: 'thirty eight',
+            q3: 'forty six',
+            q4: 'sixty three',
+            q5: 'ninety one'
+        }
+    });
+};
+
+window.checkQuiz3_1 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'playing soccer',
+            q2: 'watching movies',
+            q3: 'play the piano',
+            q4: 'go hiking',
+            q5: 'play an instrument',
+            q6: 'piano'
+        }
+    });
+};
+window.checkQuiz3_10 = function () {
+    checkQuiz({
+        answers: {
+            q1: 'i have got a blue backpack',
+            q2: 'teacher is in the classroom',
+            q3: 'i have got a red ruler'
+        }
+    });
+};
 
     window.checkMatching01 = function() {
         const matches = {
@@ -1167,6 +1295,8 @@ window.checkFinalTest3 = function () {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
+
+
     /**
  * --- ИГРЫ ---
  */
@@ -1470,33 +1600,6 @@ window.checkAnswer = function(selectedNumber) {
     });
     };
 
-    window.checkQuiz06 = function () {
-        const answers = ["an", "a", "the", "an", "a", "an", "the", "an", "a", "the"];
-        let correct = 0;
-
-        for (let i = 0; i < answers.length; i++) {
-            const input = document.getElementById("q" + (i + 1));
-            const userInput = input.value.trim().toLowerCase();
-
-            if (userInput === answers[i]) {
-                input.style.border = "2px solid green";
-                correct++;
-            } else {
-                input.style.border = "2px solid red";
-            }
-        }
-
-        const feedback = document.getElementById("articles-feedback");
-        feedback.style.display = "block";
-
-        if (correct === answers.length) {
-            feedback.className = "feedback success";
-            feedback.innerText = "Умничка! Все ответы правильные 🎉";
-        } else {
-            feedback.className = "feedback error";
-            feedback.innerText = `Правильных ответов: ${correct} из 10. Попробуй ещё раз!`;
-        }
-    };
     
     window.initMemoryGame = function () {
           (function(){
@@ -1649,6 +1752,8 @@ window.checkAnswer = function(selectedNumber) {
             }
         })();
     };
+
+
 window.initShoppingCartGame = function () {
     const correctItems = ["Milk", "Carrot", "Sausage", "Cake", "Cucumber", "Rice"];
     const items = document.querySelectorAll('.draggable-item');
@@ -1725,38 +1830,7 @@ window.initShoppingCartGame = function () {
         feedback.style.display = 'none';
     };
 };
-    window.checkQuiz08 = function() {
-        const answers = {
-            q1: 'is',
-            q2: 'are',
-            q3: 'am'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
+    
 
     window.checkMatching08 = function() {
         const matches = {
@@ -1789,39 +1863,6 @@ window.initShoppingCartGame = function () {
         }
     };
 
-    window.checkQuiz2_4 = function() {
-        const answers = {
-            q1: 'Are',
-            q2: 'Is',
-            q3: 'am'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
-
     window.checkMatching2_4 = function() {
         const matches = {
             match1: '1',
@@ -1850,73 +1891,6 @@ window.initShoppingCartGame = function () {
         } else {
             feedback.className = 'feedback error';
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-    window.checkQuiz2_2 = function() {
-        const answers = {
-            q1: 'run',
-            q2: 'swim',
-            q3: 'dance',
-            q4: 'read'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
-    window.checkQuiz2_3 = function() {
-        const answers = {
-            q1: 'dress, socks, shoes',
-            q2: 'T-shirt, shorts, shorts, shoes',
-            q3: 'dress, socks, shoes',
-            q4: 'T-shirt, pants, shoes'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
         }
     };
 
@@ -1965,87 +1939,6 @@ window.initShoppingCartGame = function () {
             quizDiv.appendChild(finishBtn);
         }
     }
-
-    window.checkQuiz2_5 = function() {
-        const answers = {
-            ie1: "have got",
-            ie2: "has not got",
-            ie3: "Has she got a brother?"
-        };
-    
-        let score = 0;
-        let total = Object.keys(answers).length;
-    
-
-        let user1 = document.getElementById('ie1').value.trim().toLowerCase();
-        if (user1 === answers.ie1) {
-            score++;
-            document.getElementById('ie1').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('ie1').style.borderColor = '#dc3545';
-        }
-    
-        let user2 = document.getElementById('ie2').value.trim().toLowerCase();
-        if (user2 === answers.ie2) {
-            score++;
-            document.getElementById('ie2').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('ie2').style.borderColor = '#dc3545';
-        }
-    
-        let user3 = document.getElementById('ie3').value;
-        if (user3 === answers.ie3) {
-            score++;
-            document.getElementById('ie3').style.borderColor = '#28a745';
-        } else {
-            document.getElementById('ie3').style.borderColor = '#dc3545';
-        }
-    
-        const feedback = document.getElementById('idioms-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = 'Отлично! Все ответы верны.';
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Правильных ответов: ${score} из ${total}. Попробуйте ещё раз.`;
-        }
-    };
-
-    window.checkQuiz2_9 = function() {
-        const answers = {
-            q1: 'twenty two',
-            q2: 'thirty eight',
-            q3: 'forty six',
-            q4: 'sixty three',
-            q5: 'ninety one'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
 
     window.initBodyGuessGame = function () {
   const quizData = [
@@ -2113,41 +2006,7 @@ window.initShoppingCartGame = function () {
   showQuestion();
 };
 
-    window.checkQuiz3_1 = function() {
-        const answers = {
-            q1: 'playing soccer',
-            q2: 'watching movies',
-            q3: 'play the piano',
-            q4: 'go hiking',
-            q5: 'play an instrument',
-            q6: 'piano'
-        };
-
-        let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
-
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
+    
     window.checkMatching3_5 = function() {
         const matches = {
             match1: '2',
@@ -2180,38 +2039,9 @@ window.initShoppingCartGame = function () {
             feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте ещё раз.`;
         }
     };
-    window.checkQuiz3_10 = function() {
-        const answers = {
-            q1: 'i have got a blue backpack',
-            q2: 'teacher is in the classroom',
-            q3: 'i have got a red ruler'
-        };
 
-        let score = 0;
-        let total = Object.keys(answers).length;
 
-        for (let key in answers) {
-            const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-            const correctAnswer = answers[key].toLowerCase();
 
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById(key).style.border = '2px solid #28a745'; // Зеленый
-            } else {
-                document.getElementById(key).style.border = '2px solid #dc3545'; // Красный
-            }
-        }
-
-        const feedback = document.getElementById('quiz-feedback');
-        feedback.style.display = 'block';
-        if (score === total) {
-            feedback.className = 'feedback success';
-            feedback.textContent = `Отличная работа! Все ${total} ответов правильные.`;
-        } else {
-            feedback.className = 'feedback error';
-            feedback.textContent = `Вы ответили верно на ${score} из ${total}. Попробуйте исправить ошибки.`;
-        }
-    };
     const statsBtn = document.getElementById('stats-btn');
     statsBtn.addEventListener('click', showStats);
 

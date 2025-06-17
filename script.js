@@ -961,7 +961,7 @@ window.checkTest2_3 = function () {
 window.checkTest3_3 = function () {
     const answers = {
         q1: 'taller',          
-        q2: 'the coldest',        
+        q2: ['the coldest', "coldest"],       
         q3: 'She is dancing now',         
         q4: 'We are reading',       
         q5: "Is he playing football now?",           

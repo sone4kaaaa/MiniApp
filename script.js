@@ -1082,7 +1082,7 @@ window.checkFinalTest3 = function () {
         q35: 'is',
         q36: 'There is a kitchen in my house.',
         q37: 'I am interested in playing football.',
-        q38: 'My brother is taller than me.',
+        q38: 'taller',
         q39: 'This is the most beautiful park.',
         q310: 'I like painting.'
     };

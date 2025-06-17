@@ -945,7 +945,7 @@ window.checkTest1_3 = function () {
 window.checkTest2_3 = function () {
     const answers = {
         q1: 'Living room',          
-        q2: 'the coldest',        
+        q2: 'I am crazy about skiing',     
         q3: 'Are you interested in music?',         
         q4: 'What time is it?',       
         q5: "In the bedroom",           
@@ -961,7 +961,7 @@ window.checkTest2_3 = function () {
 window.checkTest3_3 = function () {
     const answers = {
         q1: 'taller',          
-        q2: 'I am crazy about skiing',        
+        q2: 'the coldest',        
         q3: 'She is dancing now',         
         q4: 'We are reading',       
         q5: "Is he playing football now?",           
